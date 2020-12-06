@@ -1,0 +1,136 @@
+.prac:hover{
+  color:pink
+}
+.first {
+  
+    
+     text-align: left;
+     font-size: large;
+     background: rgb(255, 255, 255);
+background: linear-gradient(90deg, rgb(150, 150, 240) 23%, rgba(255,255,255,1) 62%);
+     height:450px;
+     margin-bottom: 25px;
+    
+  
+}
+/*Codedigger heading*/
+
+img{
+  width: 400px;
+   margin-right: 20px;
+  height: 300px;
+ float: right;
+ 
+  
+  
+}
+/*code digger slogan*/
+.floating {   
+  animation-name: floating; 
+  animation-duration: 3s; 
+  animation-iteration-count: infinite; 
+  animation-timing-function: ease-in-out; 
+  margin-left: 20px; 
+  
+} 
+.header{
+   text-align: right;
+}
+h2{
+  margin-top: 30px;
+}
+@keyframes floating { 
+  0% { transform: translate(0,  0px); } 
+  50%  { transform: translate(0, 10px); } 
+  100%   { transform: translate(0, -0px); }     
+} 
+/*heading */
+.heading1{
+  
+  margin-top: 20px;
+  color:black;
+  text-align: left;
+  float:left;
+}
+.heading2{
+  float: left;
+  margin-top: 100px;
+  font-family: 'Cedarville Cursive', cursive;
+}
+/*explore and practice buttons*/
+.bt1 {
+  
+  background-color: black;
+  font-size: larger;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-left: 100px;
+
+}
+
+.bt2{
+  background-color: black;
+  font-size: larger;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-left: 100px;
+}
+
+
+.type {
+  text-align: center;
+  font-size: large;
+  font-family: "Courier New", Courier, monospace;
+  color: black;
+}
+.second{
+  
+  background-color:rgb(150, 150, 240);
+ 
+  text-align: center;
+  padding-top: 10px;
+}
+/*Main container*/
+.maincon{
+  padding: 0px;
+}
+/*Features section*/
+.third{
+  background-color: black;
+  
+  text-align: center;
+  padding-top: 10px;
+}
+
+Cards{
+  display: flex;
+}
+/*videos*/
+.vidframe{
+  border: 2px solid white;
+  border-radius: 10px;
+
+}
+.vidframe:hover{
+  width: 352px;
+  border: 4px solid white;
+}
+.video{
+  text-align: center;
+}
+/*FOOTER*/
+.footer{
+ 
+  height: 40px;
+  position: fixed;
+  text-align: center;
+  padding: 3px;
+  background-color: white;
+  display: flex;
+  
+}
+.vids{
+  justify-items: center;
+}

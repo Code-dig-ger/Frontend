@@ -1,0 +1,618 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+.ContBody {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  align-self: center;
+  background-position: top;
+  background-image: url(http://bit.ly/2gPLxZ4);
+  font-family: Arial, Helvetica;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+.cred{
+  color: black;
+}
+
+.forms-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-title {
+  font-size: 32px;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+.forms {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 30px;
+}
+
+.form-wrapper {
+  -moz-animation: hideLayer 0.3s ease-out forwards;
+  -webkit-animation: hideLayer 0.3s ease-out forwards;
+  animation: hideLayer 0.3s ease-out forwards;
+}
+
+.form-wrapper.is-active {
+  -moz-animation: showLayer 0.3s ease-in forwards;
+  -webkit-animation: showLayer 0.3s ease-in forwards;
+  animation: showLayer 0.3s ease-in forwards;
+}
+@-moz-keyframes showLayer {
+  50% {
+    z-index: 1;
+  }
+  100% {
+    z-index: 1;
+  }
+}
+@-webkit-keyframes showLayer {
+  50% {
+    z-index: 1;
+  }
+  100% {
+    z-index: 1;
+  }
+}
+
+@keyframes showLayer {
+  50% {
+    z-index: 1;
+  }
+  100% {
+    z-index: 1;
+  }
+}
+@-moz-keyframes hideLayer {
+  0% {
+    z-index: 1;
+  }
+  49.999% {
+    z-index: 1;
+  }
+}
+@-webkit-keyframes hideLayer {
+  0% {
+    z-index: 1;
+  }
+  49.999% {
+    z-index: 1;
+  }
+}
+
+@keyframes hideLayer {
+  0% {
+    z-index: 1;
+  }
+  49.999% {
+    z-index: 1;
+  }
+}
+
+.switcher {
+  position: relative;
+  cursor: pointer;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  color: rgb(14, 13, 13);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  transition: all 0.3s ease-out;
+}
+
+.form-wrapper.is-active .switcher-login {
+  color: rgb(34, 33, 32);
+  font-size: 20px;
+  -moz-transform: translateX(90px);
+  -ms-transform: translateX(90px);
+  -webkit-transform: translateX(90px);
+  transform: translateX(90px);
+}
+
+.form-wrapper.is-active .switcher-signup {
+  color: seashell;
+  font-size: 20px;
+  -moz-transform: translateX(-90px);
+  -ms-transform: translateX(-90px);
+  -webkit-transform: translateX(-90px);
+  transform: translateX(-90px);
+}
+
+.underline {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+  width: 100%;
+  height: 2px;
+}
+
+.underline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: inherit;
+  display: block;
+  width: inherit;
+  height: inherit;
+  background-color: currentColor;
+  transition: transform 0.2s ease-out;
+}
+
+.switcher-login .underline::before {
+  -moz-transform: translateX(101%);
+  -ms-transform: translateX(101%);
+  -webkit-transform: translateX(101%);
+  transform: translateX(101%);
+}
+
+.switcher-signup .underline::before {
+  -moz-transform: translateX(-101%);
+  -ms-transform: translateX(-101%);
+  -webkit-transform: translateX(-101%);
+  transform: translateX(-101%);
+}
+
+.form-wrapper.is-active .underline::before {
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.form {
+  overflow: hidden;
+  min-width: 260px;
+  margin-top: 50px;
+  padding: 30px 25px;
+  border-radius: 5px;
+  transform-origin: top;
+}
+
+.form-login {
+  -moz-animation: hideLogin 0.3s ease-out forwards;
+  -webkit-animation: hideLogin 0.3s ease-out forwards;
+  animation: hideLogin 0.3s ease-out forwards;
+}
+
+.form-wrapper.is-active .form-login {
+  -moz-animation: showLogin 0.3s ease-in forwards;
+  -webkit-animation: showLogin 0.3s ease-in forwards;
+  animation: showLogin 0.3s ease-in forwards;
+}
+@-moz-keyframes showLogin {
+  0% {
+    background: inherit;
+    -moz-transform: translate(40%, 10px);
+    -ms-transform: translate(40%, 10px);
+    -webkit-transform: translate(40%, 10px);
+    transform: translate(40%, 10px);
+  }
+  50% {
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  100% {
+    position: relative;
+    box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.15);
+    -moz-transform: translate(35%, -20px) scaleY(1);
+    -ms-transform: translate(35%, -20px) scaleY(1);
+    -webkit-transform: translate(35%, -20px) scaleY(1);
+    transform: translate(35%, -20px) scaleY(1);
+  }
+}
+@-webkit-keyframes showLogin {
+  0% {
+    background: inherit;
+    -moz-transform: translate(40%, 10px);
+    -ms-transform: translate(40%, 10px);
+    -webkit-transform: translate(40%, 10px);
+    transform: translate(40%, 10px);
+  }
+  50% {
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  100% {
+    position: relative;
+    box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.15);
+    -moz-transform: translate(35%, -20px) scaleY(1);
+    -ms-transform: translate(35%, -20px) scaleY(1);
+    -webkit-transform: translate(35%, -20px) scaleY(1);
+    transform: translate(35%, -20px) scaleY(1);
+  }
+}
+
+@keyframes showLogin {
+  0% {
+    background: inherit;
+    -moz-transform: translate(40%, 10px);
+    -ms-transform: translate(40%, 10px);
+    -webkit-transform: translate(40%, 10px);
+    transform: translate(40%, 10px);
+  }
+  50% {
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  100% {
+    position: relative;
+    box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.15);
+    -moz-transform: translate(35%, -20px) scaleY(1);
+    -ms-transform: translate(35%, -20px) scaleY(1);
+    -webkit-transform: translate(35%, -20px) scaleY(1);
+    transform: translate(35%, -20px) scaleY(1);
+  }
+}
+
+@-moz-keyframes hideLogin {
+  0% {
+    -moz-transform: translate(35%, -20px);
+    -ms-transform: translate(35%, -20px);
+    -webkit-transform: translate(35%, -20px);
+    transform: translate(35%, -20px);
+  }
+  50% {
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  100% {
+    position: relative;
+    content: "";
+    box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.1);
+    filter: blur(10px);
+    -moz-transform: translate(40%, 10px) scaleY(1);
+    -ms-transform: translate(40%, 10px) scaleY(1);
+    -webkit-transform: translate(40%, 10px) scaleY(1);
+    transform: translate(40%, 10px) scaleY(1);
+  }
+}
+@-webkit-keyframes hideLogin {
+  0% {
+    -moz-transform: translate(35%, -20px);
+    -ms-transform: translate(35%, -20px);
+    -webkit-transform: translate(35%, -20px);
+    transform: translate(35%, -20px);
+  }
+  50% {
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  100% {
+    position: relative;
+    content: "";
+    box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.1);
+    filter: blur(10px);
+    -moz-transform: translate(40%, 10px) scaleY(1);
+    -ms-transform: translate(40%, 10px) scaleY(1);
+    -webkit-transform: translate(40%, 10px) scaleY(1);
+    transform: translate(40%, 10px) scaleY(1);
+  }
+}
+
+@keyframes hideLogin {
+  0% {
+    -moz-transform: translate(35%, -20px);
+    -ms-transform: translate(35%, -20px);
+    -webkit-transform: translate(35%, -20px);
+    transform: translate(35%, -20px);
+  }
+  50% {
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  100% {
+    position: relative;
+    content: "";
+    box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.1);
+    filter: blur(10px);
+    -moz-transform: translate(40%, 10px) scaleY(1);
+    -ms-transform: translate(40%, 10px) scaleY(1);
+    -webkit-transform: translate(40%, 10px) scaleY(1);
+    transform: translate(40%, 10px) scaleY(1);
+  }
+}
+
+.form-signup {
+  -moz-animation: hideSignup 0.3s ease-out forwards;
+  -webkit-animation: hideSignup 0.3s ease-out forwards;
+  animation: hideSignup 0.3s ease-out forwards;
+}
+
+.form-wrapper.is-active .form-signup {
+  -moz-animation: showSignup 0.3s ease-in forwards;
+  -webkit-animation: showSignup 0.3s ease-in forwards;
+  animation: showSignup 0.3s ease-in forwards;
+}
+@-moz-keyframes showSignup {
+  0% {
+    background: inherit;
+    -moz-transform: translate(-40%, 10px) scaleY(0.8);
+    -ms-transform: translate(-40%, 10px) scaleY(0.8);
+    -webkit-transform: translate(-40%, 10px) scaleY(0.8);
+    transform: translate(-40%, 10px) scaleY(0.8);
+  }
+  50% {
+    -moz-transform: translate(0, 0) scaleY(0.8);
+    -ms-transform: translate(0, 0) scaleY(0.8);
+    -webkit-transform: translate(0, 0) scaleY(0.8);
+    transform: translate(0, 0) scaleY(0.8);
+  }
+  100% {
+    position: relative;
+    box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.15);
+    -moz-transform: translate(-35%, -20px) scaleY(1);
+    -ms-transform: translate(-35%, -20px) scaleY(1);
+    -webkit-transform: translate(-35%, -20px) scaleY(1);
+    transform: translate(-35%, -20px) scaleY(1);
+  }
+}
+@-webkit-keyframes showSignup {
+  0% {
+    background: inherit;
+    -moz-transform: translate(-40%, 10px) scaleY(0.8);
+    -ms-transform: translate(-40%, 10px) scaleY(0.8);
+    -webkit-transform: translate(-40%, 10px) scaleY(0.8);
+    transform: translate(-40%, 10px) scaleY(0.8);
+  }
+  50% {
+    -moz-transform: translate(0, 0) scaleY(0.8);
+    -ms-transform: translate(0, 0) scaleY(0.8);
+    -webkit-transform: translate(0, 0) scaleY(0.8);
+    transform: translate(0, 0) scaleY(0.8);
+  }
+  100% {
+    position: relative;
+    box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.15);
+    -moz-transform: translate(-35%, -20px) scaleY(1);
+    -ms-transform: translate(-35%, -20px) scaleY(1);
+    -webkit-transform: translate(-35%, -20px) scaleY(1);
+    transform: translate(-35%, -20px) scaleY(1);
+  }
+}
+
+@keyframes showSignup {
+  0% {
+    background: inherit;
+    -moz-transform: translate(-40%, 10px) scaleY(0.8);
+    -ms-transform: translate(-40%, 10px) scaleY(0.8);
+    -webkit-transform: translate(-40%, 10px) scaleY(0.8);
+    transform: translate(-40%, 10px) scaleY(0.8);
+  }
+  50% {
+    -moz-transform: translate(0, 0) scaleY(0.8);
+    -ms-transform: translate(0, 0) scaleY(0.8);
+    -webkit-transform: translate(0, 0) scaleY(0.8);
+    transform: translate(0, 0) scaleY(0.8);
+  }
+  100% {
+    position: relative;
+    box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.15);
+    -moz-transform: translate(-35%, -20px) scaleY(1);
+    -ms-transform: translate(-35%, -20px) scaleY(1);
+    -webkit-transform: translate(-35%, -20px) scaleY(1);
+    transform: translate(-35%, -20px) scaleY(1);
+  }
+}
+@-moz-keyframes hideSignup {
+  0% {
+    background-color: inherit;
+    -moz-transform: translate(-35%, -20px) scaleY(1);
+    -ms-transform: translate(-35%, -20px) scaleY(1);
+    -webkit-transform: translate(-35%, -20px) scaleY(1);
+    transform: translate(-35%, -20px) scaleY(1);
+  }
+  50% {
+    -moz-transform: translate(0, 0) scaleY(0.8);
+    -ms-transform: translate(0, 0) scaleY(0.8);
+    -webkit-transform: translate(0, 0) scaleY(0.8);
+    transform: translate(0, 0) scaleY(0.8);
+  }
+  100% {
+    position: relative;
+    content: "";
+    width: 250px;
+    height: 300px;
+    box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.1);
+    filter: blur(10px);
+    -moz-transform: translate(-40%, 10px) scaleY(1);
+    -ms-transform: translate(-40%, 10px) scaleY(1);
+    -webkit-transform: translate(-40%, 10px) scaleY(1);
+    transform: translate(-40%, 10px) scaleY(1);
+  }
+}
+@-webkit-keyframes hideSignup {
+  0% {
+    background-color: inherit;
+    -moz-transform: translate(-35%, -20px) scaleY(1);
+    -ms-transform: translate(-35%, -20px) scaleY(1);
+    -webkit-transform: translate(-35%, -20px) scaleY(1);
+    transform: translate(-35%, -20px) scaleY(1);
+  }
+  50% {
+    -moz-transform: translate(0, 0) scaleY(0.8);
+    -ms-transform: translate(0, 0) scaleY(0.8);
+    -webkit-transform: translate(0, 0) scaleY(0.8);
+    transform: translate(0, 0) scaleY(0.8);
+  }
+  100% {
+    position: relative;
+    content: "";
+    width: 250px;
+    height: 300px;
+    box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.1);
+    filter: blur(10px);
+    -moz-transform: translate(-40%, 10px) scaleY(1);
+    -ms-transform: translate(-40%, 10px) scaleY(1);
+    -webkit-transform: translate(-40%, 10px) scaleY(1);
+    transform: translate(-40%, 10px) scaleY(1);
+  }
+}
+
+@keyframes hideSignup {
+  0% {
+    background-color: inherit;
+    -moz-transform: translate(-35%, -20px) scaleY(1);
+    -ms-transform: translate(-35%, -20px) scaleY(1);
+    -webkit-transform: translate(-35%, -20px) scaleY(1);
+    transform: translate(-35%, -20px) scaleY(1);
+  }
+  50% {
+    -moz-transform: translate(0, 0) scaleY(0.8);
+    -ms-transform: translate(0, 0) scaleY(0.8);
+    -webkit-transform: translate(0, 0) scaleY(0.8);
+    transform: translate(0, 0) scaleY(0.8);
+  }
+  100% {
+    position: relative;
+    content: "";
+    width: 250px;
+    height: 300px;
+    box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.1);
+    filter: blur(10px);
+    -moz-transform: translate(-40%, 10px) scaleY(1);
+    -ms-transform: translate(-40%, 10px) scaleY(1);
+    -webkit-transform: translate(-40%, 10px) scaleY(1);
+    transform: translate(-40%, 10px) scaleY(1);
+  }
+}
+
+.form fieldset {
+  position: relative;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  transition: all 0.3s ease-out;
+}
+
+.form-login fieldset {
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.form-signup fieldset {
+  -moz-transform: translateX(50%);
+  -ms-transform: translateX(50%);
+  -webkit-transform: translateX(50%);
+  transform: translateX(50%);
+}
+
+.form-wrapper.is-active fieldset {
+  opacity: 1;
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  transition: opacity 0.4s ease-in, transform 0.35s ease-in;
+}
+
+.form legend {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+}
+
+.input-block {
+  margin-bottom: 20px;
+}
+
+.input-block label {
+  font-size: 16px;
+  font-weight: bold;
+  color: aliceblue;
+}
+
+.input-block input {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding-right: 15px;
+  padding-left: 15px;
+  font-size: 16px;
+  line-height: 40px;
+  color: #3b4465;
+  background: #eef9fe;
+  border: 1px solid #cddbef;
+  border-radius: 2px;
+}
+
+.form [type="submit"] {
+  opacity: 0;
+  display: block;
+  min-width: 120px;
+  margin: 30px auto 10px;
+  font-size: 18px;
+  line-height: 40px;
+  border-radius: 25px;
+  border: none;
+  transition: all 0.3s ease-out;
+}
+
+.form-wrapper.is-active .form [type="submit"] {
+  opacity: 1;
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  transition: all 0.4s ease-in;
+}
+
+.btn-login {
+  color: #fbfdff;
+  background: #a7e245;
+  -moz-transform: translateX(-30%);
+  -ms-transform: translateX(-30%);
+  -webkit-transform: translateX(-30%);
+  transform: translateX(-30%);
+}
+
+.btn-signup {
+  color: #a7e245;
+  background: #fbfdff;
+  box-shadow: inset 0 0 0 2px #a7e245;
+  -moz-transform: translateX(30%);
+  -ms-transform: translateX(30%);
+  -webkit-transform: translateX(30%);
+  transform: translateX(30%);
+}

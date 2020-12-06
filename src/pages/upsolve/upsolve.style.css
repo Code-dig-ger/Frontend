@@ -1,0 +1,38 @@
+.solved{
+    background-color:rgb(140, 230, 140);
+    color: black;
+    border-radius: 10px;
+    height: 90px;
+    text-align: center;
+    padding-top: 10px;
+}
+.wrong{
+    background-color: rgb(243, 135, 135);
+    border-radius: 10px;
+    height: 90px;
+    text-align: center;
+    padding-top: 10px;
+}
+.upsolve{
+    background-color: rgb(145, 145, 248);
+    border-radius: 10px;
+    height: 90px;
+    text-align: center;
+    padding-top: 10px;
+}
+.contestName{
+    background-color:rgb(247, 165, 247);
+    border-radius: 10px;
+    height: 90px;
+    text-align: center;
+    padding-top: 10px;
+}
+.contestRow{
+   height: 90px;
+  
+   border-radius: 10px;
+    
+}
+Col{
+    border-radius: 10px;
+}
