@@ -3,47 +3,18 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import "./homepage.styles.css";
-import AOS from 'aos'
+import AOS from 'aos';
+import Header from '../../components/header';
 
-
-import { NavLink } from "react-router-dom";
 
 import image from './images/image2.jpg'
 
 const Homepage = () => {
   AOS.init();
-  const links = [
-    
-     { url: "/practice", value: "practice" },
-     {url : "/upsolve",value: "upsolve"},
-     {url:"/logreg",value:"Login/Register"},
-     { url: "/profile", value: "profile" },
-     
-     
-  ];
    
-  return (
-    
+  return ( 
     <>
-    {/* navbar*/}
-     <Row className="fixed-top py-3 px-md-3 header">
-    
-      <Col className="text-nowrap overflow-auto pb-2">
-      
-        {links.map((link, index) => (
-          <NavLink
-            key={index}
-            exact
-            to={link.url}
-
-            className={`${link.value==="CODEDIGGER"?"heading1": "my-2 mx-4 text-white d-inline-block navbar-link" }`}
-            >
-            {link.value.toUpperCase()}
-          </NavLink>
-        ))}
-        
-      </Col>
-    </Row>
+    <Header />
 
     {/* main content*/}
     <Container className="maincon">

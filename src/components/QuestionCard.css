@@ -1,0 +1,12 @@
+.main{
+    display: flex;
+    justify-content: space-around;
+}
+
+.question__card{
+    height: 100px;
+    width: 100px;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: yellow;
+}

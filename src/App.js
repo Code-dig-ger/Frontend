@@ -15,6 +15,7 @@ import Homepage from "./pages/homepage/homepage.page";
 import Problems from "./pages/problems.page";
 import Upsolve from "./pages/upsolve/upsolve.page"
 import LogReg from "./pages/logreg/LogReg"
+import Ladders from "./pages/ladders/Ladders"
 
 
 //aos 5 for home page only
@@ -32,7 +33,8 @@ const App = () => {
           <Switch>
             <Route exact path="/problems" component={Problems} />
              <Route exact path="/logreg" component={LogReg}/>
-            <Route exact path="/upsolve" component={Upsolve}/>
+             <Route exact path="/upsolve" component={Upsolve}/>
+             <Route exact path="/ladders" component={Ladders}/>
             <Route component={Homepage} />
           </Switch>
         </BrowserRouter>
