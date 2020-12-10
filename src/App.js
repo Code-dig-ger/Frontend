@@ -16,7 +16,7 @@ import Problems from "./pages/problems.page";
 import Upsolve from "./pages/upsolve/upsolve.page"
 import LogReg from "./pages/logreg/LogReg"
 import Ladders from "./pages/ladders/Ladders"
-
+import Particles from 'react-particles-js';
 
 //aos 5 for home page only
 import '../node_modules/aos/dist/aos.css'
@@ -27,6 +27,29 @@ import "./App.css";
 const App = () => {
   return (
     <>
+    <Particles className='position-fixed'
+                style={{
+                  height: '100%',
+                  width: '100%'
+                }}
+                params={{
+                    "particles": {
+                        "number": {
+                            "value": 75
+                        },
+                        "size": {
+                            "value": 3
+                        }
+                    },
+                    "interactivity": {
+                        "events": {
+                            "onhover": {
+                                "enable": true,
+                                "mode": "repulse"
+                            }
+                        }
+                    }
+                }} />
       <Container fluid>
         <BrowserRouter>
         
