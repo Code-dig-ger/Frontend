@@ -1,12 +1,10 @@
 import React, {useState}from 'react'
 import Loading from '../logreg/loading'
 import Header from '../../components/header';
-import "./ladders.css"
-import QuestionCard from '../../components/QuestionCard'
-import LaddersContent from '../../components/LaddersContent'
-import Particles from 'react-particles-js';
-
-
+import "./ladders.css";
+import QuestionCard from '../../components/QuestionCard';
+import LaddersContent from '../../components/LaddersContent';
+import Footer from '../../components/footer';
 
 
 function Ladders() {
@@ -51,8 +49,78 @@ function Ladders() {
                     des='All Questions should be attempted in this topic.'
                 />
                 <br/>
-                
+                <LaddersContent 
+                    title='Strings'
+                    des='All Questions should be attempted in this topic.'
+                />
+                <br/>
+                <LaddersContent 
+                    title='Maths'
+                    des='All Questions should be attempted in this topic.'
+                />
+                <br/>
+                <LaddersContent 
+                    title='Greedy'
+                    des='All Questions should be attempted in this topic.'
+                />
+                <br/>
+                <LaddersContent 
+                    title='Interactive Problems'
+                    des='All Questions should be attempted in this topic.'
+                />
+                <br/>
+                <LaddersContent 
+                    title='Bit Manipulation'
+                    des='All Questions should be attempted in this topic.'
+                />
+                <br/>
+                <LaddersContent 
+                    title='Binary Search/Divide and Conquer'
+                    des='All Questions should be attempted in this topic.'
+                />
+                <br/>
+                <LaddersContent 
+                    title='Dynamic Programming'
+                    des='All Questions should be attempted in this topic.'
+                />
+                <br/>
+                <LaddersContent 
+                    title='Graphs'
+                    des='All Questions should be attempted in this topic.'
+                />
+                <br/>
+                <LaddersContent 
+                    title='Union Find Disjoint Sets (UFDS)'
+                    des='All Questions should be attempted in this topic.'
+                />
+                <br/>
+                <LaddersContent 
+                    title='Segment Tree'
+                    des='All Questions should be attempted in this topic.'
+                />
+                <br/>
+                <LaddersContent 
+                    title='Trees'
+                    des='All Questions should be attempted in this topic.'
+                />
+                <br/>
+                <LaddersContent 
+                    title='DFS and similar'
+                    des='All Questions should be attempted in this topic.'
+                />
+                <br/>
+                <LaddersContent 
+                    title='Two Pointers'
+                    des='All Questions should be attempted in this topic.'
+                />
+                <br/>
+                <LaddersContent 
+                    title='Combinatorics'
+                    des='All Questions should be attempted in this topic.'
+                />
+                <br/>
             </div>
+            <Footer/>
             </div>)
             }
         </div>

@@ -27,8 +27,9 @@ import "./App.css";
 const App = () => {
   return (
     <>
-    <Particles className='position-fixed'
+    <Particles
                 style={{
+                  position: 'fixed',
                   height: '100%',
                   width: '100%'
                 }}
@@ -50,7 +51,7 @@ const App = () => {
                         }
                     }
                 }} />
-      <Container fluid>
+      <Container fluid style={{paddingBottom:'0'}}>
         <BrowserRouter>
         
           <Switch>

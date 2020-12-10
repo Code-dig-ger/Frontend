@@ -6,14 +6,19 @@
     
      text-align: left;
      font-size: large;
-     background: rgb(255, 255, 255);
-background: linear-gradient(90deg, rgb(150, 150, 240) 23%, rgba(255,255,255,1) 62%);
+     background-color: inherit;
      height:450px;
-     margin-bottom: 25px;
+     margin-bottom: 75px;
     
   
 }
 /*Codedigger heading*/
+
+
+.headingText{
+  max-width: 50%;
+  max-height: fit-content;
+}
 
 img{
   width: 400px;
@@ -54,9 +59,9 @@ h2{
 }
 .heading2{
   float: left;
-  margin-top: 100px;
   font-family: 'Cedarville Cursive', cursive;
 }
+
 /*explore and practice buttons*/
 .bt1 {
   
@@ -92,10 +97,7 @@ h2{
   text-align: center;
   padding-top: 10px;
 }
-/*Main container*/
-.maincon{
-  padding: 0px;
-}
+
 /*Features section*/
 .third{
   background-color: black;
@@ -120,17 +122,13 @@ Cards{
 .video{
   text-align: center;
 }
-/*FOOTER*/
-.footer{
- 
-  height: 40px;
-  position: fixed;
-  text-align: center;
-  padding: 3px;
-  background-color: white;
-  display: flex;
-  
+/*Main container*/
+.maincon{
+  padding: 0px !important;
+  overflow: hidden;
 }
+/*FOOTER*/
+
 .vids{
   justify-items: center;
 }

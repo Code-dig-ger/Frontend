@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col'
 import "./homepage.styles.css";
 import AOS from 'aos';
 import Header from '../../components/header';
-
+import Footer from '../../components/footer';
 
 import image from './images/image2.jpg'
 
@@ -17,16 +17,22 @@ const Homepage = () => {
     <Header />
 
     {/* main content*/}
-    <Container className="maincon">
+    <Container className="maincon" >
    
       <Row>
-        <Col className="first heading1" lg={12} md={12} sm={12}>
-        <img src={image} className="floating"></img>
-         <h5 className="text-black heading2">Dig Deeper Into Coding and improve your skills.</h5><br></br><br></br><h5 className="text-black heading2">Let's start </h5>
-         <br></br>
-         <br></br>
-          </Col>
-          </Row>
+        <Col className="first heading1" lg={12} md={12} sm={12}>   
+        <div className="headinBanner" 
+          style={{
+            display:'flex',
+            justifyContent:'space-between',
+            marginTop:'100px'
+          }}
+        > 
+          <div className="headingText"><h5 className="text-white heading2">Dig Deeper Into Coding and improve your skills.</h5><br></br><br></br><h5 className="text-white heading2">Let's start </h5></div>     
+          <div className="headingImage"><img src={image} className="floating"></img></div>
+        </div>
+        </Col>
+        </Row>
 
         
        {/*Features Section*/} 
@@ -61,16 +67,17 @@ src="https://www.youtube.com/embed/qHBhRoDkIm4">
           </Row>
       
       {/*Footer*/}
-      <Row data-aos="slide-up" className="fixed-bottom  footer">
+      {/* <Row data-aos="slide-up" className="fixed-bottom  footer"> */}
 
       
-      <footer>
+      {/* <footer>
   <p className="text-warning">Copyright@Codedigger | Help/Issue :
   <a className="text-warning" href="mailto:hege@example.com">codedigger@example.com</a></p>
-</footer></Row>
+</footer> */}
+      
      
        </Container> 
-    
+       <Footer />
     </>
   );
 };
