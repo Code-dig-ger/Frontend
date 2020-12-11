@@ -2,9 +2,20 @@
     color: black !important;
     background-color: #495057;
     margin-top: 50px;
-    padding-top: 10px;
+    padding-top: 30px;
 }
 
 i{
     color: aqua;
 }
+
+.btn{
+    padding: 8px;
+}
+
+.contactUs{
+    margin-left: 20px;
+}
+
+
+

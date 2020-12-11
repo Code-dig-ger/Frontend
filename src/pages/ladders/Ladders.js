@@ -4,7 +4,7 @@ import Header from '../../components/header';
 import "./ladders.css";
 import QuestionCard from '../../components/QuestionCard';
 import LaddersContent from '../../components/LaddersContent';
-import Footer from '../../components/footer';
+import Footer from '../../components/footerComponent/footer';
 
 
 function Ladders() {

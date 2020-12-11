@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col'
 import "./homepage.styles.css";
 import AOS from 'aos';
 import Header from '../../components/header';
-import Footer from '../../components/footer';
+import Footer from '../../components/footerComponent/footer';
 
 import image from './images/image2.jpg'
 
