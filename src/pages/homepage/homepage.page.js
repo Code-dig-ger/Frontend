@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import "./homepage.styles.css";
 import AOS from 'aos';
-import Header from '../../components/header';
+import Header from '../../components/headerComponent/header';
 import Footer from '../../components/footerComponent/footer';
 
 import image from './images/image2.jpg'

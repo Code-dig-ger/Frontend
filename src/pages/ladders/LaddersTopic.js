@@ -1,13 +1,11 @@
-import React, {useState}from 'react'
+import React, {useState} from 'react';
 import Loading from '../logreg/loading'
-import Header from '../../components/header';
-import "./ladders.css";
+import Header from '../../components/headerComponent/header';
 import QuestionCard from '../../components/QuestionCard';
 import LaddersContent from '../../components/LaddersContent';
 import Footer from '../../components/footerComponent/footer';
 
-
-function Ladders() {
+function LaddersTopic() {
     const [show,setShow]=useState(true);
     setTimeout(()=>{setShow(false)},1000);
     return (
@@ -127,4 +125,4 @@ function Ladders() {
     )
 }
 
-export default Ladders
+export default LaddersTopic

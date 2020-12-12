@@ -13,9 +13,10 @@ import Container from "react-bootstrap/Container";
 // PAGES
 import Homepage from "./pages/homepage/homepage.page";
 import Problems from "./pages/problems.page";
-import Upsolve from "./pages/upsolve/upsolve.page"
-import LogReg from "./pages/logreg/LogReg"
-import Ladders from "./pages/ladders/Ladders"
+import Upsolve from "./pages/upsolve/upsolve.page";
+import LogReg from "./pages/logreg/LogReg";
+import LaddersLevel from "./pages/ladders/LaddersLevel";
+import LaddersTopic from "./pages/ladders/LaddersTopic";
 import Particles from 'react-particles-js';
 
 //aos 5 for home page only
@@ -58,7 +59,8 @@ const App = () => {
             <Route exact path="/problems" component={Problems} />
              <Route exact path="/logreg" component={LogReg}/>
              <Route exact path="/upsolve" component={Upsolve}/>
-             <Route exact path="/ladders" component={Ladders}/>
+             <Route exact path="/laddersLevel" component={LaddersLevel}/>
+             <Route exact path="/laddersTopic" component={LaddersTopic}/>
             <Route component={Homepage} />
           </Switch>
         </BrowserRouter>
