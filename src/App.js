@@ -17,6 +17,8 @@ import Upsolve from "./pages/upsolve/upsolve.page";
 import LogReg from "./pages/logreg/LogReg";
 import LaddersLevel from "./pages/ladders/LaddersLevel";
 import LaddersTopic from "./pages/ladders/LaddersTopic";
+import PracticeLevel from "./pages/practice/PracticeLevel";
+import PracticeTopic from "./pages/practice/PracticeTopic"; 
 import Particles from 'react-particles-js';
 
 //aos 5 for home page only
@@ -61,6 +63,8 @@ const App = () => {
              <Route exact path="/upsolve" component={Upsolve}/>
              <Route exact path="/laddersLevel" component={LaddersLevel}/>
              <Route exact path="/laddersTopic" component={LaddersTopic}/>
+             <Route exact path="/practiceTopic" component={PracticeTopic}/>
+             <Route exact path="/practiceLevel" component={PracticeLevel}/>
             <Route component={Homepage} />
           </Switch>
         </BrowserRouter>

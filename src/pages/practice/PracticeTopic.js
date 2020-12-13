@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import Loading from '../logreg/loading'
-import "./LaddersTopic.css";
+import "./PracticeTopic.css";
 import Header from '../../components/headerComponent/header';
 import QuestionCard from '../../components/QuestionCard';
 import LaddersContent from '../../components/LaddersContent';
 import Footer from '../../components/footerComponent/footer';
 
-function LaddersTopic() {
+function PracticeTopic() {
     const [show,setShow]=useState(true);
     setTimeout(()=>{setShow(false)},1000);
     return (
@@ -126,4 +126,4 @@ function LaddersTopic() {
     )
 }
 
-export default LaddersTopic
+export default PracticeTopic
