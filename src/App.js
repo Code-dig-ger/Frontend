@@ -54,7 +54,7 @@ const App = () => {
                         }
                     }
                 }} />
-      <Container fluid style={{paddingBottom:'0'}}>
+      <Container fluid style={{paddingBottom:'0', paddingTop: '0'}}>
         <BrowserRouter>
         
           <Switch>

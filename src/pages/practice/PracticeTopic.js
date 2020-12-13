@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Loading from '../logreg/loading'
 import "./PracticeTopic.css";
-import Header from '../../components/headerComponent/header';
+import Header from '../../components/headerComponent/Navbar';
 import QuestionCard from '../../components/QuestionCard';
 import LaddersContent from '../../components/LaddersContent';
 import Footer from '../../components/footerComponent/footer';

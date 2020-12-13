@@ -1,6 +1,6 @@
 import React, {useState}from 'react'
 import Loading from '../logreg/loading'
-import Header from '../../components/headerComponent/header';
+import Header from '../../components/headerComponent/Navbar';
 import "./LaddersLevel.css";
 import QuestionCard from '../../components/QuestionCard';
 import LaddersContent from '../../components/LaddersContent';

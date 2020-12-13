@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Loading from '../logreg/loading'
 import "./LaddersTopic.css";
-import Header from '../../components/headerComponent/header';
+import IndexNavbar from '../../components/headerComponent/Navbar';
 import QuestionCard from '../../components/QuestionCard';
 import LaddersContent from '../../components/LaddersContent';
 import Footer from '../../components/footerComponent/footer';
@@ -13,7 +13,7 @@ function LaddersTopic() {
         <div className="ladder">
             {show? (<Loading />):
             (<div>
-            <Header />
+            <IndexNavbar />
             
             <div className="container ladders_ques">
             <br/>

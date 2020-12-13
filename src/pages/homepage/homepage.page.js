@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import "./homepage.styles.css";
 import AOS from 'aos';
-import Header from '../../components/headerComponent/header';
+import Navbar from '../../components/headerComponent/Navbar';
 import Footer from '../../components/footerComponent/footer';
 
 import image from './images/image2.jpg'
@@ -14,7 +14,7 @@ const Homepage = () => {
    
   return ( 
     <>
-    <Header />
+    <Navbar />
 
     {/* main content*/}
     <Container className="maincon" >
