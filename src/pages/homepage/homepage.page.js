@@ -7,6 +7,7 @@ import AOS from 'aos';
 import Navbar from '../../components/headerComponent/Navbar';
 import Footer from '../../components/footerComponent/footer';
 
+
 import image from './images/image2.jpg'
 
 const Homepage = () => {
@@ -15,7 +16,7 @@ const Homepage = () => {
   return ( 
     <>
     <Navbar />
-
+   
     {/* main content*/}
     <Container className="maincon" >
    

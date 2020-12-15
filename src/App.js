@@ -1,6 +1,6 @@
 // REACT
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, useParams, state } from "react-router-dom";
 
 // BOOTSTRAP
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -26,8 +26,10 @@ import '../node_modules/aos/dist/aos.css'
 import '../node_modules/react-multi-carousel/lib/styles.css'
 // CSS
 import "./App.css";
+import LaddersQuestionPage from "./pages/ladders/LaddersQuestionPage";
 
 const App = () => {
+  
   return (
     <>
     <Particles
@@ -65,6 +67,7 @@ const App = () => {
              <Route exact path="/laddersTopic" component={LaddersTopic}/>
              <Route exact path="/practiceTopic" component={PracticeTopic}/>
              <Route exact path="/practiceLevel" component={PracticeLevel}/>
+             <Route exact path="/laddersLevel/topic/page1" component={LaddersQuestionPage}/>
             <Route component={Homepage} />
           </Switch>
         </BrowserRouter>
