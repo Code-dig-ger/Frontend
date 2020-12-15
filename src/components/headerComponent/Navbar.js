@@ -26,12 +26,27 @@ const IndexNavbar = (props) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
-            <NavItem>
-              <NavLink href="/upsolve">Upsolve</NavLink>
-            </NavItem>
+            
             <NavItem>
               <NavLink href="/profile">Profile</NavLink>
             </NavItem>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Upsolve
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>
+                <NavLink href="/laddersTopic">Rated Contest</NavLink>
+                  
+                </DropdownItem>
+                <DropdownItem>
+                <NavLink href="/laddersLevel">Virtual Contest</NavLink>
+                </DropdownItem>
+                
+                
+              </DropdownMenu>
+            </UncontrolledDropdown>
+
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 Ladders
