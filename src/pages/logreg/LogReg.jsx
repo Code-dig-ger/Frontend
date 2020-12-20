@@ -17,7 +17,7 @@ switchers.forEach((item) => {
 });
  
    
-      setTimeout(()=>{setShow(false)},3000);
+      setTimeout(()=>{setShow(false)},1000);
 
     return (
       <div>

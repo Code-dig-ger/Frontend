@@ -3,60 +3,27 @@ import {
   Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button
 } from 'reactstrap';
+import './MainCard.css';
 
 
 
 const MainCard = (props) => {
-    
-
-    if(props.solved === "true"){
-      return(
-        <>
-      
-        <Card style={{
-          width: '80%',
-          alignSelf: 'center'
-      }}>
-          
-
-        
-        <CardBody style={{
-            border: '2px solid white',
-            backgroundColor: 'green'
-        }}>
-          <CardTitle tag="h5">Warm Up</CardTitle>
-          <Button>Solve</Button>
-        </CardBody>
-      </Card>
-      
-      </>
-      )
-    }else{
-  return (
-    <div>
-      
-      <Card style={{
-          width: '80%',
-          alignSelf: 'center'
-      }}>
-          
-
-        
-        <CardBody style={{
-            border: '2px solid white',
-            backgroundColor: 'red'
-        }}>
-          <CardTitle tag="h5">Warm Up</CardTitle>
-          <Button>Solve</Button>
-        </CardBody>
-      </Card>
-      <div class="container_card">
-       <div class="lock"></div>
-       
+  return(
+    <>
+      <div class="card">
+      <h3 class="title">Card 1</h3>
+      <div class="bar">
+        <div class="emptybar"></div>
+        <div class="filledbar"></div>
+      </div>
+        <div class="circle">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle class="stroke" cx="60" cy="60" r="50"/>
+          </svg>
         </div>
-    </div>
+      </div>
+    </>
   )
-      }
 };
 
 
