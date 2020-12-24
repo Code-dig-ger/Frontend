@@ -33,7 +33,8 @@ const MainCard = (props) => {
   return(
     <>
       <div className="card">
-      <h3 className="title">{props.ProblemData.name}</h3>
+      <h3 className={props.count > 1 ? "title_hide" : "title"}>{props.ProblemData.name}</h3>
+      <h3 className={props.count > 1 ? "title_locked" : "title_hide"}>?</h3>
       <div className="bar">
         <div className="emptybar" />
         <div className={props.ProblemData.status === "solved"? "filledbar": ""}></div>
@@ -44,7 +45,7 @@ const MainCard = (props) => {
           </svg>
         </div>
         <div className="container_card">
-          <div className={props.count > 1 ? "lock": "check"}></div>
+            <a href={props.count > 1 ? "" : props.ProblemData.url}><div className={props.count > 1 ? "lock": "check"}></div></a>
         </div>
       </div>
     </>
