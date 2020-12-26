@@ -23,7 +23,7 @@ const MainCard = (props) => {
           </svg>
         </div>
         <div className="container_card">
-          <Button className="buttondisp" href={props.ProblemData.url}>Solve</Button>
+          <Button target="_blank" className="buttondisp" href={props.ProblemData.url}>Solve</Button>
         </div>
       </div>
     </>
@@ -45,7 +45,7 @@ const MainCard = (props) => {
           </svg>
         </div>
         <div className="container_card">
-            <a href={props.count > 1 ? "" : props.ProblemData.url}><div className={props.count > 1 ? "lock": "check"}></div></a>
+            <a target="_blank" href={props.count > 1 ? "" : props.ProblemData.url}><div className={props.count > 1 ? "lock": "check"}></div></a>
         </div>
       </div>
     </>
