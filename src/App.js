@@ -32,7 +32,7 @@ const App = () => {
   
   return (
     <>
-    <Particles
+    {/* <Particles
                 style={{
                   position: 'fixed',
                   height: '100%',
@@ -55,7 +55,7 @@ const App = () => {
                             }
                         }
                     }
-                }} />
+                }} /> */}
       <Container fluid style={{paddingBottom:'0', paddingTop: '0'}}>
         <BrowserRouter>
         
