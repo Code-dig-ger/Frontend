@@ -11,7 +11,7 @@ const MainCard = (props) => {
   if(props.buttonDis){
     return(
       <>
-      <div className="card">
+      <div className="card unsolvedCard">
       <h3 className="title">{props.ProblemData.name}</h3>
       <div className="bar">
         <div className="emptybar" />
