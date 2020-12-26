@@ -1,6 +1,6 @@
 /* COLOR THEME */
 :root {
-  --primary: #f3ebeb;
+  --primary: rgb(223, 223, 98);
   --secondary: #7660ee;
   --tertiary: #0a0909;
 }
