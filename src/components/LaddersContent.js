@@ -9,7 +9,7 @@ const LaddersContent = (props) => {
         <ListGroupItemText>
         {props.des}
         </ListGroupItemText>
-        <Button className='primary'>Solve</Button>
+        <Button className='primary'><a href="/laddersLevel/topic/page1">Solve</a></Button>
       </ListGroupItem>
       
     </ListGroup>
