@@ -571,8 +571,8 @@
   padding-left: 15px;
   font-size: 16px;
   line-height: 40px;
-  color: #3b4465;
-  background: #eef9fe;
+  color: #ced1dd;
+  background: #253238;
   border: 1px solid #cddbef;
   border-radius: 2px;
 }
@@ -608,11 +608,14 @@
 }
 
 .btn-signup {
-  color: #a7e245;
-  background: #fbfdff;
+  color: #f3f3f3;
+  background: #13cf13;
   box-shadow: inset 0 0 0 2px #a7e245;
   -moz-transform: translateX(30%);
   -ms-transform: translateX(30%);
   -webkit-transform: translateX(30%);
   transform: translateX(30%);
+}
+.alert{
+  color: red;
 }

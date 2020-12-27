@@ -28,19 +28,23 @@ const IndexNavbar = (props) => {
           <Nav className="ml-auto" navbar>
             
             <NavItem>
+              <NavLink href="/home">Home</NavLink>
+            </NavItem>
+            <NavItem>
               <NavLink href="/profile">Profile</NavLink>
             </NavItem>
+            
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 Upsolve
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>
-                <NavLink href="/laddersTopic">Rated Contest</NavLink>
+                <NavLink href="/upsolve/rated">Rated</NavLink>
                   
                 </DropdownItem>
                 <DropdownItem>
-                <NavLink href="/laddersLevel">Virtual Contest</NavLink>
+                <NavLink href="/upsolve/virtual">Virtual</NavLink>
                 </DropdownItem>
                 
                 

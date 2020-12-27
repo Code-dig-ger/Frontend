@@ -6,11 +6,10 @@ import Carousel from 'react-multi-carousel';
 import Navbar from '../../components/headerComponent/Navbar'
 import Footer from '../../components/footerComponent/footer'
 
-import { NavItem,NavLink } from 'reactstrap';
 
-const Upsolve=()=>{
 
-  //fake json
+const Virtual =()=>{
+   
     const data={"status": "OK",
     "result": [
       {
@@ -220,7 +219,7 @@ const Upsolve=()=>{
     return (
        <>
        <Navbar/><br></br>
-      <h5 className="heads">Rated Contests</h5>
+        <h5 className="heads">Virtual Contests</h5>
        {result.map((res)=>{
        return(
          <>
@@ -257,6 +256,6 @@ const Upsolve=()=>{
            <Footer/>
         </>
             )
-    
+   
 }
-export default Upsolve
+export default Virtual

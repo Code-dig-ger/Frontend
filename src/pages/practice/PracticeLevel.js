@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Loading from '../logreg/loading';
 import Header from '../../components/headerComponent/Navbar';
 import "./PracticeLevel.css";
-import QuestionCard from '../../components/QuestionCard';
+
 import LaddersContent from '../../components/LaddersContent';
 import Footer from '../../components/footerComponent/footer';
 

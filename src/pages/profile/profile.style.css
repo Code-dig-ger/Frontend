@@ -1,0 +1,50 @@
+.col1{
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    border: 2px solid black;
+}
+.col2{
+    background-color:rgb(57, 55, 66);
+    border-radius: 10px;
+    padding-left: 80px;
+    padding-top: 90px;
+    border: 2px solid black;
+
+}
+.col3{
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    border: 2px solid black;
+}
+.mypic{
+    width: 200px;
+    height:200px;
+    background-color: white;
+    
+    border-radius: 90px;
+}
+.col1row1{
+    background-color: rgb(57, 55, 66);
+    border-radius: 20px;
+}
+.logo{
+    width: 70px;
+    height:60px;
+    border-radius: 30px;
+}
+.col1row{
+    text-align: center;
+    padding: 10px;
+}
+.charts{
+    background-color: rgb(17, 16, 16);
+    border-radius: 10px;
+
+   
+}
+.cont{
+    
+}
+.each{
+    padding: 10px;
+}
