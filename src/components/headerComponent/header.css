@@ -9,6 +9,10 @@
     width: 100%;
     transition: top 0.3s;
     z-index: 200;
-    background-color: black !important;
-    color: yellow !important;
+    background-color: #101212 !important;
+    color: white;
+}
+
+a{
+    color: white !important;
 }

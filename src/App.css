@@ -1,9 +1,9 @@
 /* COLOR THEME */
-:root {
+/* :root {
   --primary: rgb(223, 223, 98);
   --secondary: #7660ee;
   --tertiary: #0a0909;
-}
+} */
 
 /* FONT */
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap");
@@ -12,7 +12,7 @@
   font-size: large;
   letter-spacing: 2px;
   word-spacing: 7px;
-  color: var(--primary) !important;
+  /* color: var(--primary) !important; */
 }
 
 /* CONTAINER */
@@ -22,16 +22,16 @@
 
 /* HEADER */
 .header {
-  background: var(--tertiary) !important;
+  /* background: var(--tertiary) !important; */
 }
 
 /* REMOVE ANCHOR TAG DEFAULT */
 a {
-  text-decoration: none !important;
+  /* text-decoration: none !important; */
 }
 
 /* TEXT COLORS */
-.text-white {
+/* .text-white {
   color: var(--primary) !important;
 }
 .text-warning {
@@ -42,12 +42,12 @@ a {
 }
 .text-black > i {
   color: var(--tertiary) !important;
-}
+} */
 
 /* NAVBARLINKS */
 .navbar-link.active {
-  color: var(--primary) !important;
-  background: var(--secondary);
+  /* color: var(--primary) !important;
+  background: var(--secondary); */
   padding: 0.5rem;
   border-radius: 5px;
 }
@@ -59,7 +59,7 @@ a {
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
-  background: var(--primary);
+  background: white;
 }
 ::-webkit-scrollbar-track {
   -webkit-border-radius: 2px;
@@ -69,8 +69,10 @@ a {
 ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 2px;
   border-radius: 2px;
-  background: var(--secondary);
+  background: white;
+  /* background: var(--secondary); */
 }
 ::-webkit-scrollbar-thumb:window-inactive {
-  background: var(--secondary);
+  background: white;
+  /* background: var(--secondary); */
 }
