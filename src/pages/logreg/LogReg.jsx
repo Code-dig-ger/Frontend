@@ -29,6 +29,7 @@ const LogReg =()=>{
         })
         }).then((response)=>{
           if(response.status===400){
+            console.log(response.json());
             setmsgR("User already exist");
           }
           else{
@@ -61,7 +62,9 @@ const LogReg =()=>{
       if(response.status===401){
     //  setmsgL("Invalid");
       const errorData=await response.json();
-       setmsgL("Invalid");
+      console.log(errorData);
+      const msg=errorData.detail;
+       setmsgL(msg);
       }
       else{
         setmsgL(`Hello, ${usernameL}`);
