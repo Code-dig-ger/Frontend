@@ -13,15 +13,27 @@ import {
   DropdownItem,
   NavbarText
 } from 'reactstrap';
+import './header.css';
 
 const IndexNavbar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
+  var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top = "-70px";
+  }
+  prevScrollpos = currentScrollPos;
+}
+
   return (
     <div>
-      <Navbar color="light" light expand="md">
+      <Navbar id="navbar" color="light" light expand="md">
         <NavbarBrand href="/">CODEDIGGER</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>

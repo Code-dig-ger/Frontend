@@ -1,20 +1,43 @@
 import React from 'react'
 import Navbar from '../../components/headerComponent/Navbar';
 import Footer from '../../components/footerComponent/footer';
-import MainCard from '../../components/MainCard'
+import MainCard from '../../components/MainCard';
 import { Container, Row, Col } from 'reactstrap';
-import './LaddersQuestionPage.css'
-
-
+import './LaddersQuestionPage.css';
+import problemsData from './problemsData.json';
 
 function LaddersQuestionPage() {
-    
+    var count=0;
+    var button = false;
     return (
         <div>
             <Navbar />
             <div className="container-fluid">
-                <Row>
-                    <Col>
+                <div className="container-card">
+                    {problemsData.result.map((ProblemData)=>{
+                        if(ProblemData.status === "unsolved")
+                        {
+                            count++;
+                            if(count === 1){
+                                button = true;
+                            }
+                            else{
+                                button=false;
+                            }
+                            
+                        }
+                        return(
+                            <>
+                                
+                                    <MainCard count={count} ProblemData={ProblemData} buttonDis={button}/>
+                            </>
+                        )
+                        
+                    }
+                    
+                    )}
+                    </div>
+                    {/* <Col>
                         <MainCard solved="true"/>
                     </Col>
                     <Col>
@@ -25,10 +48,7 @@ function LaddersQuestionPage() {
                     </Col>
                     <Col>
                       <MainCard solved="false"/>
-                    </Col>
-               
-                    
-                </Row>
+                    </Col> */}
             </div>
             
 

@@ -3,61 +3,56 @@ import {
   Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button
 } from 'reactstrap';
+import './MainCard.css';
 
 
 
 const MainCard = (props) => {
-    
-
-    if(props.solved === "true"){
-      return(
-        <>
-      
-        <Card style={{
-          width: '80%',
-          alignSelf: 'center'
-      }}>
-          
-
-        
-        <CardBody style={{
-            border: '2px solid white',
-            backgroundColor: 'green'
-        }}>
-          <CardTitle tag="h5">Warm Up</CardTitle>
-          <Button>Solve</Button>
-        </CardBody>
-      </Card>
-      
-      </>
-      )
-    }else{
-  return (
-    <div>
-      
-      <Card style={{
-          width: '80%',
-          alignSelf: 'center'
-      }}>
-          
-
-        
-        <CardBody style={{
-            border: '2px solid white',
-            backgroundColor: 'red'
-        }}>
-          <CardTitle tag="h5">Warm Up</CardTitle>
-          <Button>Solve</Button>
-        </CardBody>
-      </Card>
-      <div class="container_card">
-       <div class="lock"></div>
-       
+  if(props.buttonDis){
+    return(
+      <>
+      <div className="card unsolvedCard">
+      <h3 className="title">{props.ProblemData.name}</h3>
+      <div className="bar">
+        <div className="emptybar" />
+        <div className={props.ProblemData.status === "solved"? "filledbar": "exapmplebar"}></div>
+      </div>
+        <div className="circle">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle className="stroke" cx="60" cy="60" r="50"/>
+          </svg>
         </div>
-    </div>
+        <div className="container_card">
+          <Button target="_blank" className="buttondisp" href={props.ProblemData.url}>Solve</Button>
+        </div>
+      </div>
+    </>
+    )
+  }
+  else{
+  return(
+    <>
+      <div className="card">
+      <h3 className={props.count > 1 ? "title_hide" : "title"}>{props.ProblemData.name}</h3>
+      <h3 className={props.count > 1 ? "title_locked" : "title_hide"}>?</h3>
+      <div className="bar">
+        <div className="emptybar" />
+        <div className={props.ProblemData.status === "solved"? "filledbar": ""}></div>
+      </div>
+        <div className="circle">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle className="stroke" cx="60" cy="60" r="50"/>
+          </svg>
+        </div>
+        <div className="container_card">
+            <a target="_blank" href={props.count > 1 ? "" : props.ProblemData.url}><div className={props.count > 1 ? "lock": "check"}></div></a>
+        </div>
+      </div>
+    </>
   )
-      }
+  }
 };
+
 
 
 export default MainCard;

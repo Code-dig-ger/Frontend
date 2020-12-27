@@ -2,3 +2,13 @@
     font-size: 22px;
     margin-top: 5px;
 }
+
+#navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: top 0.3s;
+    z-index: 200;
+    background-color: black !important;
+    color: yellow !important;
+}

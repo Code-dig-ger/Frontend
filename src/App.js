@@ -39,7 +39,7 @@ const App = () => {
  const [creds,setCreds]=useState({});
   return (
     <>
-    <Particles
+    {/* <Particles
                 style={{
                   position: 'fixed',
                   height: '100%',
@@ -62,7 +62,7 @@ const App = () => {
                             }
                         }
                     }
-                }} />
+                }} /> */}
       <Container fluid style={{paddingBottom:'0', paddingTop: '0'}}>
         <CredentialsContext.Provider value={{creds,setCreds}}>
         <BrowserRouter>
