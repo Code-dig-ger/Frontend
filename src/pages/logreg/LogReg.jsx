@@ -98,13 +98,10 @@ switchers.forEach((item) => {
  
    
       setTimeout(()=>{setShow(false)},1000);
-<<<<<<< HEAD
       function handle(e){
         e.preventDefault();
         localStorage.clear();
       }
-=======
->>>>>>> 8e52e7c80ff53a562b421c8241176d8e56b5754a
 
     return (
       <>

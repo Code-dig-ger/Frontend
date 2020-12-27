@@ -28,6 +28,7 @@ const Profile=()=>{
          <Navbar/>
          
          <br></br>  
+         <br></br>
          <Container className="cont">
               <Row>
               <Col className="col2"lg={4} md={12} sm={12} order-sm-1><h4>User Profile</h4>
