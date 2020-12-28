@@ -15,9 +15,9 @@ const LogReg =()=>{
   const [passwordR,setPassWordR]=useState("");
   const [msgR,setmsgR]=useState("");
  
-  const register=(e)=>{
+  async function register(e){
     e.preventDefault();
-        fetch('https://api.codedigger.tech/auth/register/',{
+        const response=fetch('https://api.codedigger.tech/auth/register/',{
             method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -27,15 +27,15 @@ const LogReg =()=>{
             "username":usernameR,
             "password":passwordR
         })
-        }).then((response)=>{
+        })
           if(response.status===400){
-            console.log(response.json());
-            setmsgR("User already exist");
+            
+       setmsgR("User already exist");
           }
           else{
-            setmsgR("Successful, please login to explore!!");
+            setmsgR("Successful, we have sent you an email!!");
           }
-    })
+    
     
   }
 
