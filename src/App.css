@@ -9,9 +9,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap");
 * {
   font-family: "Ubuntu", sans-serif;
-  font-size: large;
+  /* font-size: large;
   letter-spacing: 2px;
-  word-spacing: 7px;
+  word-spacing: 7px; */
   /* color: var(--primary) !important; */
 }
 
