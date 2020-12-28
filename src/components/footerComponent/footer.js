@@ -24,7 +24,7 @@ function Footer() {
                         <li><Link to="/">Contact Us</Link></li>
                     </ul>
                 </div>
-                <div className="col-12 col-sm-6 contactUs">
+                <div className="col-12 col-sm-3 contactUs">
                     <h5>Contact Us</h5>
                     <br/>
                     <div>
@@ -33,33 +33,30 @@ function Footer() {
 		                <FontAwesomeIcon icon={faEnvelope} size="md"/> : <a href="mailto:confusion@food.net">
                          confusion@food.net</a>
                     </div>
-                    <br/>
-                    <div >
-                        <a className="btn btn-social-icon btn-google" href="http://codedigger.tech"><FontAwesomeIcon icon={faGooglePlus} size="2x"/></a>
-                        <a className="btn btn-social-icon btn-facebook" href="http://codedigger.tech/"><FontAwesomeIcon icon={faFacebook} size="2x"/></a>
-                        <a className="btn btn-social-icon btn-linkedin" href="http://codedigger.tech"><FontAwesomeIcon icon={faTwitter} size="2x"/></a>
-                        <a className="btn btn-social-icon btn-twitter" href="http://codedigger.tech"><FontAwesomeIcon icon={faInstagram} size="2x"/></a>
-                        <a className="btn btn-social-icon btn-google" href="http://codedigger.tech"><FontAwesomeIcon icon={faGithub} size="2x"/></a>
-                        <a className="btn btn-social-icon" href="http://codedigger.tech"><FontAwesomeIcon icon={faYoutube} size="2x"/></a>
-                    </div>
+                    
+                    
                 </div>
-                <div className="col-6 col-sm-2">
-                    <h5>Platforms</h5>
-                    <br></br>
+
+                <div className="col-12 col-sm-3">
+                    
+                    
                     <div>
-                        <ul >
-                            <li><div className="codeforces"></div>CODEFORCES</li>
-                            <li><div className="codeforces"></div>CODECHEF</li>
-                            <li><div className="codeforces"></div>SPOJ</li>
-                            <li><div className="codeforces"></div>TOPCODER</li>
-                        </ul>
+                        
+                    <h5>Follow Us</h5>
+                    <br/>
+                        <a className="social_media" href="http://codedigger.tech/"><FontAwesomeIcon icon={faFacebook} size="2x"/></a>
+                        <a className="social_media" href="http://codedigger.tech"><FontAwesomeIcon icon={faTwitter} size="2x"/></a>
+                        <a className="social_media" href="http://codedigger.tech"><FontAwesomeIcon icon={faInstagram} size="2x"/></a>
+                        <a className="social_media" href="http://codedigger.tech"><FontAwesomeIcon icon={faGithub} size="2x"/></a>
+                        <a className="social_media" href="http://codedigger.tech"><FontAwesomeIcon icon={faYoutube} size="2x"/></a>
+                        
                     </div>
                 </div>
+                
             </div>
-            <br></br>
             <div className="row justify-content-center">             
                 <div className="col-auto">
-                    <p>© Copyright Codedigger</p>
+                    <p>© Copyright Codedigger 2021</p>
                 </div>
             </div>
         </div>
