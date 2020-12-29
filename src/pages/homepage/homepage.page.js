@@ -71,7 +71,7 @@ const Homepage = () => {
             <h5 className="text-white heading2">
               <Typewriter
                 options={{
-                  strings: ['Lets Start'],
+                  strings: ['Dig Deeper Into Coding'],
                   autoStart: true,
                   loop: true,
                 }}

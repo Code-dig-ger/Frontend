@@ -17,7 +17,7 @@ const LogReg =()=>{
  
   async function register(e){
     e.preventDefault();
-        const response=fetch('https://api.codedigger.tech/auth/register/',{
+        const response=await fetch('https://api.codedigger.tech/auth/register/',{
             method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -29,8 +29,7 @@ const LogReg =()=>{
         })
         })
           if(response.status===400){
-            
-       setmsgR("User already exist");
+            setmsgR("User already exist");
           }
           else{
             setmsgR("Successful, we have sent you an email!!");
@@ -72,10 +71,11 @@ const LogReg =()=>{
         console.log(data);
 
         localStorage.setItem("creds",JSON.stringify({
-          //first:data.first_time_login,
+         
           access:data.tokens.access,
           refresh:data.tokens.refresh,
-          first:data.first_time_login
+          first:data.first_time_login,
+          username:usernameL
 
         }));
         

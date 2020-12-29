@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../../components/headerComponent/Navbar';
 import Footer from '../../components/footerComponent/footer';
 import MainCard from '../../components/MainCard';
-import { Container, Row, Col } from 'reactstrap';
+
 import './LaddersQuestionPage.css';
 import problemsData from './problemsData.json';
 

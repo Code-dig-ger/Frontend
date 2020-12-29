@@ -6,7 +6,7 @@ import Carousel from 'react-multi-carousel';
 import Navbar from '../../components/headerComponent/Navbar'
 import Footer from '../../components/footerComponent/footer'
 
-import { NavItem,NavLink } from 'reactstrap';
+
 
 const Upsolve=()=>{
 

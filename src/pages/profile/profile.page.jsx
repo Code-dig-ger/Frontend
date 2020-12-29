@@ -11,22 +11,23 @@ import Bar from './bar'
 import Navbar from '../../components/headerComponent/Navbar'
 import Footer from '../../components/footerComponent/footer'
 
-
+import Info from './FillInfo'
 
 
 const Profile=()=>{
   
   const creds=JSON.parse(localStorage.getItem("creds"));
-  console.log(creds);
-  
+ // console.log(creds);
+  const firstTime=creds.first;
+ // console.log(firstTime);
   
 
        return(
-       
-        
-         <>
-         <Navbar/>
          
+        (firstTime===true)?<Info/>:
+                   <>
+         <Navbar/>
+         {console.log(localStorage.getItem("creds"))}
          <br></br>  
          <br></br>
          <Container className="cont">
