@@ -12,6 +12,7 @@ const MainCard = (props) => {
       <>
       <div className="card unsolvedCard">
       <h3 className="title">{props.ProblemData.name}</h3>
+      <h6 className="mt-5 ml-3 pl-1">Platform: {props.ProblemData.platform}</h6>
       <div className="bar">
         <div className="emptybar" />
         <div className={props.ProblemData.status === "solved"? "filledbar": "exapmplebar"}></div>
@@ -33,6 +34,7 @@ const MainCard = (props) => {
     <>
       <div className="card">
       <h3 className={props.count > 1 ? "title_hide" : "title"}>{props.ProblemData.name}</h3>
+      <h6 className={props.count > 1 ? "title_hide" : "mt-5 ml-3 pl-1"}>Platform: {props.ProblemData.platform}</h6>
       <h3 className={props.count > 1 ? "title_locked" : "title_hide"}>?</h3>
       <div className="bar">
         <div className="emptybar" />

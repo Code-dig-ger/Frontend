@@ -1,8 +1,8 @@
 .footer{
-    color: black !important;
-    background-color: #495057;
-    /* margin-top: 50px; */
-    padding-top: 30px;
+    margin-top: 10px;
+    background-image: url('../../assets/footer-img.png') !important;
+    background-size: contain;
+    
 }
 
 i{
@@ -15,6 +15,11 @@ i{
 
 .contactUs{
     margin-left: 20px;
+}
+
+.social_media{
+    margin-right: 16px;
+
 }
 
 

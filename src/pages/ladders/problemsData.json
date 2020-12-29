@@ -9,18 +9,18 @@
       "contest_id": "1156",
       "rating": "2200",
       "index": "D",
-      "platform": "F",
+      "platform": "Codeforces",
       "status": "solved"
     },
     {
       "name": "2048",
-      "url": "https://codeforces.com/contest/413/problem/D",
+      "url": "https://codeorces.com/contest/413/problem/D",
       "prob_id": "413D",
       "tags": "['bitmasks', 'dp']",
       "contest_id": "413",
       "rating": "2000",
       "index": "D",
-      "platform": "F",
+      "platorm": "CodeChef",
       "status": "solved"
     },
     {
@@ -31,7 +31,7 @@
       "contest_id": "1391",
       "rating": "2000",
       "index": "D",
-      "platform": "F",
+      "platform": "CodeChef",
       "status": "unsolved"
     },
     {
