@@ -21,7 +21,7 @@ import PracticeTopic from "./pages/practice/PracticeTopic";
 import Particles from 'react-particles-js';
 import Profile from './pages/profile/profile.page'
 import Virtual from './pages/upsolve/virtual.page'
-
+import Info from './pages/profile/FillInfo'
 
 
 //aos 5 for home page only
@@ -80,6 +80,7 @@ const App = () => {
              <Route exact path="/profile" component={Profile}/>
             <Route component={Homepage} />
             <Route exact path="/home" component={Homepage}/>
+            <Route exact path="/createProfile" component={Info}/>
           </Switch>
         </BrowserRouter>
         </CredentialsContext.Provider>
