@@ -3,7 +3,7 @@ import './logreg.style.css'
 import Loading from './loading'
 import Navbar from '../../components/headerComponent/Navbar'
 import Footer from '../../components/footerComponent/footer'
-
+import {Link} from 'react-router-dom'
 
 
 
@@ -42,7 +42,7 @@ const LogReg =()=>{
      const [usernameL,setUserNameL]=useState("");
      const [passwordL,setpasswordL]=useState("");
      const [msgL,setmsgL]=useState("");
-    
+     const [first,setFirst] =useState(false);
   
 
  
@@ -78,8 +78,11 @@ const LogReg =()=>{
           username:usernameL
 
         }));
-        
-        
+        if(data.first_time_login===true){
+         window.location='/Profile'
+        }
+        else
+        window.location='/home'            
 
       }
       
@@ -137,6 +140,7 @@ switchers.forEach((item) => {
         </fieldset>
         <h7 className="text-tertiary">{msgL}</h7>
         <button type="submit" className="btn-login">Login</button>
+        
       </form>
 
     </div>

@@ -18,13 +18,14 @@ const Info=()=>{
 
     async function handle(e){
         e.preventDefault();
-        const creds=JSON.parse(localStorage.getItem("creds"));
+        const creds=await JSON.parse(localStorage.getItem("creds"));
         const acc=creds.access;
         const ref=creds.refresh;
-         setUser(creds.username);
-        //console.log(creds);
-        console.log(`The user name is : ${user}`);
-        const response=await fetch(`https://api.codedigger.tech/auth/profile/${user}`,{
+        const uu=creds.username
+         setUser(uu);
+        console.log(creds);
+        console.log(`The user name is : ${uu}`);
+        const response=await fetch(`https://api.codedigger.tech/auth/profile/${uu}`,{
             method:"PUT",
             headers:{
                 "Content-Type":"application/json",
@@ -54,6 +55,7 @@ const Info=()=>{
         }))
         //console.log(localStorage.getItem("creds"));
         setMsg("Successful.....");
+        window.location='/profile'
     }
     else{
         setMsg("Invalid Information")
