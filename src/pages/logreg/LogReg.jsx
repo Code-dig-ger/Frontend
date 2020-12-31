@@ -80,7 +80,9 @@ const LogReg =()=>{
         }));
         if(data.first_time_login===true){
          window.location='/Profile'
-        }            
+        }
+        else
+        window.location='/home'            
 
       }
       
