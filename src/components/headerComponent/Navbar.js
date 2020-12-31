@@ -30,6 +30,84 @@ window.onscroll = function() {
   }
   prevScrollpos = currentScrollPos;
 }
+  
+const creds=JSON.parse(localStorage.getItem("creds"));
+
+if(creds){
+  return(
+    <div>
+      <Navbar id="navbar" color="light" light expand="md">
+        <NavbarBrand href="/">CODEDIGGER</NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="ml-auto" navbar>
+            
+            <NavItem>
+              <NavLink href="/home">Home</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/profile">Profile</NavLink>
+            </NavItem>
+            
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Upsolve
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>
+                <NavLink href="/upsolve/rated">Rated</NavLink>
+                  
+                </DropdownItem>
+                <DropdownItem>
+                <NavLink href="/upsolve/virtual">Virtual</NavLink>
+                </DropdownItem>
+                
+                
+              </DropdownMenu>
+            </UncontrolledDropdown>
+
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Ladders
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>
+                <NavLink href="/laddersTopic">Topicwise</NavLink>
+                  
+                </DropdownItem>
+                <DropdownItem>
+                <NavLink href="/laddersLevel">Levelwise</NavLink>
+                </DropdownItem>
+                
+                
+              </DropdownMenu>
+            </UncontrolledDropdown>
+
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Practice
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>
+                <NavLink href="/practiceTopic">Topicwise</NavLink>
+                </DropdownItem>
+                <DropdownItem>
+                <NavLink href="/practiceLevel">Levelwise</NavLink>
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+            <NavItem>
+              <NavLink href="/profile">Hello, {creds.username}</NavLink>
+            </NavItem>
+          </Nav>   
+        </Collapse>
+      </Navbar>
+      <br/>
+      <br/>
+      <br/>
+    </div>
+    )
+}else
 
   return (
     <div>

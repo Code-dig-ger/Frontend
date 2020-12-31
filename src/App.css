@@ -1,61 +1,22 @@
-/* COLOR THEME */
-/* :root {
-  --primary: rgb(223, 223, 98);
-  --secondary: #7660ee;
-  --tertiary: #0a0909;
-} */
 
-/* FONT */
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap");
 * {
   font-family: "Ubuntu", sans-serif;
-  /* font-size: large;
-  letter-spacing: 2px;
-  word-spacing: 7px; */
-  /* color: var(--primary) !important; */
+
 }
 
-/* CONTAINER */
 .container-fluid {
   padding: 7rem 0rem;
 }
 
-/* HEADER */
-.header {
-  /* background: var(--tertiary) !important; */
-}
-
-/* REMOVE ANCHOR TAG DEFAULT */
-a {
-  /* text-decoration: none !important; */
-}
-
-/* TEXT COLORS */
-/* .text-white {
-  color: var(--primary) !important;
-}
-.text-warning {
-  color: var(--secondary) !important;
-}
-.text-black {
-  color: var(--tertiary) !important;
-}
-.text-black > i {
-  color: var(--tertiary) !important;
-} */
-
-/* NAVBARLINKS */
 .navbar-link.active {
-  /* color: var(--primary) !important;
-  background: var(--secondary); */
+  
   padding: 0.5rem;
   border-radius: 5px;
 }
 .navbar-link:hover{
   color: brown;
 }
-
-/* SCROLLBAR */
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
@@ -70,9 +31,9 @@ a {
   -webkit-border-radius: 2px;
   border-radius: 2px;
   background: white;
-  /* background: var(--secondary); */
+  
 }
 ::-webkit-scrollbar-thumb:window-inactive {
   background: white;
-  /* background: var(--secondary); */
+  
 }

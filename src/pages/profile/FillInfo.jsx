@@ -21,8 +21,8 @@ const Info=()=>{
         const creds=await JSON.parse(localStorage.getItem("creds"));
         const acc=creds.access;
         const ref=creds.refresh;
-        const uu=creds.username
-         setUser(uu);
+        const uu=creds.username;
+        setUser(uu);
         console.log(creds);
         console.log(`The user name is : ${uu}`);
         const response=await fetch(`https://api.codedigger.tech/auth/profile/${uu}`,{
@@ -53,7 +53,7 @@ const Info=()=>{
               username:user
     
         }))
-        //console.log(localStorage.getItem("creds"));
+        console.log(localStorage.getItem("creds"));
         setMsg("Successful.....");
         window.location='/profile'
     }

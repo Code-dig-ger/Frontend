@@ -1,15 +1,8 @@
-// REACT
 import React ,{useState} from "react";
 import { BrowserRouter, Switch, Route, useParams, state } from "react-router-dom";
-// BOOTSTRAP
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./bootstrap-theme/bootstrap.min.cyborg.css";
 import Container from "react-bootstrap/Container";
-
-// COMPONENTS
-
-
-// PAGES
 import Homepage from "./pages/homepage/homepage.page";
 import Problems from "./pages/problems.page";
 import Upsolve from "./pages/upsolve/upsolve.page";
@@ -18,16 +11,11 @@ import LaddersLevel from "./pages/ladders/LaddersLevel";
 import LaddersTopic from "./pages/ladders/LaddersTopic";
 import PracticeLevel from "./pages/practice/PracticeLevel";
 import PracticeTopic from "./pages/practice/PracticeTopic"; 
-import Particles from 'react-particles-js';
-import Profile from './pages/profile/profile.page'
+import Profile from './pages/profile/ProfilePage'
 import Virtual from './pages/upsolve/virtual.page'
 import Info from './pages/profile/FillInfo'
-
-
-//aos 5 for home page only
 import '../node_modules/aos/dist/aos.css'
 import '../node_modules/react-multi-carousel/lib/styles.css'
-// CSS
 import "./App.css";
 import LaddersQuestionPage from "./pages/ladders/LaddersQuestionPage";
 
@@ -36,33 +24,10 @@ export const CredentialsContext=React.createContext();
 
 const App = () => {
   
+  
  const [creds,setCreds]=useState({});
   return (
     <>
-    {/* <Particles
-                style={{
-                  position: 'fixed',
-                  height: '100%',
-                  width: '100%'
-                }}
-                params={{
-                    "particles": {
-                        "number": {
-                            "value": 75
-                        },
-                        "size": {
-                            "value": 3
-                        }
-                    },
-                    "interactivity": {
-                        "events": {
-                            "onhover": {
-                                "enable": true,
-                                "mode": "repulse"
-                            }
-                        }
-                    }
-                }} /> */}
       <Container fluid style={{paddingBottom:'0', paddingTop: '0'}}>
         <CredentialsContext.Provider value={{creds,setCreds}}>
         <BrowserRouter>
