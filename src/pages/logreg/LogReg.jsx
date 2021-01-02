@@ -2,8 +2,14 @@ import React, { useState} from 'react'
 import './logreg.style.css'
 import Loading from './loading'
 import Navbar from '../../components/headerComponent/Navbar'
+<<<<<<< HEAD
 import Footer from '../../components/footerComponent/footer'
 import eye from '../../assets/eye.png'
+=======
+import FooterSmall from '../../components/footerComponent/FooterSmall';
+import {Link} from 'react-router-dom'
+
+>>>>>>> 95e7ae42eb90b6b45fc69dbcdfc1558cccf7cefc
 
 
 const LogReg =()=>{
@@ -199,7 +205,7 @@ switchers.forEach((item) => {
 </section>
         
       </div>
-       <Footer/></>)
+       <FooterSmall/></>)
       }
     </div>
    

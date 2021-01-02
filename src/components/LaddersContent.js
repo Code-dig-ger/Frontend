@@ -6,7 +6,7 @@ const LaddersContent = (props) => {
               <div className="courses-container">
             <div className="course">
               <div className="course-preview">
-                <h6>Topic</h6>
+                <h6>{props.type}</h6>
                 <h5>{props.title}</h5>
               </div>
               <div className="course-info">

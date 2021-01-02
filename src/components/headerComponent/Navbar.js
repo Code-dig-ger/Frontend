@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router';
 import {
   Collapse,
   Navbar,
@@ -19,6 +20,10 @@ const IndexNavbar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+  const deleteCred = () => {
+    localStorage.removeItem('creds');
+    window.location.assign('/');
+  }
 
   var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
@@ -45,15 +50,13 @@ if(creds){
             <NavItem>
               <NavLink href="/home">Home</NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink href="/profile">Profile</NavLink>
-            </NavItem>
+            
             
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 Upsolve
               </DropdownToggle>
-              <DropdownMenu right>
+              <DropdownMenu left>
                 <DropdownItem>
                 <NavLink href="/upsolve/rated">Rated</NavLink>
                   
@@ -70,7 +73,7 @@ if(creds){
               <DropdownToggle nav caret>
                 Ladders
               </DropdownToggle>
-              <DropdownMenu right>
+              <DropdownMenu left>
                 <DropdownItem>
                 <NavLink href="/laddersTopic">Topicwise</NavLink>
                   
@@ -87,7 +90,7 @@ if(creds){
               <DropdownToggle nav caret>
                 Practice
               </DropdownToggle>
-              <DropdownMenu right>
+              <DropdownMenu left>
                 <DropdownItem>
                 <NavLink href="/practiceTopic">Topicwise</NavLink>
                 </DropdownItem>
@@ -96,9 +99,22 @@ if(creds){
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
-            <NavItem>
+            {/* <NavItem>
               <NavLink href="/profile">Hello, {creds.username}</NavLink>
-            </NavItem>
+            </NavItem> */}
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                 Hello, {creds.username}
+              </DropdownToggle>
+              <DropdownMenu left>
+                <DropdownItem>
+                <NavLink href="/profile">Profile</NavLink>
+                </DropdownItem>
+                <DropdownItem>
+                <NavLink onClick={deleteCred}>Log Out</NavLink>
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
           </Nav>   
         </Collapse>
       </Navbar>
@@ -128,7 +144,7 @@ if(creds){
               <DropdownToggle nav caret>
                 Upsolve
               </DropdownToggle>
-              <DropdownMenu right>
+              <DropdownMenu left>
                 <DropdownItem>
                 <NavLink href="/upsolve/rated">Rated</NavLink>
                   
@@ -145,7 +161,7 @@ if(creds){
               <DropdownToggle nav caret>
                 Ladders
               </DropdownToggle>
-              <DropdownMenu right>
+              <DropdownMenu left>
                 <DropdownItem>
                 <NavLink href="/laddersTopic">Topicwise</NavLink>
                   
@@ -162,7 +178,7 @@ if(creds){
               <DropdownToggle nav caret>
                 Practice
               </DropdownToggle>
-              <DropdownMenu right>
+              <DropdownMenu left>
                 <DropdownItem>
                 <NavLink href="/practiceTopic">Topicwise</NavLink>
                 </DropdownItem>

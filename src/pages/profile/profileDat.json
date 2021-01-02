@@ -1,0 +1,219 @@
+{
+    "status": "OK",
+    "result": {
+      "codeforces": {
+        "name": "",
+        "handle": "saikeshari",
+        "rating": 1160,
+        "maxRating": 1357,
+        "rank": "newbie",
+        "maxRank": "pupil",
+        "country": null,
+        "organization": null,
+        "photoUrl": "userpic.codeforces.com/no-title.jpg",
+        "totalUsers": 309118,
+        "worldRank": 228400,
+        "countryRank": null,
+        "organizationRank": null,
+        "contestRank": [
+          {
+            "contest": {
+              "name": "Codeforces Round #674 (Div. 3)",
+              "contestId": "1426",
+              "duration": 7200,
+              "startTime": 1601280300,
+              "Type": "Regular",
+              "participants": 9178
+            },
+            "worldRank": 3383,
+            "countryRank": null,
+            "organizationRank": null,
+            "totalCountryParticipants": null,
+            "totalOrganizationParticipants": null
+          },
+          {
+            "contest": {
+              "name": "Codeforces Round #677 (Div. 3)",
+              "contestId": "1433",
+              "duration": 7200,
+              "startTime": 1603204500,
+              "Type": "Regular",
+              "participants": 13451
+            },
+            "worldRank": 5231,
+            "countryRank": null,
+            "organizationRank": null,
+            "totalCountryParticipants": null,
+            "totalOrganizationParticipants": null
+          },
+          {
+            "contest": {
+              "name": "Codeforces Round #661 (Div. 3)",
+              "contestId": "1399",
+              "duration": 8100,
+              "startTime": 1596638100,
+              "Type": "Regular",
+              "participants": 16672
+            },
+            "worldRank": 12313,
+            "countryRank": null,
+            "organizationRank": null,
+            "totalCountryParticipants": null,
+            "totalOrganizationParticipants": null
+          },
+          {
+            "contest": {
+              "name": "Codeforces Round #640 (Div. 4)",
+              "contestId": "1352",
+              "duration": 7200,
+              "startTime": 1589034900,
+              "Type": "Regular",
+              "participants": 13965
+            },
+            "worldRank": 12829,
+            "countryRank": null,
+            "organizationRank": null,
+            "totalCountryParticipants": null,
+            "totalOrganizationParticipants": null
+          },
+          {
+            "contest": {
+              "name": "Codeforces Round #656 (Div. 3)",
+              "contestId": "1385",
+              "duration": 8100,
+              "startTime": 1594996500,
+              "Type": "Regular",
+              "participants": 14973
+            },
+            "worldRank": 14167,
+            "countryRank": null,
+            "organizationRank": null,
+            "totalCountryParticipants": null,
+            "totalOrganizationParticipants": null
+          }
+        ],
+        "contribution": 0,
+        "avatar": "userpic.codeforces.com/no-avatar.jpg",
+        "lastOnlineTimeSeconds": 1608390221,
+        "friendOfCount": 0,
+        "status": "OK"
+      },
+      "codechef": {
+        "handle": "saikeshari",
+        "name": "Sai Keshari",
+        "url": "https://www.codechef.com/users/saikeshari",
+        "rating": 1638,
+        "maxRating": 1686,
+        "rank": 3,
+        "maxRank": 3,
+        "color": "#3366CC",
+        "maxColor": "#3366CC",
+        "worldRank": "40325",
+        "countryRank": "31736",
+        "solvedCount": "41",
+        "contestRank": [
+          {
+            "name": "August Challenge 2020 Division 2",
+            "code": "AUG20B",
+            "standingUrl": "https://www.codechef.com/rankings/AUG20B?order=asc&search=saikeshari&sortBy=rank",
+            "url": "https://www.codechef.com/AUG20B",
+            "rank": "3223"
+          },
+          {
+            "name": "Code Ensemble (Rated for Division 2)",
+            "code": "CENS2020",
+            "standingUrl": "https://www.codechef.com/rankings/CENS2020?order=asc&search=saikeshari&sortBy=rank",
+            "url": "https://www.codechef.com/CENS2020",
+            "rank": "2258"
+          },
+          {
+            "name": "August Cook-Off 2020 Division 2",
+            "code": "COOK121B",
+            "standingUrl": "https://www.codechef.com/rankings/COOK121B?order=asc&search=saikeshari&sortBy=rank",
+            "url": "https://www.codechef.com/COOK121B",
+            "rank": "5401"
+          },
+          {
+            "name": "August Lunchtime 2020 Division 2",
+            "code": "LTIME87B",
+            "standingUrl": "https://www.codechef.com/rankings/LTIME87B?order=asc&search=saikeshari&sortBy=rank",
+            "url": "https://www.codechef.com/LTIME87B",
+            "rank": "3673"
+          },
+          {
+            "name": "September Challenge 2020 Division 2",
+            "code": "SEPT20B",
+            "standingUrl": "https://www.codechef.com/rankings/SEPT20B?order=asc&search=saikeshari&sortBy=rank",
+            "url": "https://www.codechef.com/SEPT20B",
+            "rank": "2386"
+          },
+          {
+            "name": "September Cook-Off 2020 Division 2",
+            "code": "COOK122B",
+            "standingUrl": "https://www.codechef.com/rankings/COOK122B?order=asc&search=saikeshari&sortBy=rank",
+            "url": "https://www.codechef.com/COOK122B",
+            "rank": "1299"
+          },
+          {
+            "name": "September Lunchtime 2020 Division 2",
+            "code": "LTIME88B",
+            "standingUrl": "https://www.codechef.com/rankings/LTIME88B?order=asc&search=saikeshari&sortBy=rank",
+            "url": "https://www.codechef.com/LTIME88B",
+            "rank": "3606"
+          },
+          {
+            "name": "October Challenge 2020 Division 2",
+            "code": "OCT20B",
+            "standingUrl": "https://www.codechef.com/rankings/OCT20B?order=asc&search=saikeshari&sortBy=rank",
+            "url": "https://www.codechef.com/OCT20B",
+            "rank": "3306"
+          },
+          {
+            "name": "October Lunchtime 2020 Division 2",
+            "code": "LTIME89B",
+            "standingUrl": "https://www.codechef.com/rankings/LTIME89B?order=asc&search=saikeshari&sortBy=rank",
+            "url": "https://www.codechef.com/LTIME89B",
+            "rank": "4385"
+          },
+          {
+            "name": "InfInITy 2k20 Division 2 (Rated)",
+            "code": "INFY20B",
+            "standingUrl": "https://www.codechef.com/rankings/INFY20B?order=asc&search=saikeshari&sortBy=rank",
+            "url": "https://www.codechef.com/INFY20B",
+            "rank": "696"
+          },
+          {
+            "name": "November Challenge 2020 Division 2",
+            "code": "NOV20B",
+            "standingUrl": "https://www.codechef.com/rankings/NOV20B?order=asc&search=saikeshari&sortBy=rank",
+            "url": "https://www.codechef.com/NOV20B",
+            "rank": "987"
+          },
+          {
+            "name": "December Challenge 2020 Division 2",
+            "code": "DEC20B",
+            "standingUrl": "https://www.codechef.com/rankings/DEC20B?order=asc&search=saikeshari&sortBy=rank",
+            "url": "https://www.codechef.com/DEC20B",
+            "rank": "1240"
+          },
+          {
+            "name": "Byterace IIT Patna Division 2 (Rated)",
+            "code": "BYTR20B",
+            "standingUrl": "https://www.codechef.com/rankings/BYTR20B?order=asc&search=saikeshari&sortBy=rank",
+            "url": "https://www.codechef.com/BYTR20B",
+            "rank": "1653"
+          }
+        ],
+        "status": "OK"
+      },
+      "atcoder": {
+        "error": "You haven't entered Atcoder handle in your Profile. Update Profile Now! "
+      },
+      "uva": {
+        "error": "You haven't entered UVa handle in your Profile. Update Profile Now! "
+      },
+      "spoj": {
+        "error": "You haven't entered Spoj handle in your Profile. Update Profile Now! "
+      }
+    }
+  }

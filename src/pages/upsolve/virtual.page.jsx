@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col'
 import Carousel from 'react-multi-carousel';
 import Navbar from '../../components/headerComponent/Navbar'
-import Footer from '../../components/footerComponent/footer'
+import FooterSmall from '../../components/footerComponent/FooterSmall';
 
 
 
@@ -258,7 +258,7 @@ const Virtual =()=>{
        )})}
 
 
-           <Footer/>
+           <FooterSmall/>
         </>
             )
    
