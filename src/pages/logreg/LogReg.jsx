@@ -2,14 +2,10 @@ import React, { useState} from 'react'
 import './logreg.style.css'
 import Loading from './loading'
 import Navbar from '../../components/headerComponent/Navbar'
-<<<<<<< HEAD
-import Footer from '../../components/footerComponent/footer'
-import eye from '../../assets/eye.png'
-=======
 import FooterSmall from '../../components/footerComponent/FooterSmall';
 import {Link} from 'react-router-dom'
 
->>>>>>> 95e7ae42eb90b6b45fc69dbcdfc1558cccf7cefc
+
 
 
 const LogReg =()=>{
@@ -152,7 +148,7 @@ switchers.forEach((item) => {
               setTogL(!togL)}}>show/hide</button>
           </div>
         </fieldset>
-        <h6 className="errormsgs">{msgL}</h6>
+        <h5 className="errormsgs">{msgL}</h5>
         <button onClick={login} type="submit" className="btn-login">Login</button>
         
       </form>
@@ -195,7 +191,7 @@ switchers.forEach((item) => {
       setTogR(!togR)}}>show/hide</button>
           </div>
         </fieldset>
-    <h6 className="errormsgs">{msgR}</h6>
+    <h5 className="errormsgs">{msgR}</h5>
         <button onClick={register} type="submit" className="btn-signup">Register</button></>
         :<h3 className="errormsgs">{msgR}</h3>}
       </form>
