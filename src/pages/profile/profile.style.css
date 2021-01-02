@@ -1,12 +1,57 @@
+.profileFull{
+    display: flex;
+    margin: 0rem 4rem;
+}
+
+.leftProfile{
+    display: flex;
+    flex-direction: column;
+}
+
+.rightProfile{
+    display: flex;
+    flex-direction: column;
+}
+
+.profileCard{
+    background: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    background-image: url('./images//BgImage.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 23rem;
+    width: 19rem;
+}
+
+.profileImg{
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    margin: 0;
+    margin-top: 3.4rem;
+    margin-left: 1rem;
+}
+
+.profileUsername{
+    margin-left: 1rem;
+    font-size: 1.5rem;
+}
+
+.profileName{
+    margin-left: 1rem;
+    font-size: 1.6rem;
+}
 
 .main-body {
     padding: 15px;
 }
-.card {
+.card1 {
     box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
 }
 
-.card {
+.card1 {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -45,4 +90,12 @@
 }
 .shadow-none {
     box-shadow: none!important;
+}
+
+h6{
+    color: black;
+}
+
+.row{
+    padding: 0;
 }
