@@ -23,7 +23,7 @@ function ProfilePage() {
     const firstTime=creds.first;
 
     const [show,setShow]=useState(true);
-    setTimeout(()=>{setShow(false)},10000);
+
 
 
     useEffect(() => {
@@ -32,6 +32,7 @@ function ProfilePage() {
             res
                 .json()
                 .then(res => setUsers(res))
+                .then(show => setShow(false))
                 .catch(error => setErrors(true));
         }
         fetchData();
