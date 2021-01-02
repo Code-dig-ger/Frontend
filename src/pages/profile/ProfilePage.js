@@ -168,21 +168,9 @@ function ProfilePage() {
                 
         <Footer/>
         
-<<<<<<< HEAD
-             (firstTime===true)?<Info/>:(
-                   <>
-         <Navbar/>
-         {JSON.stringify(user.result.codeforces.handle)}
-         <FooterSmall/>
-         </>
-             )
-         
-     )
-=======
         </>
             
     ) 
->>>>>>> 3079b5ba9924d1bc3ca59c05aeeaa7130a4ddc4e
     
 }
 
