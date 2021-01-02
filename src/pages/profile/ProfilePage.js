@@ -9,7 +9,7 @@ import './profile.style.css'
 import Pie from './pie'
 import Bar from './bar'
 import Navbar from '../../components/headerComponent/Navbar'
-import Footer from '../../components/footerComponent/footer'
+import FooterSmall from '../../components/footerComponent/FooterSmall';
 import Info from './FillInfo'
 
 function ProfilePage() {
@@ -32,12 +32,13 @@ function ProfilePage() {
     });
     return (
         
-             (firstTime===true)?<Info/>:
+             (firstTime===true)?<Info/>:(
                    <>
          <Navbar/>
-         
-         <Footer/>
+         {JSON.stringify(user.result.codeforces.handle)}
+         <FooterSmall/>
          </>
+             )
          
      )
     

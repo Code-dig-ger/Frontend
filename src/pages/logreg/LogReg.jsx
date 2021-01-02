@@ -2,7 +2,7 @@ import React, { useState} from 'react'
 import './logreg.style.css'
 import Loading from './loading'
 import Navbar from '../../components/headerComponent/Navbar'
-import Footer from '../../components/footerComponent/footer'
+import FooterSmall from '../../components/footerComponent/FooterSmall';
 import {Link} from 'react-router-dom'
 
 
@@ -185,7 +185,7 @@ switchers.forEach((item) => {
 </section>
         
       </div>
-       <Footer/></>)
+       <FooterSmall/></>)
       }
     </div>
    

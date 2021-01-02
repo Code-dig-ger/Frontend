@@ -13,6 +13,7 @@
   background-size: cover;
   color: white !important;
   background-color: inherit !important;
+  height: 100vh;
 }
 
 .bigRow:nth-of-type(2n){
@@ -21,6 +22,7 @@
   background-size: cover;
   color: black !important;
   background-color: white !important;
+  height: 100vh;
 }
 
 .row:last-of-type{

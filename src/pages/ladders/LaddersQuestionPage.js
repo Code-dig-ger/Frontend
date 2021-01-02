@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../../components/headerComponent/Navbar';
-import Footer from '../../components/footerComponent/footer';
+import FooterSmall from '../../components/footerComponent/FooterSmall';
 import MainCard from '../../components/MainCard';
 
 import './LaddersQuestionPage.css';
@@ -52,7 +52,7 @@ function LaddersQuestionPage() {
             </div>
             
 
-            <Footer />
+            <FooterSmall />
         </div>
     )
 }

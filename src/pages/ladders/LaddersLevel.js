@@ -4,7 +4,7 @@ import Header from '../../components/headerComponent/Navbar';
 import "./LaddersLevel.css";
 import QuestionCard from '../../components/QuestionCard';
 import LaddersContent from '../../components/LaddersContent';
-import Footer from '../../components/footerComponent/footer';
+import FooterSmall from '../../components/footerComponent/FooterSmall';
 
 
 function LaddersLevel() {
@@ -22,46 +22,54 @@ function LaddersLevel() {
                 <LaddersContent 
                     title='A'
                     des='All Questions should be attempted in this topic.'
+                    type='Level'
                 />
                 <br/>
                 <LaddersContent 
                     title='B'
                     des='All Questions should be attempted in this topic.'
+                    type='Level'
                 />
                 <br/>
                 <LaddersContent 
                     title='C'
                     des='All Questions should be attempted in this topic.'
+                    type='Level'
                 />
                 <br/>
                 <LaddersContent 
                     title='D'
                     des='All Questions should be attempted in this topic.'
+                    type='Level'
                 />
                 <br/>
                 <LaddersContent 
                     title='E'
                     des='All Questions should be attempted in this topic.'
+                    type='Level'
                 />
                 <br/>
                 <LaddersContent 
                     title='F'
                     des='All Questions should be attempted in this topic.'
+                    type='Level'
                 />
                 <br/>
                 <LaddersContent 
                     title='G'
                     des='All Questions should be attempted in this topic.'
+                    type='Level'
                 />
                 <br/>
                 <LaddersContent 
                     title='H'
                     des='All Questions should be attempted in this topic.'
+                    type='Level'
                 />
                 <br/>
                 
             </div>
-            <Footer/>
+            <FooterSmall/>
             </div>)
             }
         </div>
