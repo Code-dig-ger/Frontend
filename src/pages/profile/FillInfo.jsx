@@ -68,9 +68,9 @@ const Info=()=>{
     <h3>{msg}</h3>
            <input onChange={(e)=>setName(e.target.value)} type="text" placeholder="Name" required/>
            <input onChange={(e)=>setCodeforces(e.target.value)} type="text" placeholder="Codeforces" required/>
-           <input onChange={(e)=>setCodechef(e.target.value)} type="text" placeholder="Codechef" required/>
-           <input onChange={(e)=>setAtcoder(e.target.value)} type="text" placeholder="Atcoder" required/>
-           <input onChange={(e)=>setSpoj(e.target.value)} type="text" placeholder="Spoj" required/>
+           <input onChange={(e)=>setCodechef(e.target.value)} type="text" placeholder="Codechef"/>
+           <input onChange={(e)=>setAtcoder(e.target.value)} type="text" placeholder="Atcoder"/>
+           <input onChange={(e)=>setSpoj(e.target.value)} type="text" placeholder="Spoj"/>
            <input onChange={(e)=>setUv(e.target.value)} type="text" placeholder="uva_handle"></input>
            <input onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="password"></input>
            <button type="submit" onClick={handle}>Submit</button>

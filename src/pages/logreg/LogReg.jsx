@@ -3,8 +3,7 @@ import './logreg.style.css'
 import Loading from './loading'
 import Navbar from '../../components/headerComponent/Navbar'
 import Footer from '../../components/footerComponent/footer'
-import {Link} from 'react-router-dom'
-
+import eye from '../../assets/eye.png'
 
 
 const LogReg =()=>{
@@ -14,6 +13,7 @@ const LogReg =()=>{
   const [usernameR,setUsernameR] =useState("");
   const [passwordR,setPassWordR]=useState("");
   const [msgR,setmsgR]=useState("");
+  const [togR,setTogR]=useState(true);
  
   async function register(e){
     e.preventDefault();
@@ -29,10 +29,14 @@ const LogReg =()=>{
         })
         })
           if(response.status===400){
+           
             setmsgR("User already exist");
           }
           else{
-            setmsgR("Successful, we have sent you an email!!");
+            setEmailR("");
+            setPassWordR("");
+            setUsernameR("");
+            setmsgR("Successful, verify your email");
           }
     
     
@@ -43,7 +47,7 @@ const LogReg =()=>{
      const [passwordL,setpasswordL]=useState("");
      const [msgL,setmsgL]=useState("");
      const [first,setFirst] =useState(false);
-  
+     const [togL,setTogL] =useState(true);
 
  
    async  function login(e){
@@ -66,7 +70,10 @@ const LogReg =()=>{
        setmsgL(msg);
       }
       else{
-        setmsgL(`Hello, ${usernameL}`);
+      //  setEmailL("");
+            setpasswordL("");
+            setUserNameL("");
+         setmsgL(`Hello, ${usernameL}`);
         const data=await response.json();
         console.log(data);
 
@@ -81,8 +88,9 @@ const LogReg =()=>{
         if(data.first_time_login===true){
          window.location='/Profile'
         }
-        else
-        window.location='/home'            
+        else{
+        window.location='/home'
+        }            
 
       }
       
@@ -104,10 +112,7 @@ switchers.forEach((item) => {
  
    
       setTimeout(()=>{setShow(false)},1000);
-      function handle(e){
-        e.preventDefault();
-        localStorage.clear();
-      }
+    
 
     return (
       <>
@@ -126,7 +131,7 @@ switchers.forEach((item) => {
         <span className="underline"></span>
       </button>
 
-      <form onSubmit={login} className="form form-login">
+      <form className="form form-login">
         <fieldset>
           <legend>Please, enter your email and password for login.</legend>
           <div className="input-block">
@@ -135,11 +140,14 @@ switchers.forEach((item) => {
           </div>
           <div className="input-block">
             <label for="login-password">Password</label>
-            <input onChange={(e)=>setpasswordL(e.target.value)} id="login-password" className="text-primary" type="password" required/>
+            <input onChange={(e)=>setpasswordL(e.target.value)} id="login-password" className="text-primary" type={(togL)?"password":"text"} required/>
+            <button onClick={e=>{
+              e.preventDefault();
+              setTogL(!togL)}}>show/hide</button>
           </div>
         </fieldset>
-        <h7 className="text-tertiary">{msgL}</h7>
-        <button type="submit" className="btn-login">Login</button>
+        <h6 className="errormsgs">{msgL}</h6>
+        <button onClick={login} type="submit" className="btn-login">Login</button>
         
       </form>
 
@@ -160,26 +168,32 @@ switchers.forEach((item) => {
         Register
         <span className="underline"></span>
       </button>
-
-      <form onSubmit={register} className="form form-signup">
+      
+      <form className="form form-signup">
+      {((msgR==="")||(msgR==="User already exist"))?<>
         <fieldset>
           <legend>Please, enter your email, username and password for sign up.</legend>
           <div className="input-block">
             <label for="signup-email">E-mail</label>
-            <input onChange={(e)=>setEmailR(e.target.value)} id="signup-email" type="email" required/>
+            <input value={emailR} onChange={(e)=>setEmailR(e.target.value)} id="signup-email" type="email" required/>
           </div>
           <div className="input-block">
             <label for="username">Username</label>
-            <input onChange ={(e)=>setUsernameR(e.target.value)} id="username" type="text" required/>
+            <input value={usernameR} onChange ={(e)=>setUsernameR(e.target.value)} id="username" type="text" required/>
           </div>
           <div className="input-block">
             <label for="signup-password">Password</label>
-            <input onChange={(e)=>{setPassWordR(e.target.value)}} id="signup-password" type="password" required/>
+            <input value={passwordR} onChange={(e)=>{setPassWordR(e.target.value)}} id="signup-password" type={(togR)?"password":"text"} required/>
+    <button onClick={e=>{
+      e.preventDefault();
+      setTogR(!togR)}}>show/hide</button>
           </div>
         </fieldset>
-    <h7 className="text-tertiary">{msgR}</h7>
-        <button type="submit" className="btn-signup">Register</button>
+    <h6 className="errormsgs">{msgR}</h6>
+        <button onClick={register} type="submit" className="btn-signup">Register</button></>
+        :<h3 className="errormsgs">{msgR}</h3>}
       </form>
+    
     </div>
   </div>
 </section>

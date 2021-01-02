@@ -9,7 +9,8 @@
   background-size: cover;
   align-self: center;
   background-position: top;
-  background-image: url(http://bit.ly/2gPLxZ4);
+  /* background-image: url(http://bit.ly/2gPLxZ4);*/
+  background-color: rgb(140, 141, 235);
   font-family: Arial, Helvetica;
   letter-spacing: 0.02em;
   font-weight: 400;
@@ -617,5 +618,8 @@
   transform: translateX(30%);
 }
 .alert{
+  color: red;
+}
+.errormsgs{
   color: red;
 }

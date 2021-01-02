@@ -39,3 +39,21 @@ Col{
 .heads{
     text-align: center;
 }
+.flags{
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+.correct{
+    color: green;
+    text-align: center;
+
+}
+.incorrect{
+    color: red;
+   
+}
+.todo{
+    color: blue;
+    
+}

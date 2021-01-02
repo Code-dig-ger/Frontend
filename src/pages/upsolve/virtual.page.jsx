@@ -220,6 +220,11 @@ const Virtual =()=>{
        <>
        <Navbar/><br></br>
         <h5 className="heads">Virtual Contests</h5>
+        <div className="flags">
+        <h5 className="correct">Solved</h5>
+        <h5 className="incorrect">Wrong</h5>
+        <h5 className="todo">Upsolve</h5>
+      </div>
        {result.map((res)=>{
        return(
          <>
