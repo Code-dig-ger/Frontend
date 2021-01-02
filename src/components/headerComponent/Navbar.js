@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router';
 import {
   Collapse,
   Navbar,
@@ -21,7 +22,7 @@ const IndexNavbar = (props) => {
   const toggle = () => setIsOpen(!isOpen);
   const deleteCred = () => {
     localStorage.removeItem('creds');
-    window.location.reload();
+    window.location.assign('/');
   }
 
   var prevScrollpos = window.pageYOffset;
