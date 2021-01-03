@@ -99,3 +99,12 @@ h6{
 .row{
     padding: 0;
 }
+
+.handleName{
+    color: black !important;
+}
+
+.handlesItem{
+    padding: 0.75rem 1.25rem;
+    color: black;
+}

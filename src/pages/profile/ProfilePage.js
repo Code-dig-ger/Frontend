@@ -1,9 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Loading from '../logreg/loading'
 import { Container } from 'react-bootstrap';
-import Codeforces from './images/codeforces2.png'
-import Codechef from './images/codechef2.png'
-import Atcoder from './images/atcoder2.png'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import './profile.style.css'
@@ -12,7 +9,12 @@ import Bar from './bar'
 import Navbar from '../../components/headerComponent/Navbar'
 import FooterSmall from '../../components/footerComponent/FooterSmall';
 import Info from './FillInfo'
-import demoImg from './images/demoImage.png'
+import demoImg from './images/demoImage.png';
+import CodeforcesImg from '../../assets/codeforces.png';
+import CodechefImg from '../../assets/codechef.png';
+import SpojImg from '../../assets/spoj.png';
+import UAVImg from '../../assets/uva_online_judge.png';
+import AtcoderImg from '../../assets/atcoder.png';
 // import user from './profileDat.json'
 
 function ProfilePage() {
@@ -68,32 +70,34 @@ function ProfilePage() {
                                     <div className="mt-3">
                                     <h4 style={{color:"black"}}>{user.result.codechef.name}</h4>
                                     <p className="text-secondary mb-1">{uu}</p>
-                                    <p className="text-muted font-size-sm">{user.result.codeforces.rank} Coder</p>
                                     </div>
                                 </div>
                                 </div>
-                            </div>
-                            <div className="card1 mt-3">
                                 <ul className="list-group list-group-flush">
-                                <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <li className="d-flex justify-content-between align-items-center flex-wrap handlesItem">
+                                    <img style={{height:"1rem", width:"6rem", marginRight:"0"}} src={CodeforcesImg}></img>
                                     <h6 className="mb-0">Codeforces</h6>
-                                    <span className="text-secondary">{user.result.codeforces.handle}</span>
+                                    <span className="text-secondary">{user.result.codeforces.status==="OK" ? <a className="handleName" href={"https://codeforces.com/profile/" + user.result.codeforces.handle}>{user.result.codeforces.handle}</a> : "NA"}</span>
                                 </li>
-                                <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <li className="d-flex justify-content-between align-items-center flex-wrap handlesItem">
+                                    <img style={{height:"2rem", width:"2rem", marginRight:"3.3rem"}} src={CodechefImg}></img>
                                     <h6 className="mb-0">Codechef</h6>
-                                    <span className="text-secondary">{user.result.codechef.handle}</span>
+                                    <span className="text-secondary">{user.result.codechef.status==="OK" ? <a className="handleName" href={"https://codechef.com/users/" + user.result.codechef.handle}>{user.result.codechef.handle}</a> : "NA"}</span>
                                 </li>
-                                <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <li className="d-flex justify-content-between align-items-center flex-wrap handlesItem">
+                                    <img style={{height:"1rem", width:"7rem", marginRight:"-5.8rem"}} src={SpojImg}></img>
                                     <h6 className="mb-0">SPOJ</h6>
-                                    <span className="text-secondary">{user.result.spoj.error}</span>
+                                    <span className="text-secondary">{user.result.spoj.status==="OK" ? <a className="handleName" href={"https://spoj.com/users/" + user.result.spoj.handle}>{user.result.spoj.handle}</a> : "NA"}</span>
                                 </li>
-                                <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <li className="d-flex justify-content-between align-items-center flex-wrap handlesItem">
+                                    <img style={{height:"2rem", width:"2rem", marginRight:"-0.8rem"}} src={UAVImg}></img>
                                     <h6 className="mb-0">UVA</h6>
-                                    <span className="text-secondary">{user.result.uva.error}</span>
+                                    <span className="text-secondary">{user.result.uva.status==="OK" ? user.result.uva.handle : "NA"}</span>
                                 </li>
-                                <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <li className="d-flex justify-content-between align-items-center flex-wrap handlesItem">
+                                    <img style={{height:"2rem", width:"2rem", marginRight:"0"}} src={AtcoderImg}></img>
                                     <h6 className="mb-0">Atcoder</h6>
-                                    <span className="text-secondary">{user.result.atcoder.error}</span>
+                                    <span className="text-secondary">{user.result.atcoder.status==="OK" ? <a className="handleName" href={"https://atcoder.com/users/" + user.result.atcoder.handle}>{user.result.atcoder.handle}</a> : "NA"}</span>
                                 </li>
                                 </ul>
                             </div>
@@ -101,9 +105,13 @@ function ProfilePage() {
                             <div className="col-md-8">
                             <div className="card1 mb-3">
                                 <div className="card-body" style={{color:"black"}}>
+                                    <div style={{display:"flex"}}>
+                                        <span><img style={{height:"1rem", width:"6rem", float:"left", marginRight:"0"}} src={CodeforcesImg}></img></span>
+                                        <span style={{marginLeft:"14rem"}}>saikeshari</span>
+                                    </div>
                                     <div>
-                                        CODEFORCES
-                                    </div>                                
+                                        
+                                    </div>                               
                                 </div>
                             </div>
                             <div className="row gutters-sm">

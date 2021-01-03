@@ -4,7 +4,7 @@ import Loading from './loading'
 import Navbar from '../../components/headerComponent/Navbar'
 import FooterSmall from '../../components/footerComponent/FooterSmall';
 import {Link} from 'react-router-dom'
-import Eye from '../../assets/Eye.png'
+import Eye from '../../assets/eye.png'
 
 
 
