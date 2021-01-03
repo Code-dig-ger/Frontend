@@ -4,6 +4,7 @@ import Loading from './loading'
 import Navbar from '../../components/headerComponent/Navbar'
 import FooterSmall from '../../components/footerComponent/FooterSmall';
 import {Link} from 'react-router-dom'
+import Eye from '../../assets/Eye.png'
 
 
 
@@ -142,10 +143,12 @@ switchers.forEach((item) => {
           </div>
           <div className="input-block">
             <label for="login-password">Password</label>
-            <input onChange={(e)=>setpasswordL(e.target.value)} id="login-password" className="text-primary" type={(togL)?"password":"text"} required/>
-            <button onClick={e=>{
+           
+            <input onChange={(e)=>setpasswordL(e.target.value)} id="login-password" className="text-primary" type={(togL)?"password":"text"} required></input>
+           
+            <span  class="field-icon toggle-password"><img onClick={e=>{
               e.preventDefault();
-              setTogL(!togL)}}>show/hide</button>
+              setTogL(!togL)}} className="eye" src={Eye}></img></span>
           </div>
         </fieldset>
         <h5 className="errormsgs">{msgL}</h5>
@@ -186,9 +189,9 @@ switchers.forEach((item) => {
           <div className="input-block">
             <label for="signup-password">Password</label>
             <input value={passwordR} onChange={(e)=>{setPassWordR(e.target.value)}} id="signup-password" type={(togR)?"password":"text"} required/>
-    <button onClick={e=>{
-      e.preventDefault();
-      setTogR(!togR)}}>show/hide</button>
+            <span  class="field-icon toggle-password"><img onClick={e=>{
+              e.preventDefault();
+              setTogR(!togR)}} className="eye" src={Eye}></img></span>
           </div>
         </fieldset>
     <h5 className="errormsgs">{msgR}</h5>

@@ -563,7 +563,27 @@
   font-weight: bold;
   color: aliceblue;
 }
+.eye{
+  width:30px;
+  height:30px;
 
+  
+
+}
+.passTog{
+  border-radius: 80px;
+  background-color:white;
+  padding-bottom: 3px;
+  
+} 
+.field-icon {
+  float: right;
+  margin-left: -25px;
+ margin-top: -38px;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 5px;
+}
 .input-block input {
   display: block;
   width: 100%;
