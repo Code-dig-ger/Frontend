@@ -15,30 +15,59 @@ import CodechefImg from '../../assets/codechef.png';
 import SpojImg from '../../assets/spoj.png';
 import UAVImg from '../../assets/uva_online_judge.png';
 import AtcoderImg from '../../assets/atcoder.png';
-// import user from './profileDat.json'
+import user from './profileDat.json';
 
 function ProfilePage() {
-    const [user, setUsers] = useState({});
+    // const [user, setUsers] = useState({});
     const [error, setErrors] = useState(false);
     const creds= JSON.parse(localStorage.getItem("creds"));
     const uu=creds.username;
     const firstTime=creds.first;
 
-    const [show,setShow]=useState(true);
+    const [show,setShow]=useState(false);
+
+    const func = () => {
+        var testimonialItems = document.querySelectorAll(".item label");
+      var timer;
+      const cycleTestimonials = (index) => {
+         timer = setTimeout(function() {
+          var evt;
+          evt = new MouseEvent("click", {
+            view: window,
+            bubbles: true,
+            cancelable: true,
+            clientX: 20
+          });
+          var ele = "." + testimonialItems[index].className;
+          var ele2 = document.querySelector(ele);
+          ele2.dispatchEvent(evt);
+          index++; // Increment the index
+          if (index >= testimonialItems.length) {
+            index = 0; // Set it back to `0` when it reaches `3`
+          }
+          cycleTestimonials(index); // recursively call `cycleTestimonials()`
+          document.querySelector(".testimonials").addEventListener("click", function() {
+            clearTimeout(timer); //stop the carousel when someone clicks on the div
+          });
+        }, 2000); //adjust scroll speed in miliseconds
+      }
+      //run the function
+      cycleTestimonials(0);
+      }
 
 
 
-    useEffect(() => {
-        async function fetchData(){
-            const res = await fetch(`https://api.codedigger.tech/auth/profile/${uu}/`);
-            res
-                .json()
-                .then(res => setUsers(res))
-                .then(show => setShow(false))
-                .catch(error => setErrors(true));
-        }
-        fetchData();
-    });
+    // useEffect(() => {
+    //     async function fetchData(){
+    //         const res = await fetch(`https://api.codedigger.tech/auth/profile/${uu}/`);
+    //         res
+    //             .json()
+    //             .then(res => setUsers(res))
+    //             .then(show => setShow(false))
+    //             .catch(error => setErrors(true));
+    //     }
+    //     fetchData();
+    // });
 
         return (
         
@@ -109,6 +138,57 @@ function ProfilePage() {
                                         <span><img style={{height:"1rem", width:"6rem", float:"left", marginRight:"0"}} src={CodeforcesImg}></img></span>
                                         <span style={{marginLeft:"14rem"}}>saikeshari</span>
                                     </div>
+                                    <div className="bigRow" style={{height:"fit-content"}}>
+                                    <div id="flex-container" class="testimonials">
+                                <div id="left-zone">
+                                <ul class="list">
+                                    <li class="item">
+                                    <input type="radio" id="radio_testimonial-1" name="basic_carousel" checked="checked" />
+                                    <label class="label_testimonial-1" for="radio_testimonial-1">1</label>
+                                    <div class="content-test content_testimonial-1">
+                                        <h1>Diamond Pest Elimination</h1>
+                                        <p>“The team really takes pride in their work. If I didn’t know any better I would think they actually worked for my company.”</p>
+                                        <p class="testimonialFrom">Bill, Owner</p>
+                                        <p class="testimonialState">Rochester, NY</p>
+                                    </div>
+                                    </li>
+                                    <li class="item">
+                                    <input type="radio" id="radio_testimonial-2" name="basic_carousel" />
+                                    <label class="label_testimonial-2" for="radio_testimonial-2">A+ Handyman Service</label>
+                                    <div class="content-test content_testimonial-2">
+                                        <h1>A+ Handyman Service</h1>
+                                        <p>“Quite simply… the service offers prompt response time to my visitors and helps me to better know what type of project a potential customer wants.”</p>
+                                        <p class="testimonialFrom">Bill, Owner</p>
+                                        <p class="testimonialState">Tucson, AZ</p>
+                                        <br/>
+                                    </div>
+                                    </li>
+                                    <li class="item">
+                                    <input type="radio" id="radio_testimonial-3" name="basic_carousel" />
+                                    <label class="label_testimonial-3" for="radio_testimonial-3">Mod Movers</label>
+                                    <div class="content-test content_testimonial-3">
+                                        <h1>Mod Movers</h1>
+                                        <p>“I couldn’t believe it. I actually had to hire someone to help me keep up with the new business. I had no idea my website had so much value.”</p>
+                                        <p class="testimonialFrom">Marlene, Owner</p>
+                                        <p class="testimonialState">Monterey, CA</p>
+                                    </div>
+                                    </li>
+                                    <li class="item">
+                                    <input type="radio" id="radio_testimonial-4" name="basic_carousel" />
+                                    <label class="label_testimonial-4" for="radio_testimonial-4">AK Pest Control</label>
+                                    <div class="content-test content_testimonial-4">
+                                        <h1>AK Pest Control</h1>
+                                        <p>Great company to send leads. Very efficient and pleased with the services. We get lots of leads and that whats important. Support is also great from the managers/support. Thanks YPC Chat</p>
+                                        <p class="testimonialFrom">Mark, Owner</p>
+                                        <p class="testimonialState">Somerset, VA</p>
+                                        <br/>
+                                    </div>
+                                    </li>
+                                </ul>
+                                </div>
+                                <div id="right-zone"></div>
+                            </div>
+                            </div>
                                     <div>
                                         
                                     </div>                               

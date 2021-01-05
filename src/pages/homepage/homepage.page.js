@@ -41,6 +41,8 @@ const cycleTestimonials = (index) => {
 cycleTestimonials(0);
 }
 
+// background-image: url('./images//BgImage.jpg');
+
 const Homepage = () => {
   AOS.init();
 
