@@ -3,14 +3,17 @@ import './logreg.style.css'
 import Loading from './loading'
 import Navbar from '../../components/headerComponent/Navbar'
 import FooterSmall from '../../components/footerComponent/FooterSmall';
-import {Link} from 'react-router-dom'
-import Eye from '../../assets/eye.png'
 
+import Eye from '../../assets/Eye.png'
 
+import Validate from '../../Validate'
 
 
 const LogReg =()=>{
-
+   
+  if(localStorage.getItem("creds")){
+    Validate();
+  }
   //states and handler for register
   const [emailR,setEmailR]=useState("");
   const [usernameR,setUsernameR] =useState("");
@@ -155,6 +158,7 @@ switchers.forEach((item) => {
         <button onClick={login} type="submit" className="btn-login">Login</button>
         
       </form>
+     
 
     </div>
     <div class="form-wrapper">

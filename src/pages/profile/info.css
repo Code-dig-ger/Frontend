@@ -1,0 +1,17 @@
+.myform{
+    display: block;
+    margin: auto;
+    text-align: center;
+    border: 2px solid white;
+}
+.inputs{
+    border: 2px solid blue;
+    border-radius: 10px;
+    margin: 6px;
+    text-align: center;
+}
+.mybtn{
+    background-color: blue;
+    border-radius: 10px;
+    color: white;
+}

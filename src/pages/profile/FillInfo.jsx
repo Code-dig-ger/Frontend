@@ -1,7 +1,7 @@
 import React ,{useState} from 'react'
-
-
-  
+import './info.css'
+import Button from 'react-bootstrap/Button'
+  import Form from 'react-bootstrap/Form'
 
 
 const Info=()=>{
@@ -15,9 +15,10 @@ const Info=()=>{
          const [password,setPassword]=useState("");
          const [msg,setMsg]=useState("Create Your Profile");
          const [user,setUser]=useState("");
-
+         const [show,setShow]=useState(false);
     async function handle(e){
         e.preventDefault();
+        setShow(true);
         const creds=await JSON.parse(localStorage.getItem("creds"));
         const acc=creds.access;
         const ref=creds.refresh;
@@ -54,28 +55,31 @@ const Info=()=>{
     
         }))
         console.log(localStorage.getItem("creds"));
+        //setTimeout(1000,setShow(false));
+
         setMsg("Successful.....");
         window.location='/profile'
     }
     else{
+        //setTimeout(setShow(false));
         setMsg("Invalid Information")
     }
     }
     return(
         <>
       
-       <form>
-    <h3>{msg}</h3>
-           <input onChange={(e)=>setName(e.target.value)} type="text" placeholder="Name" required/>
-           <input onChange={(e)=>setCodeforces(e.target.value)} type="text" placeholder="Codeforces" required/>
-           <input onChange={(e)=>setCodechef(e.target.value)} type="text" placeholder="Codechef"/>
-           <input onChange={(e)=>setAtcoder(e.target.value)} type="text" placeholder="Atcoder"/>
-           <input onChange={(e)=>setSpoj(e.target.value)} type="text" placeholder="Spoj"/>
-           <input onChange={(e)=>setUv(e.target.value)} type="text" placeholder="uva_handle"></input>
-           <input onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="password"></input>
-           <button type="submit" onClick={handle}>Submit</button>
+       <Form className="myform">
+<h3>{msg}</h3>
+           <input className="inputs" onChange={(e)=>setName(e.target.value)} type="text" placeholder="Name" required/><br></br>
+           <input className="inputs" onChange={(e)=>setCodeforces(e.target.value)} type="text" placeholder="Codeforces" required/><br></br>
+           <input className="inputs" onChange={(e)=>setCodechef(e.target.value)} type="text" placeholder="Codechef"/><br></br>
+           <input className="inputs" onChange={(e)=>setAtcoder(e.target.value)} type="text" placeholder="Atcoder"/><br></br>
+           <input className="inputs" onChange={(e)=>setSpoj(e.target.value)} type="text" placeholder="Spoj"/><br></br>
+           <input className="inputs" onChange={(e)=>setUv(e.target.value)} type="text" placeholder="uva_handle"></input><br></br>
+           <input className="inputs" onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="password"></input><br></br>
+           <button className="mybtn" type="submit" onClick={handle}>Submit</button>
            
-       </form>
+       </Form>
      
       </>
     )

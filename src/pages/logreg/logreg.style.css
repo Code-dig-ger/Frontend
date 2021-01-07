@@ -609,6 +609,13 @@
   border: none;
   transition: all 0.3s ease-out;
 }
+.form-login{
+  margin-bottom: 100px;
+  margin-top: 60px;
+}
+.btn-login{
+  margin-bottom: 30px;
+}
 
 .form-wrapper.is-active .form [type="submit"] {
   opacity: 1;
