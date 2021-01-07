@@ -15,45 +15,99 @@ import CodechefImg from '../../assets/codechef.png';
 import SpojImg from '../../assets/spoj.png';
 import UAVImg from '../../assets/uva_online_judge.png';
 import AtcoderImg from '../../assets/atcoder.png';
-import user from './profileDat.json';
+// import user from './profileDat.json';
+import $ from 'jquery';
 
 function ProfilePage() {
-    // const [user, setUsers] = useState({});
+    const [user, setUsers] = useState({});
     const [error, setErrors] = useState(false);
     const creds= JSON.parse(localStorage.getItem("creds"));
     const uu=creds.username;
     const firstTime=creds.first;
 
-    const [show,setShow]=useState(false);
+    const [codeforcesDat, setCodeforcesDat] = useState();
+    const [codechefDat, setCodechefDat] = useState();
+    const [atcoderDat, setAtcodercesDat] = useState();
+    const [spojDat, setSpojDat] = useState();
+    const [uvaDat, setUvaDat] = useState();
 
-    const func = () => {
-        var testimonialItems = document.querySelectorAll(".item label");
-      var timer;
-      const cycleTestimonials = (index) => {
-         timer = setTimeout(function() {
-          var evt;
-          evt = new MouseEvent("click", {
-            view: window,
-            bubbles: true,
-            cancelable: true,
-            clientX: 20
-          });
-          var ele = "." + testimonialItems[index].className;
-          var ele2 = document.querySelector(ele);
-          ele2.dispatchEvent(evt);
-          index++; // Increment the index
-          if (index >= testimonialItems.length) {
-            index = 0; // Set it back to `0` when it reaches `3`
-          }
-          cycleTestimonials(index); // recursively call `cycleTestimonials()`
-          document.querySelector(".testimonials").addEventListener("click", function() {
-            clearTimeout(timer); //stop the carousel when someone clicks on the div
-          });
-        }, 2000); //adjust scroll speed in miliseconds
-      }
-      //run the function
-      cycleTestimonials(0);
-      }
+    const [codeforcesStatus, setCodeforcesStatus] = useState(true);
+    const [codechefStatus, setCodechefStatus] = useState(true);
+    const [atcoderStatus, setAtcodercesStatus] = useState(true);
+    const [spojStatus, setSpojStatus] = useState(true);
+    const [uvaStatus, setUvaStatus] = useState(true);
+
+    const [show,setShow]=useState(true);
+
+    useEffect(() => {
+
+        // jQuery.
+        $(function() {
+            // Reference the tab links.
+            const tabLinks = $('#tab-links li a');
+            
+            // Handle link clicks.
+            tabLinks.click(function(event) {
+                var $this = $(this);
+                
+                // Prevent default click behaviour.
+                event.preventDefault();
+                
+                // Remove the active class from the active link and section.
+                $('#tab-links a.active, section.active').removeClass('active');
+                
+                // Add the active class to the current link and corresponding section.
+                $this.addClass('active');
+                $($this.attr('href')).addClass('active');
+            });
+        });
+
+        async function fetchData(){
+
+            const res = await fetch(`https://api.codedigger.tech/auth/profile/${uu}/`);
+            res
+                .json()
+                .then(res => setUsers(res))
+                .then(show => setShow(false))
+                .catch(error => setErrors(true));
+
+            const res1 = await fetch(`https://api.codedigger.tech/auth/profile/${uu}/?platform=codeforces`);
+            res1
+                .json()
+                .then(res => setCodeforcesDat(res))
+                .then(show => setCodeforcesStatus(false))
+                .catch(error => setErrors(true));
+
+            const res2 = await fetch(`https://api.codedigger.tech/auth/profile/${uu}/?platform=codechef`);
+            res2
+                .json()
+                .then(res => setCodechefDat(res))
+                .then(show => setCodechefDat(false))
+                .catch(error => setErrors(true));
+
+            const res3 = await fetch(`https://api.codedigger.tech/auth/profile/${uu}/?platform=atcoder`);
+            res3
+                .json()
+                .then(res => setAtcodercesDat(res))
+                .then(show => setAtcodercesStatus(false))
+                .catch(error => setErrors(true));
+            
+            const res4 = await fetch(`https://api.codedigger.tech/auth/profile/${uu}/?platform=spoj`);
+            res4
+                .json()
+                .then(res => setSpojDat(res))
+                .then(show => setSpojStatus(false))
+                .catch(error => setErrors(true));
+
+            const res5 = await fetch(`https://api.codedigger.tech/auth/profile/${uu}/?platform=uva`);
+            res5
+                .json()
+                .then(res => setUvaDat(res))
+                .then(show => setUvaStatus(false))
+                .catch(error => setErrors(true));   
+        }
+        fetchData();
+    })
 
 
 
@@ -75,7 +129,12 @@ function ProfilePage() {
                   (show==true) ? <Loading /> : 
                   <>
         <Navbar/>
-        {console.log(user.result)}
+        {console.log(user)}
+        {console.log(codeforcesDat)}
+        {console.log(codechefDat)}
+        {console.log(spojDat)}
+        {console.log(uvaDat)}
+        {console.log(atcoderDat)}
            {/* <div className="profileFull">
                <div className="leftProfile">
                    <div className="profileCard">
@@ -97,7 +156,7 @@ function ProfilePage() {
                                 <div className="d-flex flex-column align-items-center text-center">
                                     <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" className="rounded-circle" style={{height:"8rem", width:"8rem"}} width="150" />
                                     <div className="mt-3">
-                                    <h4 style={{color:"black"}}>{user.result.codechef.name}</h4>
+                                    <h4 style={{color:"black"}}>{user.result.name}</h4>
                                     <p className="text-secondary mb-1">{uu}</p>
                                     </div>
                                 </div>
@@ -106,27 +165,27 @@ function ProfilePage() {
                                 <li className="d-flex justify-content-between align-items-center flex-wrap handlesItem">
                                     <img style={{height:"1rem", width:"6rem", marginRight:"0"}} src={CodeforcesImg}></img>
                                     <h6 className="mb-0">Codeforces</h6>
-                                    <span className="text-secondary">{user.result.codeforces.status==="OK" ? <a className="handleName" href={"https://codeforces.com/profile/" + user.result.codeforces.handle}>{user.result.codeforces.handle}</a> : "NA"}</span>
+                                    <span className="text-secondary">{user.result.codeforces !="" ? <a className="handleName" href={"https://codeforces.com/profile/" + user.result.codeforces}>{user.result.codeforces}</a> : "NA"}</span>
                                 </li>
                                 <li className="d-flex justify-content-between align-items-center flex-wrap handlesItem">
                                     <img style={{height:"2rem", width:"2rem", marginRight:"3.3rem"}} src={CodechefImg}></img>
                                     <h6 className="mb-0">Codechef</h6>
-                                    <span className="text-secondary">{user.result.codechef.status==="OK" ? <a className="handleName" href={"https://codechef.com/users/" + user.result.codechef.handle}>{user.result.codechef.handle}</a> : "NA"}</span>
+                                    <span className="text-secondary">{user.result.codechef !="" ? <a className="handleName" href={"https://codechef.com/users/" + user.result.codechef}>{user.result.codechef}</a> : "NA"}</span>
                                 </li>
                                 <li className="d-flex justify-content-between align-items-center flex-wrap handlesItem">
                                     <img style={{height:"1rem", width:"7rem", marginRight:"-5.8rem"}} src={SpojImg}></img>
                                     <h6 className="mb-0">SPOJ</h6>
-                                    <span className="text-secondary">{user.result.spoj.status==="OK" ? <a className="handleName" href={"https://spoj.com/users/" + user.result.spoj.handle}>{user.result.spoj.handle}</a> : "NA"}</span>
+                                    <span className="text-secondary">{user.result.spoj !="" ? <a className="handleName" href={"https://spoj.com/users/" + user.result.spoj}>{user.result.spoj}</a> : "NA"}</span>
                                 </li>
                                 <li className="d-flex justify-content-between align-items-center flex-wrap handlesItem">
                                     <img style={{height:"2rem", width:"2rem", marginRight:"-0.8rem"}} src={UAVImg}></img>
                                     <h6 className="mb-0">UVA</h6>
-                                    <span className="text-secondary">{user.result.uva.status==="OK" ? user.result.uva.handle : "NA"}</span>
+                                    <span className="text-secondary">{user.result.uva_handle !="" ? <a className="handleName" href={"https://uva.com/users/" + user.result.uva_handle}>{user.result.uva_handle}</a> : "NA"}</span>
                                 </li>
                                 <li className="d-flex justify-content-between align-items-center flex-wrap handlesItem">
                                     <img style={{height:"2rem", width:"2rem", marginRight:"0"}} src={AtcoderImg}></img>
                                     <h6 className="mb-0">Atcoder</h6>
-                                    <span className="text-secondary">{user.result.atcoder.status==="OK" ? <a className="handleName" href={"https://atcoder.com/users/" + user.result.atcoder.handle}>{user.result.atcoder.handle}</a> : "NA"}</span>
+                                    <span className="text-secondary">{user.result.atcoder !="" ? <a className="handleName" href={"https://atcoder.com/users/" + user.result.atcoder}>{user.result.atcoder}</a> : "NA"}</span>
                                 </li>
                                 </ul>
                             </div>
@@ -138,60 +197,58 @@ function ProfilePage() {
                                         <span><img style={{height:"1rem", width:"6rem", float:"left", marginRight:"0"}} src={CodeforcesImg}></img></span>
                                         <span style={{marginLeft:"14rem"}}>saikeshari</span>
                                     </div>
-                                    <div className="bigRow" style={{height:"fit-content"}}>
-                                    <div id="flex-container" class="testimonials">
-                                <div id="left-zone">
-                                <ul class="list">
-                                    <li class="item">
-                                    <input type="radio" id="radio_testimonial-1" name="basic_carousel" checked="checked" />
-                                    <label class="label_testimonial-1" for="radio_testimonial-1">1</label>
-                                    <div class="content-test content_testimonial-1">
-                                        <h1>Diamond Pest Elimination</h1>
-                                        <p>“The team really takes pride in their work. If I didn’t know any better I would think they actually worked for my company.”</p>
-                                        <p class="testimonialFrom">Bill, Owner</p>
-                                        <p class="testimonialState">Rochester, NY</p>
+
+                                    {codeforcesStatus===true?<>
+
+                                        <div class="body2">
+                                            <div id="container">
+                                            <div class="divider" aria-hidden="true"></div>
+                                            <p class="loading-text" aria-label="Loading">
+                                                <span class="letter" aria-hidden="true">L</span>
+                                                <span class="letter" aria-hidden="true">o</span>
+                                                <span class="letter" aria-hidden="true">a</span>
+                                                <span class="letter" aria-hidden="true">d</span>
+                                                <span class="letter" aria-hidden="true">i</span>
+                                                <span class="letter" aria-hidden="true">n</span>
+                                                <span class="letter" aria-hidden="true">g</span>
+                                            </p>
+                                            </div>
+                                            </div>
+                                        </> :<> <div style={{marginTop:"20px"}}>
+                                        <div>Current Rating : {codeforcesDat.result.rating}</div>
+                                        <div>Max Rating : {codeforcesDat.result.maxRating}</div>
                                     </div>
-                                    </li>
-                                    <li class="item">
-                                    <input type="radio" id="radio_testimonial-2" name="basic_carousel" />
-                                    <label class="label_testimonial-2" for="radio_testimonial-2">A+ Handyman Service</label>
-                                    <div class="content-test content_testimonial-2">
-                                        <h1>A+ Handyman Service</h1>
-                                        <p>“Quite simply… the service offers prompt response time to my visitors and helps me to better know what type of project a potential customer wants.”</p>
-                                        <p class="testimonialFrom">Bill, Owner</p>
-                                        <p class="testimonialState">Tucson, AZ</p>
-                                        <br/>
-                                    </div>
-                                    </li>
-                                    <li class="item">
-                                    <input type="radio" id="radio_testimonial-3" name="basic_carousel" />
-                                    <label class="label_testimonial-3" for="radio_testimonial-3">Mod Movers</label>
-                                    <div class="content-test content_testimonial-3">
-                                        <h1>Mod Movers</h1>
-                                        <p>“I couldn’t believe it. I actually had to hire someone to help me keep up with the new business. I had no idea my website had so much value.”</p>
-                                        <p class="testimonialFrom">Marlene, Owner</p>
-                                        <p class="testimonialState">Monterey, CA</p>
-                                    </div>
-                                    </li>
-                                    <li class="item">
-                                    <input type="radio" id="radio_testimonial-4" name="basic_carousel" />
-                                    <label class="label_testimonial-4" for="radio_testimonial-4">AK Pest Control</label>
-                                    <div class="content-test content_testimonial-4">
-                                        <h1>AK Pest Control</h1>
-                                        <p>Great company to send leads. Very efficient and pleased with the services. We get lots of leads and that whats important. Support is also great from the managers/support. Thanks YPC Chat</p>
-                                        <p class="testimonialFrom">Mark, Owner</p>
-                                        <p class="testimonialState">Somerset, VA</p>
-                                        <br/>
-                                    </div>
-                                    </li>
-                                </ul>
-                                </div>
-                                <div id="right-zone"></div>
-                            </div>
-                            </div>
-                                    <div>
-                                        
-                                    </div>                               
+                                    
+
+                                    <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
+                                    <div style={{height:"10rem", width:"12rem", border:"2px solid black"}}></div>
+                                        <div class="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px"}}>
+                                            <ul id="tab-links" style={{marginBottom:"0", height:"160px", border:"1px solid red"}}>
+                                                <li><a href="#tab-1" class="active" title="Code">1</a></li>
+                                                <li><a href="#tab-2" title="Graphic Design &amp; Illustration">2</a></li>
+                                                <li><a href="#tab-3" title="Web Design">3</a></li>
+                                            </ul>
+                                            
+                                            <section id="tab-1" class="active">
+                                                <h3>Code</h3>
+                                                
+                                                <p>Thousands of free tutorials and online courses to help you learn software development from mobile devices to web applications and everything in between.</p>
+                                            </section>
+                                            
+                                            <section id="tab-2">
+                                                <h3>Graphic Design &amp; Illustration</h3>
+                                                
+                                                <p>Keep up to date or learn a new skill with our graphic design and illustration content.</p>
+                                            </section>
+                                            
+                                            <section id="tab-3">
+                                                <h3>Web Design</h3>
+                                                
+                                                <p>Free tutorials, learning guides, and online courses to help you learn web design.</p>
+                                            </section>
+                                        </div>
+                                        </div> </>}
+
                                 </div>
                             </div>
                             <div className="row gutters-sm">
