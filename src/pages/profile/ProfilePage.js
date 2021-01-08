@@ -221,9 +221,15 @@ function ProfilePage() {
                                     
 
                                     <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
-                                    <div style={{height:"10rem", width:"12rem", border:"2px solid black"}}></div>
+                                    <div style={{height:"10rem", width:"12rem", border:"2px solid black"}}>
+                                    <div>
+                                <div class="outerCircle"></div>
+                                <div class="innerCircle"></div>
+                                <div class="icon"></div>
+                                </div>
+                                    </div>
                                         <div class="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px"}}>
-                                            <ul id="tab-links" style={{marginBottom:"0", height:"160px", border:"1px solid red"}}>
+                                            <ul id="tab-links" style={{marginBottom:"0", height:"160px"}}>
                                                 <li><a href="#tab-1" class="active" title="Code">1</a></li>
                                                 <li><a href="#tab-2" title="Graphic Design &amp; Illustration">2</a></li>
                                                 <li><a href="#tab-3" title="Web Design">3</a></li>
