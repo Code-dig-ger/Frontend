@@ -650,3 +650,10 @@
 .errormsgs{
   color: red;
 }
+.btn-setPass{
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px;
+  margin-left: 55px;
+  background-color: red;
+}

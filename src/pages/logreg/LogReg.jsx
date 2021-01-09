@@ -10,10 +10,10 @@ import Validate from '../../Validate'
 
 
 const LogReg =()=>{
-   
   if(localStorage.getItem("creds")){
     Validate();
   }
+  
   //states and handler for register
   const [emailR,setEmailR]=useState("");
   const [usernameR,setUsernameR] =useState("");
@@ -67,41 +67,52 @@ const LogReg =()=>{
          "username":usernameL,
          "password":passwordL
       })
-      })
-      if(response.status===401){
-    //  setmsgL("Invalid");
+      })// 400--> chars
+      //
+    if(response.status===200){
+        setpasswordL("");
+        setUserNameL("");
+     setmsgL(`Hello, ${usernameL}`);
+    const data=await response.json();
+    console.log(data);
+    
+    localStorage.setItem("creds",JSON.stringify({
+     
+      access:data.tokens.access,
+      refresh:data.tokens.refresh,
+      first:data.first_time_login,
+      username:usernameL
+
+    }));
+    if(data.first_time_login===true){
+     window.location='/Profile'
+    }
+    else{
+    window.location='/home'
+    }            
+
+   
+      }
+      else if(response.status==401){
+      //  setmsgL("Invalid");
       const errorData=await response.json();
       console.log(errorData);
       const msg=errorData.detail;
        setmsgL(msg);
       }
-      else{
-      //  setEmailL("");
-            setpasswordL("");
-            setUserNameL("");
-         setmsgL(`Hello, ${usernameL}`);
-        const data=await response.json();
-        console.log(data);
-
-        localStorage.setItem("creds",JSON.stringify({
-         
-          access:data.tokens.access,
-          refresh:data.tokens.refresh,
-          first:data.first_time_login,
-          username:usernameL
-
-        }));
-        if(data.first_time_login===true){
-         window.location='/Profile'
-        }
-        else{
-        window.location='/home'
-        }            
-
-      }
+      else {
+        setmsgL("Set fields carefully");
+      }    
       
-    }       
+      
+         
 
+      
+   }
+    //func for forgot password
+    async function forgotPass(e){
+      console.log("change pass");
+    }
 
     
    
@@ -156,6 +167,7 @@ switchers.forEach((item) => {
         </fieldset>
         <h5 className="errormsgs">{msgL}</h5>
         <button onClick={login} type="submit" className="btn-login">Login</button>
+        <button onClick={forgotPass} className="btn-setPass">Forgot Password ?</button>
         
       </form>
      

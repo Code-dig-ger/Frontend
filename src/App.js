@@ -18,12 +18,14 @@ import '../node_modules/aos/dist/aos.css'
 import '../node_modules/react-multi-carousel/lib/styles.css'
 import "./App.css";
 import LaddersQuestionPage from "./pages/ladders/LaddersQuestionPage";
-
+import Validate from './Validate'
 //react context
 export const CredentialsContext=React.createContext();
 
 const App = () => {
-  
+  if(localStorage.getItem("creds")){
+    Validate();
+  }
   
  const [creds,setCreds]=useState({});
   return (
