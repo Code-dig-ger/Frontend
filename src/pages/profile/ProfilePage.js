@@ -224,9 +224,61 @@ function ProfilePage() {
                                     <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
                                     <div style={{height:"10rem", width:"12rem", border:"2px solid black"}}>
                                     <div>
-                                <div class="outerCircle"></div>
-                                <div class="innerCircle"></div>
-                                <div class="icon"></div>
+                                    <div>
+                                            <div class="carousel">
+                                                <ul class="slides">
+                                                <input type="radio" name="radio-buttons" id="img-1" checked />
+                                                <li class="slide-container">
+                                                    <div class="slide-image">
+                                                    <div class="container100">
+                                                        <h3>Anurag</h3>
+                                                    </div>
+                                                    </div>
+                                                    <div class="carousel-controls">
+                                                    <label for="img-3" class="prev-slide">
+                                                        <span>&lsaquo;</span>
+                                                    </label>
+                                                    <label for="img-2" class="next-slide">
+                                                        <span>&rsaquo;</span>
+                                                    </label>
+                                                    </div>
+                                                </li>
+                                                <input type="radio" name="radio-buttons" id="img-2" />
+                                                <li class="slide-container">
+                                                    <div class="slide-image">
+                                                    <img src="https://content.r9cdn.net/rimg/dimg/db/02/06b291e8-city-14912-171317ad83a.jpg?width=1750&height=1000&xhint=3040&yhint=2553&crop=true" />
+                                                    </div>
+                                                    <div class="carousel-controls">
+                                                    <label for="img-1" class="prev-slide">
+                                                        <span>&lsaquo;</span>
+                                                    </label>
+                                                    <label for="img-3" class="next-slide">
+                                                        <span>&rsaquo;</span>
+                                                    </label>
+                                                    </div>
+                                                </li>
+                                                <input type="radio" name="radio-buttons" id="img-3" />
+                                                <li class="slide-container">
+                                                    <div class="slide-image">
+                                                    <img src="https://speakzeasy.files.wordpress.com/2015/05/twa_blogpic_timisoara-4415.jpg" />
+                                                    </div>
+                                                    <div class="carousel-controls">
+                                                    <label for="img-2" class="prev-slide">
+                                                        <span>&lsaquo;</span>
+                                                    </label>
+                                                    <label for="img-1" class="next-slide">
+                                                        <span>&rsaquo;</span>
+                                                    </label>
+                                                    </div>
+                                                </li>
+                                                <div class="carousel-dots">
+                                                    <label for="img-1" class="carousel-dot" id="img-dot-1"></label>
+                                                    <label for="img-2" class="carousel-dot" id="img-dot-2"></label>
+                                                    <label for="img-3" class="carousel-dot" id="img-dot-3"></label>
+                                                </div>
+                                                </ul>
+                                            </div>
+                                            </div>
                                 </div>
                                     </div>
                                         <div class="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px"}}>

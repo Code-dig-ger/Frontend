@@ -4,7 +4,7 @@ import Loading from './loading'
 import Navbar from '../../components/headerComponent/Navbar'
 import FooterSmall from '../../components/footerComponent/FooterSmall';
 
-import Eye from '../../assets/Eye.png'
+import Eye from '../../assets/eye.png'
 
 import Validate from '../../Validate'
 
