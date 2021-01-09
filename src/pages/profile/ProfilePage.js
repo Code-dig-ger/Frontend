@@ -219,6 +219,7 @@ function ProfilePage() {
                                         <div>Max Rating : {codeforcesDat.result.maxRating}</div>
                                     </div>
                                     
+                                    
 
                                     <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
                                     <div style={{height:"10rem", width:"12rem", border:"2px solid black"}}>
