@@ -19,6 +19,7 @@ import '../node_modules/react-multi-carousel/lib/styles.css'
 import "./App.css";
 import LaddersQuestionPage from "./pages/ladders/LaddersQuestionPage";
 import Validate from './Validate'
+import NewpassForm from './pages/logreg/ForgotPass'
 //react context
 export const CredentialsContext=React.createContext();
 
@@ -45,9 +46,10 @@ const App = () => {
              <Route exact path="/laddersLevel/topic/page1" component={LaddersQuestionPage}/>
              <Route exact path="/upsolve/virtual" component={Virtual}/>
              <Route exact path="/profile" component={Profile}/>
-            <Route component={Homepage} />
+              <Route exact path="/" component={Homepage}/>
             <Route exact path="/home" component={Homepage}/>
             <Route exact path="/createProfile" component={Info}/>
+            <Route exact path="/forgPass" component={NewpassForm}/>
           </Switch>
         </BrowserRouter>
         </CredentialsContext.Provider>

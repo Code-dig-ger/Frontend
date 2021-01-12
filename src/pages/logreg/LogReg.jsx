@@ -4,9 +4,10 @@ import Loading from './loading'
 import Navbar from '../../components/headerComponent/Navbar'
 import FooterSmall from '../../components/footerComponent/FooterSmall';
 
-import Eye from '../../assets/eye.png'
+import Eye from '../../assets/Eye.png'
 
 import Validate from '../../Validate'
+
 
 
 const LogReg =()=>{
@@ -110,8 +111,8 @@ const LogReg =()=>{
       
    }
     //func for forgot password
-    async function forgotPass(e){
-      console.log("change pass");
+     function forgotPass(e){
+      window.location='/forgPass'
     }
 
     
@@ -167,9 +168,8 @@ switchers.forEach((item) => {
         </fieldset>
         <h5 className="errormsgs">{msgL}</h5>
         <button onClick={login} type="submit" className="btn-login">Login</button>
-        <button onClick={forgotPass} className="btn-setPass">Forgot Password ?</button>
-        
-      </form>
+        <button onClick={(e)=>window.location='/ForgPass'} className="btn-setPass">Forgot Password ?</button>
+         </form>
      
 
     </div>
