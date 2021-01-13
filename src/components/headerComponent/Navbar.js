@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router';
 import {
   Collapse,
@@ -37,11 +37,18 @@ window.onscroll = function() {
 }
   
 const creds=JSON.parse(localStorage.getItem("creds"));
-const uu=creds.username;
+const [uu,setuu] =useState();
 
 console.log(uu);
 
 const handle="/profile/"+uu;
+
+useEffect(() => {
+  if(creds)
+  {
+    setuu(creds.username);
+  }
+})
 
 if(creds){
   return(
