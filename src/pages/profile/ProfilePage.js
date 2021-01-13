@@ -15,6 +15,8 @@ import CodechefImg from '../../assets/codechef.png';
 import SpojImg from '../../assets/spoj.png';
 import UAVImg from '../../assets/uva_online_judge.png';
 import AtcoderImg from '../../assets/atcoder.png';
+import ProfileCarousel from './ProfileCarousel'
+import { ButtonToggle } from "reactstrap";
 // import user from './profileDat.json';
 import $ from 'jquery';
 
@@ -158,10 +160,21 @@ function ProfilePage() {
                                     <div className="mt-3">
                                     <h4 style={{color:"black"}}>{user.result.name}</h4>
                                     <p className="text-secondary mb-1">{uu}</p>
+                                    <ButtonToggle style={{
+                                        position: "absolute",
+                                        right: "185px",
+                                        bottom: "275px"
+                                    }}>Friend</ButtonToggle>
+                                    <ButtonToggle style={{
+                                        position: "absolute",
+                                        right: "60px",
+                                        bottom: "275px"
+                                    }}>Mentor</ButtonToggle>
                                     </div>
                                 </div>
                                 </div>
                                 <ul className="list-group list-group-flush">
+                                    <br/><br/><br/>
                                 <li className="d-flex justify-content-between align-items-center flex-wrap handlesItem">
                                     <img style={{height:"1rem", width:"6rem", marginRight:"0"}} src={CodeforcesImg}></img>
                                     <h6 className="mb-0">Codeforces</h6>
@@ -222,73 +235,20 @@ function ProfilePage() {
                                     
 
                                     <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
-                                    <div style={{height:"10rem", width:"12rem", border:"2px solid black"}}>
-                                    <div>
-                                    <div>
-                                            <div class="carousel">
-                                                <ul class="slides">
-                                                <input type="radio" name="radio-buttons" id="img-1" checked />
-                                                <li class="slide-container">
-                                                    <div class="slide-image">
-                                                    <div class="container100">
-                                                        <h3>Anurag</h3>
-                                                    </div>
-                                                    </div>
-                                                    <div class="carousel-controls">
-                                                    <label for="img-3" class="prev-slide">
-                                                        <span>&lsaquo;</span>
-                                                    </label>
-                                                    <label for="img-2" class="next-slide">
-                                                        <span>&rsaquo;</span>
-                                                    </label>
-                                                    </div>
-                                                </li>
-                                                <input type="radio" name="radio-buttons" id="img-2" />
-                                                <li class="slide-container">
-                                                    <div class="slide-image">
-                                                    <img src="https://content.r9cdn.net/rimg/dimg/db/02/06b291e8-city-14912-171317ad83a.jpg?width=1750&height=1000&xhint=3040&yhint=2553&crop=true" />
-                                                    </div>
-                                                    <div class="carousel-controls">
-                                                    <label for="img-1" class="prev-slide">
-                                                        <span>&lsaquo;</span>
-                                                    </label>
-                                                    <label for="img-3" class="next-slide">
-                                                        <span>&rsaquo;</span>
-                                                    </label>
-                                                    </div>
-                                                </li>
-                                                <input type="radio" name="radio-buttons" id="img-3" />
-                                                <li class="slide-container">
-                                                    <div class="slide-image">
-                                                    <img src="https://speakzeasy.files.wordpress.com/2015/05/twa_blogpic_timisoara-4415.jpg" />
-                                                    </div>
-                                                    <div class="carousel-controls">
-                                                    <label for="img-2" class="prev-slide">
-                                                        <span>&lsaquo;</span>
-                                                    </label>
-                                                    <label for="img-1" class="next-slide">
-                                                        <span>&rsaquo;</span>
-                                                    </label>
-                                                    </div>
-                                                </li>
-                                                <div class="carousel-dots">
-                                                    <label for="img-1" class="carousel-dot" id="img-dot-1"></label>
-                                                    <label for="img-2" class="carousel-dot" id="img-dot-2"></label>
-                                                    <label for="img-3" class="carousel-dot" id="img-dot-3"></label>
-                                                </div>
-                                                </ul>
-                                            </div>
-                                            </div>
-                                </div>
+                                    <div style={{marginRight: "60px"}}>
+                                        
+                                        <ProfileCarousel codeforces={codeforcesDat}/>
+
+
                                     </div>
-                                        <div class="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px"}}>
+                                        <div className="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px"}}>
                                             <ul id="tab-links" style={{marginBottom:"0", height:"160px"}}>
-                                                <li><a href="#tab-1" class="active" title="Code">1</a></li>
+                                                <li><a href="#tab-1" className="active" title="Code">1</a></li>
                                                 <li><a href="#tab-2" title="Graphic Design &amp; Illustration">2</a></li>
                                                 <li><a href="#tab-3" title="Web Design">3</a></li>
                                             </ul>
                                             
-                                            <section id="tab-1" class="active">
+                                            <section id="tab-1" className="active">
                                                 <h3>Code</h3>
                                                 
                                                 <p>Thousands of free tutorials and online courses to help you learn software development from mobile devices to web applications and everything in between.</p>
