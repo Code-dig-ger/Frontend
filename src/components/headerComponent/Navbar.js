@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router';
 import {
   Collapse,
@@ -37,6 +37,18 @@ window.onscroll = function() {
 }
   
 const creds=JSON.parse(localStorage.getItem("creds"));
+const [uu,setuu] =useState();
+
+console.log(uu);
+
+const handle="/profile/"+uu;
+
+useEffect(() => {
+  if(creds)
+  {
+    setuu(creds.username);
+  }
+})
 
 if(creds){
   return(
@@ -111,7 +123,7 @@ if(creds){
               </DropdownToggle>
               <DropdownMenu left>
                 <DropdownItem>
-                <NavLink href="/profile">Profile</NavLink>
+                <NavLink href={handle}>Profile</NavLink>
                 </DropdownItem>
                 <DropdownItem>
                 <NavLink onClick={deleteCred}>Log Out</NavLink>
@@ -140,7 +152,7 @@ if(creds){
               <NavLink href="/home">Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/profile">Profile</NavLink>
+              <NavLink href={handle}>Profile</NavLink>
             </NavItem>
             
             <UncontrolledDropdown nav inNavbar>

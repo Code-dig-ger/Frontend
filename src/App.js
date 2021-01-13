@@ -30,6 +30,15 @@ const App = () => {
   if(localStorage.getItem("creds")){
     Validate();
   }
+
+  const profile = ({match}) => {
+    return(
+
+      // PARSEINT IS A JS FUNCTION WHICH WILL CONVERT THE THE GIVEN STRING OF NUMBERS 
+      // ACCORDING TO THE BASE OR RADIX SPECIFIED
+      <Profile handle={match.params.id} />
+    );
+  }
   
  const [creds,setCreds]=useState({});
   return (
@@ -47,13 +56,18 @@ const App = () => {
              <Route exact path="/practiceTopic" component={PracticeTopic}/>
              <Route exact path="/practiceLevel" component={PracticeLevel}/>
              <Route exact path="/laddersLevel/topic/page1" component={LaddersQuestionPage}/>
+<<<<<<< HEAD
              <Route exact path="/upsolve/codechef" component={Codechef}/>
              <Route exact path="/upsolve/atcoder" component={Atcoder}/>
              <Route exact path="/profile" component={Profile}/>
+=======
+             <Route exact path="/upsolve/virtual" component={Virtual}/>
+>>>>>>> 8a861e35c5c1453e56d0c4f8bba17cccc6bfbeba
               <Route exact path="/" component={Homepage}/>
             <Route exact path="/home" component={Homepage}/>
             <Route exact path="/createProfile" component={Info}/>
             <Route exact path="/forgPass" component={NewpassForm}/>
+            <Route exact path="/profile/:id" component={profile} />
           </Switch>
         </BrowserRouter>
         </CredentialsContext.Provider>
