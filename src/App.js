@@ -7,6 +7,9 @@ import Homepage from "./pages/homepage/homepage.page";
 import Problems from "./pages/problems.page";
 import Upsolve from "./pages/upsolve/upsolve.page";
 import LogReg from "./pages/logreg/LogReg";
+import Codeforces from './pages/upsolve/Codeforces'
+import Codechef from './pages/upsolve/Codechef'
+import Atcoder from './pages/upsolve/Atcoder'
 import LaddersLevel from "./pages/ladders/LaddersLevel";
 import LaddersTopic from "./pages/ladders/LaddersTopic";
 import PracticeLevel from "./pages/practice/PracticeLevel";
@@ -38,13 +41,14 @@ const App = () => {
           <Switch>
             <Route exact path="/problems" component={Problems} />
              <Route exact path="/logreg" component={LogReg}/>
-             <Route exact path="/upsolve/rated" component={Upsolve}/>   
+             <Route exact path="/upsolve/codeforces" component={Codeforces}/>   
              <Route exact path="/laddersLevel" component={LaddersLevel}/>
              <Route exact path="/laddersTopic" component={LaddersTopic}/>
              <Route exact path="/practiceTopic" component={PracticeTopic}/>
              <Route exact path="/practiceLevel" component={PracticeLevel}/>
              <Route exact path="/laddersLevel/topic/page1" component={LaddersQuestionPage}/>
-             <Route exact path="/upsolve/virtual" component={Virtual}/>
+             <Route exact path="/upsolve/codechef" component={Codechef}/>
+             <Route exact path="/upsolve/atcoder" component={Atcoder}/>
              <Route exact path="/profile" component={Profile}/>
               <Route exact path="/" component={Homepage}/>
             <Route exact path="/home" component={Homepage}/>

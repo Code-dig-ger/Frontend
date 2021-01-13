@@ -8,10 +8,11 @@ import FooterSmall from '../../components/footerComponent/FooterSmall';
 
 
 
-const Upsolve=()=>{
+const Upsolve=(props)=>{
 
   //fake json
-    const data={"status": "OK",
+  console.log(props)
+    const data=props.data/*{"status": "OK",
     "result": [
       {
         "id": 1388,
@@ -195,7 +196,7 @@ const Upsolve=()=>{
         ]
       }
     ]
-  }//get from API--->LOGIC IMPLEMENTED//fake json erased
+  }*///get from API--->LOGIC IMPLEMENTED//fake json erased
      
         const result=data.result;//array of objects--1 object 1 contest
     ////////////////////////////data ended////////////////////////////////////
@@ -217,6 +218,7 @@ const Upsolve=()=>{
         items: 1
       }
     };
+
     return (
        <>
        <Navbar/><br></br>
