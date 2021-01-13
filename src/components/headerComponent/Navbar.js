@@ -37,6 +37,11 @@ window.onscroll = function() {
 }
   
 const creds=JSON.parse(localStorage.getItem("creds"));
+const uu=creds.username;
+
+console.log(uu);
+
+const handle="/profile/"+uu;
 
 if(creds){
   return(
@@ -108,7 +113,7 @@ if(creds){
               </DropdownToggle>
               <DropdownMenu left>
                 <DropdownItem>
-                <NavLink href="/profile">Profile</NavLink>
+                <NavLink href={handle}>Profile</NavLink>
                 </DropdownItem>
                 <DropdownItem>
                 <NavLink onClick={deleteCred}>Log Out</NavLink>
@@ -137,7 +142,7 @@ if(creds){
               <NavLink href="/home">Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/profile">Profile</NavLink>
+              <NavLink href={handle}>Profile</NavLink>
             </NavItem>
             
             <UncontrolledDropdown nav inNavbar>

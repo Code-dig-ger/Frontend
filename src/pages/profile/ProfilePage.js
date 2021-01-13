@@ -20,11 +20,14 @@ import { ButtonToggle } from "reactstrap";
 // import user from './profileDat.json';
 import $ from 'jquery';
 
-function ProfilePage() {
+function ProfilePage({handle}) {
+
+    // console.log(handle);
+
     const [user, setUsers] = useState({});
     const [error, setErrors] = useState(false);
     const creds= JSON.parse(localStorage.getItem("creds"));
-    const uu=creds.username;
+    const uu=handle;
     const firstTime=creds.first;
 
     const [codeforcesDat, setCodeforcesDat] = useState();
@@ -41,28 +44,11 @@ function ProfilePage() {
 
     const [show,setShow]=useState(true);
 
-    useEffect(() => {
+    const tabs = ["#tab-1","#tab-2","#tab-3"];
+    const tabSection = ["tab-1","tab-2","tab-3"];
+    const abcd =[];
 
-        // jQuery.
-        $(function() {
-            // Reference the tab links.
-            const tabLinks = $('#tab-links li a');
-            
-            // Handle link clicks.
-            tabLinks.click(function(event) {
-                var $this = $(this);
-                
-                // Prevent default click behaviour.
-                event.preventDefault();
-                
-                // Remove the active class from the active link and section.
-                $('#tab-links a.active, section.active').removeClass('active');
-                
-                // Add the active class to the current link and corresponding section.
-                $this.addClass('active');
-                $($this.attr('href')).addClass('active');
-            });
-        });
+    useEffect(() => {
 
         async function fetchData(){
 
@@ -77,6 +63,7 @@ function ProfilePage() {
             res1
                 .json()
                 .then(res => setCodeforcesDat(res))
+                // .then(res => setCodeforcesContest(res.result.contestRank))
                 .then(show => setCodeforcesStatus(false))
                 .catch(error => setErrors(true));
 
@@ -109,6 +96,27 @@ function ProfilePage() {
                 .catch(error => setErrors(true));   
         }
         fetchData();
+
+        // jQuery.
+        $(function() {
+            // Reference the tab links.
+            const tabLinks = $('#tab-links li a');
+            
+            // Handle link clicks.
+            tabLinks.click(function(event) {
+                var $this = $(this);
+                
+                // Prevent default click behaviour.
+                event.preventDefault();
+                
+                // Remove the active class from the active link and section.
+                $('#tab-links a.active, section.active').removeClass('active');
+                
+                // Add the active class to the current link and corresponding section.
+                $this.addClass('active');
+                $($this.attr('href')).addClass('active');
+            });
+        });
     })
 
 
@@ -131,12 +139,12 @@ function ProfilePage() {
                   (show==true) ? <Loading /> : 
                   <>
         <Navbar/>
-        {console.log(user)}
+        {/* {console.log(user)}
         {console.log(codeforcesDat)}
         {console.log(codechefDat)}
         {console.log(spojDat)}
         {console.log(uvaDat)}
-        {console.log(atcoderDat)}
+        {console.log(atcoderDat)} */}
            {/* <div className="profileFull">
                <div className="leftProfile">
                    <div className="profileCard">
@@ -242,13 +250,32 @@ function ProfilePage() {
 
                                     </div>
                                         <div className="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px"}}>
-                                            <ul id="tab-links" style={{marginBottom:"0", height:"160px"}}>
-                                                <li><a href="#tab-1" className="active" title="Code">1</a></li>
-                                                <li><a href="#tab-2" title="Graphic Design &amp; Illustration">2</a></li>
-                                                <li><a href="#tab-3" title="Web Design">3</a></li>
-                                            </ul>
+                                            {codeforcesDat.result.contestRank.length===0 ? 
+                                                <h6 style={{color:"white", fontSize:"2rem"}}>You havent done any contest</h6> 
+                                                :
+                                                <>
+                                                <ul id="tab-links" style={{marginBottom:"0", height:"160px"}}>
+                                                    {codeforcesDat.result.contestRank.map((contestDat, index) => {
+                                                        return(
+                                                            <li><a href={tabs[index]} className={index===0 ? "active":""}>{index+1}</a></li>
+                                                        )
+                                                    })}
+                                                </ul>
+
+                                                {codeforcesDat.result.contestRank.map((contestDat, index) => {
+                                                    return(
+                                                        <section style={{width:"100%"}} id={tabSection[index]} className={index===0 ? "active":""}>
+                                                            <h6 style={{color:"black"}}>{contestDat.contest.name}</h6>
+                                                            <p>World Rank : {contestDat.worldRank}</p>
+                                                            <p>Country Rank : {contestDat.countryRank}</p>
+                                                            <p>Org Rank : {contestDat.organizationRank}</p>
+                                                        </section>
+                                                    )
+                                                })} </>
+                                                }
                                             
-                                            <section id="tab-1" className="active">
+
+                                            {/* <section id="tab-1" className="active">
                                                 <h3>Code</h3>
                                                 
                                                 <p>Thousands of free tutorials and online courses to help you learn software development from mobile devices to web applications and everything in between.</p>
@@ -264,7 +291,7 @@ function ProfilePage() {
                                                 <h3>Web Design</h3>
                                                 
                                                 <p>Free tutorials, learning guides, and online courses to help you learn web design.</p>
-                                            </section>
+                                            </section> */}
                                         </div>
                                         </div> </>}
 
