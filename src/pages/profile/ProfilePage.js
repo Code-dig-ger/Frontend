@@ -17,6 +17,8 @@ import UAVImg from '../../assets/uva_online_judge.png';
 import AtcoderImg from '../../assets/atcoder.png';
 import ProfileCarousel from './ProfileCarousel'
 import { ButtonToggle } from "reactstrap";
+import FriendsBtn from './FriendsBtn.js';
+import MentorBtn from './MentorBtn.js';
 // import user from './profileDat.json';
 import $ from 'jquery';
 
@@ -28,7 +30,8 @@ function ProfilePage({handle}) {
     const [error, setErrors] = useState(false);
     const creds= JSON.parse(localStorage.getItem("creds"));
     const uu=handle;
-    const firstTime=creds.first;
+    const [firstTime,setFirstTime]= useState();
+    const [acc,setAcc]=useState();
 
     const [codeforcesDat, setCodeforcesDat] = useState();
     const [codechefDat, setCodechefDat] = useState();
@@ -50,14 +53,40 @@ function ProfilePage({handle}) {
 
     useEffect(() => {
 
+        if(creds)
+        {
+            setFirstTime(creds.first);
+            setAcc(creds.access);
+        }
+
         async function fetchData(){
 
-            const res = await fetch(`https://api.codedigger.tech/auth/profile/${uu}/`);
-            res
-                .json()
-                .then(res => setUsers(res))
-                .then(show => setShow(false))
-                .catch(error => setErrors(true));
+            if(creds)
+            {
+                const res = await fetch(`https://api.codedigger.tech/auth/profile/${uu}/`, {
+                method:"GET",
+                headers:{
+                    "Content-Type":"application/json",
+                    "Authorization":`Bearer ${creds.access}`
+                }
+                });
+                res
+                    .json()
+                    .then(res => setUsers(res))
+                    .then(show => setShow(false))
+                    .catch(error => setErrors(true));
+            }
+            else
+            {
+                const res = await fetch(`https://api.codedigger.tech/auth/profile/${uu}/`);
+                res
+                    .json()
+                    .then(res => setUsers(res))
+                    .then(show => setShow(false))
+                    .catch(error => setErrors(true));
+            }
+
+            
 
             const res1 = await fetch(`https://api.codedigger.tech/auth/profile/${uu}/?platform=codeforces`);
             res1
@@ -139,8 +168,8 @@ function ProfilePage({handle}) {
                   (show==true) ? <Loading /> : 
                   <>
         <Navbar/>
-        {/* {console.log(user)}
-        {console.log(codeforcesDat)}
+        {/* {console.log(user)} */}
+        {/* {console.log(codeforcesDat)}
         {console.log(codechefDat)}
         {console.log(spojDat)}
         {console.log(uvaDat)}
@@ -165,20 +194,12 @@ function ProfilePage({handle}) {
                                 <div className="card-body">
                                 <div className="d-flex flex-column align-items-center text-center">
                                     <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" className="rounded-circle" style={{height:"8rem", width:"8rem"}} width="150" />
-                                    <div className="mt-3">
-                                    <h4 style={{color:"black"}}>{user.result.name}</h4>
-                                    <p className="text-secondary mb-1">{uu}</p>
-                                    <ButtonToggle style={{
-                                        position: "absolute",
-                                        right: "185px",
-                                        bottom: "275px"
-                                    }}>Friend</ButtonToggle>
-                                    <ButtonToggle style={{
-                                        position: "absolute",
-                                        right: "60px",
-                                        bottom: "275px"
-                                    }}>Mentor</ButtonToggle>
-                                    </div>
+                                        <div className="mt-3">
+                                            <h4 style={{color:"black"}}>{user.result.name}</h4>
+                                            <p className="text-secondary mb-1">{uu}</p>
+                                            <FriendsBtn creds={creds} acc={acc} handle={uu} user={user}/>
+                                            <MentorBtn/>
+                                        </div>
                                 </div>
                                 </div>
                                 <ul className="list-group list-group-flush">
