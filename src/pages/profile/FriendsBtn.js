@@ -1,6 +1,6 @@
 import React from 'react';
 import {ButtonToggle} from 'reactstrap';
-import Popup from 'react-popup';
+import ListModal from './ListModal'
 
 
 const FriendsBtn = ({creds, acc, handle, user}) => {
@@ -97,12 +97,19 @@ const FriendsBtn = ({creds, acc, handle, user}) => {
         )
     }else if(user.result.about_user === "Logged In User Itself"){
         return(
-            <div>
-                <ButtonToggle style={{
+            <div style={{
+                position: "absolute",
+                width: '200px',
+                right: '150px',
+                top: '310px'
+            }}>
+
+                <ListModal creds={creds} acc={acc} handle={handle} user={user}/>
+                {/* <ButtonToggle style={{
                 position: "absolute",
                 right: "190px",
                 bottom: "275px"}}
-                onClick={showList}> Show List</ButtonToggle>
+                onClick={showList}> Show List</ButtonToggle> */}
             </div>
         )
     }else if(user.result.about_user === "Request Received"){
