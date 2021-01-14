@@ -146,7 +146,7 @@ function ProfilePage({handle}) {
                 $($this.attr('href')).addClass('active');
             });
         });
-    })
+    },[])
 
 
 
@@ -155,7 +155,7 @@ function ProfilePage({handle}) {
     //         const res = await fetch(`https://api.codedigger.tech/auth/profile/${uu}/`);
     //         res
     //             .json()
-    //             .then(res => setUsers(res))
+    //             .then(res => setUsers(res))  
     //             .then(show => setShow(false))
     //             .catch(error => setErrors(true));
     //     }
