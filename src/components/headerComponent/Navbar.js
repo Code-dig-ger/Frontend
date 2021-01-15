@@ -39,7 +39,7 @@ window.onscroll = function() {
 const creds=JSON.parse(localStorage.getItem("creds"));
 const [uu,setuu] =useState();
 
-console.log(uu);
+// console.log(uu);
 
 const handle="/profile/"+uu;
 
