@@ -26,9 +26,9 @@ const MentorList = ({mentors,acc}) => {
           <ul>
             {
              mentors.result.map(function(mentor){
-              const profileLink="/profile/"+mentor;
+              const profileLink="https://codeforces.com/profile/"+mentor;
                  return(
-                    <li>
+                    <li style={{marginBottom:"10px"}}>
                       <b><a href={profileLink}>{mentor}</a></b>
                       <Button 
                       color="success" 

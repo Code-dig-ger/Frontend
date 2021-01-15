@@ -4,6 +4,7 @@ import MentorModal from './MentorModal.js';
 import Loading from '../logreg/loading';
 
 function MentorBtn({creds, acc, handle, user}) {
+    // console.log(user.result.codeforces);
     // console.log(handle);
     // console.log(creds.username);
     const [mentors,setMentors] = useState({});
@@ -13,10 +14,11 @@ function MentorBtn({creds, acc, handle, user}) {
         if(mentors)
         {
             mentors.map((mentor)=>{
-                if(mentor === handle)
+                if(mentor === user.result.codeforces)
                 {
                     console.log("found");
                     setExistingGuru(true);
+                    return null;
                 }
             })
         }
@@ -24,6 +26,7 @@ function MentorBtn({creds, acc, handle, user}) {
 
 
     useEffect(() => {
+
         async function getMentors() {
             const res = await fetch(`https://api.codedigger.tech/codeforces/mentor`,{
                 method:"GET",
@@ -34,10 +37,11 @@ function MentorBtn({creds, acc, handle, user}) {
             });
             res
               .json()
-              .then(res => setMentors(res))
-              .then(findExisting(mentors.result));
+              .then(res => setMentors(res));
+            //   .then(res => console.log(mentors))
         }
         getMentors();
+        findExisting(mentors.result);
     });
 
     async function addMentor(mentor){
@@ -51,6 +55,7 @@ function MentorBtn({creds, acc, handle, user}) {
                 "guru":mentor
             })
         })
+        setExistingGuru(true);
     }
 
     async function removeMentor(mName){
@@ -79,7 +84,7 @@ function MentorBtn({creds, acc, handle, user}) {
     {
         return(
             <ButtonToggle
-                onClick={() => {removeMentor(handle)}}
+                onClick={() => {removeMentor(user.result.codeforces)}}
                  style={{
                 position: "absolute",
                 right: "03px",
@@ -92,7 +97,7 @@ function MentorBtn({creds, acc, handle, user}) {
         return(
             <div>
                 <ButtonToggle
-                onClick={() => {addMentor(handle)}}
+                onClick={() => {addMentor(user.result.codeforces)}}
                  style={{
                 position: "absolute",
                 right: "23px",
