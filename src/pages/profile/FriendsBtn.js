@@ -18,8 +18,8 @@ const FriendsBtn = ({creds, acc, handle, user}) => {
             })
         });
         res
-            .json()
-            .then(res => console.log(res));
+            .json();
+            // .then(res => console.log(res));
             window.location.reload();
     }
 
@@ -36,8 +36,8 @@ const FriendsBtn = ({creds, acc, handle, user}) => {
             })
         });
         res
-            .json()
-            .then(res => console.log(res));
+            .json();
+            // .then(res => console.log(res));
         window.location.reload();
     }
 
@@ -54,8 +54,8 @@ const FriendsBtn = ({creds, acc, handle, user}) => {
             })
         });
         res
-            .json()
-            .then(res => console.log(res));
+            .json();
+            // .then(res => console.log(res));
         window.location.reload();
     }
 
