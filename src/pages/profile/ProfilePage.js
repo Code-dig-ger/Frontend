@@ -73,6 +73,7 @@ function ProfilePage({handle}) {
                 res
                     .json()
                     .then(res => setUsers(res))
+                    .then(res => console.log(res))
                     .then(show => setShow(false))
                     .catch(error => setErrors(true));
             }
@@ -198,7 +199,7 @@ function ProfilePage({handle}) {
                                             <h4 style={{color:"black"}}>{user.result.name}</h4>
                                             <p className="text-secondary mb-1">{uu}</p>
                                             <FriendsBtn creds={creds} acc={acc} handle={uu} user={user}/>
-                                            <MentorBtn/>
+                                            <MentorBtn creds={creds} acc={acc} handle={uu} user={user}/>
                                         </div>
                                 </div>
                                 </div>

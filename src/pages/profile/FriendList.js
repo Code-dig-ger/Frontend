@@ -36,10 +36,10 @@ function FriendList({friends,i,acc}) {
     
     return (
         <div style={{fontSize:"1.1rem", marginBottom:"50px"}}>
-            {/* {console.log(friends)} */}
+            {console.log(friends)}
           <ul>
             {
-             friends.result.map(function(friend){
+             friends.result.map((friend) => {
               const profileLink="/profile/"+friend.username;
                  return(
                     <li>
