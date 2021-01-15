@@ -7,6 +7,9 @@ import Homepage from "./pages/homepage/homepage.page";
 import Problems from "./pages/problems.page";
 import Upsolve from "./pages/upsolve/upsolve.page";
 import LogReg from "./pages/logreg/LogReg";
+import Codeforces from './pages/upsolve/Codeforces'
+import Codechef from './pages/upsolve/Codechef'
+import Atcoder from './pages/upsolve/Atcoder'
 import LaddersLevel from "./pages/ladders/LaddersLevel";
 import LaddersTopic from "./pages/ladders/LaddersTopic";
 import PracticeLevel from "./pages/practice/PracticeLevel";
@@ -24,9 +27,7 @@ import NewpassForm from './pages/logreg/ForgotPass'
 export const CredentialsContext=React.createContext();
 
 const App = () => {
-  if(localStorage.getItem("creds")){
-    Validate();
-  }
+  
 
   const profile = ({match}) => {
     return(
@@ -47,7 +48,7 @@ const App = () => {
           <Switch>
             <Route exact path="/problems" component={Problems} />
              <Route exact path="/logreg" component={LogReg}/>
-             <Route exact path="/upsolve/rated" component={Upsolve}/>   
+             <Route exact path="/upsolve/codeforces" component={Codeforces}/>   
              <Route exact path="/laddersLevel" component={LaddersLevel}/>
              <Route exact path="/laddersTopic" component={LaddersTopic}/>
              <Route exact path="/practiceTopic" component={PracticeTopic}/>

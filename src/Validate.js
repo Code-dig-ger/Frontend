@@ -3,6 +3,10 @@
 async function Validate(){
     
     const toValidate=await JSON.parse(localStorage.getItem("creds"));
+    if(toValidate===null){
+        window.location='/logreg'
+        return;
+    }
     const acc=toValidate.access;
     const ref=toValidate.refresh;
     const first=toValidate.first;
@@ -42,9 +46,9 @@ async function Validate(){
                 refresh:ref,
                 first:first,
                 username:username
-      
+                 
               }));
-
+              window.location='/home';
            }
            else{
                localStorage.clear();

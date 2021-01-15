@@ -70,11 +70,14 @@ if(creds){
               </DropdownToggle>
               <DropdownMenu left>
                 <DropdownItem>
-                <NavLink href="/upsolve/rated">Rated</NavLink>
+                <NavLink href="/upsolve/codeforces">Codeforces</NavLink>
                   
                 </DropdownItem>
                 <DropdownItem>
-                <NavLink href="/upsolve/virtual">Virtual</NavLink>
+                <NavLink href="/upsolve/codechef">Codechef</NavLink>
+                </DropdownItem>
+                <DropdownItem>
+                <NavLink href="/upsolve/atcoder">Atcoder</NavLink>
                 </DropdownItem>
                 
                 
@@ -158,11 +161,14 @@ if(creds){
               </DropdownToggle>
               <DropdownMenu left>
                 <DropdownItem>
-                <NavLink href="/upsolve/rated">Rated</NavLink>
+                <NavLink href="/upsolve/codeforces">Codeforces</NavLink>
                   
                 </DropdownItem>
                 <DropdownItem>
-                <NavLink href="/upsolve/virtual">Virtual</NavLink>
+                <NavLink href="/upsolve/codechef">Codechef</NavLink>
+                </DropdownItem>
+                <DropdownItem>
+                <NavLink href="/upsolve/atcoder">Atcoder</NavLink>
                 </DropdownItem>
                 
                 
