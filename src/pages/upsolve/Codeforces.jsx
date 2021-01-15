@@ -1,7 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import Validate from '../../Validate'
-import Upsolve from './upsolve.page';
 
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Carousel from 'react-multi-carousel';
+import Navbar from '../../components/headerComponent/Navbar'
+import Loading from '../logreg/loading'
+import './upsolve.style.css'
 function Codeforces(){
 
     Validate();
@@ -11,13 +16,17 @@ function Codeforces(){
     const [prev,setPrev]=useState(null);
     const [next,setNext]=useState(2);
     const [first,setFirst]=useState(1);
-    const [last,setLast]=useState(6);
- 
+    const [last,setLast]=useState(null);
+    const [conData,setData]=useState([]);
+    const [vir,setVir]=useState(false);
+    const [tags,setTags]=useState(false);
+     
     useEffect(()=>{
       async function fetchData(){
            const creds=JSON.parse(localStorage.getItem("creds"));
            const acc=creds.access; 
-           const response=await fetch(`https://api.codedigger.tech/problems/upsolve/codeforces?page=${page}`,{
+          
+           const response=await fetch(`https://api.codedigger.tech/problems/upsolve/codeforces?${vir?`virtual=true;page=${page}`:`page=${page}`}`,{
             method:"GET",
             headers:{
                 "Content-Type":"application/json",
@@ -30,7 +39,7 @@ function Codeforces(){
                   if(data.status==="OK"){
                    // setData(data);
                       console.log("yipee");
-                      console.log(data.links)
+                      
                       const newLinks=data.links;
                       setFirst(newLinks.first.split("=")[1]);
                       setLast(newLinks.last.split("=")[1]);
@@ -40,12 +49,18 @@ function Codeforces(){
                       if(newLinks.next!==null){
                           setNext(newLinks.next.split("=")[1])
                       }
+                     setLast(data.meta.last_page);
                      
                   }
                   else{
                       console.log("sad");
                   }
+                  
                   console.log(data);
+                  const result=await (data.result);
+                   await setData(result);
+                   
+                  
                   
            }
            else{
@@ -58,19 +73,74 @@ function Codeforces(){
     } 
     fetchData();
     
-},[page])
+},[page,vir])
+
+if(last!=null){
 for(let i=1;i<=last;i++){
-    pageNumbers.push(i);
+  pageNumbers.push(i);
 }
+}
+const responisve={superLargeDesktop: {
+  // the naming can be any, depends on you.
+  breakpoint: { max: 4000, min: 3000 },
+  items: 5
+},
+desktop: {
+  breakpoint: { max: 3000, min: 1024 },
+  items: 4
+},
+tablet: {
+  breakpoint: { max: 1024, min: 464 },
+  items: 2
+},
+mobile: {
+  breakpoint: { max: 464, min: 0 },
+  items: 1
+}
+};
 
      return(
-         <>
+      <>
+               <Navbar></Navbar>
+               <div>
+     <button onClick={e=>setVir(!vir)} className="vir">{`${vir?`exclude virtual`:`include virtual`}`}</button></div><br></br>
+     
+     
+     <br></br>
+        {conData.length>0?
+        conData.map(res=>{
+          return(
+            <>
+            <Row className="contestRow">
+    <Col sm={2} md={2} lg={3}>< div className="contestName"><h6>{res.name}</h6></div></Col>
+    <Col sm={2} md={2} lg={9}><Carousel responsive={responisve}>
+               
+               {
+              
+              res. problems.map((prob)=>{
+                   if(prob.status==="solved"){
+                   return(
+                   <Col><div className="solved text-black" ><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url}>Solve</a></div></Col>
+                   )}
+                   else if(prob.status==="wrong"){
+                   return(
+                   <Col> <div className="wrong text-black"><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url}>Solve</a></div></Col>
+                   )}
+                   return(
+                   <Col> <div className="upsolve text-black"><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url}>Solve</a><br></br>
+                   </div></Col>
+                   )
+               })}
+               </Carousel></Col>
+    </Row><br></br></>
+          )})
+        :
+        <Loading></Loading>
+        }
+           
+            
          <div>
-         
-         <h1>Codeforces</h1>
-         </div>
-         <div>
-              <nav>
+              <nav className="paginator">
       <ul className='pagination'>
           <a onClick={()=>setPage(first)} className='page-link'>First</a>
      <a onClick={()=>setPage(prev)} className='page-link'>{`<`}</a>
@@ -84,8 +154,8 @@ for(let i=1;i<=last;i++){
         <a onClick={()=>setPage(next)} className='page-link'>{`>`}</a>
        <a onClick={()=>setPage(last)} className='page-link'>Last</a>
       </ul>
-    </nav>
-         </div>
+      </nav>
+        </div>
          </>
      ) 
       
