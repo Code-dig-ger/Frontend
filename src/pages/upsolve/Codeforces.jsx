@@ -7,12 +7,14 @@ import Carousel from 'react-multi-carousel';
 import Navbar from '../../components/headerComponent/Navbar'
 import Loading from '../logreg/loading'
 import './upsolve.style.css'
+
 function Codeforces(){
 
     Validate();
     const pageNumbers=[];
     
     const [page,setPage]=useState(1);
+    const [loader,setLoader]=useState(false);
     const [prev,setPrev]=useState(null);
     const [next,setNext]=useState(2);
     const [first,setFirst]=useState(1);
@@ -59,7 +61,7 @@ function Codeforces(){
                   console.log(data);
                   const result=await (data.result);
                    await setData(result);
-                   
+                   setLoader(false);
                   
                   
            }
@@ -101,9 +103,13 @@ mobile: {
 
      return(
       <>
-               <Navbar></Navbar>
+      <Navbar></Navbar>
+      {loader?<h4>Loading......</h4>:<>
+               
                <div>
-     <button onClick={e=>setVir(!vir)} className="vir">{`${vir?`exclude virtual`:`include virtual`}`}</button></div><br></br>
+     <button onClick={e=>{
+        setTimeout(()=>{setLoader(true)},1000)
+       setVir(!vir)}} className="vir">{`${vir?`exclude virtual`:`include virtual`}`}</button></div><br></br>
      
      
      <br></br>
@@ -120,14 +126,14 @@ mobile: {
               res. problems.map((prob)=>{
                    if(prob.status==="solved"){
                    return(
-                   <Col><div className="solved text-black" ><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url}>Solve</a></div></Col>
+                   <Col><div className="solved" ><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a></div></Col>
                    )}
                    else if(prob.status==="wrong"){
                    return(
-                   <Col> <div className="wrong text-black"><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url}>Solve</a></div></Col>
+                   <Col> <div className="wrong"><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a></div></Col>
                    )}
                    return(
-                   <Col> <div className="upsolve text-black"><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url}>Solve</a><br></br>
+                   <Col> <div className="upsolve"><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a><br></br>
                    </div></Col>
                    )
                })}
@@ -138,25 +144,38 @@ mobile: {
         <Loading></Loading>
         }
            
-            
+         
          <div>
               <nav className="paginator">
       <ul className='pagination'>
-          <a onClick={()=>setPage(first)} className='page-link'>First</a>
-     <a onClick={()=>setPage(prev)} className='page-link'>{`<`}</a>
+          <a onClick={()=>{
+            setTimeout(()=>{setLoader(true)},1000)
+            
+            setPage(first)}} className='page-link'>First</a>
+     <a onClick={()=>{
+        setTimeout(()=>{setLoader(true)},1000)
+       setPage(prev)}} className='page-link'>{`<`}</a>
         {pageNumbers.map(number => (
           <li key={number} className='page-item'>
-            <a onClick={() => setPage(number)} className='page-link'>
+            <a onClick={() =>{
+                setTimeout(()=>{setLoader(true)},1000)
+               setPage(number)}} className='page-link'>
               {number}
             </a>
           </li>
         ))}
-        <a onClick={()=>setPage(next)} className='page-link'>{`>`}</a>
-       <a onClick={()=>setPage(last)} className='page-link'>Last</a>
+        <a onClick={()=>{
+           setTimeout(()=>{setLoader(true)},1000)
+          setPage(next)}} className='page-link'>{`>`}</a>
+       <a onClick={()=>{
+          setTimeout(()=>{setLoader(true)},1000)
+         setPage(last)}} className='page-link'>Last</a>
       </ul>
       </nav>
         </div>
+        </>}
          </>
+        
      ) 
       
     

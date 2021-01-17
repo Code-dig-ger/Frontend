@@ -21,9 +21,10 @@ const LogReg =()=>{
   const [passwordR,setPassWordR]=useState("");
   const [msgR,setmsgR]=useState("");
   const [togR,setTogR]=useState(true);
- 
+  const [loaderR,setLoaderR]=useState(false);
   async function register(e){
     e.preventDefault();
+    setLoaderR(true);
         const response=await fetch('https://api.codedigger.tech/auth/register/',{
             method:"POST",
         headers:{
@@ -35,17 +36,32 @@ const LogReg =()=>{
             "password":passwordR
         })
         })
+        const data=await response.json();
           if(response.status===400){
-           
-            setmsgR("User already exist");
+             
+            let msg="";
+            if(data.email){
+            msg=msg+data.email[0]+'\n';
+            
+            }
+            if(data.username){
+              msg=msg+data.username[0]+'\n';
+             
+            }
+            if(data.password){
+              msg=msg+data.password[0];
+            }
+            setmsgR(msg);
+            
+            
           }
-          else{
+          else if(response.status===201){
             setEmailR("");
             setPassWordR("");
             setUsernameR("");
             setmsgR("Successful, verify your email");
           }
-    
+            setLoaderR(false);
     
   }
 
@@ -55,10 +71,11 @@ const LogReg =()=>{
      const [msgL,setmsgL]=useState("");
      const [first,setFirst] =useState(false);
      const [togL,setTogL] =useState(true);
-
+     const [loaderL,setLoaderL]=useState(false);
  
    async  function login(e){
       e.preventDefault();
+      setLoaderL(true);
      const response= await fetch('https://api.codedigger.tech/auth/login/',{
           method:"POST",
       headers:{
@@ -94,22 +111,26 @@ const LogReg =()=>{
 
    
       }
-      else if(response.status==401){
+      else if(response.status==400){
       //  setmsgL("Invalid");
       const errorData=await response.json();
-      console.log(errorData);
-      const msg=errorData.detail;
+      let msg=""; 
+      if(errorData.username){
+           msg=msg+"Usernamr: "+errorData.username[0]+" ";
+       }
+       if(errorData.password){
+        msg=msg+"Password: "+errorData.password[0];
+    }
+
        setmsgL(msg);
       }
       else {
-        setmsgL("Set fields carefully");
+        const err=await response.json();
+        setmsgL(err.error);
       }    
       
-      
-         
-
-      
-   }
+      setLoaderL(false);
+    }
     //func for forgot password
      function forgotPass(e){
       window.location='/forgPass'
@@ -148,7 +169,7 @@ switchers.forEach((item) => {
         Login
         <span className="underline"></span>
       </button>
-
+        {loaderL?<h4>Loading.....</h4>:
       <form className="form form-login">
         <fieldset>
           <legend>Please, enter your email and password for login.</legend>
@@ -166,12 +187,12 @@ switchers.forEach((item) => {
               setTogL(!togL)}} className="eye" src={Eye}></img></span>
           </div>
         </fieldset>
-        <h5 className="errormsgs">{msgL}</h5>
+        <h6 className="errormsgs">{msgL}</h6>
         <button onClick={login} type="submit" className="btn-login">Login</button>
         <button onClick={(e)=>window.location='/ForgPass'} className="btn-setPass">Forgot Password ?</button>
          </form>
      
-
+            }
     </div>
     <div class="form-wrapper">
       <button type="button" className="switcher switcher-signup" onClick={()=>{
@@ -189,9 +210,9 @@ switchers.forEach((item) => {
         Register
         <span className="underline"></span>
       </button>
-      
+      {loaderR?<h4>Loading.....</h4>:
       <form className="form form-signup">
-      {((msgR==="")||(msgR==="User already exist"))?<>
+      {((msgR==="")||(msgR!=="Successful, verify your email"))?<>
         <fieldset>
           <legend>Please, enter your email, username and password for sign up.</legend>
           <div className="input-block">
@@ -210,11 +231,11 @@ switchers.forEach((item) => {
               setTogR(!togR)}} className="eye" src={Eye}></img></span>
           </div>
         </fieldset>
-    <h5 className="errormsgs">{msgR}</h5>
+    <h6 className="errormsgs">{msgR}</h6>
         <button onClick={register} type="submit" className="btn-signup">Register</button></>
-        :<h3 className="errormsgs">{msgR}</h3>}
+        :<h4 className="errormsgs">{msgR}</h4>}
       </form>
-    
+}
     </div>
   </div>
 </section>

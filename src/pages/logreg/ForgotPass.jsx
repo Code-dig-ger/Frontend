@@ -23,8 +23,11 @@ const NewpassForm=()=>{
         })
         const data=await response.json();
         console.log(data);
-         console.log(data.success);
-        setMsg(data.success);
+        if(data.status==="OK"){
+        setMsg(data.result);}
+        else{
+            setMsg("Please fill carefully");
+        }
 
     }
       return(
