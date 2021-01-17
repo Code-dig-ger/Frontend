@@ -48,7 +48,7 @@ const Homepage = () => {
 
   useEffect(() => {
     func();
-  });
+  },[]);
 
   return ( 
     <>

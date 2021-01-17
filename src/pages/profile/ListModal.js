@@ -1,6 +1,6 @@
 import { map } from 'jquery';
 import React, { useState, useEffect } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup,Label,Input,Row } from 'reactstrap';
 import FriendList from './FriendList';
 import Loading from '../logreg/loading';
 
@@ -47,6 +47,29 @@ const ListModal = ({creds, acc, handle, user}) => {
     setCloseAll(true);
   }
 
+  const [formUsername,setFormUsername] = useState("");
+  const [friendStatus,setFriendStatus] = useState({});
+
+  async function submitForm(e){
+    e.preventDefault();
+    console.log(formUsername);
+    const res= await fetch(`https://api.codedigger.tech/auth/user/send-request`,{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json",
+                "Authorization":`Bearer ${acc}`
+            },
+            body:JSON.stringify({
+                "to_user":formUsername
+            })
+        });
+        res
+            .json()
+            .then(res => setFriendStatus(res))
+            .then(console.log(friendStatus));
+        window.location.reload();
+  }
+
 useEffect(() => {
   async function showList() {
     const res= await fetch(`https://api.codedigger.tech/auth/user/friends`,{
@@ -83,11 +106,13 @@ useEffect(() => {
         .then(res2 => setSentReq(res2));
 }
 showList();
-})
+},[])
 
   return (
     <div>
-      <Button color="danger" onClick={toggle}>Show Lists</Button>
+      <Button color="danger" style={{position:"relative",top:"-37px",left:"-8px"}} onClick={toggle}>
+        My Friends
+      </Button>
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>Choose a list</ModalHeader>
         <ModalBody>
@@ -121,6 +146,13 @@ showList();
             <ModalBody>
               <FriendList friends={friends} i="1" acc={acc}/>
             </ModalBody>
+            <Form onSubmit={submitForm} style={{marginBottom:"70px"}}>
+                <Label for="formUsername">Add Friend</Label>
+                <div style={{display:"flex"}}>
+                  <Input style={{marginLeft:"11px", width:"73%"}} type="text" id="formUsername" onChange={(e)=>setFormUsername(e.target.value)} placeholder="Enter Username" />
+                  <Button style={{position:"relative",top:"-4px",left:"0px",borderRadius:"13px"}} onClick={submitForm} type="submit">Submit</Button>
+                </div>
+            </Form>
             <ModalFooter>
               <Button color="primary" onClick={toggleNested1}>Close </Button>{' '}
             </ModalFooter>

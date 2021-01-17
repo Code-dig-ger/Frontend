@@ -7,23 +7,11 @@ function MentorBtn({creds, acc, handle, user}) {
     // console.log(user.result.codeforces);
     // console.log(handle);
     // console.log(creds.username);
+    // console.log(creds);
+    // console.log(acc);
+    // console.log(handle);
+    // console.log(user);
     const [mentors,setMentors] = useState({});
-    const [existingGuru,setExistingGuru] = useState(false);
-
-    function findExisting(mentors){
-        if(mentors)
-        {
-            mentors.map((mentor)=>{
-                if(mentor === user.result.codeforces)
-                {
-                    console.log("found");
-                    setExistingGuru(true);
-                    return null;
-                }
-            })
-        }
-    }
-
 
     useEffect(() => {
 
@@ -41,8 +29,7 @@ function MentorBtn({creds, acc, handle, user}) {
             //   .then(res => console.log(mentors))
         }
         getMentors();
-        findExisting(mentors.result);
-    });
+    },[]);
 
     async function addMentor(mentor){
         const res=await fetch (`https://api.codedigger.tech/codeforces/mentor`,{
@@ -55,7 +42,7 @@ function MentorBtn({creds, acc, handle, user}) {
                 "guru":mentor
             })
         })
-        setExistingGuru(true);
+        window.location.reload();
     }
 
     async function removeMentor(mName){
@@ -80,7 +67,7 @@ function MentorBtn({creds, acc, handle, user}) {
             </div>
         )
     }
-    else if(existingGuru)
+    else if(user.result.about_mentor === "Mentor")
     {
         return(
             <ButtonToggle

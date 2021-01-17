@@ -17,6 +17,7 @@ function FriendList({friends,i,acc}) {
     });
     res
         .json();
+    window.location.reload();
 }
 
   async function acceptRequest(fName){
@@ -35,7 +36,7 @@ function FriendList({friends,i,acc}) {
   
     
     return (
-        <div style={{fontSize:"1.1rem", marginBottom:"50px"}}>
+        <div style={{fontSize:"1.1rem", marginBottom:"10px"}}>
             {console.log(friends)}
           <ul>
             {

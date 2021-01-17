@@ -48,7 +48,7 @@ useEffect(() => {
   {
     setuu(creds.username);
   }
-})
+},[])
 
 if(creds){
   return(

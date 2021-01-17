@@ -21,6 +21,10 @@ import FriendsBtn from './FriendsBtn.js';
 import MentorBtn from './MentorBtn.js';
 // import user from './profileDat.json';
 import $ from 'jquery';
+import {faUserClock} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import FriendList from './FriendList.js';
+import {Modal,ModalBody,ModalFooter,ModalHeader,Button} from 'reactstrap';
 
 function ProfilePage({handle}) {
 
@@ -49,7 +53,14 @@ function ProfilePage({handle}) {
 
     const tabs = ["#tab-1","#tab-2","#tab-3"];
     const tabSection = ["tab-1","tab-2","tab-3"];
-    const abcd =[];
+    const [nestedModal3, setNestedModal3] = useState(false);
+    const [friendReq,setFriendReq] = useState({});
+    const [friendReqStatus,setFriendReqStatus] = useState(false);
+
+    const toggleNested3 = (e) => {
+        e.preventDefault();
+        setNestedModal3(!nestedModal3);
+      }
 
     useEffect(() => {
 
@@ -124,8 +135,24 @@ function ProfilePage({handle}) {
                 .then(res => setUvaDat(res))
                 .then(show => setUvaStatus(false))
                 .catch(error => setErrors(true));   
+
+            if(creds)
+            {
+                const res6=await fetch (`https://api.codedigger.tech/auth/user/show-request`,{
+                method:"GET",
+                headers:{
+                    "Content-Type":"application/json",
+                    "Authorization":`Bearer ${creds.access}`
+                }
+            });
+            res6
+                .json()
+                .then(res6 => setFriendReq(res6))
+                .then(setFriendReqStatus(true));
+            }
         }
         fetchData();
+        console.log(friendReq);
 
         // jQuery.
         $(function() {
@@ -188,11 +215,23 @@ function ProfilePage({handle}) {
 
                 <div className="container">
                     <div className="main-body">
-                    
                         <div className="row gutters-sm">
                             <div className="col-md-4 mb-3">
                             <div className="card1">
                                 <div className="card-body">
+                                    {user.result.about_user === "Logged In User Itself" ? 
+                                    <div>
+                                        <FontAwesomeIcon onClick={toggleNested3} alt="Click to view pending requests" style={{fontSize:"1.5rem",cursor:"pointer"}} icon={faUserClock}/>
+                                        {friendReqStatus ? <Modal isOpen={nestedModal3} toggle={toggleNested3}>
+                                            <ModalHeader>List of Received Friend Requests</ModalHeader>
+                                            <ModalBody style={{marginBottom:"20px"}}>
+                                            <FriendList friends={friendReq} i="2" acc={acc}/>
+                                            </ModalBody>
+                                            <ModalFooter>
+                                            <Button color="primary" onClick={toggleNested3}>Close </Button>{' '}
+                                            </ModalFooter>
+                                        </Modal>:<Loading/>}
+                                    </div>:<></>}
                                 <div className="d-flex flex-column align-items-center text-center">
                                     <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" className="rounded-circle" style={{height:"8rem", width:"8rem"}} width="150" />
                                         <div className="mt-3">
@@ -238,7 +277,7 @@ function ProfilePage({handle}) {
                                 <div className="card-body" style={{color:"black"}}>
                                     <div style={{display:"flex"}}>
                                         <span><img style={{height:"1rem", width:"6rem", float:"left", marginRight:"0"}} src={CodeforcesImg}></img></span>
-                                        <span style={{marginLeft:"14rem"}}>saikeshari</span>
+                                        <span style={{marginLeft:"14rem"}}>{user.result.codeforces}</span>
                                     </div>
 
                                     {codeforcesStatus===true?<>
