@@ -7,6 +7,7 @@ const NewpassForm=()=>{
 
        const [email,setEmail]=useState("");
        const [msg,setMsg]=useState("");
+       
     async function change(e){
         e.preventDefault();
         console.log("change")
@@ -17,7 +18,7 @@ const NewpassForm=()=>{
         },
         body:JSON.stringify({
             "email":email,
-            "redirect_url":""
+            "redirect_url":"http://localhost:3000/setNewPass"
             
         })
         })
