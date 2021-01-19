@@ -1,16 +1,19 @@
 import React ,{useState} from 'react'
 import Navbar from '../../components/headerComponent/Navbar'
 import './forg.style.css'
+import Spinner from 'react-bootstrap/Spinner'
 const NewpassForm=()=>{
 
     //states
 
        const [email,setEmail]=useState("");
        const [msg,setMsg]=useState("");
+       const [show,setShow]=useState(false);
        
     async function change(e){
         e.preventDefault();
         console.log("change")
+        setShow(true);
         const response=await fetch('https://api.codedigger.tech/auth/request-reset-email/',{
             method:"POST",
         headers:{
@@ -22,6 +25,7 @@ const NewpassForm=()=>{
             
         })
         })
+ 
         const data=await response.json();
         console.log(data);
         if(data.status==="OK"){
@@ -29,6 +33,7 @@ const NewpassForm=()=>{
         else{
             setMsg("Please fill carefully");
         }
+        setShow(false);
 
     }
       return(
@@ -36,9 +41,13 @@ const NewpassForm=()=>{
           <Navbar></Navbar>
           
           <form onSubmit={change} className="newPassForm">
-              <input placeholder="email" onChange={(e)=>setEmail(e.target.value)}></input><br></br>
+              <input placeholder="email" onChange={(e)=>setEmail(e.target.value)} required></input><br></br>
               <button onClick={change} type="submit" >submit</button>
-      <h3>{msg}</h3>
+              {
+                  show?
+              <Spinner className="loading-animation" animation="border"/>:<h2>{msg}</h2>
+             }
+     
               </form>
              
           </>

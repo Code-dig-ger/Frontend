@@ -8,7 +8,7 @@ import Eye from '../../assets/Eye.png'
 
 import Validate from '../../Validate'
 
-
+import Spinner from 'react-bootstrap/Spinner'
 
 const LogReg =()=>{
   if(localStorage.getItem("creds")){
@@ -169,7 +169,7 @@ switchers.forEach((item) => {
         Login
         <span className="underline"></span>
       </button>
-        {loaderL?<h4>Loading.....</h4>:
+        {loaderL?<Spinner className="loading-animation" animation="border"/>:
       <form className="form form-login">
         <fieldset>
           <legend>Please, enter your email and password for login.</legend>
@@ -210,7 +210,7 @@ switchers.forEach((item) => {
         Register
         <span className="underline"></span>
       </button>
-      {loaderR?<h4>Loading.....</h4>:
+      {loaderR?<Spinner className="loading-animation" animation="border"/>:
       <form className="form form-signup">
       {((msgR==="")||(msgR!=="Successful, verify your email"))?<>
         <fieldset>

@@ -7,6 +7,7 @@ import Carousel from 'react-multi-carousel';
 import Navbar from '../../components/headerComponent/Navbar'
 import Loading from '../logreg/loading'
 import './upsolve.style.css'
+import Spinner from 'react-bootstrap/Spinner'
 
 function Codeforces(){
 
@@ -104,7 +105,7 @@ mobile: {
      return(
       <>
       <Navbar></Navbar>
-      {loader?<h4>Loading......</h4>:<>
+      {loader?<Spinner className="loading-animation" animation="border"/>:<>
                
                <div>
      <button onClick={e=>{
@@ -118,7 +119,7 @@ mobile: {
           return(
             <>
             <Row className="contestRow">
-    <Col sm={2} md={2} lg={3}>< div className="contestName"><h6>{res.name}</h6></div></Col>
+    <Col sm={2} md={2} lg={3}>< div className="contestName text-white"><h6>{res.name}</h6></div></Col>
     <Col sm={2} md={2} lg={9}><Carousel responsive={responisve}>
                
                {

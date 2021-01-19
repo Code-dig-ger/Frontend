@@ -4,6 +4,7 @@ async function Validate(){
     
     const toValidate=await JSON.parse(localStorage.getItem("creds"));
     if(toValidate===null){
+        alert("Please login to continue....")
         window.location='/logreg'
         return;
     }
@@ -52,6 +53,7 @@ async function Validate(){
            }
            else{
                localStorage.clear();
+               alert("Please login to continue...")
                window.location='/logreg'
            }
 

@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
-
+import Spinner from 'react-bootstrap/Spinner'
 const NewPassForm =()=>{
      const [pass,setPass]=useState();
      const [msg,setMsg]=useState("");
+     const [show,setShow]=useState(false);
     async function handleSubmit(e){
        e.preventDefault();
+       setShow(true)
        const currentUrl=window.location.href;
        const temp=currentUrl;
        const token=currentUrl.split("token=")[1];
+       
        const uidb=temp.split("uidb64=")[1];
        let myuidb="";
        let i=0;
@@ -37,6 +40,7 @@ const NewPassForm =()=>{
         else{
             setMsg(data.error);
         }
+        setShow(false)
        
     }    
     return (
@@ -44,7 +48,10 @@ const NewPassForm =()=>{
         <h4>Set Your New Password</h4>
         <input onChange={(e)=>setPass(e.target.value)} placeholder="new password"></input>
         <button onClick={handleSubmit}>Submit</button>
-        {msg}
+        {
+                  show?
+              <Spinner className="loading-animation" animation="border"/>:<h2>{msg}</h2>
+             }
         </>
         
     )
