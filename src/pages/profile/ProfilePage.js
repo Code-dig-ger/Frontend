@@ -282,17 +282,17 @@ function ProfilePage({handle}) {
 
                                     {codeforcesStatus===true?<>
 
-                                        <div class="body2">
+                                        <div className="body2">
                                             <div id="container">
-                                            <div class="divider" aria-hidden="true"></div>
-                                            <p class="loading-text" aria-label="Loading">
-                                                <span class="letter" aria-hidden="true">L</span>
-                                                <span class="letter" aria-hidden="true">o</span>
-                                                <span class="letter" aria-hidden="true">a</span>
-                                                <span class="letter" aria-hidden="true">d</span>
-                                                <span class="letter" aria-hidden="true">i</span>
-                                                <span class="letter" aria-hidden="true">n</span>
-                                                <span class="letter" aria-hidden="true">g</span>
+                                            <div className="divider" aria-hidden="true"></div>
+                                            <p className="loading-text" aria-label="Loading">
+                                                <span className="letter" aria-hidden="true">L</span>
+                                                <span className="letter" aria-hidden="true">o</span>
+                                                <span className="letter" aria-hidden="true">a</span>
+                                                <span className="letter" aria-hidden="true">d</span>
+                                                <span className="letter" aria-hidden="true">i</span>
+                                                <span className="letter" aria-hidden="true">n</span>
+                                                <span className="letter" aria-hidden="true">g</span>
                                             </p>
                                             </div>
                                             </div>
@@ -318,14 +318,14 @@ function ProfilePage({handle}) {
                                                 <ul id="tab-links" style={{marginBottom:"0", height:"160px"}}>
                                                     {codeforcesDat.result.contestRank.map((contestDat, index) => {
                                                         return(
-                                                            <li><a href={tabs[index]} className={index===0 ? "active":""}>{index+1}</a></li>
+                                                            <li key={index}><a href={tabs[index]} className={index===0 ? "active":""}>{index+1}</a></li>
                                                         )
                                                     })}
                                                 </ul>
 
                                                 {codeforcesDat.result.contestRank.map((contestDat, index) => {
                                                     return(
-                                                        <section style={{width:"100%"}} id={tabSection[index]} className={index===0 ? "active":""}>
+                                                        <section style={{width:"100%"}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
                                                             <h6 style={{color:"black"}}>{contestDat.contest.name}</h6>
                                                             <p>World Rank : {contestDat.worldRank}</p>
                                                             <p>Country Rank : {contestDat.countryRank}</p>

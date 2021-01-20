@@ -48,10 +48,10 @@ const MentorModal = ({creds,acc,handle,user,mentors}) => {
               <MentorList mentors={mentors} acc={acc}/>
             </ModalBody>
             <Form onSubmit={submitForm} style={{marginBottom:"70px"}}>
-                <Label for="formUsername">Add Friend</Label>
+                <Label for="formUsername">Add Mentor</Label>
                 <div style={{display:"flex"}}>
                   <Input style={{marginLeft:"11px", width:"73%"}} type="text" id="formUsername" onChange={(e)=>setFormUsername(e.target.value)} placeholder="Enter Username" />
-                  <Button style={{position:"relative",top:"-4px",left:"0px",borderRadius:"13px"}} onClick={submitForm} type="submit">Submit</Button>
+                  <Button style={{position:"relative",top:"-4px",left:"0px",borderRadius:"13px"}} onClick={submitForm} type="submit">Add</Button>
                 </div>
             </Form>
             <ModalFooter>
