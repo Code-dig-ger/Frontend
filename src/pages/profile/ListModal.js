@@ -141,10 +141,10 @@ showList();
               bottom: '-60px'
             }}
           >Show Sent Requests List</Button>
-          {friends ? <Modal isOpen={nestedModal1} toggle={toggleNested1} onClosed={closeAll ? toggle : undefined}>
+          <Modal isOpen={nestedModal1} toggle={toggleNested1} onClosed={closeAll ? toggle : undefined}>
             <ModalHeader>List of Friends</ModalHeader>
             <ModalBody>
-              <FriendList friends={friends} i="1" acc={acc}/>
+              {friends!=undefined? <FriendList friends={friends} i="1" acc={acc}/>:<Loading/>}
             </ModalBody>
             <Form onSubmit={submitForm} style={{marginBottom:"70px"}}>
                 <Label for="formUsername">Add Friend</Label>
@@ -156,25 +156,25 @@ showList();
             <ModalFooter>
               <Button color="primary" onClick={toggleNested1}>Close </Button>{' '}
             </ModalFooter>
-          </Modal>: <Loading/>}
-          {friendReq ? <Modal isOpen={nestedModal2} toggle={toggleNested2} onClosed={closeAll ? toggle : undefined}>
+          </Modal>
+          <Modal isOpen={nestedModal2} toggle={toggleNested2} onClosed={closeAll ? toggle : undefined}>
             <ModalHeader>List of Friend Requests</ModalHeader>
             <ModalBody>
-              <FriendList friends={friendReq} i="2" acc={acc}/>
+              {friendReq!=undefined?<FriendList friends={friendReq} i="2" acc={acc}/>:<Loading/>}
             </ModalBody>
             <ModalFooter>
               <Button color="primary" onClick={toggleNested2}>Close </Button>{' '}
             </ModalFooter>
-          </Modal>: <Loading/>}
-          {sentReq ? <Modal isOpen={nestedModal3} toggle={toggleNested3} onClosed={closeAll ? toggle : undefined}>
+          </Modal>
+          <Modal isOpen={nestedModal3} toggle={toggleNested3} onClosed={closeAll ? toggle : undefined}>
             <ModalHeader>List of Sent Friend Requests</ModalHeader>
             <ModalBody>
-              <FriendList friends={sentReq} i="3" acc={acc}/>
+              {sentReq!=undefined?<FriendList friends={sentReq} i="3" acc={acc}/>:<Loading/>}
             </ModalBody>
             <ModalFooter>
               <Button color="primary" onClick={toggleNested3}>Close </Button>{' '}
             </ModalFooter>
-          </Modal>: <Loading/>}
+          </Modal>
         </ModalBody>
         <br />
         <br />

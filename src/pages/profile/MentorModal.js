@@ -42,10 +42,10 @@ const MentorModal = ({creds,acc,handle,user,mentors}) => {
                 right: "23px",
                 bottom: "275px"
                 }}>My Mentors</ButtonToggle>
-            {mentors != {} ? <Modal isOpen={modal} toggle={toggle}>
+            <Modal isOpen={modal} toggle={toggle}>
             <ModalHeader>List of Mentors</ModalHeader>
             <ModalBody>
-              <MentorList mentors={mentors} acc={acc}/>
+              {mentors?<MentorList mentors={mentors} acc={acc}/>:<Loading/>}
             </ModalBody>
             <Form onSubmit={submitForm} style={{marginBottom:"70px"}}>
                 <Label for="formUsername">Add Mentor</Label>
@@ -57,7 +57,7 @@ const MentorModal = ({creds,acc,handle,user,mentors}) => {
             <ModalFooter>
               <Button color="primary" onClick={toggle}>Close </Button>{' '}
             </ModalFooter>
-          </Modal>: <Loading/>}
+          </Modal>
         </div>
     )
 }

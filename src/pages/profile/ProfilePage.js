@@ -70,6 +70,27 @@ function ProfilePage({handle}) {
             setAcc(creds.access);
         }
 
+        // jQuery.
+        $(function() {
+            // Reference the tab links.
+            const tabLinks = $('#tab-links li a');
+            
+            // Handle link clicks.
+            tabLinks.click(function(event) {
+                var $this = $(this);
+                
+                // Prevent default click behaviour.
+                event.preventDefault();
+                
+                // Remove the active class from the active link and section.
+                $('#tab-links a.active, section.active').removeClass('active');
+                
+                // Add the active class to the current link and corresponding section.
+                $this.addClass('active');
+                $($this.attr('href')).addClass('active');
+            });
+        });
+
         async function fetchData(){
 
             if(creds)
@@ -148,32 +169,19 @@ function ProfilePage({handle}) {
             res6
                 .json()
                 .then(res6 => setFriendReq(res6))
-                .then(setFriendReqStatus(true));
+                .then(() => {
+                    setFriendReqStatus(true)
+                    // console.log(friendReq.result)
+                    // console.log(friendReq);
+                    // if(friendReq.result != undefined)
+                    // {setFriendReqStatus(true)}
+                });
             }
         }
         fetchData();
         console.log(friendReq);
 
-        // jQuery.
-        $(function() {
-            // Reference the tab links.
-            const tabLinks = $('#tab-links li a');
-            
-            // Handle link clicks.
-            tabLinks.click(function(event) {
-                var $this = $(this);
-                
-                // Prevent default click behaviour.
-                event.preventDefault();
-                
-                // Remove the active class from the active link and section.
-                $('#tab-links a.active, section.active').removeClass('active');
-                
-                // Add the active class to the current link and corresponding section.
-                $this.addClass('active');
-                $($this.attr('href')).addClass('active');
-            });
-        });
+        
     },[])
 
 
@@ -222,15 +230,15 @@ function ProfilePage({handle}) {
                                     {user.result.about_user === "Logged In User Itself" ? 
                                     <div>
                                         <FontAwesomeIcon onClick={toggleNested3} alt="Click to view pending requests" style={{fontSize:"1.5rem",cursor:"pointer"}} icon={faUserClock}/>
-                                        {friendReqStatus ? <Modal isOpen={nestedModal3} toggle={toggleNested3}>
+                                        <Modal isOpen={nestedModal3} toggle={toggleNested3}>
                                             <ModalHeader>List of Received Friend Requests</ModalHeader>
                                             <ModalBody style={{marginBottom:"20px"}}>
-                                            <FriendList friends={friendReq} i="2" acc={acc}/>
+                                                {friendReqStatus ? <FriendList friends={friendReq} i="2" acc={acc}/>: <Loading/>}
                                             </ModalBody>
                                             <ModalFooter>
                                             <Button color="primary" onClick={toggleNested3}>Close </Button>{' '}
                                             </ModalFooter>
-                                        </Modal>:<Loading/>}
+                                        </Modal>
                                     </div>:<></>}
                                 <div className="d-flex flex-column align-items-center text-center">
                                     <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" className="rounded-circle" style={{height:"8rem", width:"8rem"}} width="150" />
