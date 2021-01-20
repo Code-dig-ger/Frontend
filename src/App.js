@@ -24,6 +24,7 @@ import LaddersQuestionPage from "./pages/ladders/LaddersQuestionPage";
 import Validate from './Validate'
 import NewpassEmail from './pages/logreg/ForgotPass'
 import NewPassSet from './pages/logreg/NewPassword'
+
 //react context
 export const CredentialsContext=React.createContext();
 
@@ -49,7 +50,8 @@ const App = () => {
           <Switch>
             <Route exact path="/problems" component={Problems} />
              <Route exact path="/logreg" component={LogReg}/>
-             <Route exact path="/upsolve/codeforces" component={Codeforces}/>   
+             <Route exact path="/upsolve/codeforces" component={Codeforces}/>  
+             <Route exact path="/upsolve/atcoder" component={Atcoder}/>    
              <Route exact path="/laddersLevel" component={LaddersLevel}/>
              <Route exact path="/laddersTopic" component={LaddersTopic}/>
              <Route exact path="/practiceTopic" component={PracticeTopic}/>

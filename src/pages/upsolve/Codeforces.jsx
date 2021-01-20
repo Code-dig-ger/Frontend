@@ -25,6 +25,11 @@ function Codeforces(){
     const [tags,setTags]=useState(false);
      
     useEffect(()=>{
+      setFirst(1);
+        setLast(null);
+        setPage(1);
+        setPrev(null);
+        setNext(null);
       async function fetchData(){
            const creds=JSON.parse(localStorage.getItem("creds"));
            const acc=creds.access; 
