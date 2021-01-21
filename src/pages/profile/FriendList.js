@@ -32,6 +32,7 @@ function FriendList({friends,i,acc}) {
       "from_user":fName
     })
     })
+    window.location.reload();
   }
   
     
@@ -47,27 +48,65 @@ function FriendList({friends,i,acc}) {
                       {friend.name} &nbsp;
                       <b><a href={profileLink}>({friend.username})</a></b>
                       
-                      {i=="1" ? <Button 
-                      color="success" 
-                      onClick={() => {removeFrnd(friend.username)}}
-                      style={{padding:"5px 7px", 
-                      position:"relative", 
-                      left:"20px", 
-                      bottom:"0",
-                      borderRadius:"10%"}}>
-                        Delete
-                      </Button>:<></>}
+                      {i=="1" ? 
+                      <>
+                      <Button 
+                            color="success" 
+                            onClick={() => {removeFrnd(friend.username)}}
+                            style={{padding:"5px 7px", 
+                            position:"relative", 
+                            left:"20px", 
+                            bottom:"0",
+                            borderRadius:"10%"}}>
+                              Delete
+                            </Button>
+                            
+                      </>:<></>}
 
-                      {i=="2" ? <Button 
-                      color="success" 
-                      onClick={() => {acceptRequest(friend.username)}}
-                      style={{padding:"5px 7px", 
-                      position:"relative", 
-                      left:"20px", 
-                      bottom:"0",
-                      borderRadius:"10%"}}>
-                        Accept
-                      </Button>:<></>}
+                      {i=="2" ? 
+                      <>
+                          <Button 
+                          color="success" 
+                          onClick={() => {acceptRequest(friend.username)}}
+                          style={{padding:"5px 7px", 
+                          position:"relative", 
+                          left:"20px", 
+                          bottom:"0",
+                          borderRadius:"10%"}}>
+                            Accept
+                          </Button>
+                          
+                          
+                          <Button 
+                          color="success" 
+                          onClick={() => {removeFrnd(friend.username)}}
+                          style={{padding:"5px 7px", 
+                          position:"relative", 
+                          left:"40px", 
+                          bottom:"0",
+                          borderRadius:"10%"}}>
+                            Delete
+                          </Button>
+                          
+                      
+                      </>:<></>}
+
+                      {i=="3" ? 
+                      <>
+               
+                          <Button 
+                          color="success" 
+                          onClick={() => {removeFrnd(friend.username)}}
+                          style={{padding:"5px 7px", 
+                          position:"relative", 
+                          left:"40px", 
+                          bottom:"0",
+                          borderRadius:"10%"}}>
+                            Delete
+                          </Button>
+                          
+                      
+                      </>:<></>}
                     </li>
                  )
                
