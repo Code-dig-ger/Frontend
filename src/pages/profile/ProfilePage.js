@@ -133,7 +133,7 @@ function ProfilePage({handle}) {
             res2
                 .json()
                 .then(res => setCodechefDat(res))
-                .then(show => setCodechefDat(false))
+                .then(show => setCodechefStatus(false))
                 .catch(error => setErrors(true));
 
             const res3 = await fetch(`https://api.codedigger.tech/auth/profile/${uu}/?platform=atcoder`);
@@ -363,10 +363,333 @@ function ProfilePage({handle}) {
                                             </section> */}
                                         </div>
                                         </div> </>}
+                                            <br/>
+                                            <br/><br/>
+
+                                        <div style={{display:"flex"}}>
+                                        <span><img style={{height:"1rem", width:"2rem", float:"left", marginRight:"0"}} src={CodechefImg}></img></span>
+                                        <span style={{marginLeft:"14rem"}}>{user.result.codechef}</span>
+                                    </div>   
+                                        {codechefStatus===true?<>
+
+                                        <div className="body2">
+                                            <div id="container">
+                                            <div className="divider" aria-hidden="true"></div>
+                                            <p className="loading-text" aria-label="Loading">
+                                                <span className="letter" aria-hidden="true">L</span>
+                                                <span className="letter" aria-hidden="true">o</span>
+                                                <span className="letter" aria-hidden="true">a</span>
+                                                <span className="letter" aria-hidden="true">d</span>
+                                                <span className="letter" aria-hidden="true">i</span>
+                                                <span className="letter" aria-hidden="true">n</span>
+                                                <span className="letter" aria-hidden="true">g</span>
+                                            </p>
+                                            </div>
+                                            </div>
+                                        </> :<> <div style={{marginTop:"20px"}}>
+                                        <div>Current Rating : {codechefDat.result.rating}</div>
+                                        <div>Max Rating : {codechefDat.result.maxRating}</div>
+                                    </div>
+                                    
+                                    
+
+                                    <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
+                                    <div style={{marginRight: "60px"}}>
+                                        
+                                        <ProfileCarousel codechef={codechefDat}/>
+
+
+                                    </div>
+                                        <div className="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px"}}>
+                                            {codechefDat.result.contestRank.length===0 ? 
+                                                <h6 style={{color:"white", fontSize:"2rem"}}>You havent done any contest</h6> 
+                                                :
+                                                <>
+                                                <ul id="tab-links" style={{marginBottom:"0", height:"160px"}}>
+                                                    {codechefDat.result.contestRank.map((contestDat, index) => {
+                                                        return(
+                                                            <li key={index}><a href={tabs[index]} className={index===0 ? "active":""}>{index+1}</a></li>
+                                                        )
+                                                    })}
+                                                </ul>
+
+                                                {codechefDat.result.contestRank.map((contestDat, index) => {
+                                                    return(
+                                                        <section style={{width:"100%"}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
+                                                            <h6 style={{color:"black"}}>{contestDat.name}</h6>
+                                                            <p>Rank : {contestDat.rank}</p>
+                                                        </section>
+                                                    )
+                                                })} </>
+                                                }
+                                            
+
+                                            {/* <section id="tab-1" className="active">
+                                                <h3>Code</h3>
+                                                
+                                                <p>Thousands of free tutorials and online courses to help you learn software development from mobile devices to web applications and everything in between.</p>
+                                            </section>
+                                            
+                                            <section id="tab-2">
+                                                <h3>Graphic Design &amp; Illustration</h3>
+                                                
+                                                <p>Keep up to date or learn a new skill with our graphic design and illustration content.</p>
+                                            </section>
+                                            
+                                            <section id="tab-3">
+                                                <h3>Web Design</h3>
+                                                
+                                                <p>Free tutorials, learning guides, and online courses to help you learn web design.</p>
+                                            </section> */}
+                                        </div>
+                                        </div> </>}
+
+                                        <br/>
+                                            <br/><br/>
+
+                                        <div style={{display:"flex"}}>
+                                        <span><img style={{height:"1rem", width:"2rem", float:"left", marginRight:"0"}} src={CodechefImg}></img></span>
+                                        <span style={{marginLeft:"14rem"}}>{user.result.codechef}</span>
+                                    </div>   
+                                        {codechefStatus===true?<>
+
+                                        <div className="body2">
+                                            <div id="container">
+                                            <div className="divider" aria-hidden="true"></div>
+                                            <p className="loading-text" aria-label="Loading">
+                                                <span className="letter" aria-hidden="true">L</span>
+                                                <span className="letter" aria-hidden="true">o</span>
+                                                <span className="letter" aria-hidden="true">a</span>
+                                                <span className="letter" aria-hidden="true">d</span>
+                                                <span className="letter" aria-hidden="true">i</span>
+                                                <span className="letter" aria-hidden="true">n</span>
+                                                <span className="letter" aria-hidden="true">g</span>
+                                            </p>
+                                            </div>
+                                            </div>
+                                        </> :<> <div style={{marginTop:"20px"}}>
+                                        <div>Current Rating : {codechefDat.result.rating}</div>
+                                        <div>Max Rating : {codechefDat.result.maxRating}</div>
+                                    </div>
+                                    
+                                    
+
+                                    <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
+                                    <div style={{marginRight: "60px"}}>
+                                        
+                                        <ProfileCarousel codechef={codechefDat}/>
+
+
+                                    </div>
+                                        <div className="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px"}}>
+                                            {codechefDat.result.contestRank.length===0 ? 
+                                                <h6 style={{color:"white", fontSize:"2rem"}}>You havent done any contest</h6> 
+                                                :
+                                                <>
+                                                <ul id="tab-links" style={{marginBottom:"0", height:"160px"}}>
+                                                    {codechefDat.result.contestRank.map((contestDat, index) => {
+                                                        return(
+                                                            <li key={index}><a href={tabs[index]} className={index===0 ? "active":""}>{index+1}</a></li>
+                                                        )
+                                                    })}
+                                                </ul>
+
+                                                {codechefDat.result.contestRank.map((contestDat, index) => {
+                                                    return(
+                                                        <section style={{width:"100%"}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
+                                                            <h6 style={{color:"black"}}>{contestDat.name}</h6>
+                                                            <p>Rank : {contestDat.rank}</p>
+                                                        </section>
+                                                    )
+                                                })} </>
+                                                }
+                                            
+
+                                            {/* <section id="tab-1" className="active">
+                                                <h3>Code</h3>
+                                                
+                                                <p>Thousands of free tutorials and online courses to help you learn software development from mobile devices to web applications and everything in between.</p>
+                                            </section>
+                                            
+                                            <section id="tab-2">
+                                                <h3>Graphic Design &amp; Illustration</h3>
+                                                
+                                                <p>Keep up to date or learn a new skill with our graphic design and illustration content.</p>
+                                            </section>
+                                            
+                                            <section id="tab-3">
+                                                <h3>Web Design</h3>
+                                                
+                                                <p>Free tutorials, learning guides, and online courses to help you learn web design.</p>
+                                            </section> */}
+                                        </div>
+                                        </div> </>}
+
+                                        <br/>
+                                            <br/><br/>
+
+                                        <div style={{display:"flex"}}>
+                                        <span><img style={{height:"1rem", width:"2rem", float:"left", marginRight:"0"}} src={CodechefImg}></img></span>
+                                        <span style={{marginLeft:"14rem"}}>{user.result.codechef}</span>
+                                    </div>   
+                                        {codechefStatus===true?<>
+
+                                        <div className="body2">
+                                            <div id="container">
+                                            <div className="divider" aria-hidden="true"></div>
+                                            <p className="loading-text" aria-label="Loading">
+                                                <span className="letter" aria-hidden="true">L</span>
+                                                <span className="letter" aria-hidden="true">o</span>
+                                                <span className="letter" aria-hidden="true">a</span>
+                                                <span className="letter" aria-hidden="true">d</span>
+                                                <span className="letter" aria-hidden="true">i</span>
+                                                <span className="letter" aria-hidden="true">n</span>
+                                                <span className="letter" aria-hidden="true">g</span>
+                                            </p>
+                                            </div>
+                                            </div>
+                                        </> :<> <div style={{marginTop:"20px"}}>
+                                        <div>Current Rating : {codechefDat.result.rating}</div>
+                                        <div>Max Rating : {codechefDat.result.maxRating}</div>
+                                    </div>
+                                    
+                                    
+
+                                    <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
+                                    <div style={{marginRight: "60px"}}>
+                                        
+                                        <ProfileCarousel codechef={codechefDat}/>
+
+
+                                    </div>
+                                        <div className="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px"}}>
+                                            {codechefDat.result.contestRank.length===0 ? 
+                                                <h6 style={{color:"white", fontSize:"2rem"}}>You havent done any contest</h6> 
+                                                :
+                                                <>
+                                                <ul id="tab-links" style={{marginBottom:"0", height:"160px"}}>
+                                                    {codechefDat.result.contestRank.map((contestDat, index) => {
+                                                        return(
+                                                            <li key={index}><a href={tabs[index]} className={index===0 ? "active":""}>{index+1}</a></li>
+                                                        )
+                                                    })}
+                                                </ul>
+
+                                                {codechefDat.result.contestRank.map((contestDat, index) => {
+                                                    return(
+                                                        <section style={{width:"100%"}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
+                                                            <h6 style={{color:"black"}}>{contestDat.name}</h6>
+                                                            <p>Rank : {contestDat.rank}</p>
+                                                        </section>
+                                                    )
+                                                })} </>
+                                                }
+                                            
+
+                                            {/* <section id="tab-1" className="active">
+                                                <h3>Code</h3>
+                                                
+                                                <p>Thousands of free tutorials and online courses to help you learn software development from mobile devices to web applications and everything in between.</p>
+                                            </section>
+                                            
+                                            <section id="tab-2">
+                                                <h3>Graphic Design &amp; Illustration</h3>
+                                                
+                                                <p>Keep up to date or learn a new skill with our graphic design and illustration content.</p>
+                                            </section>
+                                            
+                                            <section id="tab-3">
+                                                <h3>Web Design</h3>
+                                                
+                                                <p>Free tutorials, learning guides, and online courses to help you learn web design.</p>
+                                            </section> */}
+                                        </div>
+                                        </div> </>}
+
+                                        <br/>
+                                            <br/><br/>
+
+                                        <div style={{display:"flex"}}>
+                                        <span><img style={{height:"1rem", width:"2rem", float:"left", marginRight:"0"}} src={CodechefImg}></img></span>
+                                        <span style={{marginLeft:"14rem"}}>{user.result.codechef}</span>
+                                    </div>   
+                                        {codechefStatus===true?<>
+
+                                        <div className="body2">
+                                            <div id="container">
+                                            <div className="divider" aria-hidden="true"></div>
+                                            <p className="loading-text" aria-label="Loading">
+                                                <span className="letter" aria-hidden="true">L</span>
+                                                <span className="letter" aria-hidden="true">o</span>
+                                                <span className="letter" aria-hidden="true">a</span>
+                                                <span className="letter" aria-hidden="true">d</span>
+                                                <span className="letter" aria-hidden="true">i</span>
+                                                <span className="letter" aria-hidden="true">n</span>
+                                                <span className="letter" aria-hidden="true">g</span>
+                                            </p>
+                                            </div>
+                                            </div>
+                                        </> :<> <div style={{marginTop:"20px"}}>
+                                        <div>Current Rating : {codechefDat.result.rating}</div>
+                                        <div>Max Rating : {codechefDat.result.maxRating}</div>
+                                    </div>
+                                    
+                                    
+
+                                    <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
+                                    <div style={{marginRight: "60px"}}>
+                                        
+                                        <ProfileCarousel codechef={codechefDat}/>
+
+
+                                    </div>
+                                        <div className="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px"}}>
+                                            {codechefDat.result.contestRank.length===0 ? 
+                                                <h6 style={{color:"white", fontSize:"2rem"}}>You havent done any contest</h6> 
+                                                :
+                                                <>
+                                                <ul id="tab-links" style={{marginBottom:"0", height:"160px"}}>
+                                                    {codechefDat.result.contestRank.map((contestDat, index) => {
+                                                        return(
+                                                            <li key={index}><a href={tabs[index]} className={index===0 ? "active":""}>{index+1}</a></li>
+                                                        )
+                                                    })}
+                                                </ul>
+
+                                                {codechefDat.result.contestRank.map((contestDat, index) => {
+                                                    return(
+                                                        <section style={{width:"100%"}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
+                                                            <h6 style={{color:"black"}}>{contestDat.name}</h6>
+                                                            <p>Rank : {contestDat.rank}</p>
+                                                        </section>
+                                                    )
+                                                })} </>
+                                                }
+                                            
+
+                                            {/* <section id="tab-1" className="active">
+                                                <h3>Code</h3>
+                                                
+                                                <p>Thousands of free tutorials and online courses to help you learn software development from mobile devices to web applications and everything in between.</p>
+                                            </section>
+                                            
+                                            <section id="tab-2">
+                                                <h3>Graphic Design &amp; Illustration</h3>
+                                                
+                                                <p>Keep up to date or learn a new skill with our graphic design and illustration content.</p>
+                                            </section>
+                                            
+                                            <section id="tab-3">
+                                                <h3>Web Design</h3>
+                                                
+                                                <p>Free tutorials, learning guides, and online courses to help you learn web design.</p>
+                                            </section> */}
+                                        </div>
+                                        </div> </>}
 
                                 </div>
                             </div>
-                            <div className="row gutters-sm">
+                            {/* <div className="row gutters-sm">
                                 <div className="col-sm-6 mb-3">
                                 <div className="card1 h-100">
                                     <div className="card-body">
@@ -420,8 +743,8 @@ function ProfilePage({handle}) {
                                     </div>
                                     </div>
                                 </div>
-                                </div>
-                            </div>
+                                </div> */}
+                            {/* </div> */}
                             </div>
                         </div>
                         </div>
