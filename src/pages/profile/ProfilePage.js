@@ -62,13 +62,13 @@ function ProfilePage({handle}) {
         setNestedModal3(!nestedModal3);
       }
 
-    useEffect(() => {
+   
 
-        if(creds)
-        {
-            setFirstTime(creds.first);
-            setAcc(creds.access);
-        }
+        // if(creds)
+        // {
+        //     setFirstTime(creds.first);
+        //     setAcc(creds.access);
+        // }
 
         // jQuery.
         $(function() {
@@ -89,7 +89,7 @@ function ProfilePage({handle}) {
                 $this.addClass('active');
                 $($this.attr('href')).addClass('active');
             });
-        });
+        
 
         async function fetchData(){
 
