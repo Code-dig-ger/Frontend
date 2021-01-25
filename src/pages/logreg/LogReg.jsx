@@ -13,6 +13,7 @@ import Spinner from 'react-bootstrap/Spinner'
 const LogReg =()=>{
   if(localStorage.getItem("creds")){
     Validate();
+    
   }
   
   //states and handler for register
@@ -100,10 +101,12 @@ const LogReg =()=>{
       refresh:data.tokens.refresh,
       first:data.first_time_login,
       username:usernameL
-
-    }));
+      
+    }))
+  
     if(data.first_time_login===true){
-     window.location='/Profile'
+
+     window.location='/profile/:id'
     }
     else{
     window.location='/home'
@@ -233,7 +236,7 @@ switchers.forEach((item) => {
         </fieldset>
     <h6 className="errormsgs">{msgR}</h6>
         <button onClick={register} type="submit" className="btn-signup">Register</button></>
-        :<h4 className="errormsgs">{msgR}</h4>}
+        :<h4 className="goodmsgs">{msgR}</h4>}
       </form>
 }
     </div>

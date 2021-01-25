@@ -20,7 +20,8 @@ const Atcoder=()=>{
     const [last,setLast]=useState(null);
     const [conData,setData]=useState([]);
     const [Prac,setPrac]=useState(false);
-    useEffect(()=>{ 
+    useEffect(()=>{
+      Validate();
       setFirst(1);
         setLast(null);
         setPage(1);
@@ -106,7 +107,7 @@ if(last!=null){
             <Navbar></Navbar>
             {loader?<Spinner className="loading-animation" animation="border"/>:
             <>
-                     
+                     <div><button onClick={e=>{window.location.reload(false)}}>Solved? Update</button></div>
                      <div>
      <button onClick={e=>{
         setTimeout(()=>{setLoader(true)},1000)

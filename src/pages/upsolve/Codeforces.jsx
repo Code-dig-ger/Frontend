@@ -8,11 +8,12 @@ import Navbar from '../../components/headerComponent/Navbar'
 import Loading from '../logreg/loading'
 import './upsolve.style.css'
 import Spinner from 'react-bootstrap/Spinner'
-
+import Button from 'react-bootstrap/Button'
 function Codeforces(){
-
-    Validate();
-    const pageNumbers=[];
+    
+ 
+  Validate();
+  const pageNumbers=[];
     
     const [page,setPage]=useState(1);
     const [loader,setLoader]=useState(false);
@@ -23,14 +24,20 @@ function Codeforces(){
     const [conData,setData]=useState([]);
     const [vir,setVir]=useState(false);
     const [tags,setTags]=useState(false);
-     
+   
+   
     useEffect(()=>{
+     
+    
       setFirst(1);
         setLast(null);
         setPage(1);
         setPrev(null);
         setNext(null);
+         Validate();
       async function fetchData(){
+       
+        
            const creds=JSON.parse(localStorage.getItem("creds"));
            const acc=creds.access; 
           
@@ -78,11 +85,13 @@ function Codeforces(){
            
            
       
-    } 
+    
+         
+    }
     fetchData();
+   
     
 },[page,vir])
-
 if(last!=null){
 for(let i=1;i<=last;i++){
   pageNumbers.push(i);
@@ -107,11 +116,12 @@ mobile: {
 }
 };
 
+
      return(
       <>
       <Navbar></Navbar>
       {loader?<Spinner className="loading-animation" animation="border"/>:<>
-               
+               <div><button onClick={e=>{window.location.reload(false)}}>Solved? Update</button></div>
                <div>
      <button onClick={e=>{
         setTimeout(()=>{setLoader(true)},1000)
@@ -119,6 +129,7 @@ mobile: {
      
      
      <br></br>
+
         {conData.length>0?
         conData.map(res=>{
           return(
@@ -127,19 +138,19 @@ mobile: {
     <Col sm={2} md={2} lg={3}>< div className="contestName text-white"><h6>{res.name}</h6></div></Col>
     <Col sm={2} md={2} lg={9}><Carousel responsive={responisve}>
                
-               {
+               { 
               
               res. problems.map((prob)=>{
                    if(prob.status==="solved"){
                    return(
-                   <Col><div className="solved" ><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a></div></Col>
+                   <Col><div className="solved" ><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a><button onClick={(e)=>alert(prob.tags)} className="tags">Tags</button></div></Col>
                    )}
                    else if(prob.status==="wrong"){
                    return(
-                   <Col> <div className="wrong"><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a></div></Col>
+                   <Col> <div className="wrong"><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a><button onClick={(e)=>alert(prob.tags)} className="tags">Tags</button></div></Col>
                    )}
                    return(
-                   <Col> <div className="upsolve"><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a><br></br>
+                   <Col> <div className="upsolve"><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a><button onClick={(e)=>alert(prob.tags)} className="tags">Tags</button><br></br>
                    </div></Col>
                    )
                })}
@@ -184,6 +195,6 @@ mobile: {
         
      ) 
       
-    
+       
 }
-export default Codeforces;
+export default Codeforces

@@ -1,9 +1,11 @@
-
+import {useEffect} from 'react'
 
 async function Validate(){
     
+    
     const toValidate=await JSON.parse(localStorage.getItem("creds"));
     if(toValidate===null){
+        
         alert("Please login to continue....")
         window.location='/logreg'
         return;
@@ -39,6 +41,7 @@ async function Validate(){
 
            if(refResponse.status==200){
                console.log('getting new');
+
                const newData=await refResponse.json();
               const newAcc=newData.access;
                localStorage.setItem("creds",JSON.stringify({

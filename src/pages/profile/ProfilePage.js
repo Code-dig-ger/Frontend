@@ -200,7 +200,7 @@ function ProfilePage({handle}) {
 
         return (
         
-            (firstTime===true)?<Info/>: 
+            (firstTime===true)?window.location="/createProfile": 
                   (show==true) ? <Loading /> : 
                   <>
         <Navbar/>

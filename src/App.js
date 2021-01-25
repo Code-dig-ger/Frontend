@@ -1,4 +1,4 @@
-import React ,{useState} from "react";
+import React ,{useState,useEffect} from "react";
 import { BrowserRouter, Switch, Route, useParams, state } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./bootstrap-theme/bootstrap.min.cyborg.css";
@@ -25,11 +25,14 @@ import Validate from './Validate'
 import NewpassEmail from './pages/logreg/ForgotPass'
 import NewPassSet from './pages/logreg/NewPassword'
 
+
 //react context
 export const CredentialsContext=React.createContext();
 
 const App = () => {
   
+//  setInterval(Validate,300*1000);
+
 
   const profile = ({match}) => {
     return(
@@ -40,9 +43,14 @@ const App = () => {
     );
   }
   
+
+
+
+
  const [creds,setCreds]=useState({});
   return (
     <>
+      
       <Container fluid style={{paddingBottom:'0', paddingTop: '0'}}>
         <CredentialsContext.Provider value={{creds,setCreds}}>
         <BrowserRouter>
@@ -51,7 +59,8 @@ const App = () => {
             <Route exact path="/problems" component={Problems} />
              <Route exact path="/logreg" component={LogReg}/>
              <Route exact path="/upsolve/codeforces" component={Codeforces}/>  
-             <Route exact path="/upsolve/atcoder" component={Atcoder}/>    
+             <Route exact path="/upsolve/atcoder" component={Atcoder}/>  
+             <Route exact path="/upsolve/codechef" component={Codechef}/>  
              <Route exact path="/laddersLevel" component={LaddersLevel}/>
              <Route exact path="/laddersTopic" component={LaddersTopic}/>
              <Route exact path="/practiceTopic" component={PracticeTopic}/>
@@ -64,6 +73,8 @@ const App = () => {
             <Route exact path="/forgPass" component={NewpassEmail}/>
             <Route exact path="/profile/:id" component={profile} />
             <Route exact path="/setNewPass" component={NewPassSet}/>
+            
+          
           </Switch>
         </BrowserRouter>
         </CredentialsContext.Provider>

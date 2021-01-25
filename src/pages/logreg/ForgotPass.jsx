@@ -39,7 +39,7 @@ const NewpassForm=()=>{
       return(
           <>
           <Navbar></Navbar>
-          
+          <h3 className="heads">Please enter your registered email.</h3>
           <form onSubmit={change} className="newPassForm">
               <input placeholder="email" onChange={(e)=>setEmail(e.target.value)} required></input><br></br>
               <button onClick={change} type="submit" >submit</button>
