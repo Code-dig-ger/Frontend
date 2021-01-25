@@ -26,6 +26,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import FriendList from './FriendList.js';
 import {Modal,ModalBody,ModalFooter,ModalHeader,Button} from 'reactstrap';
 
+
+
 function ProfilePage({handle}) {
 
     // console.log(handle);
@@ -63,20 +65,13 @@ function ProfilePage({handle}) {
       }
 
     useEffect(() => {
-
-        if(creds)
-        {
-            setFirstTime(creds.first);
-            setAcc(creds.access);
-        }
-
-        // jQuery.
         $(function() {
             // Reference the tab links.
             const tabLinks = $('#tab-links li a');
-            
+            console.log("PP");
             // Handle link clicks.
             tabLinks.click(function(event) {
+                
                 var $this = $(this);
                 
                 // Prevent default click behaviour.
@@ -90,8 +85,22 @@ function ProfilePage({handle}) {
                 $($this.attr('href')).addClass('active');
             });
         });
+    })
+
+    useEffect(() => {
+
+        if(creds)
+        {
+            setFirstTime(creds.first);
+            setAcc(creds.access);
+        }
+
+        // jQuery.
+        
 
         async function fetchData(){
+
+            
 
             if(creds)
             {
@@ -241,7 +250,7 @@ function ProfilePage({handle}) {
                                         </Modal>
                                     </div>:<></>}
                                 <div className="d-flex flex-column align-items-center text-center">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" className="rounded-circle" style={{height:"8rem", width:"8rem"}} width="150" />
+                                    <img src="https://www.bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" className="rounded-circle" style={{height:"8rem", width:"8rem"}} width="150" />
                                         <div className="mt-3">
                                             <h4 style={{color:"black"}}>{user.result.name}</h4>
                                             <p className="text-secondary mb-1">{uu}</p>
