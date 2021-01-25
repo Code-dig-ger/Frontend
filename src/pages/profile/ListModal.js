@@ -171,6 +171,8 @@ showList();
             <ModalBody>
               {sentReq!=undefined?<FriendList friends={sentReq} i="3" acc={acc}/>:<Loading/>}
             </ModalBody>
+            <br/>
+            <br/>
             <ModalFooter>
               <Button color="primary" onClick={toggleNested3}>Close </Button>{' '}
             </ModalFooter>

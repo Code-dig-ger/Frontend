@@ -9,7 +9,9 @@ import {
 
 
 const ProfileCarousel = (props) => {
-    const items = [
+  let items = [];
+  if(props.codeforces){
+     items = [
         {
           id: 1,
           altText: 'Organization Rank',
@@ -26,6 +28,20 @@ const ProfileCarousel = (props) => {
           caption: `${props.codeforces.result.worldRank}`
         }
       ];
+    }else if(props.codechef){
+      items = [
+        {
+          id: 1,
+          altText: 'Country Rank',
+          caption: `${props.codechef.result.countryRank}`
+        },
+        {
+          id: 2,
+          altText: 'World Rank',
+          caption: `${props.codechef.result.worldRank}`
+        }
+      ];
+    }
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
