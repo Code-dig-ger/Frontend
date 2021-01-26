@@ -90,11 +90,11 @@ if(creds){
               </DropdownToggle>
               <DropdownMenu left>
                 <DropdownItem>
-                <NavLink href="/laddersTopic">Topicwise</NavLink>
+                <NavLink href="/topicwise/ladder">Topicwise</NavLink>
                   
                 </DropdownItem>
                 <DropdownItem>
-                <NavLink href="/laddersLevel">Levelwise</NavLink>
+                <NavLink href="/levelwise/ladder">Levelwise</NavLink>
                 </DropdownItem>
                 
                 
@@ -107,10 +107,10 @@ if(creds){
               </DropdownToggle>
               <DropdownMenu left>
                 <DropdownItem>
-                <NavLink href="/practiceTopic">Topicwise</NavLink>
+                <NavLink href="/topicwise/practice">Topicwise</NavLink>
                 </DropdownItem>
                 <DropdownItem>
-                <NavLink href="/practiceLevel">Levelwise</NavLink>
+                <NavLink href="/levelwise/practice">Levelwise</NavLink>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
@@ -181,11 +181,11 @@ if(creds){
               </DropdownToggle>
               <DropdownMenu left>
                 <DropdownItem>
-                <NavLink href="/laddersTopic">Topicwise</NavLink>
+                <NavLink href="/topicwise/ladder">Topicwise</NavLink>
                   
                 </DropdownItem>
                 <DropdownItem>
-                <NavLink href="/laddersLevel">Levelwise</NavLink>
+                <NavLink href="/levelwise/ladder">Levelwise</NavLink>
                 </DropdownItem>
                 
                 
@@ -198,10 +198,10 @@ if(creds){
               </DropdownToggle>
               <DropdownMenu left>
                 <DropdownItem>
-                <NavLink href="/practiceTopic">Topicwise</NavLink>
+                <NavLink href="/topicwise/practice">Topicwise</NavLink>
                 </DropdownItem>
                 <DropdownItem>
-                <NavLink href="/practiceLevel">Levelwise</NavLink>
+                <NavLink href="/levelwise/practice">Levelwise</NavLink>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>

@@ -1,4 +1,4 @@
-import React, {useState}from 'react'
+import React, {useState,useEffect}from 'react'
 import Loading from '../logreg/loading'
 import Header from '../../components/headerComponent/Navbar';
 import "./LaddersLevel.css";
@@ -7,69 +7,74 @@ import LaddersContent from '../../components/LaddersContent';
 import FooterSmall from '../../components/footerComponent/FooterSmall';
 
 
-function LaddersLevel() {
+function LaddersLevel(props) {
+
+    const creds= JSON.parse(localStorage.getItem("creds"));
+
+    const [dat, setDat] = useState();
+
     const [show,setShow]=useState(true);
-    setTimeout(()=>{setShow(false)},1000);
+    const [wise1,setwise1]=useState();
+
+    console.log(props);
+    useEffect(() => {
+        async function setData()
+        {
+            if(props.wise=="topicwise")
+            {
+                setwise1('Topic')
+            }
+            else
+            {
+                setwise1('Level')
+            }
+        }
+        async function fetchData()
+        {
+            console.log("reached");
+            const res=await fetch (`https://api.codedigger.tech/lists/${props.wise}/${props.type}/`,{
+                method:"GET"
+            });
+            res
+                .json()
+                .then(res => setDat(res))
+                .then(show => setShow(false));
+        }
+        setData();
+        fetchData();
+    },[])
+
     return (
         <div className="ladder">
             {show? (<Loading />):
             (<div>
+                {console.log(dat)}
             <Header />
             
             <div className="container ladders_ques">
             <br/>
-            
-                <LaddersContent 
-                    title='A'
-                    des='All Questions should be attempted in this topic.'
-                    type='Level'
-                />
-                <br/>
-                <LaddersContent 
-                    title='B'
-                    des='All Questions should be attempted in this topic.'
-                    type='Level'
-                />
-                <br/>
-                <LaddersContent 
-                    title='C'
-                    des='All Questions should be attempted in this topic.'
-                    type='Level'
-                />
-                <br/>
-                <LaddersContent 
-                    title='D'
-                    des='All Questions should be attempted in this topic.'
-                    type='Level'
-                />
-                <br/>
-                <LaddersContent 
-                    title='E'
-                    des='All Questions should be attempted in this topic.'
-                    type='Level'
-                />
-                <br/>
-                <LaddersContent 
-                    title='F'
-                    des='All Questions should be attempted in this topic.'
-                    type='Level'
-                />
-                <br/>
-                <LaddersContent 
-                    title='G'
-                    des='All Questions should be attempted in this topic.'
-                    type='Level'
-                />
-                <br/>
-                <LaddersContent 
-                    title='H'
-                    des='All Questions should be attempted in this topic.'
-                    type='Level'
-                />
-                <br/>
+
+            {console.log(dat[0])}
+
+            {dat.map((level)=> {
+                return(
+                    <>
+                    <LaddersContent 
+                        title={level.name}
+                        des={level.description}
+                        slug={level.slug}
+                        wise1={wise1}
+                        wise={props.wise}
+                        type={props.type}
+                    />
+
+                    <br/>
+                    </>
+                )
+            })}
                 
             </div>
-            <FooterSmall/>
+            <FooterSmall />
             </div>)
             }
         </div>

@@ -43,7 +43,26 @@ const App = () => {
     );
   }
   
+  const LaddersQuestionPage1 = ({match}) => {
+    
+    const [type1, setType1] = useState(match.params.type === "practice" ? "list":"ladder");
+    return(
 
+      // PARSEINT IS A JS FUNCTION WHICH WILL CONVERT THE THE GIVEN STRING OF NUMBERS 
+      // ACCORDING TO THE BASE OR RADIX SPECIFIED
+      <LaddersQuestionPage wise={match.params.wise} type={type1} slug={match.params.slug}/>
+    );
+  }
+
+  const LaddersLevel1 = ({match}) => {
+    const [type1, setType1] = useState(match.params.type === "practice" ? "list":"ladder");
+    return(
+
+      // PARSEINT IS A JS FUNCTION WHICH WILL CONVERT THE THE GIVEN STRING OF NUMBERS 
+      // ACCORDING TO THE BASE OR RADIX SPECIFIED
+      <LaddersLevel wise={match.params.wise} type={type1}/>
+    );
+  }
 
 
 
@@ -61,11 +80,10 @@ const App = () => {
              <Route exact path="/upsolve/codeforces" component={Codeforces}/>  
              <Route exact path="/upsolve/atcoder" component={Atcoder}/>  
              <Route exact path="/upsolve/codechef" component={Codechef}/>  
-             <Route exact path="/laddersLevel" component={LaddersLevel}/>
-             <Route exact path="/laddersTopic" component={LaddersTopic}/>
-             <Route exact path="/practiceTopic" component={PracticeTopic}/>
-             <Route exact path="/practiceLevel" component={PracticeLevel}/>
-             <Route exact path="/laddersLevel/topic/page1" component={LaddersQuestionPage}/>
+             
+             {/* <Route exact path="/laddersLevel/topic/page1" component={LaddersQuestionPage}/> */}
+             <Route exact path="/:wise/:type/:slug" component={LaddersQuestionPage1}/>
+             <Route exact path="/:wise/:type" component={LaddersLevel1}/>
              <Route exact path="/upsolve/virtual" component={Virtual}/>
               <Route exact path="/" component={Homepage}/>
             <Route exact path="/home" component={Homepage}/>
