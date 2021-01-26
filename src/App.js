@@ -80,17 +80,19 @@ const App = () => {
              <Route exact path="/upsolve/codeforces" component={Codeforces}/>  
              <Route exact path="/upsolve/atcoder" component={Atcoder}/>  
              <Route exact path="/upsolve/codechef" component={Codechef}/>  
+             <Route exact path="/profile/:id" component={profile} />
              
              {/* <Route exact path="/laddersLevel/topic/page1" component={LaddersQuestionPage}/> */}
-             <Route exact path="/:wise/:type/:slug" component={LaddersQuestionPage1}/>
-             <Route exact path="/:wise/:type" component={LaddersLevel1}/>
+             
              <Route exact path="/upsolve/virtual" component={Virtual}/>
               <Route exact path="/" component={Homepage}/>
             <Route exact path="/home" component={Homepage}/>
             <Route exact path="/createProfile" component={Info}/>
             <Route exact path="/forgPass" component={NewpassEmail}/>
-            <Route exact path="/profile/:id" component={profile} />
+            
             <Route exact path="/setNewPass" component={NewPassSet}/>
+            <Route exact path="/:wise/:type/:slug" component={LaddersQuestionPage1}/>
+             <Route exact path="/:wise/:type" component={LaddersLevel1}/>
             
           
           </Switch>
