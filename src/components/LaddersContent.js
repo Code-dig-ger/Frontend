@@ -3,7 +3,9 @@ import './LaddersContent.css';
 
 
 const LaddersContent = (props) => {
-  const [str,setStr1]=useState("/" + props.wise + "/" + props.type.toLowerCase() + "/" + props.slug);
+  console.log(props.type);
+  const [str2,setStr2]=useState(props.type === "list" ? "practice":"ladder")
+  const [str,setStr1]=useState("/" + props.wise + "/" + str2 + "/" + props.slug);
   console.log(str);
   return (
     <>

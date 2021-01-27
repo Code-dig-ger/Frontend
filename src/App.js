@@ -1,5 +1,5 @@
 import React ,{useState,useEffect} from "react";
-import { BrowserRouter, Switch, Route, useParams, state } from "react-router-dom";
+import { BrowserRouter, Switch, Route, useParams, state, Link, Redirect } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./bootstrap-theme/bootstrap.min.cyborg.css";
 import Container from "react-bootstrap/Container";
@@ -43,14 +43,16 @@ const App = () => {
     );
   }
   
-  const LaddersQuestionPage1 = ({match}) => {
-    
+  const LaddersQuestionPage1 = ({match,location}) => {
+    console.log(location.search);
+    console.log(JSON.stringify(match.params));
     const [type1, setType1] = useState(match.params.type === "practice" ? "list":"ladder");
+    const [pageNo,setPageNo] = useState(location.search === "" ? "?page=1": location.search);
     return(
 
       // PARSEINT IS A JS FUNCTION WHICH WILL CONVERT THE THE GIVEN STRING OF NUMBERS 
       // ACCORDING TO THE BASE OR RADIX SPECIFIED
-      <LaddersQuestionPage wise={match.params.wise} type={type1} slug={match.params.slug}/>
+      <LaddersQuestionPage wise={match.params.wise} type={type1} slug={match.params.slug} pageNo={location.search}/>
     );
   }
 
@@ -91,10 +93,10 @@ const App = () => {
             <Route exact path="/forgPass" component={NewpassEmail}/>
             
             <Route exact path="/setNewPass" component={NewPassSet}/>
-            <Route exact path="/:wise/:type/:slug" component={LaddersQuestionPage1}/>
-             <Route exact path="/:wise/:type" component={LaddersLevel1}/>
-            
-          
+            <Route exact path="/:wise/:type" component={LaddersLevel1}/>
+            <Route exact path="/:wise/:type/:slug" component={LaddersQuestionPage1} render={() => {return(<Redirect to="/:wise/:type/:slug?page=1"/>)}}/>
+            <Link to="/:wise/:type/:slug?page=pageNo" component={LaddersQuestionPage1}/>
+             
           </Switch>
         </BrowserRouter>
         </CredentialsContext.Provider>

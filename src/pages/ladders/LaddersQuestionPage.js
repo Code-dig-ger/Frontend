@@ -19,7 +19,7 @@ function LaddersQuestionPage(props) {
     useEffect(() => {
         async function fetchData()
         {
-          const res=await fetch (`https://api.codedigger.tech/lists/${props.wise}/${props.type}/${props.slug}`,{
+          const res=await fetch (`https://api.codedigger.tech/lists/${props.wise}/${props.type}/${props.slug}${props.pageNo}`,{
             method:"GET",
             headers:{
               "Content-Type":"application/json",
@@ -35,6 +35,7 @@ function LaddersQuestionPage(props) {
       },[])
 
     var count=0;
+    var solvedBtn=-1;
     var button = false;
     return (
         show==true ? <Loading/>:<div>
@@ -44,21 +45,16 @@ function LaddersQuestionPage(props) {
             <div className="container-card">
                 {problems.result.map((ProblemData)=>{
                     console.log(ProblemData.solved);
-                    if(ProblemData.solved === false)
+                    count++;
+                    if(ProblemData.solved === false && solvedBtn===-1)
                     {
-                        count++;
-                        if(count === 1){
-                            button = true;
-                        }
-                        else{
-                            button=false;
-                        }
-                        
+                        console.log("reached");
+                        solvedBtn=count;
                     }
                     return(
                         <>
-                            
-                                <MainCard count={count} ProblemData={ProblemData} buttonDis={button}/>
+                                <MainCard type={props.type} count={count} ProblemData={ProblemData} solvedBtn={solvedBtn}/>
+                                {console.log(count,ProblemData,solvedBtn)}
                         </>
                     )
                     
