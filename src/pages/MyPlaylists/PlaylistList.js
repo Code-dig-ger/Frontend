@@ -75,14 +75,15 @@ function PlaylistList(props) {
                                                 </div>
                                             </div>
                                         </div>
+                                        <div className="d-flex justify-content-around">
                                         {playlist.solved? (
                                             <>
-                                            <a href={playlist.url}
+                                            <a href={playlist.url} target="_blank"
                                                 style={{
                                                     color: 'white',
                                                     backgroundColor: 'green',
                                                     borderRadius: '15px',
-                                                    width: '6%',
+                                                    width: '37%',
                                                     marginRight: '50px',
                                                     outline: 'none',
                                                     textAlign: 'center',
@@ -95,13 +96,13 @@ function PlaylistList(props) {
                                     </>
                                         ): (
                                             <>
-                                                    <a href={playlist.url}
+                                                    <a href={playlist.url} target="_blank"
                                                 style={{
                                                     color: 'white',
                                                     backgroundColor: 'blue',
                                                     borderRadius: '15px',
-                                                    width: '6%',
-                                                    marginRight: '50px',
+                                                    width: '100px',
+                                                    marginRight: '30px',
                                                     outline: 'none',
                                                     textAlign: 'center',
                                                     paddingTop: '10px',
@@ -112,7 +113,22 @@ function PlaylistList(props) {
                                             >Solve</a>
                                             </>
                                         )}
-                                        
+                                        <a
+                                                style={{
+                                                    color: 'white',
+                                                    backgroundColor: 'blue',
+                                                    borderRadius: '15px',
+                                                    width: '50%',
+                                                    marginRight: '50px',
+                                                    outline: 'none',
+                                                    textAlign: 'center',
+                                                    paddingTop: '10px',
+                                                    textDecoration: 'none',
+                                                    fontSize: '15px',
+                                                    opacity: '0.9'
+                                                }}
+                                            >Remove</a>
+                                            </div>
                                     </li>
                                 </ul>
                             
