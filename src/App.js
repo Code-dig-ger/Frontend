@@ -24,6 +24,8 @@ import LaddersQuestionPage from "./pages/ladders/LaddersQuestionPage";
 import Validate from './Validate'
 import NewpassEmail from './pages/logreg/ForgotPass'
 import NewPassSet from './pages/logreg/NewPassword'
+import MyPlaylists from "./pages/MyPlaylists/MyPlaylists";
+import PlaylistList from "./pages/MyPlaylists/PlaylistList";
 
 
 //react context
@@ -32,7 +34,22 @@ export const CredentialsContext=React.createContext();
 const App = () => {
   
 //  setInterval(Validate,300*1000);
+  const playlists = ({match}) => {
+    return(
 
+      // PARSEINT IS A JS FUNCTION WHICH WILL CONVERT THE THE GIVEN STRING OF NUMBERS 
+      // ACCORDING TO THE BASE OR RADIX SPECIFIED
+      <MyPlaylists handle={match.params.id} />
+    );
+  }
+  const PlaylistList1 = ({match}) => {
+    return(
+
+      // PARSEINT IS A JS FUNCTION WHICH WILL CONVERT THE THE GIVEN STRING OF NUMBERS 
+      // ACCORDING TO THE BASE OR RADIX SPECIFIED
+      <PlaylistList slug={match.params.slug} name={match.params.name}/>
+    );
+  }
 
   const profile = ({match}) => {
     return(
@@ -77,12 +94,15 @@ const App = () => {
         <BrowserRouter>
         
           <Switch>
+            <Route exact path="/:id/playlists" component={playlists}/>
+            <Route exact path="/playlists/:name/:slug" component={PlaylistList1}/>
             <Route exact path="/problems" component={Problems} />
              <Route exact path="/logreg" component={LogReg}/>
              <Route exact path="/upsolve/codeforces" component={Codeforces}/>  
              <Route exact path="/upsolve/atcoder" component={Atcoder}/>  
              <Route exact path="/upsolve/codechef" component={Codechef}/>  
              <Route exact path="/profile/:id" component={profile} />
+             
              
              {/* <Route exact path="/laddersLevel/topic/page1" component={LaddersQuestionPage}/> */}
              
@@ -96,7 +116,9 @@ const App = () => {
             <Route exact path="/:wise/:type" component={LaddersLevel1}/>
             <Route exact path="/:wise/:type/:slug" component={LaddersQuestionPage1}/>
             <Route exact path="/:wise/:type/:slug?page=1" component={LaddersQuestionPage1}/>
+            
             <Link to="/:wise/:type/:slug?page=pageNo" component={LaddersQuestionPage1}/>
+            
              
           </Switch>
         </BrowserRouter>

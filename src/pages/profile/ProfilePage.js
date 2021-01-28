@@ -25,6 +25,7 @@ import {faUserClock} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import FriendList from './FriendList.js';
 import {Modal,ModalBody,ModalFooter,ModalHeader,Button} from 'reactstrap';
+import MyPlaylists from '../MyPlaylists/MyPlaylists';
 
 
 
@@ -758,7 +759,6 @@ function ProfilePage({handle}) {
                         </div>
                         </div>
                     </div>
-                
         <FooterSmall/>
         
         </>

@@ -10,7 +10,6 @@ import image from './images/image2.jpg';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 import Typewriter from 'typewriter-effect';
-import Testimonial from "../../components/Testimonial";
 
 const func = () => {
   var testimonialItems = document.querySelectorAll(".item label");
