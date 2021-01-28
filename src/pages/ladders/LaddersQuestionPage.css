@@ -75,7 +75,7 @@
     height: 400px;
     width: 1000px;
     top: 0px;
-    left: calc(35% - 300px);
+    left: calc(35% - 415px);
     display: flex;
   }
 
@@ -223,8 +223,17 @@
     transition: 0.6s ease-out;
   }
 
-  
- 
+  .pageNavIcons{
+    font-size: 3.5rem;
+    cursor: pointer;
+  }
 
-  
-  
+  .updateBtn{
+    position: absolute;
+    top: 153px;
+    height: 41px;
+  }
+
+  .marginLeftOfCards{
+    margin-left: 90px;
+  }

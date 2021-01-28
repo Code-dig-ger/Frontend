@@ -47,12 +47,12 @@ const App = () => {
     console.log(location.search);
     console.log(JSON.stringify(match.params));
     const [type1, setType1] = useState(match.params.type === "practice" ? "list":"ladder");
-    const [pageNo,setPageNo] = useState(location.search === "" ? "?page=1": location.search);
+    const [pageNo,setPageNo] = useState(location.search === "" ? "": location.search);
     return(
 
       // PARSEINT IS A JS FUNCTION WHICH WILL CONVERT THE THE GIVEN STRING OF NUMBERS 
       // ACCORDING TO THE BASE OR RADIX SPECIFIED
-      <LaddersQuestionPage wise={match.params.wise} type={type1} slug={match.params.slug} pageNo={location.search}/>
+      <LaddersQuestionPage wise={match.params.wise} type={type1} slug={match.params.slug} pageNo={pageNo}/>
     );
   }
 
@@ -94,7 +94,8 @@ const App = () => {
             
             <Route exact path="/setNewPass" component={NewPassSet}/>
             <Route exact path="/:wise/:type" component={LaddersLevel1}/>
-            <Route exact path="/:wise/:type/:slug" component={LaddersQuestionPage1} render={() => {return(<Redirect to="/:wise/:type/:slug?page=1"/>)}}/>
+            <Route exact path="/:wise/:type/:slug" component={LaddersQuestionPage1}/>
+            <Route exact path="/:wise/:type/:slug?page=1" component={LaddersQuestionPage1}/>
             <Link to="/:wise/:type/:slug?page=pageNo" component={LaddersQuestionPage1}/>
              
           </Switch>

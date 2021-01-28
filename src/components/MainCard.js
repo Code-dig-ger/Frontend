@@ -15,7 +15,7 @@ const MainCard = (props) => {
         <>
         <div className="card unsolvedCard">
         <h3 className="title">{props.ProblemData.name}</h3>
-        <h6 className="mt-5 ml-3 pl-1">Platform: {props.ProblemData.platform}</h6>
+        <h6 className="ml-3 pl-1" style={{marginTop:"4rem"}}>Platform: {props.ProblemData.platform}</h6>
         <div className="bar">
           <div className="emptybar" />
           <div className={props.ProblemData.status === "solved"? "filledbar": "exapmplebar"}></div>
