@@ -70,7 +70,7 @@ function LaddersQuestionPage(props) {
         setPrevPage("/"+props.wise+"/"+type1+"/"+props.slug+"?page="+(problems.meta.current_page-1));
         setNextPage("/"+props.wise+"/"+type1+"/"+props.slug+"?page="+(problems.meta.current_page+1));
         setLastPage("/"+props.wise+"/"+type1+"/"+props.slug+"?page="+problems.meta.last_page);
-        if(problems.result[0].solved===false && problems.meta.current_page!=1)
+        if(problems.result[0].solved===false && problems.meta.current_page!=1 && problems.meta.curr_prob!=problems.result[0].prob_id)
         {
           console.log("heyyyyy");
           setlocked(true);

@@ -1,5 +1,5 @@
 import React, { useEffect,useState } from 'react'
-import './MyPlaylist.scss'
+import './MyPlaylist.css'
 import Navbar from '../../components/headerComponent/Navbar'
 import FooterSmall from '../../components/footerComponent/FooterSmall';
 import PlaylistList from './PlaylistList'
@@ -47,19 +47,19 @@ function MyPlaylists(props) {
                 }}
             >All your playlists are given below.</p>
 
-            <div className="container h-100">
+            <div className="container h-100" >
                 <div className="row align-middle">
                 {playlists.map((playlist,i) => {
                     return(
                         <>
-                            <div className="col-md-6 col-lg-4 column">
-                            <div className={i % 2 === 0 ? "card gr-1" : "card gr-2"}>
+                            <div className="col-md-6 col-lg-4 column" style={{transition:"0.5s"}}>
+                            <div className={i % 2 === 0 ? "card11 gr-1" : "card11 gr-2"}>
                                 <div className="txt">
                                 <h1>{playlist.name}</h1>
                                         <p>{playlist.description}</p>
                                 </div>
                                 <a href={`/playlists/${playlist.name}/${playlist.slug}`}>View Playlist</a>
-                                <div className="ico-card">
+                                <div className="ico-card11">
                                 <i className={i % 2 === 0 ? "fa fa-empire" : "fa fa-codepen"}></i>
                             </div>
                             </div>

@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400,500,700');
+ @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+ .gr-1 {
+	 background: linear-gradient(170deg, #01e4f8 0%, #1d3ede 100%);
+}
+ .gr-2 {
+	 background: linear-gradient(170deg, #b4ec51 0%, #429321 100%);
+}
+ .gr-3 {
+	 background: linear-gradient(170deg, #c86dd7 0%, #3023ae 100%);
+}
+ .h-100 {
+	 height: 100vh !important;
+}
+ .align-middle {
+	 position: relative;
+	 top: 40%;
+	 transform: translateY(-50%);
+}
+ .column {
+	 margin-top: 3rem;
+	 padding-left: 3rem;
+}
+ .column:hover {
+	 padding-left: 0;
+}
+ .column:hover .card11 .txt {
+	 margin-left: 1rem;
+}
+ .column:hover .card11 .txt h1, .column:hover .card11 .txt p {
+	 color: rgba(255, 255, 255, 1);
+	 opacity: 1;
+}
+ .column:hover a {
+	 color: rgba(255, 255, 255, 1);
+}
+ .column:hover a:after {
+	 width: 10%;
+}
+ .card11 {
+	 max-height: 230px;
+	 margin: 0;
+	 padding: 1.7rem 1.2rem;
+	 border: none;
+	 border-radius: 0;
+	 color: rgba(0, 0, 0, 1);
+	 letter-spacing: 0.05rem;
+	 font-family: 'Oswald', sans-serif;
+	 box-shadow: 0 0 21px rgba(0, 0, 0, .27);
+}
+ .card11 .txt {
+	 margin-left: 0.5rem;
+	 z-index: 1;
+}
+ .card11 .txt h1 {
+	 font-size: 1.4rem;
+	 font-weight: 300;
+	 text-transform: uppercase;
+}
+ .card11 .txt p {
+	 font-size: 1rem;
+	 font-family: 'Open Sans', sans-serif;
+	 letter-spacing: 0rem;
+	 margin-top: 33px;
+	 opacity: 0;
+	 color: rgba(255, 255, 255, 1);
+}
+ .card11 a {
+	 z-index: 3;
+	 font-size: 0.8rem;
+	 color: rgba(0, 0, 0, 1);
+	 margin-left: 1rem;
+	 position: relative;
+	 bottom: -0.5rem;
+	 text-transform: uppercase;
+}
+ .card11 a:after {
+	 content: "";
+	 display: inline-block;
+	 height: 0.5em;
+	 width: 0;
+	 margin-right: -100%;
+	 margin-left: 10px;
+	 border-top: 1px solid rgba(255, 255, 255, 1);
+	 transition: 0.5s;
+}
+ .card11 .ico-card11 {
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 bottom: 0;
+	 right: 0;
+	 width: 100%;
+	 height: 100%;
+	 overflow: hidden;
+}
+ .card11 i {
+	 position: relative;
+	 right: -70%;
+	 top: 60%;
+	 font-size: 12rem;
+	 line-height: 0;
+	 opacity: 0.2;
+	 color: rgba(255, 255, 255, 1);
+	 z-index: 0;
+}
+ 
