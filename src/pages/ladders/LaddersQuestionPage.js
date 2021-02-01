@@ -70,7 +70,8 @@ function LaddersQuestionPage(props) {
         setPrevPage("/"+props.wise+"/"+type1+"/"+props.slug+"?page="+(problems.meta.current_page-1));
         setNextPage("/"+props.wise+"/"+type1+"/"+props.slug+"?page="+(problems.meta.current_page+1));
         setLastPage("/"+props.wise+"/"+type1+"/"+props.slug+"?page="+problems.meta.last_page);
-        if(problems.result[0].solved===false && problems.meta.current_page!=1 && problems.meta.curr_prob!=problems.result[0].prob_id)
+        console.log(problems.meta.curr_unsolved_page + " " + problems.meta.curr_page);
+        if(problems.meta.curr_unsolved_page != problems.meta.current_page)
         {
           console.log("heyyyyy");
           setlocked(true);
@@ -137,7 +138,7 @@ function LaddersQuestionPage(props) {
                         {console.log(locked)}
                           {locked ? <MainCard type={props.type} count={20} ProblemData={ProblemData} solvedBtn={10}/>:<MainCard type={props.type} count={count} ProblemData={ProblemData} solvedBtn={solvedBtn}/>}
                                 
-                                {console.log(count,ProblemData,solvedBtn)}
+                                {/* {console.log(count,ProblemData,solvedBtn)} */}
                         </>
                     )
                     
@@ -146,7 +147,7 @@ function LaddersQuestionPage(props) {
                 )}
                 </div>:<div className="container-card" style={{marginTop:"75px"}}>
                 {problems.result.map((ProblemData)=>{
-                    console.log(ProblemData.solved);
+                    console.log(locked + "locked");
                     count++;
                     if(ProblemData.solved === false && solvedBtn===-1)
                     {
@@ -156,7 +157,7 @@ function LaddersQuestionPage(props) {
                     return(
                         <>
                                 {locked ? <MainCard type={props.type} count={20} ProblemData={ProblemData} solvedBtn={10}/>:<MainCard type={props.type} count={count} ProblemData={ProblemData} solvedBtn={solvedBtn}/>}
-                                {console.log(count,ProblemData,solvedBtn)}
+                                {/* {console.log(count,ProblemData,solvedBtn)} */}
                         </>
                     )
                     
