@@ -68,7 +68,8 @@ function PlaylistList(props) {
                     color: 'white',
                     outline: 'none',
                     border: '0px',
-                    padding: '13px'
+                    padding: '13px',
+                    fontSize: '15px'
                 }}
             >Delete Playlist</button>
         {!playlist.result? (<Loading />) : 
@@ -86,7 +87,7 @@ function PlaylistList(props) {
                             return(
                                 <>
                                  
-                                <ul className="list list-inline">
+                                <ul className="list list-inline" style={{marginTop: '-14px'}}>
                                     <li className="d-flex justify-content-between">
                                         <div className="d-flex flex-row align-items-center">
                                             <div className="ml-2">
