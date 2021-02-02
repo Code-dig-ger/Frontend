@@ -1,12 +1,51 @@
-import React from 'react';
-import {
-  Button
-} from 'reactstrap';
+import React,{useState,useEffect} from 'react';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter,ButtonToggle,Form, FormGroup,Label,Input,Row } from 'reactstrap';
 import './MainCard.css';
+import {OverlayTrigger,Tooltip} from 'react-bootstrap';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faFolderPlus} from '@fortawesome/free-solid-svg-icons'
 
-
+const renderTooltip1 = (props) => (
+  <Tooltip id="button-tooltip" {...props}>
+    Add to Playlist
+  </Tooltip>
+);
 
 const MainCard = (props) => {
+
+  const creds= JSON.parse(localStorage.getItem("creds"));
+  const uu = props.handle;
+  const [modal, setModal] = useState(false);
+  const [playlists, setPlaylists] = useState([]);
+  const [error, setErrors] = useState(false);
+
+  useEffect(() => {
+    console.log(modal);
+  })
+
+  async function toggle(event) {
+    event.preventDefault();
+    setModal(!modal);
+    console.log(modal);
+    
+    if(!modal)
+    {
+      console.log("ppppppp");
+      const res = await fetch(`https://api.codedigger.tech/lists/userlist/`, {
+            method:"GET",
+            headers:{
+                "Content-Type":"application/json",
+                "Authorization":`Bearer ${creds.access}`
+            }
+            });
+            res
+                .json()
+                .then(res => setPlaylists(res))
+                .catch(error => setErrors(true));
+      // fetchData();
+    }
+    console.log(playlists);
+  };
 
   if(props.type === "ladder")
   {
@@ -15,6 +54,41 @@ const MainCard = (props) => {
         <>
         <div className="card unsolvedCard">
         <h3 className="title">{props.ProblemData.name}</h3>
+        <span><OverlayTrigger
+            placement="top"
+            overlay={renderTooltip1}
+          >
+            <a onClick={toggle} style={{cursor:"pointer"}}><FontAwesomeIcon icon={faFolderPlus} /></a>
+          </OverlayTrigger></span>
+          <Modal isOpen={modal} toggle={toggle}>
+        <ModalHeader toggle={toggle}>Add to Playlist</ModalHeader>
+        <ModalBody>
+        </ModalBody>
+          <ul>
+          {playlists.map((list) => {
+            return(
+              <>
+                <li>
+                  <span style={{color:"white", fontSize:"19px"}}>{list.name}</span>
+                  <Button 
+                            color="success" 
+                            style={{padding:"5px 7px", 
+                            position:"relative", 
+                            left:"20px", 
+                            bottom:"0",
+                            borderRadius:"10%"}}>
+                              Add
+                            </Button>
+                            
+                </li>
+              </>
+            )
+          })}
+          </ul>
+        <ModalFooter>
+          <Button color="secondary" onClick={toggle}>Close</Button>
+        </ModalFooter>
+      </Modal>
         <h6 className="ml-3 pl-1" style={{marginTop:"4rem"}}>Platform: {props.ProblemData.platform}</h6>
         <div className="bar">
           <div className="emptybar" />
@@ -37,6 +111,12 @@ const MainCard = (props) => {
       <>
         <div className="card">
         <h3 className={(props.count > props.solvedBtn && props.solvedBtn!=-1) ? "title_hide" : "title"}>{props.ProblemData.name}</h3>
+        {(props.count > props.solvedBtn && props.solvedBtn!=-1) ? <></>:<span><OverlayTrigger
+            placement="top"
+            overlay={renderTooltip1}
+          >
+            <a href=""><FontAwesomeIcon icon={faFolderPlus} /></a>
+          </OverlayTrigger></span>}
         <h6 className={(props.count > props.solvedBtn && props.solvedBtn!=-1) ? "title_hide" : "mt-5 ml-3 pl-1"}>Platform: {props.ProblemData.platform}</h6>
         <h3 className={(props.count > props.solvedBtn && props.solvedBtn!=-1) ? "title_locked" : "title_hide"}>?</h3>
         <div className="bar">
@@ -66,6 +146,12 @@ const MainCard = (props) => {
         <>
         <div className="card unsolvedCard">
         <h3 className="title">{props.ProblemData.name}</h3>
+        <span><OverlayTrigger
+            placement="top"
+            overlay={renderTooltip1}
+          >
+            <a href=""><FontAwesomeIcon icon={faFolderPlus} /></a>
+          </OverlayTrigger></span>
         <h6 className="mt-5 ml-3 pl-1">Platform: {props.ProblemData.platform}</h6>
         <div className="bar">
           <div className="emptybar" />
@@ -91,6 +177,12 @@ const MainCard = (props) => {
           <>
         <div className="card">
         <h3 className="title">{props.ProblemData.name}</h3>
+        <span><OverlayTrigger
+            placement="top"
+            overlay={renderTooltip1}
+          >
+            <a href=""><FontAwesomeIcon icon={faFolderPlus} /></a>
+          </OverlayTrigger></span>
         <h6 className="mt-5 ml-3 pl-1">Platform: {props.ProblemData.platform}</h6>
         <div className="bar">
           <div className="emptybar" />
@@ -114,6 +206,12 @@ const MainCard = (props) => {
           <>
         <div className="card">
         <h3 className="title">{props.ProblemData.name}</h3>
+        <span><OverlayTrigger
+            placement="top"
+            overlay={renderTooltip1}
+          >
+            <a href=""><FontAwesomeIcon icon={faFolderPlus} /></a>
+          </OverlayTrigger></span>
         <h6 className="mt-5 ml-3 pl-1">Platform: {props.ProblemData.platform}</h6>
         <h3 className="title_hide">?</h3>
         <div className="bar">

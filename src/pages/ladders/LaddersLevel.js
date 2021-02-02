@@ -33,7 +33,11 @@ function LaddersLevel(props) {
         {
             console.log("reached");
             const res=await fetch (`https://api.codedigger.tech/lists/${props.wise}/${props.type}/`,{
-                method:"GET"
+                method:"GET",
+                headers:{
+                    "Content-Type":"application/json",
+                    "Authorization":`Bearer ${creds.access}`
+                  }
             });
             res
                 .json()
