@@ -9,6 +9,18 @@ function PlaylistList(props) {
     const [error, setErrors] = useState(false);
     const [playlist, setPlaylist] = useState([]);
 
+    function deletePlaylist(){
+       const res = fetch(`https://api.codedigger.tech/lists/userlist/edit/${props.slug}`, {
+               method:"DELETE",
+               headers:{
+                   "Content-Type":"application/json",
+                   "Authorization":`Bearer ${creds.access}`
+               }
+               });
+               res
+               .catch(error => setErrors(true));
+               window.location.href = `/${creds.username}/playlists`;
+   }
 
     useEffect(() => {
         async function fetchData(){
@@ -46,6 +58,19 @@ function PlaylistList(props) {
                     marginBottom: '40px'
                 }}
             >This is a personalized playlist made by you. All the best and keep coding!</p>
+            <button onClick={deletePlaylist}
+                style={{
+                    position: "absolute",
+                    left: "86%",
+                    top: "70px",
+                    backgroundColor: 'darkred',
+                    borderRadius: '15px',
+                    color: 'white',
+                    outline: 'none',
+                    border: '0px',
+                    padding: '13px'
+                }}
+            >Delete Playlist</button>
         {!playlist.result? (<Loading />) : 
             (
                 <>

@@ -52,7 +52,10 @@ class Problems extends Component {
 
   render() {
     return (
-      <>
+      <>  
+
+        <h3>Problems Page</h3>
+
         <FilterModal
           show={this.state.showFilter}
           handleClose={this.setCloseFilter}

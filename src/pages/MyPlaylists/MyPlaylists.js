@@ -2,13 +2,16 @@ import React, { useEffect,useState } from 'react'
 import './MyPlaylist.css'
 import Navbar from '../../components/headerComponent/Navbar'
 import FooterSmall from '../../components/footerComponent/FooterSmall';
-import PlaylistList from './PlaylistList'
+import PlaylistModal from './AddPlaylistModal'
+
 
 function MyPlaylists(props) {
     const creds= JSON.parse(localStorage.getItem("creds"));
     const uu = props.handle;
     const [error, setErrors] = useState(false);
     const [playlists, setPlaylists] = useState([]);
+
+     
 
     useEffect(() => {
         async function fetchData(){
@@ -43,10 +46,10 @@ function MyPlaylists(props) {
                     fontSize: '17px',
                     textAlign: 'center',
                     marginTop: '30px',
-                    marginBottom: '40px'
+                    marginBottom: '-80px'
                 }}
             >All your playlists are given below.</p>
-
+                    <PlaylistModal acc={creds.access}/>
             <div className="container h-100" >
                 <div className="row align-middle">
                 {playlists.map((playlist,i) => {
@@ -62,6 +65,7 @@ function MyPlaylists(props) {
                                 <div className="ico-card11">
                                 <i className={i % 2 === 0 ? "fa fa-empire" : "fa fa-codepen"}></i>
                             </div>
+                        
                             </div>
                             </div>    
                         </>
