@@ -136,12 +136,13 @@ mobile: {
         conData.map(res=>{
           return(
             <>
+            {res.problems.length>0?<>
             <Row className="contestRow">
     <Col sm={2} md={2} lg={3}>< div className="contestName text-white"><h6>{res.name}</h6></div></Col>
     <Col sm={2} md={2} lg={9}><Carousel responsive={responisve}>
                
                { 
-              
+             
               res. problems.map((prob)=>{
                    if(prob.status==="solved"){
                    return(
@@ -157,7 +158,7 @@ mobile: {
                    )
                })}
                </Carousel></Col>
-    </Row><br></br></>
+              </Row><br></br></>:<></>}</>
           )})
         :
         <Loading></Loading>

@@ -1,6 +1,6 @@
 .solved{
     background-color:rgb(0,0,0);
-    color: rgb(129, 214, 0);
+    color: greenyellow;
     border-radius: 10px;
     height: 90px;
     text-align: center;
@@ -16,14 +16,14 @@
 }
 .upsolve{
     background-color: rgb(0, 0, 0);
-    color:rgb(66, 66, 252);
+    color:deepskyblue;
     border-radius: 10px;
     height: 90px;
     text-align: center;
     padding-top: 10px;
 }
 .contestName{
-    background-color: rgb(231, 216, 3);
+    background-color:gold;
     border-radius: 10px;
     border: 4px solid rgb(39, 38, 38);
     height: 90px;
@@ -38,7 +38,7 @@
     
 }
 .tags{
-  background-color: rgb(231, 216, 3);
+  background-color:gold;
   border: 1px solid rgb(39, 38, 38);
   border-radius: 5px;
   margin-left: 8px;
