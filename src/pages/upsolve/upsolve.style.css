@@ -23,7 +23,7 @@
     padding-top: 10px;
 }
 .contestName{
-    background-color: rgb(78, 72, 73);
+    background-color: rgb(231, 216, 3);
     border-radius: 10px;
     border: 4px solid rgb(39, 38, 38);
     height: 90px;
@@ -38,7 +38,7 @@
     
 }
 .tags{
-  background-color: rgb(78, 72, 73);
+  background-color: rgb(231, 216, 3);
   border: 1px solid rgb(39, 38, 38);
   border-radius: 5px;
   margin-left: 8px;
@@ -72,9 +72,10 @@ Col{
 
 .vir{
     float:right;
-    border-radius: 4px;
-    color: black;
-    background-color: white;
+    border-radius: 10px;
+    color: rgb(255, 250, 250);
+    background-color: rgb(114, 0, 47);
+    padding:5px
 }
 .box {
     width: 20%;

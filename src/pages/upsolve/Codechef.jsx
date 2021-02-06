@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col'
 import Carousel from 'react-multi-carousel';
 import Loading from '../logreg/loading'
 import Navbar from '../../components/headerComponent/Navbar'
+import Footer from '../../components/footerComponent/FooterSmall'
 
 const Codechef=()=>{
     Validate();
@@ -113,7 +114,9 @@ if(last!=null){
             <Navbar/>
             {loader?<Spinner className="loading-animation" animation="border"/>:
             <>
-            <div><button onClick={e=>{window.location.reload(false)}}>Solved? Update</button></div>
+            <div><button className="vir" onClick={e=>{window.location.reload(false)}}>Solved? Update</button></div>
+            <br></br>
+            <br></br>
             {conData.length>0?
         conData.map(res=>{
           return(
@@ -174,7 +177,7 @@ if(last!=null){
         </div>
         </>}
                
-
+             <Footer/>
             </>
         )
 }

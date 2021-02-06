@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col'
 import Carousel from 'react-multi-carousel';
 import Navbar from '../../components/headerComponent/Navbar'
 import Loading from '../logreg/loading'
+import Footer from '../../components/footerComponent/FooterSmall'
 import './upsolve.style.css'
 const Atcoder=()=>{
     Validate(); 
@@ -20,6 +21,7 @@ const Atcoder=()=>{
     const [last,setLast]=useState(null);
     const [conData,setData]=useState([]);
     const [Prac,setPrac]=useState(false);
+    const [err,setError]=useState(" ");
     useEffect(()=>{
       Validate();
       setFirst(1);
@@ -70,6 +72,8 @@ const Atcoder=()=>{
             const data=await response.json();
             console.log(data.error);
             console.log("err");
+            //setError(data);
+
         }
 
         
@@ -103,16 +107,18 @@ if(last!=null){
       };
       
            return(
+             
             <>
             <Navbar></Navbar>
             {loader?<Spinner className="loading-animation" animation="border"/>:
             <>
-                     <div><button onClick={e=>{window.location.reload(false)}}>Solved? Update</button></div>
+                     <div><button className="vir" onClick={e=>{window.location.reload(false)}}>Solved? Update</button></div>
                      <div>
      <button onClick={e=>{
         setTimeout(()=>{setLoader(true)},1000)
-       setPrac(!Prac)}} className="vir">{`${Prac?`exclude Practice`:`include Practice`}`}</button></div><br></br>
+       setPrac(!Prac)}} className="vir">{`${Prac?`Exclude Practice`:`Include Practice`}`}</button></div><br></br>
            <br></br>
+     <h5>{err}</h5>
               {conData.length>0?
               conData.map(res=>{
                 return(
@@ -174,6 +180,7 @@ if(last!=null){
             </nav>
               </div>
               </>}
+              <Footer/>
                </>
 
         
