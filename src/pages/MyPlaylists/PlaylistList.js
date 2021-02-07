@@ -57,7 +57,7 @@ function PlaylistList(props) {
                     marginTop: '30px',
                     marginBottom: '40px'
                 }}
-            >This is a personalized playlist made by you. All the best and keep coding!</p>
+            >This is a personalized list made by you. All the best and keep coding!</p>
             <button onClick={deletePlaylist}
                 style={{
                     position: "absolute",

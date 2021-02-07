@@ -39,8 +39,8 @@ const PlaylistModal = (props) => {
         </ModalBody>
         <Form  style={{marginBottom:"70px"}}>
                 <div>
-                  <Input style={{marginLeft:"45px", width:"80%", marginTop: '30px'}} type="text" id="playlistName" onChange={(e)=>setPlaylistName(e.target.value)} placeholder="Playlist Name" />
-                  <Input style={{marginLeft:"45px", width:"80%", marginTop: '23px',height: '80px'}} type="textarea" onChange={(e)=>setPlaylistDes(e.target.value)} id="playlistdec"  placeholder="Playlist Description" />
+                  <Input style={{marginLeft:"45px", width:"80%", marginTop: '30px'}} type="text" id="playlistName" onChange={(e)=>setPlaylistName(e.target.value)} placeholder="Playlist Name"/>
+                  <Input style={{marginLeft:"45px", width:"80%", marginTop: '23px',height: '80px'}} type="textarea" onChange={(e)=>setPlaylistDes(e.target.value)} id="playlistdec"  placeholder="Playlist Description"/>
                   <Button color="primary" onClick={addPlaylist} style={{
                         position: 'relative',
                         right: '-40%',

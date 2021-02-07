@@ -33,24 +33,24 @@ function MyPlaylists(props) {
 
     return (
         
-        <div>
+        <div className="mb-4">
             <Navbar />
-            <h2
-                style={{
-                    textAlign: 'center'
-                }}
-            >My Playlists</h2>
+           <div className="container">
+                <h2
+                    style={{
+                        textAlign: 'center'
+                    }}
+                >My Playlists</h2>
 
-            <p
-                style={{
-                    fontSize: '17px',
-                    textAlign: 'center',
-                    marginTop: '30px',
-                    marginBottom: '-80px'
-                }}
-            >All your playlists are given below.</p>
+                <p
+                    style={{
+                        fontSize: '17px',
+                        textAlign: 'center',
+                    }}
+                >All your playlists are given below.</p>
+            </div>
                     <PlaylistModal acc={creds.access}/>
-            <div className="container h-100" >
+            <div className="container" >
                 <div className="row align-middle">
                 {playlists.map((playlist,i) => {
                     return(
@@ -61,7 +61,7 @@ function MyPlaylists(props) {
                                 <h1>{playlist.name}</h1>
                                         <p>{playlist.description}</p>
                                 </div>
-                                <a href={`/playlists/${playlist.name}/${playlist.slug}`}>View Playlist</a>
+                                <a href={`/list/${uu}/${playlist.slug}`}>View Playlist</a>
                                 <div className="ico-card11">
                                 <i className={i % 2 === 0 ? "fa fa-empire" : "fa fa-codepen"}></i>
                             </div>
