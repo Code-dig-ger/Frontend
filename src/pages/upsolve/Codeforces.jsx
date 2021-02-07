@@ -9,6 +9,7 @@ import Loading from '../logreg/loading'
 import './upsolve.style.css'
 import Spinner from 'react-bootstrap/Spinner'
 import Button from 'react-bootstrap/Button'
+import Footer from '../../components/footerComponent/FooterSmall'
 function Codeforces(){
     
  
@@ -121,25 +122,27 @@ mobile: {
       <>
       <Navbar></Navbar>
       {loader?<Spinner className="loading-animation" animation="border"/>:<>
-               <div><button onClick={e=>{window.location.reload(false)}}>Solved? Update</button></div>
+               <div><button className="vir" onClick={e=>{window.location.reload(false)}}>Solved? Update</button></div>
                <div>
      <button onClick={e=>{
         setTimeout(()=>{setLoader(true)},1000)
-       setVir(!vir)}} className="vir">{`${vir?`exclude virtual`:`include virtual`}`}</button></div><br></br>
+       setVir(!vir)}} className="vir">{`${vir?`Exclude virtual`:`Include virtual`}`}</button></div><br></br>
      
      
+     <br></br>
      <br></br>
 
         {conData.length>0?
         conData.map(res=>{
           return(
             <>
+            {res.problems.length>0?<>
             <Row className="contestRow">
     <Col sm={2} md={2} lg={3}>< div className="contestName text-white"><h6>{res.name}</h6></div></Col>
     <Col sm={2} md={2} lg={9}><Carousel responsive={responisve}>
                
                { 
-              
+             
               res. problems.map((prob)=>{
                    if(prob.status==="solved"){
                    return(
@@ -155,7 +158,7 @@ mobile: {
                    )
                })}
                </Carousel></Col>
-    </Row><br></br></>
+              </Row><br></br></>:<></>}</>
           )})
         :
         <Loading></Loading>
@@ -191,6 +194,7 @@ mobile: {
       </nav>
         </div>
         </>}
+        <Footer/>
          </>
         
      ) 
