@@ -4,7 +4,7 @@ import Loading from './loading'
 import Navbar from '../../components/headerComponent/Navbar'
 import FooterSmall from '../../components/footerComponent/FooterSmall';
 
-import Eye from '../../assets/Eye.png'
+// import Eye from '../../assets/Eye.png'
 
 import Validate from '../../Validate'
 
@@ -187,7 +187,7 @@ switchers.forEach((item) => {
            
             <span  class="field-icon toggle-password"><img onClick={e=>{
               e.preventDefault();
-              setTogL(!togL)}} className="eye" src={Eye}></img></span>
+              setTogL(!togL)}} className="eye"></img></span>
           </div>
         </fieldset>
         <h6 className="errormsgs">{msgL}</h6>
@@ -231,7 +231,7 @@ switchers.forEach((item) => {
             <input value={passwordR} onChange={(e)=>{setPassWordR(e.target.value)}} id="signup-password" type={(togR)?"password":"text"} required/>
             <span  class="field-icon toggle-password"><img onClick={e=>{
               e.preventDefault();
-              setTogR(!togR)}} className="eye" src={Eye}></img></span>
+              setTogR(!togR)}} className="eye"></img></span>
           </div>
         </fieldset>
     <h6 className="errormsgs">{msgR}</h6>
