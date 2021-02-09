@@ -6,7 +6,7 @@ import FooterSmall from '../../components/footerComponent/FooterSmall';
 import '../../../node_modules/reactjs-popup/dist/index.css';
 import Popup from 'reactjs-popup';
 
-// import Eye from '../../assets/Eye.png'
+import Eye from '../../assets/Eye.png'
 
 import Validate from '../../Validate'
 
@@ -197,9 +197,9 @@ switchers.forEach((item) => {
            
             <input onChange={(e)=>setpasswordL(e.target.value)} id="login-password" className="text-primary" type={(togL)?"password":"text"} required></input>
            
-            <span  class="field-icon toggle-password"><img onClick={e=>{
+            <span  class="field-icon toggle-password"><img src={Eye} onClick={e=>{
               e.preventDefault();
-              setTogL(!togL)}} className="eye"></img></span>
+            setTogL(!togL)}} className="eye"></img></span>
           </div>
         </fieldset>
         <h6 className="errormsgs">{msgL}</h6>
@@ -241,7 +241,7 @@ switchers.forEach((item) => {
           <div className="input-block">
             <label for="signup-password">Password</label>
             <input value={passwordR} onChange={(e)=>{setPassWordR(e.target.value)}} id="signup-password" type={(togR)?"password":"text"} required/>
-            <span  class="field-icon toggle-password"><img onClick={e=>{
+            <span  class="field-icon toggle-password"><img src={Eye} onClick={e=>{
               e.preventDefault();
               setTogR(!togR)}} className="eye"></img></span>
           </div>

@@ -10,6 +10,8 @@ import './upsolve.style.css'
 import Spinner from 'react-bootstrap/Spinner'
 import Button from 'react-bootstrap/Button'
 import Footer from '../../components/footerComponent/FooterSmall'
+import '../../../node_modules/reactjs-popup/dist/index.css';
+import Popup from 'reactjs-popup';
 
 
 function Codeforces(){
@@ -86,7 +88,8 @@ function Codeforces(){
            else{
             console.log("err");
            
-
+            localStorage.setItem("err",data.error);
+            window.location='/home'  
 
            }
 
@@ -170,14 +173,22 @@ mobile: {
               res. problems.map((prob)=>{
                    if(prob.status==="solved"){
                    return(
-                   <Col><div className="solved" ><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a><button onClick={(e)=>alert(prob.tags)} className="tags">Tags</button></div></Col>
+                   <Col><div className="solved" ><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a>
+                  <Popup trigger={<button className="tags"> Tags</button>} position="right center">
+                   <div>{prob.tags}</div>
+  </Popup>
+                   </div></Col>
                    )}
                    else if(prob.status==="wrong"){
                    return(
-                   <Col> <div className="wrong"><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a><button onClick={(e)=>alert(prob.tags)} className="tags">Tags</button></div></Col>
+                   <Col> <div className="wrong"><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a> <Popup trigger={<button className="tags"> Tags</button>} position="right center">
+                   <div>{prob.tags}</div>
+  </Popup></div></Col>
                    )}
                    return(
-                   <Col> <div className="upsolve"><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a><button onClick={(e)=>alert(prob.tags)} className="tags">Tags</button><br></br>
+                   <Col> <div className="upsolve"><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a> <Popup trigger={<button className="tags"> Tags</button>} position="right center">
+                   <div>{prob.tags}</div>
+  </Popup><br></br>
                    </div></Col>
                    )
                })}
