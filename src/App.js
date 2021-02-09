@@ -48,7 +48,7 @@ const App = () => {
 
       // PARSEINT IS A JS FUNCTION WHICH WILL CONVERT THE THE GIVEN STRING OF NUMBERS 
       // ACCORDING TO THE BASE OR RADIX SPECIFIED
-      <PlaylistList slug={match.params.slug} name={match.params.name}/>
+      <PlaylistList slug={match.params.slug} handle={match.params.id}/>
     );
   }
 
@@ -95,8 +95,8 @@ const App = () => {
         <BrowserRouter>
         
           <Switch>
-            <Route exact path="/:id/playlists" component={playlists}/>
-            <Route exact path="/playlists/:name/:slug" component={PlaylistList1}/>
+            <Route exact path="/list/:id" component={playlists}/>
+            <Route exact path="/list/:id/:slug" component={PlaylistList1}/>
             <Route exact path="/problems" component={Problems} />
              <Route exact path="/logreg" component={LogReg}/>
              <Route exact path="/upsolve/codeforces" component={Codeforces}/>  

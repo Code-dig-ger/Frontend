@@ -18,6 +18,7 @@
     "classnames": "^2.2.6",
     "css-loader": "^5.0.1",
     "font-awesome": "^4.7.0",
+    "heroku": "^7.47.12",
     "jquery": "^3.5.1",
     "mdbreact": "^4.27.0",
     "node-sass": "^4.14.1",
@@ -71,5 +72,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {}
 }

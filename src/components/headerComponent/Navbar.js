@@ -125,7 +125,7 @@ if(creds){
                 <NavLink href={handle}>Profile</NavLink>
                 </DropdownItem>
                 <DropdownItem>
-                <NavLink href={`/${uu}/playlists`}>My Playlists</NavLink>
+                <NavLink href={`list/${uu}`}>Lists</NavLink>
                 </DropdownItem>
                 <DropdownItem>
                 <NavLink onClick={deleteCred}>Log Out</NavLink>
