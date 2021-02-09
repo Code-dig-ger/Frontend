@@ -10,6 +10,8 @@ import image from './images/image2.jpg';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 import Typewriter from 'typewriter-effect';
+import '../../../node_modules/reactjs-popup/dist/index.css';
+import Popup from 'reactjs-popup';
 
 const func = () => {
   var testimonialItems = document.querySelectorAll(".item label");
@@ -44,7 +46,8 @@ cycleTestimonials(0);
 
 const Homepage = () => {
   AOS.init();
-
+  let err=localStorage.getItem("err");
+  localStorage.removeItem("err");
   useEffect(() => {
     func();
   },[]);
@@ -52,7 +55,18 @@ const Homepage = () => {
   return ( 
     <>
     <Navbar />
-   
+    {
+     err?
+      
+      
+     <Popup open={true}>
+      <div className="pops">{err}</div>
+   </Popup>
+     
+    :<></>
+     
+   }
+     
     {/* main content*/}
     <Container className="maincon" >
    
@@ -240,6 +254,8 @@ const Homepage = () => {
        </Container>
        {/* <Testimonial/> */}
        <Footer />
+
+     
     </>
   );
 };

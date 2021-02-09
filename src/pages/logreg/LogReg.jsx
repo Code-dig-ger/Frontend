@@ -3,6 +3,8 @@ import './logreg.style.css'
 import Loading from './loading'
 import Navbar from '../../components/headerComponent/Navbar'
 import FooterSmall from '../../components/footerComponent/FooterSmall';
+import '../../../node_modules/reactjs-popup/dist/index.css';
+import Popup from 'reactjs-popup';
 
 import Eye from '../../assets/Eye.png'
 
@@ -11,10 +13,7 @@ import Validate from '../../Validate'
 import Spinner from 'react-bootstrap/Spinner'
 
 const LogReg =()=>{
-  if(localStorage.getItem("creds")){
-    Validate();
-    
-  }
+  
   
   //states and handler for register
   const [emailR,setEmailR]=useState("");
@@ -23,6 +22,8 @@ const LogReg =()=>{
   const [msgR,setmsgR]=useState("");
   const [togR,setTogR]=useState(true);
   const [loaderR,setLoaderR]=useState(false);
+  let err=localStorage.getItem("err");
+  localStorage.removeItem("err");
   async function register(e){
     e.preventDefault();
     setLoaderR(true);
@@ -159,6 +160,17 @@ switchers.forEach((item) => {
     return (
       <>
       <Navbar/>
+      {
+     err?
+      
+      
+     <Popup open={true}>
+      <div className="pops">{err}</div>
+   </Popup>
+     
+    :<></>
+     
+   }
       <br></br>
       <div>
         {

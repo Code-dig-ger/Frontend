@@ -8,6 +8,9 @@ import Carousel from 'react-multi-carousel';
 import Navbar from '../../components/headerComponent/Navbar'
 import Loading from '../logreg/loading'
 import Footer from '../../components/footerComponent/FooterSmall'
+
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 import './upsolve.style.css'
 const Atcoder=()=>{
     Validate(); 
@@ -21,12 +24,13 @@ const Atcoder=()=>{
     const [last,setLast]=useState(null);
     const [conData,setData]=useState([]);
     const [Prac,setPrac]=useState(false);
-    const [err,setError]=useState(" ");
+    const [err,setError]=useState(false);
+    const [errmsg,setErrorMsg]=useState("");
     useEffect(()=>{
       Validate();
       setFirst(1);
         setLast(null);
-        setPage(1);
+        setPage(page);
         setPrev(null);
         setNext(null);
     async function fetchData(){
@@ -72,7 +76,15 @@ const Atcoder=()=>{
             const data=await response.json();
             console.log(data.error);
             console.log("err");
-            //setError(data);
+            if(data.error==="You haven't Entered your Atcoder Handle in your Profile.. Update Now!"){
+            localStorage.setItem("err",data.error);
+            window.location='/home'  
+          }
+          else{
+            setPrac(true);
+            
+          }
+            
 
         }
 
@@ -112,15 +124,26 @@ if(last!=null){
             <Navbar></Navbar>
             {loader?<Spinner className="loading-animation" animation="border"/>:
             <>
-                     <div><button className="vir" onClick={e=>{window.location.reload(false)}}>Solved? Update</button></div>
+                     
+              
+              {conData.length>0?
+              <>
+              <div className="upperButtons">
+          <button onClick={()=>{
+              setTimeout(()=>{setLoader(true)},1000)
+             setPage(prev)}} className='page-link'>{`< Prev`}</button>
+
+<button onClick={()=>{
+                 setTimeout(()=>{setLoader(true)},1000)
+                setPage(next)}} className='page-link'>{`Next >`}</button></div>
+              <div><button className="vir" onClick={e=>{window.location.reload(false)}}>Solved? Update</button></div>
                      <div>
      <button onClick={e=>{
         setTimeout(()=>{setLoader(true)},1000)
+        setPage(1);
        setPrac(!Prac)}} className="vir">{`${Prac?`Exclude Practice`:`Include Practice`}`}</button></div><br></br>
            <br></br>
-     <h5>{err}</h5>
-              {conData.length>0?
-              conData.map(res=>{
+              {conData.map(res=>{
                 return(
                   <>
                   {res.problems.length>0?
@@ -146,19 +169,14 @@ if(last!=null){
                          )
                      })}
                      </Carousel></Col>
-                    </Row><br></br></>:<></>}</>
-                )})
-              :
-              <Loading></Loading>
-              }
-                 
-               
-               <div>
+                    
+                     </Row><br></br></>:<></>}</>)})}
+                     <div >
                     <nav className="paginator">
             <ul className='pagination'>
                 <a onClick={()=>{
                   setTimeout(()=>{setLoader(true)},1000)
-                  
+
                   setPage(first)}} className='page-link'>First</a>
            <a onClick={()=>{
               setTimeout(()=>{setLoader(true)},1000)
@@ -181,9 +199,15 @@ if(last!=null){
             </ul>
             </nav>
               </div>
-              </>}
+              
               <Footer/>
-               </>
+              
+              </>:<Loading/>}
+              </>}
+              </>
+                 
+               
+               
 
         
         )

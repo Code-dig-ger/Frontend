@@ -1,15 +1,20 @@
 import {useEffect} from 'react'
 
+
+
 async function Validate(){
+    
+    let count=0;
     
     
     const toValidate=await JSON.parse(localStorage.getItem("creds"));
     if(toValidate===null){
-        
-        alert("Please login to continue....")
-        window.location='/logreg'
-        return;
+        localStorage.setItem(
+        "err","Please login to continue..."
+        )
+        window.location="/logreg"
     }
+    else{
     const acc=toValidate.access;
     const ref=toValidate.refresh;
     const first=toValidate.first;
@@ -62,6 +67,7 @@ async function Validate(){
 
             
          }
+        }
    
 }
 export default Validate

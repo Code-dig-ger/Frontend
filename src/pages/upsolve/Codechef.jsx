@@ -9,6 +9,7 @@ import Loading from '../logreg/loading'
 import Navbar from '../../components/headerComponent/Navbar'
 import Footer from '../../components/footerComponent/FooterSmall'
 
+
 const Codechef=()=>{
     Validate();
     const pageNumbers=[];
@@ -22,9 +23,9 @@ const Codechef=()=>{
     const [conData,setData]=useState([]);
     useEffect(()=>{
 
-        setFirst(1);
+        setFirst(null);
         setLast(null);
-        setPage(1);
+        setPage(null);
         setPrev(null);
         setNext(null);
         Validate();
@@ -67,10 +68,16 @@ const Codechef=()=>{
              await setData(result);
              setLoader(false);
                
-        }
-        else{
+          }
+          else{
             console.log("err");
-        }
+            const data=await response.json();
+              localStorage.setItem("err",data.error);
+              window.location='/home'  
+            
+          }
+              
+        
     }
         
         
@@ -114,11 +121,25 @@ if(last!=null){
             <Navbar/>
             {loader?<Spinner className="loading-animation" animation="border"/>:
             <>
-            <div><button className="vir" onClick={e=>{window.location.reload(false)}}>Solved? Update</button></div>
-            <br></br>
-            <br></br>
+           
+            
             {conData.length>0?
-        conData.map(res=>{
+            <>
+
+<div className="upperButtons">
+          <button onClick={()=>{
+              setTimeout(()=>{setLoader(true)},1000)
+             setPage(prev)}} className='page-link'>{`< Prev`}</button>
+
+<h6 className="green">Solved</h6><h6 className="red">Wrong</h6><h6 className="blue">Upsolve</h6>
+
+<button onClick={()=>{
+                 setTimeout(()=>{setLoader(true)},1000)
+                setPage(next)}} className='page-link'>{`Next >`}</button></div>
+
+
+             <div><button className="vir" onClick={e=>{window.location.reload(false)}}>Solved? Update</button></div><br></br><br></br>
+        {conData.map(res=>{
           return(
             <>
             {res.problems.length>0?
@@ -144,43 +165,43 @@ if(last!=null){
                    )
                })}
                </Carousel></Col>
-              </Row><br></br></>:<></>}</>
-          )})
-        :
-        <Loading></Loading>
-        }
-        <div>
-              <nav className="paginator">
-      <ul className='pagination'>
-          <a onClick={()=>{
-            setTimeout(()=>{setLoader(true)},1000)
-            
-            setPage(first)}} className='page-link'>First</a>
-     <a onClick={()=>{
-        setTimeout(()=>{setLoader(true)},1000)
-       setPage(prev)}} className='page-link'>{`<`}</a>
-        {pageNumbers.map(number => (
-          <li key={number} className='page-item'>
-            <a onClick={() =>{
+               </Row><br></br></>:<></>}</>)})}
+
+               <div >
+                    <nav className="paginator">
+            <ul className='pagination'>
+                <a onClick={()=>{
+                  setTimeout(()=>{setLoader(true)},1000)
+
+                  setPage(first)}} className='page-link'>First</a>
+           <a onClick={()=>{
+              setTimeout(()=>{setLoader(true)},1000)
+             setPage(prev)}} className='page-link'>{`<`}</a>
+              {pageNumbers.map(number => (
+                <li key={number} className='page-item'>
+                  <a onClick={() =>{
+                      setTimeout(()=>{setLoader(true)},1000)
+                     setPage(number)}} className='page-link'>
+                    {number}
+                  </a>
+                </li>
+              ))}
+              <a onClick={()=>{
+                 setTimeout(()=>{setLoader(true)},1000)
+                setPage(next)}} className='page-link'>{`>`}</a>
+             <a onClick={()=>{
                 setTimeout(()=>{setLoader(true)},1000)
-               setPage(number)}} className='page-link'>
-              {number}
-            </a>
-          </li>
-        ))}
-        <a onClick={()=>{
-           setTimeout(()=>{setLoader(true)},1000)
-          setPage(next)}} className='page-link'>{`>`}</a>
-       <a onClick={()=>{
-          setTimeout(()=>{setLoader(true)},1000)
-         setPage(last)}} className='page-link'>Last</a>
-      </ul>
-      </nav>
-        </div>
-        </>}
-               
-             <Footer/>
-            </>
+               setPage(last)}} className='page-link'>Last</a>
+            </ul>
+            </nav>
+              </div>
+               <Footer/>
+              
+              </>:<Loading/>}
+              </>}
+              </>
+          
+          
         )
 }
 export default Codechef;
