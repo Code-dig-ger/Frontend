@@ -1,5 +1,4 @@
 import React ,{useEffect,useState}from 'react'
-import { validateLocaleAndSetLanguage } from 'typescript';
 import Validate from '../../Validate'
 import Spinner from 'react-bootstrap/Spinner'
 import Row from 'react-bootstrap/Row'
