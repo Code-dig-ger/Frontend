@@ -132,6 +132,7 @@ if(last!=null){
           <button onClick={()=>{
               setTimeout(()=>{setLoader(true)},1000)
              setPage(prev)}} className='page-link'>{`< Prev`}</button>
+               <h6 className="green">Solved</h6><h6 className="red">Wrong</h6><h6 className="blue">Upsolve</h6>
 
 <button onClick={()=>{
                  setTimeout(()=>{setLoader(true)},1000)
@@ -185,7 +186,7 @@ if(last!=null){
                 <li key={number} className='page-item'>
                   <a onClick={() =>{
                       setTimeout(()=>{setLoader(true)},1000)
-                     setPage(number)}} className='page-link'>
+                     setPage(number)}} className={`page-link ${page===number?`active-page`:''}`}>
                     {number}
                   </a>
                 </li>

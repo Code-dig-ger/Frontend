@@ -164,12 +164,18 @@ Col{
     margin: auto;
   }
   .paginator{
-    padding-left: 290px;
+  
+    text-align: center;
+    margin: 0 auto;
    
   }
   .pagination{
     border-radius: 5px;
+    text-align: center;
     
+  }
+  a{
+    text-align: center;
   }
   .upperButtons{
     display: flex;
@@ -187,4 +193,10 @@ Col{
   }
   .blue{
     color: deepskyblue;
+  }
+  .tagsbox{
+    color: black;
+  }
+  .active-page{
+    background-color: gold;
   }

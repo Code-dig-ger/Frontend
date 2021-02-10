@@ -175,26 +175,26 @@ mobile: {
                    return(
                    <Col><div className="solved" ><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a>
                   <Popup trigger={<button className="tags"> Tags</button>} position="right center">
-                   <div>{prob.tags}</div>
+                   <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div>
   </Popup>
                    </div></Col>
                    )}
                    else if(prob.status==="wrong"){
                    return(
                    <Col> <div className="wrong"><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a> <Popup trigger={<button className="tags"> Tags</button>} position="right center">
-                   <div>{prob.tags}</div>
+                   <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div>
   </Popup></div></Col>
                    )}
                    return(
                    <Col> <div className="upsolve"><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a> <Popup trigger={<button className="tags"> Tags</button>} position="right center">
-                   <div>{prob.tags}</div>
+                   <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div>
   </Popup><br></br>
                    </div></Col>
                    )
                })}
                </Carousel></Col>
               </Row><br></br></>:<></>}</>)})}
-              <div >
+              <div className="paginator">
                     <nav className="paginator">
             <ul className='pagination'>
                 <a onClick={()=>{
@@ -208,7 +208,7 @@ mobile: {
                 <li key={number} className='page-item'>
                   <a onClick={() =>{
                       setTimeout(()=>{setLoader(true)},1000)
-                     setPage(number)}} className='page-link'>
+                     setPage(number)}} className={`page-link ${page===number?`active-page`:''}`}>
                     {number}
                   </a>
                 </li>
