@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./bootstrap-theme/bootstrap.min.cyborg.css";
 import Container from "react-bootstrap/Container";
 import Homepage from "./pages/homepage/homepage.page";
-import Problems from "./pages/problems.page";
 import Upsolve from "./pages/upsolve/upsolve.page";
 import LogReg from "./pages/logreg/LogReg";
 import Codeforces from './pages/upsolve/Codeforces'
@@ -26,7 +25,8 @@ import NewpassEmail from './pages/logreg/ForgotPass'
 import NewPassSet from './pages/logreg/NewPassword'
 import MyPlaylists from "./pages/MyPlaylists/MyPlaylists";
 import PlaylistList from "./pages/MyPlaylists/PlaylistList";
-import problemsPage from "./pages/problems.page";
+import ProblemsPage from "./pages/problemsPage/ProblemsPage.js";
+import queryString from 'query-string';
 
 
 //react context
@@ -84,6 +84,15 @@ const App = () => {
     );
   }
 
+  const ProblemsPage1 = ({match,location}) => {
+    console.log(location.search);
+    const info=queryString.parse(location.search);
+    console.log(info);
+    console.log(JSON.stringify(match.params));
+    return(
+      <ProblemsPage filters={info} queryStr={location.search}/>
+    );
+  }
 
 
  const [creds,setCreds]=useState({});
@@ -97,7 +106,6 @@ const App = () => {
           <Switch>
             <Route exact path="/list/:id" component={playlists}/>
             <Route exact path="/list/:id/:slug" component={PlaylistList1}/>
-            <Route exact path="/problems" component={Problems} />
              <Route exact path="/logreg" component={LogReg}/>
              <Route exact path="/upsolve/codeforces" component={Codeforces}/>  
              <Route exact path="/upsolve/atcoder" component={Atcoder}/>  
@@ -107,7 +115,7 @@ const App = () => {
              <Route exact path="/:wise/:type" component={LaddersLevel1}/>
             <Route exact path="/:wise/:type/:slug" component={LaddersQuestionPage1}/>
             <Route exact path="/:wise/:type/:slug?page=1" component={LaddersQuestionPage1}/>
-            <Route exact path="/problems" component={problemsPage}/>
+            <Route exact path="/problems" component={ProblemsPage1}/>
              
              {/* <Route exact path="/laddersLevel/topic/page1" component={LaddersQuestionPage}/> */}
              
@@ -121,6 +129,7 @@ const App = () => {
             
             
             <Link to="/:wise/:type/:slug?page=pageNo" component={LaddersQuestionPage1}/>
+            <Link to="/problems/?difficulty=diff&platforms=plats" component={ProblemsPage1}/>
             
             
              
