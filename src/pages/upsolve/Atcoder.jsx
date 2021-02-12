@@ -1,8 +1,4 @@
 import React ,{useEffect,useState}from 'react'
-<<<<<<< HEAD
-//import { validateLocaleAndSetLanguage } from 'typescript';
-=======
->>>>>>> 7531ad6c2bc8364f0b9ee8cce9da8aeeb019c3bf
 import Validate from '../../Validate'
 import Spinner from 'react-bootstrap/Spinner'
 import Row from 'react-bootstrap/Row'
@@ -48,7 +44,7 @@ const Atcoder=()=>{
          },
          
         })
-        console.log(response)
+        //console.log(response)
         if(response.status===200){
          const data=await response.json();
                if(data.status==="OK"){
@@ -66,10 +62,10 @@ const Atcoder=()=>{
                   setLast(data.meta.last_page);
                }
                else{
-                   console.log("sad");
+                  // console.log("sad");
                }
                
-               console.log(data);
+               //console.log(data);
                   const result=await (data.result);
                    await setData(result);
                    setLoader(false);
@@ -77,8 +73,8 @@ const Atcoder=()=>{
         }
         else{
             const data=await response.json();
-            console.log(data.error);
-            console.log("err");
+            //console.log(data.error);
+            //console.log("err");
             if(data.error==="You haven't Entered your Atcoder Handle in your Profile.. Update Now!"){
             localStorage.setItem("err",data.error);
             window.location='/home'  
@@ -132,14 +128,17 @@ if(last!=null){
               {conData.length>0?
               <>
               <div className="upperButtons">
+                {
+                  page!==1?
           <button onClick={()=>{
               setTimeout(()=>{setLoader(true)},1000)
-             setPage(prev)}} className='page-link'>{`< Prev`}</button>
+             setPage(prev)}} className='page-link'>{`< Prev`}</button>:<></>}
                <h6 className="green">Solved</h6><h6 className="red">Wrong</h6><h6 className="blue">Upsolve</h6>
-
+{
+  page!==last?
 <button onClick={()=>{
                  setTimeout(()=>{setLoader(true)},1000)
-                setPage(next)}} className='page-link'>{`Next >`}</button></div>
+setPage(next)}} className='page-link'>{`Next >`}</button>:<></>}</div>
               <div><button className="vir" onClick={e=>{window.location.reload(false)}}>Solved? Update</button></div>
                      <div>
      <button onClick={e=>{

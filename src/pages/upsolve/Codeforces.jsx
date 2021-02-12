@@ -59,7 +59,7 @@ function Codeforces(){
             const data=await response.json();
                   if(data.status==="OK"){
                    // setData(data);
-                      console.log("yipee");
+                      //console.log("yipee");
                       
                       const newLinks=data.links;
                       setFirst(newLinks.first.split("=")[1]);
@@ -74,18 +74,18 @@ function Codeforces(){
                      
                   }
                   else{
-                      console.log("sad");
+                      //console.log("sad");
                   }
                   
-                  console.log(data);
+                  //console.log(data);
                   const result=await (data.result);
                    await setData(result);
                    setLoader(false);
                   
-                  
+                 // console.log(`on page ${page}`)
            }
            else{
-            console.log("err");
+            //console.log("err");
            
             localStorage.setItem("err",data.error);
             window.location='/home'  
@@ -137,15 +137,19 @@ mobile: {
         {conData.length>0?
         <>
          <div className="upperButtons">
+           {
+             page!==1?
           <button onClick={()=>{
               setTimeout(()=>{setLoader(true)},1000)
-             setPage(prev)}} className='page-link'>{`< Prev Page`}</button>
+            
+             setPage(prev)}} className='page-link'>{`< Prev Page`}</button>:<></>}
 
              <h6 className="green">Solved</h6><h6 className="red">Wrong</h6><h6 className="blue">Upsolve</h6>
-
+{page!==last?
 <button onClick={()=>{
                  setTimeout(()=>{setLoader(true)},1000)
-                setPage(next)}} className='page-link'>{`Next Page>`}</button></div>
+               
+setPage(next)}} className='page-link'>{`Next Page>`}</button>:<></>}</div>
                 <br></br>
 
 
