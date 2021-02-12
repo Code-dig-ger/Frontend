@@ -8,7 +8,6 @@ import Navbar from '../../components/headerComponent/Navbar'
 import Loading from '../logreg/loading'
 import './upsolve.style.css'
 import Spinner from 'react-bootstrap/Spinner'
-import Button from 'react-bootstrap/Button'
 import Footer from '../../components/footerComponent/FooterSmall'
 import '../../../node_modules/reactjs-popup/dist/index.css';
 import Popup from 'reactjs-popup';
