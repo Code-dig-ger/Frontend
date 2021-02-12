@@ -61,8 +61,11 @@ async function Validate(){
            }
            else{
                localStorage.clear();
-               alert("Please login to continue...")
-               window.location='/logreg'
+            localStorage.setItem(
+
+                "err","Please login to continue..."
+                )
+                window.location="/logreg"
            }
 
             

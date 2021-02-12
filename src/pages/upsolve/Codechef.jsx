@@ -26,7 +26,7 @@ const Codechef=()=>{
 
         setFirst(null);
         setLast(null);
-        setPage(null);
+        setPage(page);
         setPrev(null);
         setNext(null);
         Validate();
@@ -47,7 +47,7 @@ const Codechef=()=>{
             const data=await response.json();
             if(data.status==="OK"){
              // setData(data);
-                console.log("yipee");
+               // console.log("yipee");
                 
                 const newLinks=data.links;
                 setFirst(newLinks.first.split("=")[1]);
@@ -64,14 +64,14 @@ const Codechef=()=>{
                 console.log("sad");
             }
             
-            console.log(data);
+         //   console.log(data);
             const result=await (data.result);
              await setData(result);
              setLoader(false);
                
           }
           else{
-            console.log("err");
+            //console.log("err");
             const data=await response.json();
               localStorage.setItem("err",data.error);
               window.location='/home'  
@@ -128,15 +128,18 @@ if(last!=null){
             <>
 
 <div className="upperButtons">
-          <button onClick={()=>{
+          {
+            page!==1?
+            <button onClick={()=>{
               setTimeout(()=>{setLoader(true)},1000)
-             setPage(prev)}} className='page-link'>{`< Prev`}</button>
+             setPage(prev)}} className='page-link'>{`< Prev`}</button>:<></>}
 
 <h6 className="green">Solved</h6><h6 className="red">Wrong</h6><h6 className="blue">Upsolve</h6>
 
+{page!==last?
 <button onClick={()=>{
                  setTimeout(()=>{setLoader(true)},1000)
-                setPage(next)}} className='page-link'>{`Next >`}</button></div>
+setPage(next)}} className='page-link'>{`Next >`}</button>:<></>}</div>
 
 
              <div><button className="vir" onClick={e=>{window.location.reload(false)}}>Solved? Update</button></div><br></br><br></br>
