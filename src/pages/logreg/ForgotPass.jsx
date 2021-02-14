@@ -39,13 +39,13 @@ const NewpassForm=()=>{
       return(
           <>
           <Navbar></Navbar>
-          <h3 className="heads">Please enter your registered email.</h3>
+          <h4 className="heads">Please enter your registered email.</h4>
           <form onSubmit={change} className="newPassForm">
-              <input placeholder="email" onChange={(e)=>setEmail(e.target.value)} required></input><br></br>
-              <button onClick={change} type="submit" >submit</button>
+              <input className="inputbox" placeholder="email" onChange={(e)=>setEmail(e.target.value)} required></input><br></br>
+              <button className="submitbutton" onClick={change} type="submit" >submit</button>
               {
                   show?
-              <Spinner className="loading-animation" animation="border"/>:<h2>{msg}</h2>
+              <Spinner className="loading-animation" animation="border"/>:<h4>{msg}</h4>
              }
      
               </form>
