@@ -3,6 +3,7 @@ import './info.css'
 import Button from 'react-bootstrap/Button'
   import Form from 'react-bootstrap/Form'
 import Navbar from '../../components/headerComponent/Navbar'
+import Footer from '../../components/footerComponent/FooterSmall'
 
 const Info=()=>{
       //states for handles
@@ -20,13 +21,15 @@ const Info=()=>{
         e.preventDefault();
         setShow(true);
         const creds=await JSON.parse(localStorage.getItem("creds"));
+      
         const acc=creds.access;
         const ref=creds.refresh;
-        const uu=creds.username;
-        setUser(uu);
+        const uu=JSON.stringify(creds.username);
+        const usser=JSON.parse(uu);
+     await setUser(usser);
         console.log(creds);
-        console.log(`The user name is : ${uu}`);
-        const response=await fetch(`https://api.codedigger.tech/auth/profile/${uu}`,{
+        console.log(`The user name is : ${user}`);
+        const response=await fetch(`https://api.codedigger.tech/auth/profile/${usser}`,{
             method:"PUT",
             headers:{
                 "Content-Type":"application/json",
@@ -43,24 +46,24 @@ const Info=()=>{
 
             })
         })
-        console.log(response);
+      //  console.log(response);
         const data=await response.json();
-        console.log(data);
+        //console.log(data);
         if(response.status===200){
             
-            console.log(data);
+            //console.log(data);
         localStorage.setItem("creds",JSON.stringify({
               access:acc,
               refresh:ref,
               first:false,
-              username:user
+              username:usser
     
         }))
-        console.log(localStorage.getItem("creds"));
+      //  console.log(localStorage.getItem("creds"));
         //setTimeout(1000,setShow(false));
 
         setMsg("Successful.....");
-        window.location=`/profile/${user}`;
+      window.location=`/profile/${usser}`;
     }
     else{
         //setTimeout(setShow(false));
@@ -80,6 +83,8 @@ const Info=()=>{
       <Navbar/>
        <Form className="myform">
 <h3>{msg}</h3>
+
+
            <input className="inputs" onChange={(e)=>setName(e.target.value)} type="text" placeholder="Name" required/><br></br>
            <input className="inputs" onChange={(e)=>setCodeforces(e.target.value)} type="text" placeholder="Codeforces" required/><br></br>
            <input className="inputs" onChange={(e)=>setCodechef(e.target.value)} type="text" placeholder="Codechef" required/><br></br>
@@ -90,6 +95,7 @@ const Info=()=>{
            <button className="mybtn" type="submit" onClick={handle}>Submit</button>
            
        </Form>
+       <Footer/>
      
       </>
     )

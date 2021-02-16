@@ -8,6 +8,7 @@ import Popup from 'reactjs-popup';
 
 import Eye from '../../assets/Eye.png'
 
+
 import Validate from '../../Validate'
 
 import Spinner from 'react-bootstrap/Spinner'
@@ -60,6 +61,7 @@ const LogReg =()=>{
           else if(response.status===201){
            
             setmsgR("Successful, verify your email");
+           
           }
             setLoaderR(false);
     
@@ -264,7 +266,7 @@ switchers.forEach((item) => {
         <button onClick={register} type="submit" className="btn-signup">Register</button></>
         :
         <>
-        <h7 className="goodmsgs">{`We have sent you a verification link on ${emailR} .`}</h7><br></br><h7 className="goodmsgs">{`Please verify your email. If you haven't recieved any mail regarding this, click here to send again.`}</h7>
+        <h7 className="goodmsgs">{`We have sent you a verification link on ${emailR} .`}</h7><br></br><h7 className="goodmsgs">{`Please verify your email and move to login. \n If you haven't recieved any mail regarding this, click here to send again.`}</h7>
         <button className="goodmsgs" onClick={Sendagain}>Send again</button></>}
       </form>
 }
