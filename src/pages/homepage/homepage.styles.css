@@ -8,7 +8,7 @@
 }
 
 .bigRow:nth-of-type(2n+1){
-  background-image: url('./images/img1.png');
+  background-image: url('../../assets/homepage/images/img1.png');
   background-repeat: no-repeat;
   background-size: cover;
   color: white !important;
@@ -22,7 +22,7 @@
 }
 
 .bigRow:nth-of-type(2n){
-  background-image: url('./images/img1.png');
+  background-image: url('../../assets/homepage/images/img1.png');
   background-repeat: no-repeat;
   background-size: cover;
   color: black !important;

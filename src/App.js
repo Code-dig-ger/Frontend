@@ -15,7 +15,7 @@ import PracticeLevel from "./pages/practice/PracticeLevel";
 import PracticeTopic from "./pages/practice/PracticeTopic"; 
 import Profile from './pages/profile/ProfilePage'
 import Virtual from './pages/upsolve/virtual.page'
-import Info from './pages/profile/FillInfo'
+import Info from './components/profile/FillInfo';
 import '../node_modules/aos/dist/aos.css'
 import '../node_modules/react-multi-carousel/lib/styles.css'
 import "./App.css";
