@@ -7,11 +7,8 @@ import '../../../node_modules/reactjs-popup/dist/index.css';
 import Popup from 'reactjs-popup';
 
 import Eye from '../../assets/Eye.png'
-
-
-import Validate from '../../Validate'
-
 import Spinner from 'react-bootstrap/Spinner'
+import {GoogleLogin} from 'react-google-login'
 
 const LogReg =()=>{
   
@@ -32,7 +29,7 @@ const LogReg =()=>{
             method:"POST",
         headers:{
             "Content-Type":"application/json"
-        },
+           },
         body:JSON.stringify({
             "email":emailR,
             "username":usernameR,
@@ -65,6 +62,50 @@ const LogReg =()=>{
           }
             setLoaderR(false);
     
+  }
+  async function handleGoogleSuccess(response){
+    console.log("onSuccess");
+    const c=await response.tokenId;
+   // console.log(c);
+    const resp=await fetch('https://api.codedigger.tech/social_auth/google/',{
+      method:"POST",
+      headers:{
+          "Content-Type":"application/json"
+      },
+      body:JSON.stringify({
+          "auth_token":c,
+         
+      })
+      })
+      if(resp.status!==200){
+        alert("error");
+      }
+      else{
+        const data=await resp.json();
+        //console.log(data);
+        localStorage.setItem("creds",JSON.stringify({
+     
+          access:data.tokens.access,
+          refresh:data.tokens.refresh,
+          first:data.first_time,
+          username:data.username
+          
+        }))
+      if(data.first_time===true){
+
+          window.location='/profile/:id'
+         }
+         else{
+         window.location='/home'
+         }
+                
+     
+      }
+    
+  }
+  function handleGoogleFail(response){
+    console.log(response)
+    alert("failed")
   }
 
   async function Sendagain(e){
@@ -106,8 +147,7 @@ setmsgR("sent");
          "username":usernameL,
          "password":passwordL
       })
-      })// 400--> chars
-      //
+      })
     if(response.status===200){
         setpasswordL("");
         setUserNameL("");
@@ -126,11 +166,13 @@ setmsgR("sent");
   
     if(data.first_time_login===true){
 
-     window.location='/profile/:id'
-    }
-    else{
-    window.location='/home'
-    }            
+      window.location='/profile/:id'
+     }
+     else{
+     window.location='/home'
+     }            
+ 
+   
 
    
       }
@@ -220,6 +262,16 @@ switchers.forEach((item) => {
         </fieldset>
         <h6 className="errormsgs">{msgL}</h6>
         <button onClick={login} type="submit" className="btn-login">Login</button>
+       <div  className="googlelogin">
+       <GoogleLogin
+        clientId="879021189199-7dj21idsu3mvo8qnup47vc3fntntegma.apps.googleusercontent.com"
+        buttonText="Login with Google"
+        onSuccess={handleGoogleSuccess}
+        onFailure={handleGoogleFail}
+        cookiePolicy={"single_host_origin"}
+        icon={false}
+        
+        /></div><br></br><br></br>
         <button onClick={(e)=>window.location='/ForgPass'} className="btn-setPass">Forgot Password ?</button>
          </form>
      

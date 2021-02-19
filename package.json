@@ -27,6 +27,7 @@
     "react-bootstrap": "^1.4.0",
     "react-countup": "^4.3.3",
     "react-dom": "^16.14.0",
+    "react-google-login": "^5.2.2",
     "react-iframe": "^1.8.0",
     "react-intl": "^5.8.8",
     "react-multi-carousel": "^2.5.5",
