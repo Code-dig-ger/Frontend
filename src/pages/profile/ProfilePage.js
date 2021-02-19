@@ -4,26 +4,26 @@ import { Container } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import './profile.style.css'
-import Pie from './pie'
-import Bar from './bar'
+import Pie from '../../components/profile/pie'
+import Bar from '../../components/profile/bar'
 import Navbar from '../../components/headerComponent/Navbar'
 import FooterSmall from '../../components/footerComponent/FooterSmall';
-import Info from './FillInfo'
-import demoImg from './images/demoImage.png';
+import Info from '../../components/profile/FillInfo.jsx'
+import demoImg from '../../assets/profile/images/demoImage.png';
 import CodeforcesImg from '../../assets/codeforces.png';
 import CodechefImg from '../../assets/codechef.png';
 import SpojImg from '../../assets/spoj.png';
 import UAVImg from '../../assets/uva_online_judge.png';
 import AtcoderImg from '../../assets/atcoder.png';
-import ProfileCarousel from './ProfileCarousel'
+import ProfileCarousel from '../../components/profile/ProfileCarousel'
 import { ButtonToggle } from "reactstrap";
-import FriendsBtn from './FriendsBtn.js';
-import MentorBtn from './MentorBtn.js';
+import FriendsBtn from '../../components/profile/FriendsBtn.js';
+import MentorBtn from '../../components/profile/MentorBtn.js';
 // import user from './profileDat.json';
 import $ from 'jquery';
 import {faUserClock} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import FriendList from './FriendList.js';
+import FriendList from '../../components/profile/FriendList.js';
 import {Modal,ModalBody,ModalFooter,ModalHeader,Button} from 'reactstrap';
 import MyPlaylists from '../MyPlaylists/MyPlaylists';
 

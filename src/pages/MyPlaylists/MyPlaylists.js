@@ -2,7 +2,7 @@ import React, { useEffect,useState } from 'react'
 import './MyPlaylist.css'
 import Navbar from '../../components/headerComponent/Navbar'
 import FooterSmall from '../../components/footerComponent/FooterSmall';
-import PlaylistModal from './AddPlaylistModal'
+import PlaylistModal from '../../components/MyPlaylists/AddPlaylistModal'
 
 
 function MyPlaylists(props) {

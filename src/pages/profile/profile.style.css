@@ -19,7 +19,7 @@
     display: flex;
     flex-direction: column;
     /* background-image: none; */
-    background-image: url('./images//BgImage.jpg');
+    background-image: url('../../assets/profile/images/BgImage.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     height: 23rem;
