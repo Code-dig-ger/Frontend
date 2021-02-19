@@ -1,6 +1,9 @@
 .newPassForm{
     text-align: center;
     margin-top: 40px;
+    border: 2px solid white;
+    background-color: rgb(133, 133, 248);
+    margin: 60px;
 }
 .loading-animation{
     display: block;
@@ -9,4 +12,15 @@
 .heads{
     display: block;
     margin: auto;
+}
+.inputbox{
+    margin: 10px;
+    border: 2px solid black;
+    padding: 10px;
+}
+.submitbutton{
+    background-color: rgb(1, 1, 53);
+    color: wheat;
+    border-radius: 5px;
+    padding: 10px;
 }

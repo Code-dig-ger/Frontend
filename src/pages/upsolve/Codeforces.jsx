@@ -18,6 +18,7 @@ function Codeforces(){
   const pageNumbers=[];
     
     const [page,setPage]=useState(1);
+    const [curPage,setCurPage]=useState(1);
     const [loader,setLoader]=useState(false);
     const [prev,setPrev]=useState(null);
     const [next,setNext]=useState(2);
@@ -25,11 +26,11 @@ function Codeforces(){
     const [last,setLast]=useState(null);
     const [conData,setData]=useState([]);
     const [vir,setVir]=useState(false);
-    const [vali ,setVali]=useState(true);
-    if(vali===true){
-    Validate();
-    setVali(false);  
-  }
+   
+   
+    
+    
+  
    
 
     useEffect(()=>{
@@ -58,7 +59,7 @@ function Codeforces(){
            if(response.status===200){
             const data=await response.json();
                   if(data.status==="OK"){
-                   // setData(data);
+                    //setData(data);
                       //console.log("yipee");
                       
                       const newLinks=data.links;
@@ -71,18 +72,19 @@ function Codeforces(){
                           setNext(newLinks.next.split("=")[1])
                       }
                      setLast(data.meta.last_page);
+                     setCurPage(data.meta.current_page);
                      
                   }
                   else{
                       //console.log("sad");
                   }
                   
-                  //console.log(data);
+                 console.log(data);
                   const result=await (data.result);
                    await setData(result);
                    setLoader(false);
                   
-                 // console.log(`on page ${page}`)
+                // console.log(`on page ${curPage}`)
            }
            else{
             //console.log("err");
@@ -137,6 +139,7 @@ mobile: {
         {conData.length>0?
         <>
          <div className="upperButtons">
+           <h5>CODEFORCES</h5>
            {
              page!==1?
           <button onClick={()=>{
@@ -144,7 +147,7 @@ mobile: {
             
              setPage(prev)}} className='page-link'>{`< Prev Page`}</button>:<></>}
 
-             <h6 className="green">Solved</h6><h6 className="red">Wrong</h6><h6 className="blue">Upsolve</h6>
+             <h6 className="green">Solved</h6><h6 className="red">Wrong</h6><h6 className="blue">Upsolved</h6><h6 className="viol">Not attempted</h6>
 {page!==last?
 <button onClick={()=>{
                  setTimeout(()=>{setLoader(true)},1000)
@@ -188,11 +191,18 @@ setPage(next)}} className='page-link'>{`Next Page>`}</button>:<></>}</div>
                    <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div>
   </Popup></div></Col>
                    )}
+                   else if(prob.status==="upsolved"){
                    return(
                    <Col> <div className="upsolve"><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a> <Popup trigger={<button className="tags"> Tags</button>} position="right center">
                    <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div>
   </Popup><br></br>
                    </div></Col>
+                   )}
+                   return (
+                    <Col> <div className="not_attempted"><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a> <Popup trigger={<button className="tags"> Tags</button>} position="right center">
+                    <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div>
+   </Popup><br></br>
+                    </div></Col>
                    )
                })}
                </Carousel></Col>
@@ -211,7 +221,7 @@ setPage(next)}} className='page-link'>{`Next Page>`}</button>:<></>}</div>
                 <li key={number} className='page-item'>
                   <a onClick={() =>{
                       setTimeout(()=>{setLoader(true)},1000)
-                     setPage(number)}} className={`page-link ${page===number?`active-page`:''}`}>
+                     setPage(number)}} className={`page-link ${(page===number||curPage===number)?`active-page`:''}`}>
                     {number}
                   </a>
                 </li>

@@ -12,7 +12,7 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import './upsolve.style.css'
 const Atcoder=()=>{
-    Validate(); 
+   
     const pageNumbers=[];
     
     const [page,setPage]=useState(1);
@@ -23,8 +23,8 @@ const Atcoder=()=>{
     const [last,setLast]=useState(null);
     const [conData,setData]=useState([]);
     const [Prac,setPrac]=useState(false);
-    const [err,setError]=useState(false);
-    const [errmsg,setErrorMsg]=useState("");
+   
+    const [curPage,setCurPage]=useState(1);
     useEffect(()=>{
       Validate();
       setFirst(1);
@@ -60,6 +60,7 @@ const Atcoder=()=>{
                        setNext(newLinks.next.split("=")[1])
                    }
                   setLast(data.meta.last_page);
+                  setCurPage(data.meta.current_page);
                }
                else{
                   // console.log("sad");
@@ -128,12 +129,13 @@ if(last!=null){
               {conData.length>0?
               <>
               <div className="upperButtons">
+                <h5>ATCODER</h5>
                 {
                   page!==1?
           <button onClick={()=>{
               setTimeout(()=>{setLoader(true)},1000)
              setPage(prev)}} className='page-link'>{`< Prev`}</button>:<></>}
-               <h6 className="green">Solved</h6><h6 className="red">Wrong</h6><h6 className="blue">Upsolve</h6>
+               <h6 className="green">Solved</h6><h6 className="red">Wrong</h6><h6 className="blue">Upsolve</h6><h6 className="viol">Not attempted</h6>
 {
   page!==last?
 <button onClick={()=>{
@@ -166,9 +168,14 @@ setPage(next)}} className='page-link'>{`Next >`}</button>:<></>}</div>
                          return(
                          <Col> <div className="wrong"><h7>{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a></div></Col>
                          )}
+                         else if(prob.status=="upsolved"){
                          return(
                          <Col> <div className="upsolve"><h7>{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a><br></br>
                          </div></Col>
+                         )}
+                         return(
+                          <Col> <div className="not_attempted"><h7>{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a><br></br>
+                          </div></Col>
                          )
                      })}
                      </Carousel></Col>
@@ -188,7 +195,7 @@ setPage(next)}} className='page-link'>{`Next >`}</button>:<></>}</div>
                 <li key={number} className='page-item'>
                   <a onClick={() =>{
                       setTimeout(()=>{setLoader(true)},1000)
-                     setPage(number)}} className={`page-link ${page===number?`active-page`:''}`}>
+                     setPage(number)}} className={`page-link ${(page===number||curPage===number)?`active-page`:''}`}>
                     {number}
                   </a>
                 </li>

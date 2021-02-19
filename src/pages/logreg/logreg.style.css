@@ -588,6 +588,8 @@ background: linear-gradient(90deg, rgba(235,74,123,1) 23%, rgba(238,153,105,1) 6
 }
 .goodmsgs{
   color: #009100;
+ 
+  margin: 10px;
 }
 .input-block input {
   display: block;

@@ -200,3 +200,14 @@ Col{
   .active-page{
     background-color: gold;
   }
+  .not_attempted{
+    background-color: rgb(0,0,0);
+    color:rgb(231, 110, 255);
+    border-radius: 10px;
+    height: 90px;
+    text-align: center;
+    padding-top: 10px;
+  }
+  .viol{
+    color:rgb(231, 110, 255);
+  }

@@ -8,6 +8,7 @@ import Popup from 'reactjs-popup';
 
 import Eye from '../../assets/Eye.png'
 
+
 import Validate from '../../Validate'
 
 import Spinner from 'react-bootstrap/Spinner'
@@ -58,13 +59,31 @@ const LogReg =()=>{
             
           }
           else if(response.status===201){
-            setEmailR("");
-            setPassWordR("");
-            setUsernameR("");
+           
             setmsgR("Successful, verify your email");
+           
           }
             setLoaderR(false);
     
+  }
+
+  async function Sendagain(e){
+    e.preventDefault();
+    setLoaderR(true);
+        const response=await fetch('https://api.codedigger.tech/auth/send-email/',{
+            method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+            "email":emailR,
+           
+        })
+        })
+       
+setLoaderR(false);
+setmsgR("sent");
+
   }
 
   //states and handler for login
@@ -135,10 +154,7 @@ const LogReg =()=>{
       
       setLoaderL(false);
     }
-    //func for forgot password
-     function forgotPass(e){
-      window.location='/forgPass'
-    }
+   
 
     
    
@@ -248,7 +264,10 @@ switchers.forEach((item) => {
         </fieldset>
     <h6 className="errormsgs">{msgR}</h6>
         <button onClick={register} type="submit" className="btn-signup">Register</button></>
-        :<h4 className="goodmsgs">{msgR}</h4>}
+        :
+        <>
+        <h7 className="goodmsgs">{`We have sent you a verification link on ${emailR} .`}</h7><br></br><h7 className="goodmsgs">{`Please verify your email and move to login. \n If you haven't recieved any mail regarding this, click here to send again.`}</h7>
+        <button className="goodmsgs" onClick={Sendagain}>Send again</button></>}
       </form>
 }
     </div>

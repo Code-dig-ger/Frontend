@@ -1,17 +1,19 @@
 .myform{
     display: block;
-    margin: auto;
+    margin: 20px;
     text-align: center;
     border: 2px solid white;
+    background-color: rgb(143, 143, 248);
+    
 }
 .inputs{
-    border: 2px solid blue;
+    border: 2px solid rgb(2, 2, 44);
     border-radius: 10px;
     margin: 6px;
     text-align: center;
 }
 .mybtn{
-    background-color: blue;
+    background-color: rgb(6, 6, 51);
     border-radius: 10px;
     color: white;
 }

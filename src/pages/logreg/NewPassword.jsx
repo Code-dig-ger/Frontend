@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Spinner from 'react-bootstrap/Spinner'
+import Navbar from '../../components/headerComponent/Navbar'
+import './forg.style.css'
 const NewPassForm =()=>{
      const [pass,setPass]=useState();
      const [msg,setMsg]=useState("");
@@ -45,12 +47,14 @@ const NewPassForm =()=>{
     }    
     return (
         <>
-        <h4>Set Your New Password</h4>
-        <input onChange={(e)=>setPass(e.target.value)} placeholder="new password"></input>
-        <button onClick={handleSubmit}>Submit</button>
+        
+        <h4 className="heads">Set Your New Password</h4>
+        <form className="newPassForm">
+        <input className="inputbox" onChange={(e)=>setPass(e.target.value)} placeholder="new password"></input><br></br>
+        <button className="submitbutton" onClick={handleSubmit}>Submit</button></form>
         {
                   show?
-              <Spinner className="loading-animation" animation="border"/>:<h2>{msg}</h2>
+              <Spinner className="loading-animation" animation="border"/>:<h4>{msg}</h4>
              }
         </>
         
