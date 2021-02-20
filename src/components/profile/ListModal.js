@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup,Label,Input,Row } from 'reactstrap';
 import FriendList from './FriendList';
 import Loading from '../logreg/loading';
+import {getFriends} from '../../actions/friends.actions.js';
 
 const ListModal = ({creds, acc, handle, user}) => {
   const {
@@ -71,17 +72,22 @@ const ListModal = ({creds, acc, handle, user}) => {
   }
 
 useEffect(() => {
+  getFriends(acc)
+    .then(res => setFriends(res));
+  console.log(friends);
   async function showList() {
-    const res= await fetch(`https://api.codedigger.tech/auth/user/friends`,{
-        method:"GET",
-        headers:{
-            "Content-Type":"application/json",
-            "Authorization":`Bearer ${acc}`
-        }
-    });
-    res
-        .json()
-        .then(res => setFriends(res));
+    // const res= await fetch(`https://api.codedigger.tech/auth/user/friends`,{
+    //     method:"GET",
+    //     headers:{
+    //         "Content-Type":"application/json",
+    //         "Authorization":`Bearer ${acc}`
+    //     }
+    // });
+    // res
+    //     .json()
+    //     .then(res => setFriends(res));
+
+    // setFriends(getFriends(acc));
     
     const res1=await fetch (`https://api.codedigger.tech/auth/user/show-request`,{
       method:"GET",
