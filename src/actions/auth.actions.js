@@ -40,6 +40,19 @@ export function passreqEmail(email){
         })
         })
 }
+export function setNewPass(password,token,uidb64){
+    return fetch('https://api.codedigger.tech/auth/password-reset-complete',{
+        method:"PATCH",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+            "password":password,
+            "token":token,
+            "uidb64":uidb64
+         })
+    }).then(data=>data.json());
+}
 
 export function sendVerEmail(emailR){
     return fetch('https://api.codedigger.tech/auth/send-email/',{

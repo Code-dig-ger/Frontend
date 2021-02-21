@@ -9,6 +9,11 @@ import Popup from 'reactjs-popup';
 import Eye from '../../assets/Eye.png'
 import Spinner from 'react-bootstrap/Spinner'
 import {GoogleLogin} from 'react-google-login'
+//actions import
+import {register} from '../../actions/auth.actions'
+import {sendVerEmail} from '../../actions/auth.actions'
+import {login} from '../../actions/auth.actions'
+
 
 const LogReg =()=>{
   
@@ -22,22 +27,15 @@ const LogReg =()=>{
   const [loaderR,setLoaderR]=useState(false);
   let err=localStorage.getItem("err");
   localStorage.removeItem("err");
-  async function register(e){
+  async function Register(e){
     e.preventDefault();
     setLoaderR(true);
-        const response=await fetch('https://api.codedigger.tech/auth/register/',{
-            method:"POST",
-        headers:{
-            "Content-Type":"application/json"
-           },
-        body:JSON.stringify({
-            "email":emailR,
-            "username":usernameR,
-            "password":passwordR
-        })
-        })
-        const data=await response.json();
-          if(response.status===400){
+     
+        const data=await register(emailR,usernameR,passwordR);
+        if(data.status==="OK"){
+          setmsgR("Successful, verify your email");
+        }
+       else{ 
              
             let msg="";
             if(data.email){
@@ -52,15 +50,8 @@ const LogReg =()=>{
               msg=msg+data.password[0];
             }
             setmsgR(msg);
-            
-            
           }
-          else if(response.status===201){
-           
-            setmsgR("Successful, verify your email");
-           
-          }
-            setLoaderR(false);
+           setLoaderR(false);
     
   }
   async function handleGoogleSuccess(response){
@@ -91,13 +82,14 @@ const LogReg =()=>{
           username:data.username
           
         }))
-      if(data.first_time===true){
+    if(data.first_time===true){
 
           window.location='/profile/:id'
          }
          else{
          window.location='/home'
          }
+         //console.log(c);
                 
      
       }
@@ -111,19 +103,11 @@ const LogReg =()=>{
   async function Sendagain(e){
     e.preventDefault();
     setLoaderR(true);
-        const response=await fetch('https://api.codedigger.tech/auth/send-email/',{
-            method:"POST",
-        headers:{
-            "Content-Type":"application/json"
-        },
-        body:JSON.stringify({
-            "email":emailR,
-           
-        })
-        })
+      const data=await sendVerEmail(emailR);
+       // console.log(data);
        
 setLoaderR(false);
-setmsgR("sent");
+setmsgR(data.result);
 
   }
 
@@ -135,65 +119,32 @@ setmsgR("sent");
      const [togL,setTogL] =useState(true);
      const [loaderL,setLoaderL]=useState(false);
  
-   async  function login(e){
+   async  function Login(e){
       e.preventDefault();
       setLoaderL(true);
-     const response= await fetch('https://api.codedigger.tech/auth/login/',{
-          method:"POST",
-      headers:{
-          "Content-Type":"application/json"
-      },
-      body:JSON.stringify({
-         "username":usernameL,
-         "password":passwordL
-      })
-      })
-    if(response.status===200){
-        setpasswordL("");
-        setUserNameL("");
-     setmsgL(`Hello, ${usernameL}`);
-    const data=await response.json();
-    console.log(data);
-    
-    localStorage.setItem("creds",JSON.stringify({
+      const data=await login(usernameL,passwordL);
+     // console.log(data);
+      if(data.status==="FAILED"){
+        setmsgL(data.error);
+      }
+      else{
+        localStorage.setItem("creds",JSON.stringify({
      
-      access:data.tokens.access,
-      refresh:data.tokens.refresh,
-      first:data.first_time_login,
-      username:usernameL
+          access:data.tokens.access,
+          refresh:data.tokens.refresh,
+          first:data.first_time_login,
+          username:usernameL
+          
+        }))
       
-    }))
-  
-    if(data.first_time_login===true){
-
-      window.location='/profile/:id'
-     }
-     else{
-     window.location='/home'
-     }            
- 
-   
-
-   
+        if(data.first_time_login===true){
+    
+          window.location='/profile/:id'
+         }
+         else{
+         window.location='/home'
+         } 
       }
-      else if(response.status==400){
-      //  setmsgL("Invalid");
-      const errorData=await response.json();
-      let msg=""; 
-      if(errorData.username){
-           msg=msg+"Usernamr: "+errorData.username[0]+" ";
-       }
-       if(errorData.password){
-        msg=msg+"Password: "+errorData.password[0];
-    }
-
-       setmsgL(msg);
-      }
-      else {
-        const err=await response.json();
-        setmsgL(err.error);
-      }    
-      
       setLoaderL(false);
     }
    
@@ -261,17 +212,17 @@ switchers.forEach((item) => {
           </div>
         </fieldset>
         <h6 className="errormsgs">{msgL}</h6>
-        <button onClick={login} type="submit" className="btn-login">Login</button>
-       <div  className="googlelogin">
-       <GoogleLogin
+        <button onClick={Login} type="submit" className="btn-login">Login</button>
+      
+       <GoogleLogin className="googlelogin"
         clientId="879021189199-7dj21idsu3mvo8qnup47vc3fntntegma.apps.googleusercontent.com"
-        buttonText="Login with Google"
+        buttonText="Google Login"
         onSuccess={handleGoogleSuccess}
         onFailure={handleGoogleFail}
         cookiePolicy={"single_host_origin"}
         icon={false}
         
-        /></div><br></br><br></br>
+         /><br></br><br></br>
         <button onClick={(e)=>window.location='/ForgPass'} className="btn-setPass">Forgot Password ?</button>
          </form>
      
@@ -315,7 +266,7 @@ switchers.forEach((item) => {
           </div>
         </fieldset>
     <h6 className="errormsgs">{msgR}</h6>
-        <button onClick={register} type="submit" className="btn-signup">Register</button></>
+        <button onClick={Register} type="submit" className="btn-signup">Register</button></>
         :
         <>
         <h7 className="goodmsgs">{`We have sent you a verification link on ${emailR} .`}</h7><br></br><h7 className="goodmsgs">{`Please verify your email and move to login. \n If you haven't recieved any mail regarding this, click here to send again.`}</h7>

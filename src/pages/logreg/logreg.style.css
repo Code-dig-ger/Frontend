@@ -666,8 +666,9 @@ background: linear-gradient(90deg, rgba(235,74,123,1) 23%, rgba(238,153,105,1) 6
   background-color: rgb(255, 102, 102);
 }
 .googlelogin{
-  display: block;
-  margin: auto;
+  margin-left: 65px;
   width: 100px;
-  height: 30px;
+  height: 35px;
+  
+  
 }
