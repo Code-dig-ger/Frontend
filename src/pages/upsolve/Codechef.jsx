@@ -122,7 +122,7 @@ if(last!=null){
         return(
             <>
 
-            <Navbar/>
+            <Navbar/><br></br><br></br><br></br>
             {loader?<Spinner className="loading-animation" animation="border"/>:
             <>
            

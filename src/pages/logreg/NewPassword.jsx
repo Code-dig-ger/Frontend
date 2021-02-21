@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 import Spinner from 'react-bootstrap/Spinner'
-<<<<<<< HEAD
-import Navbar from '../../components/headerComponent/Navbar'
-import {setNewPass} from '../../actions/auth.actions'
-=======
 import Navbar from '../../components/Header/Navbar'
->>>>>>> e9a7200060529e22996785bef2bfef9dc507f1a5
 import './forg.style.css'
 const NewPassForm =()=>{
      const [pass,setPass]=useState();

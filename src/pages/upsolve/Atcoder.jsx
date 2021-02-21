@@ -121,7 +121,7 @@ if(last!=null){
            return(
              
             <>
-            <Navbar></Navbar>
+            <Navbar></Navbar><br></br><br></br><br></br>
             {loader?<Spinner className="loading-animation" animation="border"/>:
             <>
                      
@@ -188,9 +188,10 @@ setPage(next)}} className='page-link'>{`Next >`}</button>:<></>}</div>
                   setTimeout(()=>{setLoader(true)},1000)
 
                   setPage(first)}} className='page-link'>First</a>
+                  {page!==1?
            <a onClick={()=>{
               setTimeout(()=>{setLoader(true)},1000)
-             setPage(prev)}} className='page-link'>{`<`}</a>
+             setPage(prev)}} className='page-link'>{`<`}</a>:<></>}
               {pageNumbers.map(number => (
                 <li key={number} className='page-item'>
                   <a onClick={() =>{
@@ -200,9 +201,10 @@ setPage(next)}} className='page-link'>{`Next >`}</button>:<></>}</div>
                   </a>
                 </li>
               ))}
+              {page!==last?
               <a onClick={()=>{
                  setTimeout(()=>{setLoader(true)},1000)
-                setPage(next)}} className='page-link'>{`>`}</a>
+                setPage(next)}} className='page-link'>{`>`}</a>:<></>}
              <a onClick={()=>{
                 setTimeout(()=>{setLoader(true)},1000)
                setPage(last)}} className='page-link'>Last</a>

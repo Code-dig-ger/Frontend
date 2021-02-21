@@ -10,8 +10,8 @@
   align-self: center;
   background-position: top;
   /* background-image: url(http://bit.ly/2gPLxZ4);*/
-  background: rgb(235,74,123);
-background: linear-gradient(90deg, rgba(235,74,123,1) 23%, rgba(238,153,105,1) 62%);
+  background: rgb(63,94,251);
+background: radial-gradient(circle, rgba(63,94,251,1) 19%, rgba(54,39,42,1) 90%);
   font-family: Arial, Helvetica;
   letter-spacing: 0.02em;
   font-weight: 400;

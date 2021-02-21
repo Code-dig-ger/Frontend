@@ -128,6 +128,7 @@ setmsgR(data.result);
         setmsgL(data.error);
       }
       else{
+        setmsgL(`Hello, ${usernameL}`)
         localStorage.setItem("creds",JSON.stringify({
      
           access:data.tokens.access,
@@ -211,7 +212,10 @@ switchers.forEach((item) => {
             setTogL(!togL)}} className="eye"></img></span>
           </div>
         </fieldset>
-        <h6 className="errormsgs">{msgL}</h6>
+      {msgL.length>0?
+       <Popup open={true}>
+      <div className="pops">{msgL}</div>
+   </Popup>:<></>}
         <button onClick={Login} type="submit" className="btn-login">Login</button>
       
        <GoogleLogin className="googlelogin"
@@ -265,7 +269,10 @@ switchers.forEach((item) => {
               setTogR(!togR)}} className="eye"></img></span>
           </div>
         </fieldset>
-    <h6 className="errormsgs">{msgR}</h6>
+        {msgR.length>0?
+        <Popup open={true}>
+      <div className="pops">{msgR}</div>
+   </Popup>:<></>}
         <button onClick={Register} type="submit" className="btn-signup">Register</button></>
         :
         <>
