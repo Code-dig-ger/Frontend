@@ -53,7 +53,7 @@ useEffect(() => {
 if(creds){
   return(
     <div>
-      <Navbar id="navbar" color="light" light expand="md">
+      <Navbar id="navbar" color="light" light expand="md" style={{background:'transparent !important'}}>
         <NavbarBrand href="/">CODEDIGGER</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
@@ -135,9 +135,9 @@ if(creds){
           </Nav>   
         </Collapse>
       </Navbar>
+      {/* <br/>
       <br/>
-      <br/>
-      <br/>
+      <br/> */}
     </div>
     )
 }else
