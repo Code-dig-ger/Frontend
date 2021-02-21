@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import Loading from '../logreg/loading'
 import "./PracticeTopic.css";
-import Header from '../../components/headerComponent/Navbar';
+import Header from '../../components/Header/Navbar';
 
 import LaddersContent from '../../components/LaddersContent';
-import Footer from '../../components/footerComponent/footer';
+import Footer from '../../components/Footer/footer';
 
 function PracticeTopic() {
     const [show,setShow]=useState(true);

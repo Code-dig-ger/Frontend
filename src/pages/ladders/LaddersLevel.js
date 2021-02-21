@@ -1,10 +1,9 @@
 import React, {useState,useEffect}from 'react'
 import Loading from '../logreg/loading'
-import Header from '../../components/headerComponent/Navbar';
+import Header from '../../components/Header/Navbar';
 import "./LaddersLevel.css";
-import QuestionCard from '../../components/QuestionCard';
 import LaddersContent from '../../components/LaddersContent';
-import FooterSmall from '../../components/footerComponent/FooterSmall';
+import FooterSmall from '../../components/Footer/FooterSmall';
 
 
 function LaddersLevel(props) {

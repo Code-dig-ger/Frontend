@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
 import Loading from '../logreg/loading'
 import "./LaddersTopic.css";
-import IndexNavbar from '../../components/headerComponent/Navbar';
-import QuestionCard from '../../components/QuestionCard';
+import IndexNavbar from '../../components/Header/Navbar';
 import LaddersContent from '../../components/LaddersContent';
-import FooterSmall from '../../components/footerComponent/FooterSmall';
+import FooterSmall from '../../components/Footer/FooterSmall';
 
 function LaddersTopic() {
     const [show,setShow]=useState(true);

@@ -1,12 +1,12 @@
 import React ,{useEffect,useState}from 'react'
-import Validate from '../../Validate'
+import Validate from '../../helpers/Validate'
 import Spinner from 'react-bootstrap/Spinner'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Carousel from 'react-multi-carousel';
-import Navbar from '../../components/headerComponent/Navbar'
+import Navbar from '../../components/Header/Navbar'
 import Loading from '../logreg/loading'
-import Footer from '../../components/footerComponent/FooterSmall'
+import Footer from '../../components/Footer/FooterSmall'
 
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';

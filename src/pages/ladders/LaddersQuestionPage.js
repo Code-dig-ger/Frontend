@@ -1,15 +1,11 @@
 import React, {useState,useEffect} from 'react'
-import Navbar from '../../components/headerComponent/Navbar';
-import FooterSmall from '../../components/footerComponent/FooterSmall';
+import Navbar from '../../components/Header/Navbar';
+import FooterSmall from '../../components/Footer/FooterSmall';
 import MainCard from '../../components/MainCard';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {OverlayTrigger,Button,Tooltip} from 'react-bootstrap';
 import {faAngleLeft,faAngleRight,faAngleDoubleLeft,faAngleDoubleRight} from '@fortawesome/free-solid-svg-icons'
-
 import './LaddersQuestionPage.css';
-import problemsData from './problemsData.json';
-import $ from 'jquery';
-import ReactTooltip from 'react-tooltip';
 
 import Loading from '../logreg/loading';
 

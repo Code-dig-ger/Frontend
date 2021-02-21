@@ -1,12 +1,7 @@
 import React from 'react';
 import './footer.css';
-import { Link } from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faEnvelope, faPhone} from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faGithub, faGooglePlus, faGooglePlusSquare, faInstagram, faInstagramSquare, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import image1 from './images/codeforces.jpg';
-
-//FUCNTIONAL COMPONENT
 
 function FooterSmall() {
     return(

@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function login(usernameL,passwordL){
     return fetch('https://api.codedigger.tech/auth/login/',{
           method:"POST",

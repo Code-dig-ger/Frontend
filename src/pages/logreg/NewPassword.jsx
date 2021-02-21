@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Spinner from 'react-bootstrap/Spinner'
-import Navbar from '../../components/headerComponent/Navbar'
+import Navbar from '../../components/Header/Navbar'
 import './forg.style.css'
 const NewPassForm =()=>{
      const [pass,setPass]=useState();

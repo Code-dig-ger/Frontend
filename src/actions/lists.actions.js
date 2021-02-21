@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function getLists(acc,wise,type){
     return fetch (`https://api.codedigger.tech/lists/${wise}/${type}/`,{
         method:"GET",

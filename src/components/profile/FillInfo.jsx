@@ -2,8 +2,8 @@ import React ,{useState} from 'react'
 import './info.css'
 import Button from 'react-bootstrap/Button'
   import Form from 'react-bootstrap/Form'
-import Navbar from '../../components/headerComponent/Navbar'
-import Footer from '../../components/footerComponent/FooterSmall'
+import Navbar from '../Header/Navbar'
+import Footer from '../Footer/FooterSmall'
 
 const Info=()=>{
       //states for handles

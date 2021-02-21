@@ -4,9 +4,8 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import "./homepage.styles.css";
 import AOS from 'aos';
-import Navbar from '../../components/headerComponent/Navbar';
-import Footer from '../../components/footerComponent/footer';
-// import image from './images/image2.jpg';
+import Navbar from '../../components/Header/Navbar';
+import Footer from '../../components/Footer/footer';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 import Typewriter from 'typewriter-effect';

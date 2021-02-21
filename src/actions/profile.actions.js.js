@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function getProfile(acc,handle){
     return fetch(`https://api.codedigger.tech/auth/profile/${handle}/`, {
         method:"GET",

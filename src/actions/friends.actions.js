@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function getFriends(acc){
     // console.log("KKKK");
         return fetch(`https://api.codedigger.tech/auth/user/friends`,{

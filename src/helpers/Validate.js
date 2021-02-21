@@ -1,7 +1,3 @@
-import {useEffect} from 'react'
-
-
-
 async function Validate(){
     
     let count=0;

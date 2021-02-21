@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function getMentors(acc){
     return fetch(`https://api.codedigger.tech/codeforces/mentor`,{
         method:'GET',

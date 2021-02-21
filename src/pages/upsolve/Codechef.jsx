@@ -1,13 +1,13 @@
 import React,{useState,useEffect} from 'react'
-import Validate from '../../Validate'
+import Validate from '../../helpers/Validate'
 import './upsolve.style.css'
 import Spinner from 'react-bootstrap/Spinner'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Carousel from 'react-multi-carousel';
 import Loading from '../logreg/loading'
-import Navbar from '../../components/headerComponent/Navbar'
-import Footer from '../../components/footerComponent/FooterSmall'
+import Navbar from '../../components/Header/Navbar'
+import Footer from '../../components/Footer/FooterSmall'
 import '../../../node_modules/reactjs-popup/dist/index.css';
 import Popup from 'reactjs-popup';
 
