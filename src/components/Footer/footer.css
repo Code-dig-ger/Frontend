@@ -1,0 +1,26 @@
+.footer{
+    margin-top: 10px;
+    background-image: url('../../assets/footer-img.png') !important;
+    background-size: contain;
+    
+}
+
+i{
+    color: aqua;
+}
+
+.btn{
+    padding: 8px;
+}
+
+.contactUs{
+    margin-left: 20px;
+}
+
+.social_media{
+    margin-right: 16px;
+
+}
+
+
+

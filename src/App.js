@@ -4,15 +4,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./bootstrap-theme/bootstrap.min.cyborg.css";
 import Container from "react-bootstrap/Container";
 import Homepage from "./pages/homepage/homepage.page";
-import Upsolve from "./pages/upsolve/upsolve.page";
 import LogReg from "./pages/logreg/LogReg";
 import Codeforces from './pages/upsolve/Codeforces'
 import Codechef from './pages/upsolve/Codechef'
 import Atcoder from './pages/upsolve/Atcoder'
 import LaddersLevel from "./pages/ladders/LaddersLevel";
-import LaddersTopic from "./pages/ladders/LaddersTopic";
-import PracticeLevel from "./pages/practice/PracticeLevel";
-import PracticeTopic from "./pages/practice/PracticeTopic"; 
 import Profile from './pages/profile/ProfilePage'
 import Virtual from './pages/upsolve/virtual.page'
 import Info from './components/profile/FillInfo';
@@ -20,7 +16,6 @@ import '../node_modules/aos/dist/aos.css'
 import '../node_modules/react-multi-carousel/lib/styles.css'
 import "./App.css";
 import LaddersQuestionPage from "./pages/ladders/LaddersQuestionPage";
-import Validate from './Validate'
 import NewpassEmail from './pages/logreg/ForgotPass'
 import NewPassSet from './pages/logreg/NewPassword'
 import MyPlaylists from "./pages/MyPlaylists/MyPlaylists";

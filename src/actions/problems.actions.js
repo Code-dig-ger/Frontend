@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function getProblems(queryStr){
     return fetch(`https://api.codedigger.tech/problems/${queryStr}`, {
                     method:"GET",

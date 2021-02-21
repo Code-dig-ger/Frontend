@@ -1,7 +1,7 @@
 import React, { useEffect,useState } from 'react'
 import './MyPlaylist.css'
-import Navbar from '../../components/headerComponent/Navbar'
-import FooterSmall from '../../components/footerComponent/FooterSmall';
+import Navbar from '../../components/Header/Navbar'
+import FooterSmall from '../../components/Footer/FooterSmall';
 import PlaylistModal from '../../components/MyPlaylists/AddPlaylistModal'
 
 

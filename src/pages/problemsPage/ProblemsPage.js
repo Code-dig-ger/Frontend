@@ -1,11 +1,9 @@
 import React,{useState,useEffect} from 'react';
 import Loading from '../logreg/loading.jsx';
-import Navbar from '../../components/headerComponent/Navbar';
-import FooterSmall from '../../components/footerComponent/FooterSmall';
+import Navbar from '../../components/Header/Navbar';
+import FooterSmall from '../../components/Footer/FooterSmall';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input} from 'reactstrap';
 import {Form} from 'react-bootstrap';
-import Codechef from '../upsolve/Codechef.jsx';
-import { faLevelDownAlt } from '@fortawesome/free-solid-svg-icons';
 import queryString from 'query-string';
 
 function ProblemsPage({info,queryStr}) {

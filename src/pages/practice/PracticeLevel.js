@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import Loading from '../logreg/loading';
-import Header from '../../components/headerComponent/Navbar';
+import Header from '../../components/Header/Navbar';
 import "./PracticeLevel.css";
 
 import LaddersContent from '../../components/LaddersContent';
-import Footer from '../../components/footerComponent/footer';
+import Footer from '../../components/Footer/footer';
 
 function PracticeLevel() {
     const [show,setShow]=useState(true);

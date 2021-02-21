@@ -3,8 +3,8 @@ import './upsolve.style.css'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col'
 import Carousel from 'react-multi-carousel';
-import Navbar from '../../components/headerComponent/Navbar'
-import FooterSmall from '../../components/footerComponent/FooterSmall';
+import Navbar from '../../components/Header/Navbar'
+import FooterSmall from '../../components/Footer/FooterSmall';
 
 
 

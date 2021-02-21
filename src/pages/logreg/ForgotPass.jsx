@@ -1,5 +1,5 @@
 import React ,{useState} from 'react'
-import Navbar from '../../components/headerComponent/Navbar'
+import Navbar from '../../components/Header/Navbar'
 import './forg.style.css'
 import Spinner from 'react-bootstrap/Spinner'
 import {passreqEmail} from '../../actions/auth.actions'

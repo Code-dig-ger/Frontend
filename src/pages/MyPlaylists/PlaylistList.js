@@ -1,6 +1,6 @@
 import React, { useEffect,useState } from 'react'
-import FooterSmall from '../../components/footerComponent/FooterSmall';
-import Navbar from '../../components/headerComponent/Navbar'
+import FooterSmall from '../../components/Footer/FooterSmall';
+import Navbar from '../../components/Header/Navbar'
 import Loading from '../logreg/loading';
 import './PlaylistList.css'
 

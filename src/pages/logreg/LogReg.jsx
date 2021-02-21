@@ -1,8 +1,8 @@
 import React, { useState} from 'react'
 import './logreg.style.css'
 import Loading from './loading'
-import Navbar from '../../components/headerComponent/Navbar'
-import FooterSmall from '../../components/footerComponent/FooterSmall';
+import Navbar from '../../components/Header/Navbar'
+import FooterSmall from '../../components/Footer/FooterSmall';
 import '../../../node_modules/reactjs-popup/dist/index.css';
 import Popup from 'reactjs-popup';
 

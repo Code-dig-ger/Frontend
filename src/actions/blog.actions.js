@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function getBlogs(){
     return fetch('https://api.codedigger.tech/blog/',{
         method:'GET',
