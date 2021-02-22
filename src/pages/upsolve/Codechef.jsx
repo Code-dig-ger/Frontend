@@ -10,7 +10,8 @@ import Navbar from '../../components/Header/Navbar'
 import Footer from '../../components/Footer/FooterSmall'
 import '../../../node_modules/reactjs-popup/dist/index.css';
 import Popup from 'reactjs-popup';
-
+//actions import
+import {codechef} from '../../actions/upsolve.actions'
 const Codechef=()=>{
     //Validate();
     const pageNumbers=[];
@@ -36,45 +37,35 @@ const Codechef=()=>{
    
         const creds=JSON.parse(localStorage.getItem("creds"));
         const acc=creds.access; 
-        const response=await fetch('https://api.codedigger.tech/problems/upsolve/codechef',{
-         method:"GET",
-         headers:{
-             "Content-Type":"application/json",
-             "Authorization":`Bearer ${acc}`
-         },
-         
-        })
-       // console.log(response);
+        const response=await codechef(acc,page)
         if(response.status===200){
             const data=await response.json();
             if(data.status==="OK"){
-             // setData(data);
-               // console.log("yipee");
-                
+            
                 const newLinks=data.links;
-                setFirst(newLinks.first.split("=")[1]);
-                setLast(newLinks.last.split("=")[1]);
+                await setFirst(newLinks.first.split("=")[1]);
+                await setLast(newLinks.last.split("=")[1]);
                 if(newLinks.prev!==null){
                 setPrev(newLinks.prev.split("=")[1]);
                 }
                 if(newLinks.next!==null){
                     setNext(newLinks.next.split("=")[1])
                 }
-               setLast(data.meta.last_page);
+               await setLast(data.meta.last_page);
                await setCurPage(data.meta.current_page);
             }
             else{
                 console.log("sad");
             }
             
-         // console.log(data);
+         
             const result=await (data.result);
              await setData(result);
              setLoader(false);
                
           }
           else{
-            //console.log("err");
+        
             const data=await response.json();
               localStorage.setItem("err",data.error);
               window.location='/home'  
@@ -208,7 +199,8 @@ setPage(next)}} className='page-link'>{`Next >`}</button>:<></>}</div>
                 <li key={number} className='page-item'>
                   <a onClick={() =>{
                       setTimeout(()=>{setLoader(true)},1000)
-                      setPage(number)
+                       setPage(number)
+                       setTimeout(100)
                       setCurPage(number)}} className={`page-link ${page===number?`active-page`:''}`}>
                     {number}
                   </a>

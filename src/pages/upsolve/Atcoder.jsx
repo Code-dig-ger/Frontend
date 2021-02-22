@@ -11,6 +11,8 @@ import Footer from '../../components/Footer/FooterSmall'
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import './upsolve.style.css'
+import {atcoder} from '../../actions/upsolve.actions'
+
 const Atcoder=()=>{
    
     const pageNumbers=[];
@@ -36,15 +38,7 @@ const Atcoder=()=>{
         
         const creds=JSON.parse(localStorage.getItem("creds"));
         const acc=creds.access; 
-        const response=await fetch(`https://api.codedigger.tech/problems/upsolve/atcoder?${Prac?`practice=true;page=${page}`:`page=${page}`}`,{
-         method:"GET",
-         headers:{
-             "Content-Type":"application/json",
-             "Authorization":`Bearer ${acc}`
-         },
-         
-        })
-        //console.log(response)
+        const response=await atcoder(acc,page,Prac)
         if(response.status===200){
          const data=await response.json();
                if(data.status==="OK"){
@@ -62,11 +56,7 @@ const Atcoder=()=>{
                   setLast(data.meta.last_page);
                   setCurPage(data.meta.current_page);
                }
-               else{
-                  // console.log("sad");
-               }
-               
-               //console.log(data);
+              
                   const result=await (data.result);
                    await setData(result);
                    setLoader(false);
@@ -74,8 +64,7 @@ const Atcoder=()=>{
         }
         else{
             const data=await response.json();
-            //console.log(data.error);
-            //console.log("err");
+           
             if(data.error==="You haven't Entered your Atcoder Handle in your Profile.. Update Now!"){
             localStorage.setItem("err",data.error);
             window.location='/home'  

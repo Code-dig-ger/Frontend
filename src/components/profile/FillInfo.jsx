@@ -27,8 +27,7 @@ const Info=()=>{
         const uu=JSON.stringify(creds.username);
         const usser=JSON.parse(uu);
      await setUser(usser);
-        console.log(creds);
-        console.log(`The user name is : ${user}`);
+      
         const response=await fetch(`https://api.codedigger.tech/auth/profile/${usser}`,{
             method:"PUT",
             headers:{
@@ -46,12 +45,11 @@ const Info=()=>{
 
             })
         })
-      //  console.log(response);
+      
         const data=await response.json();
-        //console.log(data);
+      
         if(response.status===200){
-            
-            //console.log(data);
+        
         localStorage.setItem("creds",JSON.stringify({
               access:acc,
               refresh:ref,
@@ -59,28 +57,21 @@ const Info=()=>{
               username:usser
     
         }))
-      //  console.log(localStorage.getItem("creds"));
-        //setTimeout(1000,setShow(false));
+    
 
         setMsg("Successful.....");
       window.location=`/profile/${usser}`;
     }
     else{
-        //setTimeout(setShow(false));
-        let mm;
-        if(data.spoj){
-        mm=mm+"spoj"+data.spoj[0];
-        }
-        if(data.uva_handle){
-        mm=mm+"uva_"+data.uva_handle[0];
-        }
+        
+       
       
-        alert(mm);
+        alert(JSON.stringify(data));
     }
     }
     return(
         <>
-      <Navbar/>
+      <Navbar/><br></br><br></br><br></br>
        <Form className="myform">
 <h3>{msg}</h3>
 

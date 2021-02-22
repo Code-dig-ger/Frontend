@@ -11,7 +11,8 @@ import Spinner from 'react-bootstrap/Spinner'
 import Footer from '../../components/Footer/FooterSmall'
 import '../../../node_modules/reactjs-popup/dist/index.css';
 import Popup from 'reactjs-popup';
-
+//import actions
+import {codeforces} from '../../actions/upsolve.actions'
 
 function Codeforces(){
  
@@ -48,20 +49,11 @@ function Codeforces(){
            const creds=JSON.parse(localStorage.getItem("creds"));
            const acc=creds.access; 
           
-           const response=await fetch(`https://api.codedigger.tech/problems/upsolve/codeforces?${vir?`virtual=true;page=${page}`:`page=${page}`}`,{
-            method:"GET",
-            headers:{
-                "Content-Type":"application/json",
-                "Authorization":`Bearer ${acc}`
-            },
-            
-           })
+           const response=await codeforces(acc,vir,page);
            if(response.status===200){
             const data=await response.json();
                   if(data.status==="OK"){
-                    //setData(data);
-                      //console.log("yipee");
-                      
+                  
                       const newLinks=data.links;
                       setFirst(newLinks.first.split("=")[1]);
                       setLast(newLinks.last.split("=")[1]);
@@ -74,21 +66,18 @@ function Codeforces(){
                      setLast(data.meta.last_page);
                      setCurPage(data.meta.current_page);
                      
-                  }
-                  else{
-                      //console.log("sad");
-                  }
                   
-                 console.log(data);
+                  
+                    }
+                
                   const result=await (data.result);
                    await setData(result);
                    setLoader(false);
                   
-                // console.log(`on page ${curPage}`)
+                
            }
            else{
-            //console.log("err");
-           
+        
             localStorage.setItem("err",data.error);
             window.location='/home'  
 

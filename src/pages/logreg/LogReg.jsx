@@ -15,6 +15,7 @@ import {sendVerEmail} from '../../actions/auth.actions'
 import {login} from '../../actions/auth.actions'
 
 
+
 const LogReg =()=>{
   
   
@@ -68,12 +69,13 @@ const LogReg =()=>{
          
       })
       })
+      const data=await resp.json();
+     // console.log(data);
       if(resp.status!==200){
-        alert("error");
+        alert(data.detail);
       }
       else{
-        const data=await resp.json();
-        //console.log(data);
+        
         localStorage.setItem("creds",JSON.stringify({
      
           access:data.tokens.access,
@@ -225,7 +227,8 @@ switchers.forEach((item) => {
         onFailure={handleGoogleFail}
         cookiePolicy={"single_host_origin"}
         icon={false}
-        
+      
+   
          /><br></br><br></br>
         <button onClick={(e)=>window.location='/ForgPass'} className="btn-setPass">Forgot Password ?</button>
          </form>
