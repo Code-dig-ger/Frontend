@@ -218,19 +218,18 @@ switchers.forEach((item) => {
        <Popup open={true}>
       <div className="pops">{msgL}</div>
    </Popup>:<></>}
+   <div className="loginops">
         <button onClick={Login} type="submit" className="btn-login">Login</button>
-      
-       <GoogleLogin className="googlelogin"
+     <div className="googlelogin">
+      <GoogleLogin 
         clientId="879021189199-7dj21idsu3mvo8qnup47vc3fntntegma.apps.googleusercontent.com"
         buttonText="Google Login"
         onSuccess={handleGoogleSuccess}
         onFailure={handleGoogleFail}
         cookiePolicy={"single_host_origin"}
         icon={false}
-      
-   
-         /><br></br><br></br>
-        <button onClick={(e)=>window.location='/ForgPass'} className="btn-setPass">Forgot Password ?</button>
+        /></div></div><br></br>
+        <a href='/ForgPass' className="btn-setPass">Forgot Password ?</a>
          </form>
      
             }

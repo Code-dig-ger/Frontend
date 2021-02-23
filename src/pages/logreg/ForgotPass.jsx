@@ -17,7 +17,8 @@ const NewpassForm=()=>{
         setShow(true);
        
         const data=await passreqEmail(email)
-        //console.log(data);
+        const res=await data.json();
+        console.log(res);
         if(data.statusText==="OK"){
         setMsg("We have sent you a link to change your password")}
         else{

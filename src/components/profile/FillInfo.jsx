@@ -13,7 +13,7 @@ const Info=()=>{
          const [atcoder,setAtcoder]= useState(null);
          const [spoj,setSpoj]=useState(null);
          const [uv,setUv]=useState(null);
-         const [password,setPassword]=useState();
+         
          const [msg,setMsg]=useState("Create Your Profile");
          const [user,setUser]=useState();
          const [show,setShow]=useState(false);
@@ -40,21 +40,23 @@ const Info=()=>{
               "codechef":codechef,
               "atcoder":atcoder,
               "spoj":spoj,
-              "uva_handle":uv,
-              "password":password
+              "uva_handle":uv
+             
+             
 
             })
         })
       
         const data=await response.json();
-      
+       console.log(data);
         if(response.status===200){
         
         localStorage.setItem("creds",JSON.stringify({
               access:acc,
               refresh:ref,
               first:false,
-              username:usser
+              username:usser,
+              
     
         }))
     
@@ -64,9 +66,9 @@ const Info=()=>{
     }
     else{
         
-       
+      alert(data.error);
       
-        alert(JSON.stringify(data));
+        
     }
     }
     return(
@@ -82,7 +84,7 @@ const Info=()=>{
            <input className="inputs" onChange={(e)=>setAtcoder(e.target.value)} type="text" placeholder="Atcoder" required/><br></br>
            <input className="inputs" onChange={(e)=>setSpoj(e.target.value)} type="text" placeholder="Spoj" required/><br></br>
            <input className="inputs" onChange={(e)=>setUv(e.target.value)} type="text" placeholder="uva_handle" required></input><br></br>
-           <input className="inputs" onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="password" required></input><br></br>
+           
            <button className="mybtn" type="submit" onClick={handle}>Submit</button>
            
        </Form>

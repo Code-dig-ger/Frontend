@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Spinner from 'react-bootstrap/Spinner'
 import Navbar from '../../components/Header/Navbar'
 import './forg.style.css'
+import {setNewPass} from '../../actions/auth.actions'
 const NewPassForm =()=>{
      const [pass,setPass]=useState();
      const [msg,setMsg]=useState("");
@@ -22,13 +23,13 @@ const NewPassForm =()=>{
        myuidb=uidb.substring(0,i);
       
         const data=await setNewPass(pass,token,myuidb);
-       // console.log(data);
+        console.log(data);
         if(data.status==="OK"){
             setMsg(data.result);
             window.location='http://localhost:3000/logreg';
         }
         else{
-            setMsg(data.error);
+            alert(JSON.stringify(data));
         }
         setShow(false)
        

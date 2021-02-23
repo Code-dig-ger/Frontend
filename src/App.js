@@ -22,7 +22,7 @@ import MyPlaylists from "./pages/MyPlaylists/MyPlaylists";
 import PlaylistList from "./pages/MyPlaylists/PlaylistList";
 import ProblemsPage from "./pages/problemsPage/ProblemsPage.js";
 import queryString from 'query-string';
-
+import changePassForm from './components/logreg/changePassword'
 
 //react context
 export const CredentialsContext=React.createContext();
@@ -111,6 +111,7 @@ const App = () => {
             <Route exact path="/:wise/:type/:slug" component={LaddersQuestionPage1}/>
             <Route exact path="/:wise/:type/:slug?page=1" component={LaddersQuestionPage1}/>
             <Route exact path="/problems" component={ProblemsPage1}/>
+            <Route exact path="/change_password_request" component={changePassForm}/>
              
              {/* <Route exact path="/laddersLevel/topic/page1" component={LaddersQuestionPage}/> */}
              

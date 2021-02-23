@@ -125,6 +125,9 @@ if(creds){
                 <NavLink href={handle}>Profile</NavLink>
                 </DropdownItem>
                 <DropdownItem>
+                <NavLink href={`/change_password_request`}>Edit Password</NavLink>
+                </DropdownItem>
+                <DropdownItem>
                 <NavLink href={`list/${uu}`}>Lists</NavLink>
                 </DropdownItem>
                 <DropdownItem>

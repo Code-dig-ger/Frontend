@@ -64,3 +64,16 @@ export function sendVerEmail(emailR){
         })
         }).then(data => data.json());
 }
+export function NewPassRequest(oldPass,NewPass,acc){
+    return fetch('https://api.codedigger.tech/auth/password-change/',{
+        method:"POST",
+    headers:{
+        "Content-Type":"application/json",
+        "Authorization":`Bearer ${acc}`    },
+    body:JSON.stringify({
+        "old_pass":oldPass,
+        "new_pass":NewPass
+       
+    })
+    }).then(data => data.json());
+}
