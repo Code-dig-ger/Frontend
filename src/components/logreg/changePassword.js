@@ -20,7 +20,7 @@ const PassChangeForm=()=>{
         }
         else{
             alert(data.result)
-            window.location='/logreg'
+            window.location='/home'
         }
     }
      return(

@@ -211,7 +211,7 @@ if(creds){
               </DropdownMenu>
             </UncontrolledDropdown>
             <NavItem>
-              <NavLink href="/logreg">Login/Register</NavLink>
+              <NavLink href="/login">Login/Register</NavLink>
             </NavItem>
           </Nav>   
         </Collapse>
