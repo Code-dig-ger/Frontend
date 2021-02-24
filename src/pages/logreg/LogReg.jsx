@@ -9,6 +9,7 @@ import Popup from 'reactjs-popup';
 import Eye from '../../assets/Eye.png'
 import Spinner from 'react-bootstrap/Spinner'
 import {GoogleLogin} from 'react-google-login'
+import GoogleIcon from '../../assets/logreg/google-icon2.png'
 //actions import
 import {register} from '../../actions/auth.actions'
 import {sendVerEmail} from '../../actions/auth.actions'
@@ -218,17 +219,18 @@ switchers.forEach((item) => {
        <Popup open={true}>
       <div className="pops">{msgL}</div>
    </Popup>:<></>}
-   <div className="loginops">
+  
         <button onClick={Login} type="submit" className="btn-login">Login</button>
-     <div className="googlelogin">
+        <div className="loginops">
+    <img style={{width:'35px',height:'45px'}} src={GoogleIcon}></img>
       <GoogleLogin 
         clientId="879021189199-7dj21idsu3mvo8qnup47vc3fntntegma.apps.googleusercontent.com"
-        buttonText="Google Login"
+        buttonText="Login with Google"
         onSuccess={handleGoogleSuccess}
         onFailure={handleGoogleFail}
         cookiePolicy={"single_host_origin"}
         icon={false}
-        /></div></div><br></br>
+        /></div><br></br>
         <a href='/ForgPass' className="btn-setPass">Forgot Password ?</a>
          </form>
      

@@ -669,10 +669,15 @@ background: radial-gradient(circle, rgba(63,94,251,1) 19%, rgba(54,39,42,1) 90%)
 
 .loginops{
   display: flex;
-  
+  justify-content: center;
+  justify-self: center;
+  background-color: #ffffff;
+  background-position: center;
+  border-radius: 15px;
+ 
 }
 .googlelogin{
-  width: 100px;
+  width: 70px;
   height: 10px;
   border-radius: 80px;
   
