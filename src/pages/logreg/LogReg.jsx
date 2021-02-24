@@ -184,7 +184,6 @@ switchers.forEach((item) => {
     :<></>
      
    }
-      <br></br>
       <div>
         {
           show?(<Loading/>):(<>
@@ -203,12 +202,12 @@ switchers.forEach((item) => {
           <legend>Please, enter your email and password for login.</legend>
           <div className="input-block">
             <label for="login-email">Username</label>
-            <input onChange={(e)=>setUserNameL(e.target.value)} className="text-primary" id="login-email" type="text" required/>
+            <input required onChange={(e)=>setUserNameL(e.target.value)} className="text-primary" id="login-email" type="text" required/>
           </div>
           <div className="input-block">
             <label for="login-password">Password</label>
            
-            <input onChange={(e)=>setpasswordL(e.target.value)} id="login-password" className="text-primary" type={(togL)?"password":"text"} required></input>
+            <input required onChange={(e)=>setpasswordL(e.target.value)} id="login-password" className="text-primary" type={(togL)?"password":"text"} required></input>
            
             <span  class="field-icon toggle-password"><img src={Eye} onClick={e=>{
               e.preventDefault();
@@ -222,7 +221,7 @@ switchers.forEach((item) => {
   
         <button onClick={Login} type="submit" className="btn-login">Login</button>
         <div className="loginops">
-    <img style={{width:'35px',height:'45px'}} src={GoogleIcon}></img>
+    <img style={{width:'35px',height:'35px','margin-top':'4px'}} src={GoogleIcon}></img>
       <GoogleLogin 
         clientId="879021189199-7dj21idsu3mvo8qnup47vc3fntntegma.apps.googleusercontent.com"
         buttonText="Login with Google"
@@ -231,7 +230,7 @@ switchers.forEach((item) => {
         cookiePolicy={"single_host_origin"}
         icon={false}
         /></div><br></br>
-        <a href='/ForgPass' className="btn-setPass">Forgot Password ?</a>
+        <div style={{'display':'block','text-align':'center','font-size':'16px'}}><a href='/ForgPass'>Forgot Password ?</a></div>
          </form>
      
             }

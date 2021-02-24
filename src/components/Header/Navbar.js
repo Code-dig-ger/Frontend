@@ -138,9 +138,9 @@ if(creds){
           </Nav>   
         </Collapse>
       </Navbar>
-      {/* <br/>
       <br/>
-      <br/> */}
+      <br/>
+      <br/> 
     </div>
     )
 }else
@@ -218,8 +218,10 @@ if(creds){
       </Navbar>
       <br/>
       <br/>
-      <br/>
+      <br/> 
+
     </div>
+
   );
 }
 
