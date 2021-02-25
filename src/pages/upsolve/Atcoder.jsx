@@ -120,13 +120,13 @@ if(last!=null){
               <div className="upperButtons">
                 <h5>ATCODER</h5>
                 {
-                  page!==1?
+                  page!=1?
           <button onClick={()=>{
               setTimeout(()=>{setLoader(true)},1000)
              setPage(prev)}} className='page-link'>{`< Prev`}</button>:<></>}
                <h6 className="green">Solved</h6><h6 className="red">Wrong</h6><h6 className="blue">Upsolve</h6><h6 className="viol">Not attempted</h6>
 {
-  page!==last?
+  page!=last?
 <button onClick={()=>{
                  setTimeout(()=>{setLoader(true)},1000)
 setPage(next)}} className='page-link'>{`Next >`}</button>:<></>}</div>
@@ -173,11 +173,12 @@ setPage(next)}} className='page-link'>{`Next >`}</button>:<></>}</div>
                      <div >
                     <nav className="paginator">
             <ul className='pagination'>
+              {page!=1?
                 <a onClick={()=>{
                   setTimeout(()=>{setLoader(true)},1000)
 
-                  setPage(first)}} className='page-link'>First</a>
-                  {page!==1?
+                  setPage(first)}} className='page-link'>First</a>:<></>}
+                  {page!=1?
            <a onClick={()=>{
               setTimeout(()=>{setLoader(true)},1000)
              setPage(prev)}} className='page-link'>{`<`}</a>:<></>}
@@ -185,18 +186,20 @@ setPage(next)}} className='page-link'>{`Next >`}</button>:<></>}</div>
                 <li key={number} className='page-item'>
                   <a onClick={() =>{
                       setTimeout(()=>{setLoader(true)},1000)
-                     setPage(number)}} className={`page-link ${(page===number||curPage===number)?`active-page`:''}`}>
+                     setPage(number)}} className={`page-link ${(page==number||curPage==number)?`active-page`:''}`}>
                     {number}
                   </a>
                 </li>
               ))}
-              {page!==last?
+              {page!=last?
               <a onClick={()=>{
                  setTimeout(()=>{setLoader(true)},1000)
                 setPage(next)}} className='page-link'>{`>`}</a>:<></>}
+                {page!=last?
              <a onClick={()=>{
                 setTimeout(()=>{setLoader(true)},1000)
-               setPage(last)}} className='page-link'>Last</a>
+               setPage(last)}} className='page-link'>Last</a>:<></>}
+              
             </ul>
             </nav>
               </div>

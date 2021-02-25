@@ -11,6 +11,8 @@ import Spinner from 'react-bootstrap/Spinner'
 import Footer from '../../components/Footer/FooterSmall'
 import '../../../node_modules/reactjs-popup/dist/index.css';
 import Popup from 'reactjs-popup';
+
+
 //import actions
 import {codeforces} from '../../actions/upsolve.actions'
 
@@ -24,7 +26,7 @@ function Codeforces(){
     const [prev,setPrev]=useState(null);
     const [next,setNext]=useState(2);
     const [first,setFirst]=useState(1);
-    const [last,setLast]=useState(null);
+    const [last,setLast]=useState();
     const [conData,setData]=useState([]);
     const [vir,setVir]=useState(false);
    
@@ -63,10 +65,10 @@ function Codeforces(){
                       if(newLinks.next!==null){
                           setNext(newLinks.next.split("=")[1])
                       }
-                     setLast(data.meta.last_page);
+                     await setLast(data.meta.last_page);
                      setCurPage(data.meta.current_page);
                      
-                  
+                     //console.log(first+" "+last)
                   
                     }
                 
@@ -83,7 +85,7 @@ function Codeforces(){
 
            }
 
-           
+          // console.log(page)
            
       
     
@@ -130,14 +132,14 @@ mobile: {
          <div className="upperButtons">
            <h5>CODEFORCES</h5>
            {
-             page!==1?
+             page!=1?
           <button onClick={()=>{
               setTimeout(()=>{setLoader(true)},1000)
             
              setPage(prev)}} className='page-link'>{`< Prev Page`}</button>:<></>}
 
              <h6 className="green">Solved</h6><h6 className="red">Wrong</h6><h6 className="blue">Upsolved</h6><h6 className="viol">Not attempted</h6>
-{page!==last?
+{page!=last?
 <button onClick={()=>{
                  setTimeout(()=>{setLoader(true)},1000)
                
@@ -196,34 +198,44 @@ setPage(next)}} className='page-link'>{`Next Page>`}</button>:<></>}</div>
                })}
                </Carousel></Col>
               </Row><br></br></>:<></>}</>)})}
-              <div className="paginator">
+              <div >
                     <nav className="paginator">
             <ul className='pagination'>
+              {page!=1?
                 <a onClick={()=>{
+                  setPage(1)
                   setTimeout(()=>{setLoader(true)},1000)
 
-                  setPage(first)}} className='page-link'>First</a>
-                  {page!==1?
+                  }} className='page-link'>First</a>:<></>}
+            {      
+            page!=1?
            <a onClick={()=>{
               setTimeout(()=>{setLoader(true)},1000)
+              
              setPage(prev)}} className='page-link'>{`<`}</a>:<></>}
-             
+
               {pageNumbers.map(number => (
                 <li key={number} className='page-item'>
                   <a onClick={() =>{
                       setTimeout(()=>{setLoader(true)},1000)
-                     setPage(number)}} className={`page-link ${(page===number||curPage===number)?`active-page`:''}`}>
+                       setPage(number)
+                       setTimeout(100)
+                      setCurPage(number)}} className={`page-link ${page==number?`active-page`:''}`}>
                     {number}
                   </a>
                 </li>
               ))}
-              {page!==last?
+              {
+                page!=last?
               <a onClick={()=>{
                  setTimeout(()=>{setLoader(true)},1000)
-                setPage(next)}} className='page-link'>{`>`}</a>:<></>}
+                setPage(next)
+                setCurPage(next)}} className='page-link'>{`>`}</a>:<></>}
+                {page!=last?
              <a onClick={()=>{
                 setTimeout(()=>{setLoader(true)},1000)
-               setPage(last)}} className='page-link'>Last</a>
+               setPage(last)
+               setCurPage(last)}} className='page-link'>Last</a>:<></>}
             </ul>
             </nav>
               </div>
