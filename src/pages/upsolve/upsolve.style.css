@@ -180,7 +180,7 @@ Col{
   .upperButtons{
     display: flex;
     justify-content: space-evenly;
-   
+    margin-top: 20px;
     padding: 2px;
     border-radius: 3px;
     margin: 2px;

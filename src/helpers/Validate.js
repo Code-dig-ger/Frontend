@@ -8,7 +8,7 @@ async function Validate(){
         localStorage.setItem(
         "err","Please login to continue..."
         )
-        window.location="/logreg"
+        window.location="/login"
     }
     else{
     const acc=toValidate.access;
@@ -61,7 +61,7 @@ async function Validate(){
 
                 "err","Please login to continue..."
                 )
-                window.location="/logreg"
+                window.location="/login"
            }
 
             

@@ -125,6 +125,9 @@ if(creds){
                 <NavLink href={handle}>Profile</NavLink>
                 </DropdownItem>
                 <DropdownItem>
+                <NavLink href={`/change_password_request`}>Edit Password</NavLink>
+                </DropdownItem>
+                <DropdownItem>
                 <NavLink href={`list/${uu}`}>Lists</NavLink>
                 </DropdownItem>
                 <DropdownItem>
@@ -135,9 +138,9 @@ if(creds){
           </Nav>   
         </Collapse>
       </Navbar>
-      {/* <br/>
       <br/>
-      <br/> */}
+      <br/>
+      <br/> 
     </div>
     )
 }else
@@ -208,15 +211,17 @@ if(creds){
               </DropdownMenu>
             </UncontrolledDropdown>
             <NavItem>
-              <NavLink href="/logreg">Login/Register</NavLink>
+              <NavLink href="/login">Login/Register</NavLink>
             </NavItem>
           </Nav>   
         </Collapse>
       </Navbar>
       <br/>
       <br/>
-      <br/>
+      <br/> 
+
     </div>
+
   );
 }
 

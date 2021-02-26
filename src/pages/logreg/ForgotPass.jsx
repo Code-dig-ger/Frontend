@@ -2,6 +2,7 @@ import React ,{useState} from 'react'
 import Navbar from '../../components/Header/Navbar'
 import './forg.style.css'
 import Spinner from 'react-bootstrap/Spinner'
+import {passreqEmail} from '../../actions/auth.actions'
 const NewpassForm=()=>{
 
     //states
@@ -14,25 +15,16 @@ const NewpassForm=()=>{
         e.preventDefault();
         console.log("change")
         setShow(true);
-        const response=await fetch('https://api.codedigger.tech/auth/request-reset-email/',{
-            method:"POST",
-        headers:{
-            "Content-Type":"application/json"
-        },
-        body:JSON.stringify({
-            "email":email,
-            "redirect_url":"http://localhost:3000/setNewPass"
-            
-        })
-        })
- 
-        const data=await response.json();
-        console.log(data);
-        if(data.status==="OK"){
-        setMsg(data.result);}
+       
+        const data=await passreqEmail(email)
+        const res=await data.json();
+        console.log(res);
+        if(data.statusText==="OK"){
+        setMsg("We have sent you a link to change your password")}
         else{
             setMsg("Please fill carefully");
         }
+       
         setShow(false);
 
     }

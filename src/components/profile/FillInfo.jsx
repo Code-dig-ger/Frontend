@@ -1,7 +1,6 @@
 import React ,{useState} from 'react'
 import './info.css'
-import Button from 'react-bootstrap/Button'
-  import Form from 'react-bootstrap/Form'
+
 import Navbar from '../Header/Navbar'
 import Footer from '../Footer/FooterSmall'
 
@@ -13,7 +12,7 @@ const Info=()=>{
          const [atcoder,setAtcoder]= useState(null);
          const [spoj,setSpoj]=useState(null);
          const [uv,setUv]=useState(null);
-         const [password,setPassword]=useState();
+         
          const [msg,setMsg]=useState("Create Your Profile");
          const [user,setUser]=useState();
          const [show,setShow]=useState(false);
@@ -27,8 +26,7 @@ const Info=()=>{
         const uu=JSON.stringify(creds.username);
         const usser=JSON.parse(uu);
      await setUser(usser);
-        console.log(creds);
-        console.log(`The user name is : ${user}`);
+      
         const response=await fetch(`https://api.codedigger.tech/auth/profile/${usser}`,{
             method:"PUT",
             headers:{
@@ -41,60 +39,78 @@ const Info=()=>{
               "codechef":codechef,
               "atcoder":atcoder,
               "spoj":spoj,
-              "uva_handle":uv,
-              "password":password
+              "uva_handle":uv
+             
+             
 
             })
         })
-      //  console.log(response);
+      
         const data=await response.json();
-        //console.log(data);
+       console.log(data);
         if(response.status===200){
-            
-            //console.log(data);
+        
         localStorage.setItem("creds",JSON.stringify({
               access:acc,
               refresh:ref,
               first:false,
-              username:usser
+              username:usser,
+              
     
         }))
-      //  console.log(localStorage.getItem("creds"));
-        //setTimeout(1000,setShow(false));
+    
 
         setMsg("Successful.....");
       window.location=`/profile/${usser}`;
     }
     else{
-        //setTimeout(setShow(false));
-        let mm;
-        if(data.spoj){
-        mm=mm+"spoj"+data.spoj[0];
-        }
-        if(data.uva_handle){
-        mm=mm+"uva_"+data.uva_handle[0];
-        }
+        
+      alert(data.error);
       
-        alert(mm);
+        
     }
     }
     return(
         <>
       <Navbar/>
-       <Form className="myform">
-<h3>{msg}</h3>
+      <div className="outeri">
+       <div className="flex-containeri">
+  <div className="content-containeri">
+    <div className="form-containeri">
+      <form className="thisformi" >
+        <h3 className="headingi">
+          {msg}
+        </h3>
+        
+        <br></br>
 
-
-           <input className="inputs" onChange={(e)=>setName(e.target.value)} type="text" placeholder="Name" required/><br></br>
-           <input className="inputs" onChange={(e)=>setCodeforces(e.target.value)} type="text" placeholder="Codeforces" required/><br></br>
-           <input className="inputs" onChange={(e)=>setCodechef(e.target.value)} type="text" placeholder="Codechef" required/><br></br>
-           <input className="inputs" onChange={(e)=>setAtcoder(e.target.value)} type="text" placeholder="Atcoder" required/><br></br>
-           <input className="inputs" onChange={(e)=>setSpoj(e.target.value)} type="text" placeholder="Spoj" required/><br></br>
-           <input className="inputs" onChange={(e)=>setUv(e.target.value)} type="text" placeholder="uva_handle" required></input><br></br>
-           <input className="inputs" onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="password" required></input><br></br>
-           <button className="mybtn" type="submit" onClick={handle}>Submit</button>
+        
+        <input placeholder="Name" onChange={(e)=>setName(e.target.value)} className="inputi" type="text" required/>
+        <br></br>
+        <input placeholder="Codeforces" onChange={(e)=>setCodeforces(e.target.value)} className="inputi" type="text" required/>
+        <br></br>
+        
+       
+        <input placeholder="Codechef" onChange={(e)=>setCodechef(e.target.value)} className="inputi" type="text" />
+        <br></br>
+        
+        
+        <input placeholder="Atcoder" onChange={(e)=>setAtcoder(e.target.value)} className="inputi" type="text"/>
+        <br></br>
+        
+        
+        <input placeholder="Spoj" onChange={(e)=>setSpoj(e.target.value)} className="inputi" type="text" />
+        
+        <br></br>
+        <input placeholder="UVA" onChange={(e)=>setUv(e.target.value)} className="inputi" type="text"  />
+        <br></br>
+        <input onClick={handle} type="submit" value="SUBMIT" className="submit-btni"/>
+      </form>
+    </div>
+  </div>
+</div></div>
            
-       </Form>
+      
        <Footer/>
      
       </>

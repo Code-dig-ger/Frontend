@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Spinner from 'react-bootstrap/Spinner'
 import Navbar from '../../components/Header/Navbar'
 import './forg.style.css'
+import {setNewPass} from '../../actions/auth.actions'
 const NewPassForm =()=>{
      const [pass,setPass]=useState();
      const [msg,setMsg]=useState("");
@@ -20,27 +21,15 @@ const NewPassForm =()=>{
            i++;
        }
        myuidb=uidb.substring(0,i);
-       console.log(myuidb);
-        console.log(token);
-        const response=await fetch('https://api.codedigger.tech/auth/password-reset-complete',{
-            method:"PATCH",
-            headers:{
-                "Content-Type":"application/json"
-            },
-            body:JSON.stringify({
-                "password":pass,
-                "token":token,
-                "uidb64":myuidb
-             })
-        })
-        const data=await response.json();
+      
+        const data=await setNewPass(pass,token,myuidb);
         console.log(data);
         if(data.status==="OK"){
             setMsg(data.result);
-            window.location='http://localhost:3000/logreg';
+            window.location='http://localhost:3000/login';
         }
         else{
-            setMsg(data.error);
+            alert(JSON.stringify(data));
         }
         setShow(false)
        

@@ -10,7 +10,8 @@ import Navbar from '../../components/Header/Navbar'
 import Footer from '../../components/Footer/FooterSmall'
 import '../../../node_modules/reactjs-popup/dist/index.css';
 import Popup from 'reactjs-popup';
-
+//actions import
+import {codechef} from '../../actions/upsolve.actions'
 const Codechef=()=>{
     //Validate();
     const pageNumbers=[];
@@ -36,45 +37,35 @@ const Codechef=()=>{
    
         const creds=JSON.parse(localStorage.getItem("creds"));
         const acc=creds.access; 
-        const response=await fetch('https://api.codedigger.tech/problems/upsolve/codechef',{
-         method:"GET",
-         headers:{
-             "Content-Type":"application/json",
-             "Authorization":`Bearer ${acc}`
-         },
-         
-        })
-       // console.log(response);
+        const response=await codechef(acc,page)
         if(response.status===200){
             const data=await response.json();
             if(data.status==="OK"){
-             // setData(data);
-               // console.log("yipee");
-                
+            
                 const newLinks=data.links;
-                setFirst(newLinks.first.split("=")[1]);
-                setLast(newLinks.last.split("=")[1]);
+                await setFirst(newLinks.first.split("=")[1]);
+                await setLast(newLinks.last.split("=")[1]);
                 if(newLinks.prev!==null){
                 setPrev(newLinks.prev.split("=")[1]);
                 }
                 if(newLinks.next!==null){
                     setNext(newLinks.next.split("=")[1])
                 }
-               setLast(data.meta.last_page);
+               await setLast(data.meta.last_page);
                await setCurPage(data.meta.current_page);
             }
             else{
                 console.log("sad");
             }
             
-         // console.log(data);
+         
             const result=await (data.result);
              await setData(result);
              setLoader(false);
                
           }
           else{
-            //console.log("err");
+        
             const data=await response.json();
               localStorage.setItem("err",data.error);
               window.location='/home'  
@@ -122,7 +113,7 @@ if(last!=null){
         return(
             <>
 
-            <Navbar/>
+            <Navbar/><br></br><br></br><br></br>
             {loader?<Spinner className="loading-animation" animation="border"/>:
             <>
            
@@ -133,14 +124,14 @@ if(last!=null){
 <div className="upperButtons">
   <h5>CODECHEF</h5>
           {
-            page!==1?
+            page!=1?
             <button onClick={()=>{
               setTimeout(()=>{setLoader(true)},1000)
              setPage(prev)}} className='page-link'>{`< Prev`}</button>:<></>}
 
 <h6 className="green">Solved</h6><h6 className="red">Wrong</h6><h6 className="blue">Upsolved</h6><h6 className="viol">Not attempted</h6>
 
-{page!==last?
+{page!=last?
 <button onClick={()=>{
                  setTimeout(()=>{setLoader(true)},1000)
 setPage(next)}} className='page-link'>{`Next >`}</button>:<></>}</div>
@@ -193,12 +184,13 @@ setPage(next)}} className='page-link'>{`Next >`}</button>:<></>}</div>
                <div >
                     <nav className="paginator">
             <ul className='pagination'>
+              {page!=1?
                 <a onClick={()=>{
                   setTimeout(()=>{setLoader(true)},1000)
 
-                  setPage(first)}} className='page-link'>First</a>
+                  setPage(first)}} className='page-link'>First</a>:<></>}
             {      
-            page!==1?
+            page!=1?
            <a onClick={()=>{
               setTimeout(()=>{setLoader(true)},1000)
               
@@ -208,22 +200,24 @@ setPage(next)}} className='page-link'>{`Next >`}</button>:<></>}</div>
                 <li key={number} className='page-item'>
                   <a onClick={() =>{
                       setTimeout(()=>{setLoader(true)},1000)
-                      setPage(number)
-                      setCurPage(number)}} className={`page-link ${page===number?`active-page`:''}`}>
+                       setPage(number)
+                       setTimeout(100)
+                      setCurPage(number)}} className={`page-link ${page==number?`active-page`:''}`}>
                     {number}
                   </a>
                 </li>
               ))}
               {
-                page!==last?
+                page!=last?
               <a onClick={()=>{
                  setTimeout(()=>{setLoader(true)},1000)
                 setPage(next)
                 setCurPage(next)}} className='page-link'>{`>`}</a>:<></>}
+                {page!=last?
              <a onClick={()=>{
                 setTimeout(()=>{setLoader(true)},1000)
                setPage(last)
-               setCurPage(last)}} className='page-link'>Last</a>
+               setCurPage(last)}} className='page-link'>Last</a>:<></>}
             </ul>
             </nav>
               </div>

@@ -12,7 +12,7 @@ export function login(usernameL,passwordL){
 }
 
 export function register (emailR, usernameR, passwordR){
-    return fetch('https://api.codedigger.tech/auth/register/',{
+    return fetch('https://api.codedigger.tech/auth/register/?redirect_url=http://localhost:3000/email-verified',{
             method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -38,9 +38,22 @@ export function passreqEmail(email){
         })
         })
 }
+export function setNewPass(password,token,uidb64){
+    return fetch('https://api.codedigger.tech/auth/password-reset-complete',{
+        method:"PATCH",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+            "password":password,
+            "token":token,
+            "uidb64":uidb64
+         })
+    }).then(data=>data.json());
+}
 
 export function sendVerEmail(emailR){
-    return fetch('https://api.codedigger.tech/auth/send-email/',{
+    return fetch('https://api.codedigger.tech/auth/send-email/?redirect_url=http://localhost:3000/email-verified',{
             method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -50,4 +63,17 @@ export function sendVerEmail(emailR){
            
         })
         }).then(data => data.json());
+}
+export function NewPassRequest(oldPass,NewPass,acc){
+    return fetch('https://api.codedigger.tech/auth/password-change/',{
+        method:"POST",
+    headers:{
+        "Content-Type":"application/json",
+        "Authorization":`Bearer ${acc}`    },
+    body:JSON.stringify({
+        "old_pass":oldPass,
+        "new_pass":NewPass
+       
+    })
+    }).then(data => data.json());
 }

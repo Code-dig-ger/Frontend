@@ -10,8 +10,8 @@
   align-self: center;
   background-position: top;
   /* background-image: url(http://bit.ly/2gPLxZ4);*/
-  background: rgb(235,74,123);
-background: linear-gradient(90deg, rgba(235,74,123,1) 23%, rgba(238,153,105,1) 62%);
+  background: #262626;
+/*background: radial-gradient(circle, rgba(63,94,251,1) 19%, rgba(54,39,42,1) 90%);*/
   font-family: Arial, Helvetica;
   letter-spacing: 0.02em;
   font-weight: 400;
@@ -114,7 +114,7 @@ background: linear-gradient(90deg, rgba(235,74,123,1) 23%, rgba(238,153,105,1) 6
   font-size: 18px;
   font-weight: bold;
   letter-spacing: 0.5px;
-  color: rgb(14, 13, 13);
+  color: whitesmoke;
   background-color: transparent;
   border: none;
   outline: none;
@@ -126,7 +126,7 @@ background: linear-gradient(90deg, rgba(235,74,123,1) 23%, rgba(238,153,105,1) 6
 }
 
 .form-wrapper.is-active .switcher-login {
-  color: rgb(34, 33, 32);
+  color: whitesmoke;
   font-size: 20px;
   -moz-transform: translateX(90px);
   -ms-transform: translateX(90px);
@@ -135,7 +135,7 @@ background: linear-gradient(90deg, rgba(235,74,123,1) 23%, rgba(238,153,105,1) 6
 }
 
 .form-wrapper.is-active .switcher-signup {
-  color: seashell;
+  color: whitesmoke;
   font-size: 20px;
   -moz-transform: translateX(-90px);
   -ms-transform: translateX(-90px);
@@ -189,11 +189,12 @@ background: linear-gradient(90deg, rgba(235,74,123,1) 23%, rgba(238,153,105,1) 6
 .form {
   overflow: hidden;
   min-width: 260px;
+  max-width: 330px;
   margin-top: 50px;
   padding: 30px 25px;
   border-radius: 5px;
   transform-origin: top;
-  background-color: #00131b;
+/*  background-color: #00131b;*/
 }
 
 .form-login {
@@ -294,6 +295,8 @@ background: linear-gradient(90deg, rgba(235,74,123,1) 23%, rgba(238,153,105,1) 6
   100% {
     position: relative;
     content: "";
+    width: 250px;
+    height: 300px;
     box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.1);
     filter: blur(10px);
     -moz-transform: translate(40%, 10px) scaleY(1);
@@ -319,6 +322,8 @@ background: linear-gradient(90deg, rgba(235,74,123,1) 23%, rgba(238,153,105,1) 6
     position: relative;
     content: "";
     box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.1);
+    width: 250px;
+    height: 300px;
     filter: blur(10px);
     -moz-transform: translate(40%, 10px) scaleY(1);
     -ms-transform: translate(40%, 10px) scaleY(1);
@@ -343,6 +348,8 @@ background: linear-gradient(90deg, rgba(235,74,123,1) 23%, rgba(238,153,105,1) 6
   100% {
     position: relative;
     content: "";
+    width: 250px;
+    height: 300px;
     box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.1);
     filter: blur(10px);
     -moz-transform: translate(40%, 10px) scaleY(1);
@@ -587,7 +594,7 @@ background: linear-gradient(90deg, rgba(235,74,123,1) 23%, rgba(238,153,105,1) 6
   margin-bottom: 5px;
 }
 .goodmsgs{
-  color: #009100;
+  color: #00b33e;
  
   margin: 10px;
 }
@@ -609,7 +616,7 @@ background: linear-gradient(90deg, rgba(235,74,123,1) 23%, rgba(238,153,105,1) 6
   opacity: 0;
   display: block;
   min-width: 120px;
-  margin: 30px auto 10px;
+  margin: 15px auto 20px;
   font-size: 18px;
   line-height: 40px;
   border-radius: 25px;
@@ -635,7 +642,7 @@ background: linear-gradient(90deg, rgba(235,74,123,1) 23%, rgba(238,153,105,1) 6
 
 .btn-login {
   color: #fbfdff;
-  background: #a7e245;
+  background: #00A58F;
   -moz-transform: translateX(-30%);
   -ms-transform: translateX(-30%);
   -webkit-transform: translateX(-30%);
@@ -643,9 +650,8 @@ background: linear-gradient(90deg, rgba(235,74,123,1) 23%, rgba(238,153,105,1) 6
 }
 
 .btn-signup {
-  color: #f3f3f3;
-  background: #13cf13;
-  box-shadow: inset 0 0 0 2px #a7e245;
+  color: #fbfdff;
+  background: #00A58F;
   -moz-transform: translateX(30%);
   -ms-transform: translateX(30%);
   -webkit-transform: translateX(30%);
@@ -662,12 +668,23 @@ background: linear-gradient(90deg, rgba(235,74,123,1) 23%, rgba(238,153,105,1) 6
   border-radius: 10px;
   padding: 5px;
   margin-top: 2px;
-  margin-left: 55px;
+  margin-left: 60px;
   background-color: rgb(255, 102, 102);
 }
+
+.loginops{
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  background-color: #ffffff;
+  background-position: center;
+  border-radius: 5px;
+  margin: 5px;
+ 
+}
 .googlelogin{
-  display: block;
-  margin: auto;
-  width: 100px;
-  height: 30px;
+  width: 70px;
+  height: 10px;
+  border-radius: 80px;
+  
 }

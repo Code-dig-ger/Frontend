@@ -13,6 +13,9 @@ import '../../../node_modules/reactjs-popup/dist/index.css';
 import Popup from 'reactjs-popup';
 
 
+//import actions
+import {codeforces} from '../../actions/upsolve.actions'
+
 function Codeforces(){
  
   const pageNumbers=[];
@@ -23,7 +26,7 @@ function Codeforces(){
     const [prev,setPrev]=useState(null);
     const [next,setNext]=useState(2);
     const [first,setFirst]=useState(1);
-    const [last,setLast]=useState(null);
+    const [last,setLast]=useState();
     const [conData,setData]=useState([]);
     const [vir,setVir]=useState(false);
    
@@ -48,20 +51,11 @@ function Codeforces(){
            const creds=JSON.parse(localStorage.getItem("creds"));
            const acc=creds.access; 
           
-           const response=await fetch(`https://api.codedigger.tech/problems/upsolve/codeforces?${vir?`virtual=true;page=${page}`:`page=${page}`}`,{
-            method:"GET",
-            headers:{
-                "Content-Type":"application/json",
-                "Authorization":`Bearer ${acc}`
-            },
-            
-           })
+           const response=await codeforces(acc,vir,page);
            if(response.status===200){
             const data=await response.json();
                   if(data.status==="OK"){
-                    //setData(data);
-                      //console.log("yipee");
-                      
+                  
                       const newLinks=data.links;
                       setFirst(newLinks.first.split("=")[1]);
                       setLast(newLinks.last.split("=")[1]);
@@ -71,30 +65,27 @@ function Codeforces(){
                       if(newLinks.next!==null){
                           setNext(newLinks.next.split("=")[1])
                       }
-                     setLast(data.meta.last_page);
+                     await setLast(data.meta.last_page);
                      setCurPage(data.meta.current_page);
                      
-                  }
-                  else{
-                      //console.log("sad");
-                  }
+                     //console.log(first+" "+last)
                   
-                 console.log(data);
+                    }
+                
                   const result=await (data.result);
                    await setData(result);
                    setLoader(false);
                   
-                // console.log(`on page ${curPage}`)
+                
            }
            else{
-            //console.log("err");
-           
+        
             localStorage.setItem("err",data.error);
             window.location='/home'  
 
            }
 
-           
+          // console.log(page)
            
       
     
@@ -131,7 +122,7 @@ mobile: {
 
      return(
       <>
-      <Navbar></Navbar>
+      <Navbar></Navbar><br></br><br></br><br></br>
       {loader?<Spinner className="loading-animation" animation="border"/>:
       <>
                
@@ -141,14 +132,14 @@ mobile: {
          <div className="upperButtons">
            <h5>CODEFORCES</h5>
            {
-             page!==1?
+             page!=1?
           <button onClick={()=>{
               setTimeout(()=>{setLoader(true)},1000)
             
              setPage(prev)}} className='page-link'>{`< Prev Page`}</button>:<></>}
 
              <h6 className="green">Solved</h6><h6 className="red">Wrong</h6><h6 className="blue">Upsolved</h6><h6 className="viol">Not attempted</h6>
-{page!==last?
+{page!=last?
 <button onClick={()=>{
                  setTimeout(()=>{setLoader(true)},1000)
                
@@ -207,31 +198,44 @@ setPage(next)}} className='page-link'>{`Next Page>`}</button>:<></>}</div>
                })}
                </Carousel></Col>
               </Row><br></br></>:<></>}</>)})}
-              <div className="paginator">
+              <div >
                     <nav className="paginator">
             <ul className='pagination'>
+              {page!=1?
                 <a onClick={()=>{
+                  setPage(1)
                   setTimeout(()=>{setLoader(true)},1000)
 
-                  setPage(first)}} className='page-link'>First</a>
+                  }} className='page-link'>First</a>:<></>}
+            {      
+            page!=1?
            <a onClick={()=>{
               setTimeout(()=>{setLoader(true)},1000)
-             setPage(prev)}} className='page-link'>{`<`}</a>
+              
+             setPage(prev)}} className='page-link'>{`<`}</a>:<></>}
+
               {pageNumbers.map(number => (
                 <li key={number} className='page-item'>
                   <a onClick={() =>{
                       setTimeout(()=>{setLoader(true)},1000)
-                     setPage(number)}} className={`page-link ${(page===number||curPage===number)?`active-page`:''}`}>
+                       setPage(number)
+                       setTimeout(100)
+                      setCurPage(number)}} className={`page-link ${page==number?`active-page`:''}`}>
                     {number}
                   </a>
                 </li>
               ))}
+              {
+                page!=last?
               <a onClick={()=>{
                  setTimeout(()=>{setLoader(true)},1000)
-                setPage(next)}} className='page-link'>{`>`}</a>
+                setPage(next)
+                setCurPage(next)}} className='page-link'>{`>`}</a>:<></>}
+                {page!=last?
              <a onClick={()=>{
                 setTimeout(()=>{setLoader(true)},1000)
-               setPage(last)}} className='page-link'>Last</a>
+               setPage(last)
+               setCurPage(last)}} className='page-link'>Last</a>:<></>}
             </ul>
             </nav>
               </div>

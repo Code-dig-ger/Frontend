@@ -9,6 +9,8 @@ import Loading from '../logreg/loading'
 import Footer from '../../components/Footer/FooterSmall'
 import 'reactjs-popup/dist/index.css';
 import './upsolve.style.css'
+import {atcoder} from '../../actions/upsolve.actions'
+
 const Atcoder=()=>{
    
     const pageNumbers=[];
@@ -34,15 +36,7 @@ const Atcoder=()=>{
         
         const creds=JSON.parse(localStorage.getItem("creds"));
         const acc=creds.access; 
-        const response=await fetch(`https://api.codedigger.tech/problems/upsolve/atcoder?${Prac?`practice=true;page=${page}`:`page=${page}`}`,{
-         method:"GET",
-         headers:{
-             "Content-Type":"application/json",
-             "Authorization":`Bearer ${acc}`
-         },
-         
-        })
-        //console.log(response)
+        const response=await atcoder(acc,page,Prac)
         if(response.status===200){
          const data=await response.json();
                if(data.status==="OK"){
@@ -60,11 +54,7 @@ const Atcoder=()=>{
                   setLast(data.meta.last_page);
                   setCurPage(data.meta.current_page);
                }
-               else{
-                  // console.log("sad");
-               }
-               
-               //console.log(data);
+              
                   const result=await (data.result);
                    await setData(result);
                    setLoader(false);
@@ -72,8 +62,7 @@ const Atcoder=()=>{
         }
         else{
             const data=await response.json();
-            //console.log(data.error);
-            //console.log("err");
+           
             if(data.error==="You haven't Entered your Atcoder Handle in your Profile.. Update Now!"){
             localStorage.setItem("err",data.error);
             window.location='/home'  
@@ -119,7 +108,7 @@ if(last!=null){
            return(
              
             <>
-            <Navbar></Navbar>
+            <Navbar></Navbar><br></br><br></br><br></br>
             {loader?<Spinner className="loading-animation" animation="border"/>:
             <>
                      
@@ -129,13 +118,13 @@ if(last!=null){
               <div className="upperButtons">
                 <h5>ATCODER</h5>
                 {
-                  page!==1?
+                  page!=1?
           <button onClick={()=>{
               setTimeout(()=>{setLoader(true)},1000)
              setPage(prev)}} className='page-link'>{`< Prev`}</button>:<></>}
                <h6 className="green">Solved</h6><h6 className="red">Wrong</h6><h6 className="blue">Upsolve</h6><h6 className="viol">Not attempted</h6>
 {
-  page!==last?
+  page!=last?
 <button onClick={()=>{
                  setTimeout(()=>{setLoader(true)},1000)
 setPage(next)}} className='page-link'>{`Next >`}</button>:<></>}</div>
@@ -182,28 +171,33 @@ setPage(next)}} className='page-link'>{`Next >`}</button>:<></>}</div>
                      <div >
                     <nav className="paginator">
             <ul className='pagination'>
+              {page!=1?
                 <a onClick={()=>{
                   setTimeout(()=>{setLoader(true)},1000)
 
-                  setPage(first)}} className='page-link'>First</a>
+                  setPage(first)}} className='page-link'>First</a>:<></>}
+                  {page!=1?
            <a onClick={()=>{
               setTimeout(()=>{setLoader(true)},1000)
-             setPage(prev)}} className='page-link'>{`<`}</a>
+             setPage(prev)}} className='page-link'>{`<`}</a>:<></>}
               {pageNumbers.map(number => (
                 <li key={number} className='page-item'>
                   <a onClick={() =>{
                       setTimeout(()=>{setLoader(true)},1000)
-                     setPage(number)}} className={`page-link ${(page===number||curPage===number)?`active-page`:''}`}>
+                     setPage(number)}} className={`page-link ${(page==number||curPage==number)?`active-page`:''}`}>
                     {number}
                   </a>
                 </li>
               ))}
+              {page!=last?
               <a onClick={()=>{
                  setTimeout(()=>{setLoader(true)},1000)
-                setPage(next)}} className='page-link'>{`>`}</a>
+                setPage(next)}} className='page-link'>{`>`}</a>:<></>}
+                {page!=last?
              <a onClick={()=>{
                 setTimeout(()=>{setLoader(true)},1000)
-               setPage(last)}} className='page-link'>Last</a>
+               setPage(last)}} className='page-link'>Last</a>:<></>}
+              
             </ul>
             </nav>
               </div>
