@@ -1,9 +1,9 @@
-.heading1{
+.heading1 {
     font-size: 22px;
     margin-top: 5px;
 }
 
-#navbar{
+#navbar {
     position: fixed;
     top: 0;
     width: 100%;
@@ -15,17 +15,27 @@
     color: white;
 }
 
-a{
+a {
     color: white !important;
 }
-.dropdown:hover>.dropdown-menu {
+.dropdown:hover > .dropdown-menu {
     display: block;
-    
-  }
-  
-  .dropdown>.dropdown-toggle:active {
-    /*Without this, clicking will make it sticky*/
-      pointer-events: none;
-  }
+}
 
-  
+.dropdown > .dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+
+.dropdown-menu {
+    background-color: black;
+}
+
+.dropdown:hover {
+    background-color: grey;
+    border-radius: 10px;
+}
+
+.dropdown-item:hover {
+    background-color: grey;
+}

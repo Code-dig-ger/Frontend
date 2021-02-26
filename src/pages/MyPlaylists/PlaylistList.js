@@ -3,6 +3,7 @@ import FooterSmall from '../../components/Footer/FooterSmall';
 import Navbar from '../../components/Header/Navbar'
 import Loading from '../logreg/loading';
 import './PlaylistList.css'
+import { deleteUserlist, getThisUserlist } from "../../actions/lists.actions"
 
 function PlaylistList(props) {
     const creds= JSON.parse(localStorage.getItem("creds"));
@@ -10,34 +11,15 @@ function PlaylistList(props) {
     const [playlist, setPlaylist] = useState([]);
 
     function deletePlaylist(){
-       const res = fetch(`https://api.codedigger.tech/lists/userlist/edit/${props.slug}`, {
-               method:"DELETE",
-               headers:{
-                   "Content-Type":"application/json",
-                   "Authorization":`Bearer ${creds.access}`
-               }
-               });
-               res
-               .catch(error => setErrors(true));
-               window.location.href = `/${creds.username}/playlists`;
+        deleteUserlist(creds.access, props.slug)
+        .catch(error => setErrors(true));
+        window.location.href = `/list/${creds.username}`;
    }
 
     useEffect(() => {
-        async function fetchData(){
-
-            const res = await fetch(`https://api.codedigger.tech/lists/userlist/edit/${props.slug}`, {
-                    method:"GET",
-                    headers:{
-                        "Content-Type":"application/json",
-                        "Authorization":`Bearer ${creds.access}`
-                    }
-                    });
-                    res
-                        .json()
-                        .then(res => setPlaylist(res))
-                        .catch(error => setErrors(true));
-                }
-                fetchData();
+        getThisUserlist(creds.access)
+        .then(res => setPlaylist(res))
+        .catch(error => setErrors(true));
     }, [])
 
 

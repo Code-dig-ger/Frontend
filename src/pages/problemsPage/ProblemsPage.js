@@ -5,6 +5,7 @@ import FooterSmall from '../../components/Footer/FooterSmall';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input} from 'reactstrap';
 import {Form} from 'react-bootstrap';
 import queryString from 'query-string';
+import { getProblems } from "../../actions/problems.actions"
 
 function ProblemsPage({info,queryStr}) {
 
@@ -136,25 +137,11 @@ function ProblemsPage({info,queryStr}) {
     }
 
     useEffect(() => {
-        async function fetchData(){
-            const res = await fetch(`https://api.codedigger.tech/problems/${queryStr}`, {
-                    method:"GET",
-                    headers:{
-                        "Content-Type":"application/json"
-                    }
-                });
-                res
-                    .json()
-                    .then(res => setProblems(res))
-                    .then(show => setShow(false))
-                    .catch(error => setErrors(true));
-                }
-            fetchData();
+        getProblems(queryStr)
+        .then(res => setProblems(res))
+        .then(show => setShow(false))
+        .catch(error => setErrors(true));
     },[])
-
-    // useEffect(() => {
-    //     console.log(difficultyFilters);
-    // })
 
     return (
         show==true ? <><Loading/></>:

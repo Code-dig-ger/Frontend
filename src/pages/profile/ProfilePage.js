@@ -16,6 +16,7 @@ import {faUserClock} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import FriendList from '../../components/profile/FriendList.js';
 import {Modal,ModalBody,ModalFooter,ModalHeader,Button} from 'reactstrap';
+import { getProfile, getInfoBySite, getFriendReq } from "../../actions/profile.actions.js"
 
 
 
@@ -95,87 +96,50 @@ function ProfilePage({handle}) {
 
             if(creds)
             {
-                const res = await fetch(`https://api.codedigger.tech/auth/profile/${uu}/`, {
-                method:"GET",
-                headers:{
-                    "Content-Type":"application/json",
-                    "Authorization":`Bearer ${creds.access}`
-                }
-                });
-                res
-                    .json()
+                const res = await getProfile(creds.access, uu)
                     .then(res => setUsers(res))
                     .then(res => console.log(res))
                     .then(show => setShow(false))
                     .catch(error => setErrors(true));
             }
-            else
-            {
-                const res = await fetch(`https://api.codedigger.tech/auth/profile/${uu}/`);
-                res
-                    .json()
-                    .then(res => setUsers(res))
-                    .then(show => setShow(false))
-                    .catch(error => setErrors(true));
+            else{
+                window.location='/login'
             }
-
-            
-
-            const res1 = await fetch(`https://api.codedigger.tech/auth/profile/${uu}/?platform=codeforces`);
-            res1
-                .json()
+            const res1 = await getInfoBySite(uu, "codeforces")
                 .then(res => setCodeforcesDat(res))
-                // .then(res => setCodeforcesContest(res.result.contestRank))
                 .then(show => setCodeforcesStatus(false))
                 .catch(error => setErrors(true));
 
-            const res2 = await fetch(`https://api.codedigger.tech/auth/profile/${uu}/?platform=codechef`);
-            res2
-                .json()
+            const res2 = await getInfoBySite(uu, "codechef")
                 .then(res => setCodechefDat(res))
                 .then(show => setCodechefStatus(false))
                 .catch(error => setErrors(true));
 
-            const res3 = await fetch(`https://api.codedigger.tech/auth/profile/${uu}/?platform=atcoder`);
-            res3
-                .json()
+            const res3 = await getInfoBySite(uu, "atcoder")
                 .then(res => setAtcodercesDat(res))
                 .then(show => setAtcodercesStatus(false))
                 .catch(error => setErrors(true));
             
-            const res4 = await fetch(`https://api.codedigger.tech/auth/profile/${uu}/?platform=spoj`);
-            res4
-                .json()
+            const res4 = await getInfoBySite(uu, "spoj")
                 .then(res => setSpojDat(res))
                 .then(show => setSpojStatus(false))
                 .catch(error => setErrors(true));
 
-            const res5 = await fetch(`https://api.codedigger.tech/auth/profile/${uu}/?platform=uva`);
-            res5
-                .json()
+            const res5 = await getInfoBySite(uu, "uva")
                 .then(res => setUvaDat(res))
                 .then(show => setUvaStatus(false))
                 .catch(error => setErrors(true));   
 
             if(creds)
             {
-                const res6=await fetch (`https://api.codedigger.tech/auth/user/show-request`,{
-                method:"GET",
-                headers:{
-                    "Content-Type":"application/json",
-                    "Authorization":`Bearer ${creds.access}`
-                }
-            });
+                const res6=await getFriendReq(creds.access);
             res6
-                .json()
                 .then(res6 => setFriendReq(res6))
                 .then(() => {
                     setFriendReqStatus(true)
-                    // console.log(friendReq.result)
-                    // console.log(friendReq);
-                    // if(friendReq.result != undefined)
-                    // {setFriendReqStatus(true)}
                 });
+            }else{
+                window.location='/login'
             }
         }
         fetchData();
@@ -184,43 +148,12 @@ function ProfilePage({handle}) {
         
     },[])
 
-
-
-    // useEffect(() => {
-    //     async function fetchData(){
-    //         const res = await fetch(`https://api.codedigger.tech/auth/profile/${uu}/`);
-    //         res
-    //             .json()
-    //             .then(res => setUsers(res))  
-    //             .then(show => setShow(false))
-    //             .catch(error => setErrors(true));
-    //     }
-    //     fetchData();
-    // });
-
         return (
         
             (firstTime===true)?window.location="/createProfile": 
                   (show==true) ? <Loading /> : 
                   <>
         <Navbar/>
-        {/* {console.log(user)} */}
-        {/* {console.log(codeforcesDat)}
-        {console.log(codechefDat)}
-        {console.log(spojDat)}
-        {console.log(uvaDat)}
-        {console.log(atcoderDat)} */}
-           {/* <div className="profileFull">
-               <div className="leftProfile">
-                   <div className="profileCard">
-                       <img src={demoImg} className="profileImg"></img>
-                       <div>{JSON.stringify(user.result.codechef)}</div>
-                   </div>
-               </div>
-               <div className="rightProfile"></div>
-           </div> */}
-            
-
                 <div className="container">
                     <div className="main-body">
                         <div className="row gutters-sm">

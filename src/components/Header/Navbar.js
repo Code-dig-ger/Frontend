@@ -154,10 +154,7 @@ if(creds){
           <Nav className="ml-auto" navbar>
             
             <NavItem>
-              <NavLink href="/home">Home</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href={handle}>Profile</NavLink>
+              <NavLink href="/problems">Problems</NavLink>
             </NavItem>
             
             <UncontrolledDropdown nav inNavbar>

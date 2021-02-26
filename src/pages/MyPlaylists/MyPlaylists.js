@@ -3,6 +3,7 @@ import './MyPlaylist.css'
 import Navbar from '../../components/Header/Navbar'
 import FooterSmall from '../../components/Footer/FooterSmall';
 import PlaylistModal from '../../components/MyPlaylists/AddPlaylistModal'
+import { getUserList} from "../../actions/lists.actions"
 
 
 function MyPlaylists(props) {
@@ -14,21 +15,11 @@ function MyPlaylists(props) {
      
 
     useEffect(() => {
-        async function fetchData(){
-
-        const res = await fetch(`https://api.codedigger.tech/lists/userlist/`, {
-                method:"GET",
-                headers:{
-                    "Content-Type":"application/json",
-                    "Authorization":`Bearer ${creds.access}`
-                }
-                });
-                res
-                    .json()
-                    .then(res => setPlaylists(res))
-                    .catch(error => setErrors(true));
-            }
-            fetchData();
+        
+        getUserList(creds.access)
+        .then(res => setPlaylists(res))
+        .catch(error => setErrors(true));
+        
     }, [])
 
     return (

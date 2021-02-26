@@ -17,7 +17,8 @@ function LaddersLevel(props) {
 
     console.log(props);
     useEffect(() => {
-        async function setData()
+        if(creds){
+            async function setData()
         {
             if(props.wise=="topicwise")
             {
@@ -45,6 +46,10 @@ function LaddersLevel(props) {
         }
         setData();
         fetchData();
+        }else{
+            window.location='/login' 
+        }
+        
     },[])
 
     return (
