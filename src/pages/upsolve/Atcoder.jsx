@@ -7,8 +7,6 @@ import Carousel from 'react-multi-carousel';
 import Navbar from '../../components/Header/Navbar'
 import Loading from '../logreg/loading'
 import Footer from '../../components/Footer/FooterSmall'
-
-import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import './upsolve.style.css'
 const Atcoder=()=>{
