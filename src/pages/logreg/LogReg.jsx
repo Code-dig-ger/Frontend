@@ -18,7 +18,9 @@ import {login} from '../../actions/auth.actions'
 
 
 const LogReg =()=>{
+ 
   
+
   
   //states and handler for register
   const [emailR,setEmailR]=useState("");
@@ -178,7 +180,7 @@ switchers.forEach((item) => {
       
       
      <Popup open={true}>
-      <div className="pops">{err}</div>
+      <div style={{backgroundColor:"white",color:"black"}}>{err}</div>
    </Popup>
      
     :<></>
@@ -216,7 +218,7 @@ switchers.forEach((item) => {
         </fieldset>
       {msgL.length>0?
        <Popup open={true}>
-      <div className="pops">{msgL}</div>
+      <div style={{backgroundColor:"white",color:"black"}}>{msgL}</div>
    </Popup>:<></>}
   
         <button onClick={Login} type="submit" className="btn-login">Login</button>
@@ -274,7 +276,7 @@ switchers.forEach((item) => {
         </fieldset>
         {msgR.length>0?
         <Popup open={true}>
-      <div className="pops">{msgR}</div>
+      <div style={{backgroundColor:"white",color:"black"}}>{msgR}</div>
    </Popup>:<></>}
         <button onClick={Register} type="submit" className="btn-signup">Register</button></>
         :
@@ -282,6 +284,7 @@ switchers.forEach((item) => {
         <h7 className="goodmsgs">{`We have sent you a verification link on ${emailR} .`}</h7><br></br><h7 className="goodmsgs">{`Please verify your email and move to login. \n If you haven't recieved any mail regarding this, click here to send again.`}</h7>
         <button className="goodmsgs" onClick={Sendagain}>Send again</button></>}
       </form>
+    
 }
     </div>
   </div>

@@ -113,7 +113,7 @@ if(last!=null){
         return(
             <>
 
-            <Navbar/><br></br><br></br><br></br>
+            <Navbar/><br></br><br></br>
             {loader?<Spinner className="loading-animation" animation="border"/>:
             <>
            
@@ -122,7 +122,7 @@ if(last!=null){
             <>
 
 <div className="upperButtons">
-  <h5>CODECHEF</h5>
+  <h5 style={{color:"white"}}>CODECHEF</h5>
           {
             page!=1?
             <button onClick={()=>{
@@ -152,19 +152,19 @@ setPage(next)}} className='page-link'>{`Next >`}</button>:<></>}</div>
               res. problems.map((prob)=>{
                    if(prob.status==="solved"){
                    return(
-                   <Col><div className="solved" ><h7>{prob.difficulty}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a> <Popup trigger={<button className="tags"> Tags</button>} position="right center">
+                   <Col><div className="solved" ><h7>{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a> <Popup trigger={<button className="tags"> Tags</button>} position="right center">
                    <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div>
   </Popup></div></Col>
                    )}
                    else if(prob.status==="wrong"){
                    return(
-                   <Col> <div className="wrong"><h7>{prob.difficulty}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a> <Popup trigger={<button className="tags"> Tags</button>} position="right center">
+                   <Col> <div className="wrong"><h7>{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a> <Popup trigger={<button className="tags"> Tags</button>} position="right center">
                   <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div>
   </Popup></div></Col>
                    )}
                    else if(prob.status==="upsolved"){
                    return(
-                   <Col> <div className="upsolve"><h7>{prob.difficulty}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a> <Popup trigger={<button className="tags"> Tags</button>} position="right center">
+                   <Col> <div className="upsolve"><h7>{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a> <Popup trigger={<button className="tags"> Tags</button>} position="right center">
                    <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div>
   </Popup><br></br>
                    </div></Col>
@@ -172,7 +172,7 @@ setPage(next)}} className='page-link'>{`Next >`}</button>:<></>}</div>
 
                    )}
                    return (
-                    <Col> <div className="not_attempted"><h7>{prob.difficulty}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a> <Popup trigger={<button className="tags"> Tags</button>} position="right center">
+                    <Col> <div className="not_attempted"><h7>{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a> <Popup trigger={<button className="tags"> Tags</button>} position="right center">
                     <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div>
    </Popup><br></br>
                     </div></Col>
@@ -202,7 +202,7 @@ setPage(next)}} className='page-link'>{`Next >`}</button>:<></>}</div>
                       setTimeout(()=>{setLoader(true)},1000)
                        setPage(number)
                        setTimeout(100)
-                      setCurPage(number)}} className={`page-link ${page==number?`active-page`:''}`}>
+                      setCurPage(number)}} className={`${page==number?`active-page`:'page-link'}`}>
                     {number}
                   </a>
                 </li>
