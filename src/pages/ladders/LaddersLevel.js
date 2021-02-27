@@ -4,6 +4,7 @@ import Header from '../../components/Header/Navbar';
 import "./LaddersLevel.css";
 import LaddersContent from '../../components/LaddersContent';
 import FooterSmall from '../../components/Footer/FooterSmall';
+import ErrorPage from '../ErrorPage/ErrorPage.js';
 
 
 function LaddersLevel(props) {
@@ -47,46 +48,77 @@ function LaddersLevel(props) {
         setData();
         fetchData();
         }else{
+            alert("Please Login to Proceed");
             window.location='/login' 
         }
         
     },[])
 
-    return (
-        <div className="ladder">
-            {show? (<Loading />):
-            (<div>
-                {console.log(dat)}
-            <Header />
+    if(creds)
+    {
+        if(show)
+        {
+            return(
+                <Loading/>
+            )
+        }
+        else
+        {
+            if(dat)
+            {
+                return (
+                    <div className="ladder">
+                            {console.log(dat)}
+                        <Header />
+                        
+                        <div className="container ladders_ques">
+                        <br/>
             
-            <div className="container ladders_ques">
-            <br/>
-
-            {console.log(dat[0])}
-
-            {dat.map((level)=> {
-                return(
-                    <>
-                    <LaddersContent 
-                        title={level.name}
-                        des={level.description}
-                        slug={level.slug}
-                        wise1={wise1}
-                        wise={props.wise}
-                        type={props.type}
-                    />
-
-                    <br/>
-                    </>
+                        {console.log(dat[0])}
+            
+                        {dat.map((level)=> {
+                            return(
+                                <>
+                                <LaddersContent 
+                                    title={level.name}
+                                    des={level.description}
+                                    slug={level.slug}
+                                    wise1={wise1}
+                                    wise={props.wise}
+                                    type={props.type}
+                                />
+            
+                                <br/>
+                                </>
+                            )
+                        })}
+                            
+                        </div>
+                        <FooterSmall />
+                        </div>
                 )
-            })}
-                
-            </div>
-            <FooterSmall />
-            </div>)
             }
-        </div>
-    )
+            else
+            {
+                return(
+                    <ErrorPage/>
+                )
+            }
+        }
+    }
+    else
+    {
+        return(
+            <>
+                <div>
+                    {console.log("please please")}
+                    <a href="/home">Please Login to Proceed</a>
+                </div>
+            </>
+        )
+    }
+
+    
 }
 
 export default LaddersLevel

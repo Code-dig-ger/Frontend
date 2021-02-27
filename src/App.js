@@ -24,6 +24,7 @@ import ProblemsPage from "./pages/problemsPage/ProblemsPage.js";
 import queryString from 'query-string';
 import changePassForm from './components/logreg/changePassword'
 import EmailVerfiedMsg from './components/logreg/EmailVerifiedMsgPage'
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
 
 //react context
 export const CredentialsContext=React.createContext();
@@ -124,6 +125,7 @@ const App = () => {
             <Route exact path="/forgPass" component={NewpassEmail}/>
             
             <Route exact path="/setNewPass" component={NewPassSet}/>
+            <Route exact path="/error" component={ErrorPage}/>
             
             
             <Link to="/:wise/:type/:slug?page=pageNo" component={LaddersQuestionPage1}/>
@@ -132,6 +134,7 @@ const App = () => {
             
              
           </Switch>
+          {/* <Route component={ErrorPage}/> */}
         </BrowserRouter>
         </CredentialsContext.Provider>
       </Container>

@@ -18,7 +18,7 @@ export function getFriendReq(acc){
         method:"GET",
         headers:{
             "Content-Type":"application/json",
-            "Authorization":`Bearer ${creds.access}`
+            "Authorization":`Bearer ${acc}`
         }
     }).then(data => data.json());
 }

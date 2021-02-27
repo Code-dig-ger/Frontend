@@ -97,7 +97,9 @@ function LaddersQuestionPage(props) {
     var count=0;
     var solvedBtn=-1;
     var button = false;
-    return (
+    if(creds)
+    {
+      return (
         show==true ? <Loading/>:<div>
             {/* {console.log(problems)} */}
         <Navbar />
@@ -195,6 +197,13 @@ function LaddersQuestionPage(props) {
         <FooterSmall />
     </div>
     )
+    }
+    else
+    {
+      return(
+        <>Please Login to Proceed</>
+      )
+    }
 }
 
 export default LaddersQuestionPage
