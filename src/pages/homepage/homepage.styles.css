@@ -8,7 +8,10 @@
 }
 
 #LandingBanner{
-  background-image: url('../../assets//homepage/images/CodingBg.jpg');
+  background-image: url('../../assets//homepage/images/codingBg7.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-color: #161616 !important; */
   height: 100vh;
 }
 
@@ -28,8 +31,8 @@
 
 .bigRow:nth-of-type(2n){
   /* background-image: url('../../assets/homepage/images/img1.png'); */
-  background-repeat: no-repeat;
-  background-size: cover;
+  /* background-repeat: no-repeat;
+  background-size: cover; */
   color: white !important;
   background-color: #161616 !important;
   height: inherit;

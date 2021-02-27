@@ -82,13 +82,13 @@ const Homepage = () => {
             <h5 className="text-white heading2" style={{fontSize:'5rem'}}>CODEDIGGER</h5>
             <br></br><br></br>
             <h5 className="text-white heading2">
-              <Typewriter
+              {/* <Typewriter
                 options={{
                   strings: ['Dig Deeper Into Coding'],
                   autoStart: true,
                   loop: true,
                 }}
-                style={{fontSize:"40px"}}/>
+                style={{fontSize:"40px"}}/> */}
             </h5>
           </div>     
           {/* <div className="headingImage"><img src={image} className="floating"></img></div> */}
