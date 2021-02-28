@@ -498,6 +498,6 @@ h6{
 		margin: auto;
 	}
  
-	path{
+	.card-body path{
 		fill: black !important;
 	}

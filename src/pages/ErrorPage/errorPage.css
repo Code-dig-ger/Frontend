@@ -80,3 +80,8 @@
     font-size: 2rem;
     height: 35vh;
 }
+
+/* // CSS custom class name to set the fill of the icon to `rebeccapurple` */
+svg.my-custom-class{
+  fill: rebeccapurple;
+}

@@ -3,11 +3,15 @@ import './errorPage.css';
 import FooterSmall from '../../components/Footer/FooterSmall';
 import Header from '../../components/Header/Navbar';
 import {Button} from 'react-bootstrap'
+import { Add16 } from '@carbon/icons-react';
 
 function ErrorPage() {
     return (
         <>
             <Header/>
+            {/* <button>
+                <Add16 aria-label="Add" className="my-custom-class" />
+            </button> */}
             <div className="ppp">
             <div className="errorDiv" title="404">
                 404
