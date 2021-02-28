@@ -1,213 +1,224 @@
 .solved{
-    background-color:rgb(0,0,0);
-    color: greenyellow;
-    border-radius: 10px;
-    height: 90px;
-    text-align: center;
-    padding-top: 10px;
+  background-color:rgb(0,0,0);
+  color: greenyellow;
+  border-radius: 10px;
+  height: 90px;
+  text-align: center;
+  padding-top: 10px;
 }
 .wrong{
-    background-color:rgb(0,0,0);
-    color: red;
-    border-radius: 10px;
-    height: 90px;
-    text-align: center;
-    padding-top: 10px;
+  background-color:rgb(0,0,0);
+  color: red;
+  border-radius: 10px;
+  height: 90px;
+  text-align: center;
+  padding-top: 10px;
 }
 .upsolve{
-    background-color: rgb(0, 0, 0);
-    color:deepskyblue;
-    border-radius: 10px;
-    height: 90px;
-    text-align: center;
-    padding-top: 10px;
+  background-color: rgb(0, 0, 0);
+  color:rgb(72, 144, 168);
+  border-radius: 10px;
+  height: 90px;
+  text-align: center;
+  padding-top: 10px;
 }
 .contestName{
-    background-color:gold;
-    border-radius: 10px;
-    border: 4px solid rgb(39, 38, 38);
-    height: 90px;
-    text-align: center;
-    padding-top: 10px;
-    color: rgb(252, 248, 248);
+  background: rgb(1,13,20);
+  background: linear-gradient(0deg, rgba(1,13,20,1) 0%, rgba(45,193,253,1) 76%);
+  border-radius: 10px;
+  border: 2px solid rgb(39, 38, 38);
+  height: 90px;
+  text-align: center;
+  padding-top: 10px;
+  color:white;
 }
 .contestRow{
-   height: 90px;
+ height: 90px;
+
+ border-radius: 10px;
   
-   border-radius: 10px;
-    
 }
 .tags{
-  background-color:gold;
-  border: 1px solid rgb(39, 38, 38);
-  border-radius: 5px;
-  margin-left: 8px;
+  background: rgb(126,122,8);
+background: linear-gradient(0deg, rgba(126,122,8,1) 0%, rgba(253,208,45,1) 91%);
+border: 1px solid rgb(39, 38, 38);
+border-radius: 5px;
+margin-left: 8px;
 }
 
 Col{
-    border-radius: 10px;
+  border-radius: 10px;
 }
 .heads{
-    text-align: center;
+  text-align: center;
 }
 .flags{
-    margin: auto;
-    display: flex;
-    justify-content: space-around;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
 }
 .correct{
-    color: rgb(0, 117, 0);
-    text-align: center;
+  color: rgb(0, 117, 0);
+  text-align: center;
 
 }
 .incorrect{
-    color: rgb(248, 126, 126);
-   
+  color: rgb(248, 126, 126);
+ 
 }
 .todo{
-    color: rgb(150, 150, 250);
-    
+  color: rgb(150, 150, 250);
+  
 }
 
 
 .vir{
-    float:left;
-    border-radius: 10px;
-    color: rgb(255, 250, 250);
-    background-color: rgb(114, 0, 47);
-    padding:5px
+  float:left;
+  border-radius: 10px;
+  color: rgb(255, 250, 250);
+  background-color: rgb(114, 0, 47);
+  padding:5px
 }
 .box {
-    width: 20%;
-    margin: 0 auto;
-    background: rgba(255,255,255,0.2);
-    padding: 5px;
-    
-    border-radius: 20px/50px;
-    background-clip: padding-box;
-    text-align: center;
-  }
+  width: 20%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  padding: 5px;
   
-  .button {
-    font-size: 0.8rem;
-    padding: 5px;
-    color: #fff;
-    border: 2px solid #06D85F;
-    border-radius: 20px/50px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3s ease-out;
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+}
+
+.button {
+  font-size: 0.8rem;
+  padding: 5px;
+  color: #fff;
+  border: 2px solid #06D85F;
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.button:hover {
+  background: #06D85F;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 2px auto;
+  padding: 2px;
+  background: #fff;
+  border-radius: 5px;
+  width: 20%;
+  position: relative;
+  transition: all 2s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 2px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 10%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 40%;
   }
-  .button:hover {
-    background: #06D85F;
+  .popup{
+    width: 40%;
   }
+}
+.loading-animation{
+  display: block;
+  margin: auto;
+}
+.paginator{
+
+  text-align: center;
+  margin: 0 auto;
+ 
+}
+.pagination{
+  border-radius: 5px;
+  text-align: center;
   
-  .overlay {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.7);
-    transition: opacity 500ms;
-    visibility: hidden;
-    opacity: 0;
-  }
-  .overlay:target {
-    visibility: visible;
-    opacity: 1;
-  }
+}
+a{
+  text-align: center;
+  text-decoration: none;
+}
+.upperButtons{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  padding: 2px;
+  border-radius: 3px;
+  margin: 2px;
+}
+.green{
+  color: greenyellow;
+}
+.red{
+  color: red;
+}
+.blue{
+  color: rgb(72, 144, 168);
+}
+.tagsbox{
+  color: black;
+}
+.active-page{
+  background-color: gold;
+  padding: 9px;
   
-  .popup {
-    margin: 2px auto;
-    padding: 2px;
-    background: #fff;
-    border-radius: 5px;
-    width: 20%;
-    position: relative;
-    transition: all 2s ease-in-out;
-  }
   
-  .popup h2 {
-    margin-top: 0;
-    color: #333;
-    font-family: Tahoma, Arial, sans-serif;
-  }
-  .popup .close {
-    position: absolute;
-    top: 2px;
-    right: 30px;
-    transition: all 200ms;
-    font-size: 10px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #333;
-  }
-  .popup .close:hover {
-    color: #06D85F;
-  }
-  .popup .content {
-    max-height: 10%;
-    overflow: auto;
-  }
+}
+
+.not_attempted{
+  background-color: rgb(0,0,0);
+  color:rgb(231, 110, 255);
+  border-radius: 10px;
+  height: 90px;
+  text-align: center;
+  padding-top: 10px;
+}
+.viol{
+  color:rgb(231, 110, 255);
+}
   
-  @media screen and (max-width: 700px){
-    .box{
-      width: 40%;
-    }
-    .popup{
-      width: 40%;
-    }
-  }
-  .loading-animation{
-    display: block;
-    margin: auto;
-  }
-  .paginator{
-  
-    text-align: center;
-    margin: 0 auto;
-   
-  }
-  .pagination{
-    border-radius: 5px;
-    text-align: center;
-    
-  }
-  a{
-    text-align: center;
-  }
-  .upperButtons{
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 20px;
-    padding: 2px;
-    border-radius: 3px;
-    margin: 2px;
-  }
-  .green{
-    color: greenyellow;
-  }
-  .red{
-    color: red;
-  }
-  .blue{
-    color: deepskyblue;
-  }
-  .tagsbox{
-    color: black;
-  }
-  .active-page{
-    background-color: gold;
-  }
-  .not_attempted{
-    background-color: rgb(0,0,0);
-    color:rgb(231, 110, 255);
-    border-radius: 10px;
-    height: 90px;
-    text-align: center;
-    padding-top: 10px;
-  }
-  .viol{
-    color:rgb(231, 110, 255);
-  }
+.page-link{
+  background-color: black;
+}

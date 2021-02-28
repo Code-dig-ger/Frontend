@@ -130,7 +130,7 @@ mobile: {
         {conData.length>0?
         <>
          <div className="upperButtons">
-           <h5>CODEFORCES</h5>
+           <h5 style={{color:"white"}}>CODEFORCES</h5>
            {
              page!=1?
           <button onClick={()=>{
@@ -220,7 +220,7 @@ setPage(next)}} className='page-link'>{`Next Page>`}</button>:<></>}</div>
                       setTimeout(()=>{setLoader(true)},1000)
                        setPage(number)
                        setTimeout(100)
-                      setCurPage(number)}} className={`page-link ${page==number?`active-page`:''}`}>
+                      setCurPage(number)}} className={`${page==number?`active-page`:'page-link'}`}>
                     {number}
                   </a>
                 </li>

@@ -25,6 +25,7 @@ async function Validate(){
 
         })
         console.log("validation");
+        
 
         if(response.status!==200){
            const refResponse=await fetch('https://api.codedigger.tech/auth/token/refresh/',{

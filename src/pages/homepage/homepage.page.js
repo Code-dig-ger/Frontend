@@ -58,7 +58,7 @@ const Homepage = () => {
       
       
      <Popup open={true}>
-      <div className="pops">{err}</div>
+      <div style={{backgroundColor:"white",color:'black'}}>{err}</div>
    </Popup>
      
     :<></>

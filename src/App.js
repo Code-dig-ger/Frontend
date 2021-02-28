@@ -25,6 +25,7 @@ import queryString from 'query-string';
 import changePassForm from './components/logreg/changePassword'
 import EmailVerfiedMsg from './components/logreg/EmailVerifiedMsgPage'
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
+import UpdateProfile from './components/profile/UpdateProfile'
 
 //react context
 export const CredentialsContext=React.createContext();
@@ -127,7 +128,7 @@ const App = () => {
             <Route exact path="/setNewPass" component={NewPassSet}/>
             <Route exact path="/error" component={ErrorPage}/>
             
-            
+            <Route exact path="/updateProfile" component={UpdateProfile}/>
             <Link to="/:wise/:type/:slug?page=pageNo" component={LaddersQuestionPage1}/>
             <Link to="/problems/?difficulty=diff&platforms=plats" component={ProblemsPage1}/>
             

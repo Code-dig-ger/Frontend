@@ -39,7 +39,8 @@ const Atcoder=()=>{
         const response=await atcoder(acc,page,Prac)
         if(response.status===200){
          const data=await response.json();
-               if(data.status==="OK"){
+         console.log(data);
+               if(data.status==="OK"&&data.result.length>0){
                    
                    console.log("yipee");
                    const newLinks=data.links;
@@ -53,10 +54,14 @@ const Atcoder=()=>{
                    }
                   setLast(data.meta.last_page);
                   setCurPage(data.meta.current_page);
-               }
-              
                   const result=await (data.result);
                    await setData(result);
+               }
+               else{
+                   setPrac(true)
+               }
+              
+                  
                    setLoader(false);
                
         }
@@ -67,10 +72,7 @@ const Atcoder=()=>{
             localStorage.setItem("err",data.error);
             window.location='/home'  
           }
-          else{
-            setPrac(true);
-            
-          }
+          
             
 
         }
@@ -108,7 +110,7 @@ if(last!=null){
            return(
              
             <>
-            <Navbar></Navbar><br></br><br></br><br></br>
+            <Navbar></Navbar><br></br><br></br>
             {loader?<Spinner className="loading-animation" animation="border"/>:
             <>
                      
@@ -116,7 +118,7 @@ if(last!=null){
               {conData.length>0?
               <>
               <div className="upperButtons">
-                <h5>ATCODER</h5>
+                <h5 style={{color:"white"}}>ATCODER</h5>
                 {
                   page!=1?
           <button onClick={()=>{
@@ -184,7 +186,7 @@ setPage(next)}} className='page-link'>{`Next >`}</button>:<></>}</div>
                 <li key={number} className='page-item'>
                   <a onClick={() =>{
                       setTimeout(()=>{setLoader(true)},1000)
-                     setPage(number)}} className={`page-link ${(page==number||curPage==number)?`active-page`:''}`}>
+                     setPage(number)}} className={`${page==number?`active-page`:'page-link'}`}>
                     {number}
                   </a>
                 </li>
