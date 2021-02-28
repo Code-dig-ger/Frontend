@@ -1,7 +1,7 @@
 import React ,{useState,useEffect} from "react";
 import { BrowserRouter, Switch, Route, useParams, state, Link, Redirect } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import "./bootstrap-theme/bootstrap.min.cyborg.css";
+import "./bootstrap-theme/bootstrap.min.cyborg.css";
 import Container from "react-bootstrap/Container";
 import Homepage from "./pages/homepage/homepage.page";
 import LogReg from "./pages/logreg/LogReg";
@@ -24,6 +24,7 @@ import ProblemsPage from "./pages/problemsPage/ProblemsPage.js";
 import queryString from 'query-string';
 import changePassForm from './components/logreg/changePassword'
 import EmailVerfiedMsg from './components/logreg/EmailVerifiedMsgPage'
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import UpdateProfile from './components/profile/UpdateProfile'
 
 //react context
@@ -125,6 +126,7 @@ const App = () => {
             <Route exact path="/forgPass" component={NewpassEmail}/>
             
             <Route exact path="/setNewPass" component={NewPassSet}/>
+            <Route exact path="/error" component={ErrorPage}/>
             
             <Route exact path="/updateProfile" component={UpdateProfile}/>
             <Link to="/:wise/:type/:slug?page=pageNo" component={LaddersQuestionPage1}/>
@@ -133,6 +135,7 @@ const App = () => {
             
              
           </Switch>
+          {/* <Route component={ErrorPage}/> */}
         </BrowserRouter>
         </CredentialsContext.Provider>
       </Container>

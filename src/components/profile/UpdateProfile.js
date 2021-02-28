@@ -38,7 +38,7 @@ const UpdateInfo=()=>{
               if(newname===null){
                 setnewName(name)
               }
-              if(newcodeforces.length==0){
+              if(newcodeforces==null){
                       setnewCodeforces(codeforces);
               }
              
@@ -80,12 +80,7 @@ const UpdateInfo=()=>{
             const data=await response.json();
            console.log(data);
             if(response.status===200){
-            
-           
-        
-    
-           
-          //window.location=`/profile/${uu}`;
+            window.location=`/profile/${uu}`;
         }
         else{
             
@@ -124,7 +119,7 @@ const UpdateInfo=()=>{
         
     return(
         <>
-      <Navbar/>
+      <Navbar/><br></br>
       <div className="outeri">
        <div className="flex-containeri">
   <div className="content-containeri">

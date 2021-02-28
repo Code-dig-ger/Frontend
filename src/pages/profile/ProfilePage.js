@@ -103,6 +103,7 @@ function ProfilePage({handle}) {
                     .catch(error => setErrors(true));
             }
             else{
+                alert("Please Login to Proceed");
                 window.location='/login'
             }
             const res1 = await getInfoBySite(uu, "codeforces")
@@ -132,13 +133,13 @@ function ProfilePage({handle}) {
 
             if(creds)
             {
-                const res6=await getFriendReq(creds.access);
-            res6
+                const res6=await getFriendReq(creds.access)
                 .then(res6 => setFriendReq(res6))
                 .then(() => {
                     setFriendReqStatus(true)
                 });
             }else{
+                alert("Please Login to Proceed");
                 window.location='/login'
             }
         }

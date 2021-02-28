@@ -122,7 +122,7 @@ mobile: {
 
      return(
       <>
-      <Navbar></Navbar><br></br><br></br>
+      <Navbar></Navbar><br></br><br></br><br></br>
       {loader?<Spinner className="loading-animation" animation="border"/>:
       <>
                
