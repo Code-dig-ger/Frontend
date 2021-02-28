@@ -68,15 +68,13 @@
   text-align: center;
 }
 
-img{
+.bannerContainer img{
   width: 400px;
    margin-right: 20px;
   height: 300px;
  float: right;
- 
-  
-  
 }
+
 /*code digger slogan*/
 .floating {   
   animation-name: floating; 
