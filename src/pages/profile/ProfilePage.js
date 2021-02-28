@@ -154,8 +154,9 @@ function ProfilePage({handle}) {
             (firstTime===true)?window.location="/createProfile": 
                   (show==true) ? <Loading /> : 
                   <>
-        <Navbar/>
-                <div className="container">
+                <Navbar/>
+
+                <div className="container" style={{marginTop: '100px'}}>
                     <div className="main-body">
                         <div className="row gutters-sm">
                             <div className="col-md-4 mb-3">
