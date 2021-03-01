@@ -26,7 +26,7 @@ function MyPlaylists(props) {
         
         <div className="mb-4">
             <Navbar />
-           <div className="container">
+           <div className="container" style={{marginTop: '100px'}}>
                 <h2
                     style={{
                         textAlign: 'center'
@@ -53,6 +53,7 @@ function MyPlaylists(props) {
                                         <p>{playlist.description}</p>
                                 </div>
                                 <a href={`/list/${uu}/${playlist.slug}`}>View Playlist</a>
+                                {console.log(playlist.slug)}
                                 <div className="ico-card11">
                                 <i className={i % 2 === 0 ? "fa fa-empire" : "fa fa-codepen"}></i>
                             </div>

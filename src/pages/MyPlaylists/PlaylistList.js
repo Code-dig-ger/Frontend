@@ -9,6 +9,7 @@ function PlaylistList(props) {
     const creds= JSON.parse(localStorage.getItem("creds"));
     const [error, setErrors] = useState(false);
     const [playlist, setPlaylist] = useState([]);
+    console.log(props.slug)
 
     function deletePlaylist(){
         deleteUserlist(creds.access, props.slug)
@@ -17,7 +18,7 @@ function PlaylistList(props) {
    }
 
     useEffect(() => {
-        getThisUserlist(creds.access)
+        getThisUserlist(creds.access, props.slug)
         .then(res => setPlaylist(res))
         .catch(error => setErrors(true));
     }, [])
@@ -28,7 +29,8 @@ function PlaylistList(props) {
         <Navbar />
             <h3
                 style={{
-                    textAlign: 'center'
+                    textAlign: 'center',
+                    marginTop: '150px'
                 }}
             >{props.name}</h3>
 
@@ -44,7 +46,7 @@ function PlaylistList(props) {
                 style={{
                     position: "absolute",
                     left: "86%",
-                    top: "70px",
+                    top: "100px",
                     backgroundColor: 'darkred',
                     borderRadius: '15px',
                     color: 'white',

@@ -132,7 +132,7 @@ if(creds){
                 <NavLink href={`/change_password_request`}>Edit Password</NavLink>
                 </DropdownItem>
                 <DropdownItem>
-                <NavLink href={`list/${uu}`}>Lists</NavLink>
+                <NavLink href={`/list/${uu}`}>Lists</NavLink>
                 </DropdownItem>
                 <DropdownItem>
                 <NavLink onClick={deleteCred}>Log Out</NavLink>
@@ -142,9 +142,7 @@ if(creds){
           </Nav>   
         </Collapse>
       </Navbar>
-      {/* <br/>
-      <br/>
-      <br/>  */}
+
     </div>
     )
 }else
