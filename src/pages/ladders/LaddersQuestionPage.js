@@ -60,6 +60,10 @@ function LaddersQuestionPage(props) {
     const [lastPage,setLastPage] = useState("");
     const [locked,setlocked] = useState(false);
 
+    const updateReload = () => {
+      window.location.reload();
+    }
+
     useEffect(() => {
       if(problems!=null)
       {
@@ -101,10 +105,9 @@ function LaddersQuestionPage(props) {
     {
       return (
         show==true ? <Loading/>:<div>
-            {/* {console.log(problems)} */}
         <Navbar />
-        <h2 style={{textAlign:"center"}}>{problems.meta.description}</h2>
-        <Button variant="success" className="updateBtn">Update</Button>
+        <h2 style={{textAlign:"center", marginTop: '120px'}}>{problems.meta.description}</h2>
+        <Button variant="success" className="updateBtn" onClick={updateReload}>Update</Button>
         <div className="container-fluid" style={{display:"flex",flexDirection:"row",alignItems:"center",padding:"0rem 0rem"}}>
 
           {problems.meta.current_page!=1 ? <>
