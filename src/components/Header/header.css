@@ -13,6 +13,7 @@
     background: transparent !important;
     font-size: 1rem;
     color: white;
+    font-weight: 400;
 }
 
 a {
@@ -38,4 +39,10 @@ a {
 
 .dropdown-item:hover {
     background-color: grey;
+}
+
+#BrandLogo{
+        width: 50px;
+        margin-right: 0;
+        float: none;
 }

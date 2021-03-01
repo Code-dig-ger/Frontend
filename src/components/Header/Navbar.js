@@ -15,6 +15,7 @@ import {
   NavbarText
 } from 'reactstrap';
 import './header.css';
+import logo1 from '../../assets/logo1.png';
 
 const IndexNavbar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,8 +54,8 @@ useEffect(() => {
 if(creds){
   return(
     <div>
-      <Navbar id="navbar" color="light" light expand="md" style={{background:'transparent !important'}}>
-        <NavbarBrand href="/">CODEDIGGER</NavbarBrand>
+      <Navbar id="navbar" color="light" light expand="md" style={{background:'transparent !important', paddingLeft: '6%', paddingRight: '6% '}}>
+        <NavbarBrand href="/"><img src={logo1} id="BrandLogo"/>CODEDIGGER</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>

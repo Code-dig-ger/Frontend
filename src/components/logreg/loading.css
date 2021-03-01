@@ -1,17 +1,4 @@
-svg {
-    width: 135%;
-    height: 135%;
-  }
-  
-  path {
-    fill: none;
-    stroke: whitesmoke;
-    stroke-width: 20;
-    transform-origin: center center;
-    -moz-animation: load 1.2s ease-in-out infinite;
-    -webkit-animation: load 1.2s ease-in-out infinite;
-    animation: load 1.2s ease-in-out infinite;
-  }
+
   
   .slash {
     -moz-animation-name: slash;

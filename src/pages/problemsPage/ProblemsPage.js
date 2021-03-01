@@ -150,7 +150,8 @@ function ProblemsPage({info,queryStr}) {
                 <h3
                     style={{
                         textAlign: 'center',
-                        marginBottom: '65px'
+                        marginBottom: '65px',
+                        marginTop: '100px'
                     }}
                 >Problems</h3>
                 <Button style={{position:'absolute', bottom:'77vh', right:'6vw'}} onClick={toggle}>Filter</Button>

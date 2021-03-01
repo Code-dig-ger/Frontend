@@ -71,7 +71,7 @@ function LaddersLevel(props) {
                             {console.log(dat)}
                         <Header />
                         
-                        <div className="container ladders_ques">
+                        <div className="container ladders_ques" style={{marginTop: '80px'}}>
                         <br/>
             
                         {console.log(dat[0])}
