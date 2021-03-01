@@ -76,7 +76,7 @@ function LaddersLevel(props) {
             
                         {console.log(dat[0])}
             
-                        {dat.map((level)=> {
+                        {dat.map((level,index)=> {
                             return(
                                 <>
                                 <LaddersContent 
@@ -86,6 +86,7 @@ function LaddersLevel(props) {
                                     wise1={wise1}
                                     wise={props.wise}
                                     type={props.type}
+                                    index={index}
                                 />
             
                                 <br/>

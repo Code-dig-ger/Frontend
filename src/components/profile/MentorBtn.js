@@ -62,9 +62,9 @@ function MentorBtn({creds, acc, handle, user}) {
     if(handle===creds.username)
     {
         return (
-            <div>
+            <>
                 {mentors ? <MentorModal creds={creds} acc={acc} handle={handle} user={user} mentors={mentors}/>:<Loading/>}
-            </div>
+            </>
         )
     }
     else if(user.result.about_mentor === "Mentor")

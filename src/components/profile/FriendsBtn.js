@@ -1,6 +1,8 @@
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import {ButtonToggle} from 'reactstrap';
-import ListModal from './ListModal'
+import ListModal from './ListModal';
+import './friendsBtn.css';
+import $,{onClick} from 'jquery'
 
 
 const FriendsBtn = ({creds, acc, handle, user}) => {
@@ -64,6 +66,31 @@ const FriendsBtn = ({creds, acc, handle, user}) => {
         
     }
 
+    const [friendsOptions,setFriendsOptions]=useState(true);
+
+    const toggle = (e) => {
+        e.preventDefault();
+        setFriendsOptions(!friendsOptions);
+        if(friendsOptions)
+        {
+            console.log("true");
+            $('.popout-right>.popout-menu-right').removeClass('hideOptions');
+            $('.popout-right>.popout-menu-right').addClass('showOptions');
+            $('.window-button>.icon-popout-right').removeClass('glyphicon-menu-hamburger');
+            $('.window-button>.icon-popout-right').addClass('animated rotateIn glyphicon-remove');
+            $('.dropdown-link-right').addClass('animated bounceIn');
+        }
+        else
+        {
+            console.log("false");
+            $('.popout-right>.popout-menu-right').removeClass('showOptions');
+            $('.popout-right>.popout-menu-right').addClass('hideOptions');
+            $('.window-button>.icon-popout-right').removeClass('animated rotateIn glyphicon-remove');
+            $('.dropdown-link-right').removeClass('animated bounceIn');
+            $('.window-button>.icon-popout-right').addClass('animated bounceIn glyphicon-menu-hamburger');
+        }
+      }
+
     if(user.result.about_user === "Not Authenticated"){
       
         return(
@@ -97,20 +124,9 @@ const FriendsBtn = ({creds, acc, handle, user}) => {
         )
     }else if(user.result.about_user === "Logged In User Itself"){
         return(
-            <div style={{
-                position: "absolute",
-                width: '200px',
-                right: '150px',
-                top: '310px'
-            }}>
-
+            <>
                 <ListModal creds={creds} acc={acc} handle={handle} user={user}/>
-                {/* <ButtonToggle style={{
-                position: "absolute",
-                right: "190px",
-                bottom: "275px"}}
-                onClick={showList}> Show List</ButtonToggle> */}
-            </div>
+                </>
         )
     }else if(user.result.about_user === "Request Received"){
         return(

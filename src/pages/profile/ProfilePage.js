@@ -187,7 +187,6 @@ function ProfilePage({handle}) {
                                 </div>
                                 </div>
                                 <ul className="list-group list-group-flush">
-                                    <br/><br/><br/>
                                 <li className="d-flex justify-content-between align-items-center flex-wrap handlesItem">
                                     <img style={{height:"1rem", width:"6rem", marginRight:"0"}} src={CodeforcesImg}></img>
                                     <h6 className="mb-0">Codeforces</h6>
