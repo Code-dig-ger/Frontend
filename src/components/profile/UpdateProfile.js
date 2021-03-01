@@ -22,41 +22,50 @@ const UpdateInfo=()=>{
 
 
           //new states
-          const [newname,setnewName]=useState(null);
-          const [newcodeforces,setnewCodeforces]=useState(null);
-          const [newcodechef,setnewCodechef]=useState(null);
-          const [newatcoder,setnewAtcoder]= useState(null);
-          const [newspoj,setnewSpoj]=useState(null);
-           const [newuv,setnewUv]=useState(null);
+          const [newname,setnewName]=useState("");
+          const [newcodeforces,setnewCodeforces]=useState("");
+          const [newcodechef,setnewCodechef]=useState("");
+          const [newatcoder,setnewAtcoder]= useState("");
+          const [newspoj,setnewSpoj]=useState("");
+           const [newuv,setnewUv]=useState("");
           //function to update
            
           async function handle(e){
               e.preventDefault();
               const uu=username;
               const tt=token;
-              console.log(codeforces)
-              if(newname===null){
-                setnewName(name)
-              }
-              if(newcodeforces==null){
-                      setnewCodeforces(codeforces);
-              }
+              let cc,cf,at,uva,sp,na;
+              //console.log(newcodeforces)
+             if(newname!=="")
+             na=newname
+             else
+             na=name
              
+             if(newcodeforces!=="")
+             cf=newcodeforces
+             else
+             cf=codeforces
 
-              if(newcodechef==null){
-                setnewCodechef(codechef);
-        }
-        else{
-          setnewCodechef(newcodechef)
-        }
+             if(newcodechef!=="")
+             cc=(newcodechef)
+             else
+             cc=(codechef)
 
-        if(newatcoder==null){
-          setnewAtcoder(atcoder);
-          }
-       else{
-           setnewAtcoder(newatcoder)
-           }
-                 
+             if(newatcoder!=="")
+             at=(newatcoder)
+             else
+             at=(atcoder)
+
+             if(newspoj!="")
+             sp=(newspoj)
+             else
+             sp=(spoj)
+
+             if(newuv!="")
+             uva=(newuv)
+             else
+             uva=(uv)
+
 
             const response=await fetch(`https://api.codedigger.tech/auth/profile/${uu}`,{
                 method:"PUT",
@@ -65,12 +74,12 @@ const UpdateInfo=()=>{
                     "Authorization":`Bearer ${tt}`
                 },
                 body:JSON.stringify({
-                  "name":newname,
-                  "codeforces":newcodeforces,
-                  "codechef":newcodechef,
-                  "atcoder":newatcoder,
-                  "spoj":newspoj,
-                  "uva_handle":newuv
+                  "name":na,
+                  "codeforces":cf,
+                  "codechef":cc,
+                  "atcoder":at,
+                  "spoj":sp,
+                  "uva_handle":uva
                  
                  
     
@@ -78,7 +87,7 @@ const UpdateInfo=()=>{
             })
           
             const data=await response.json();
-           console.log(data);
+         //  console.log(data);
             if(response.status===200){
             window.location=`/profile/${uu}`;
         }
@@ -109,6 +118,7 @@ const UpdateInfo=()=>{
                   setSpoj(Prevdata.spoj);
                   setName(Prevdata.name);
                   setUv(Prevdata.uva_handle);
+                  
               }  
 
 
