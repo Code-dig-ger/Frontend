@@ -4,6 +4,7 @@ import './MainCard.css';
 import {OverlayTrigger,Tooltip} from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFolderPlus} from '@fortawesome/free-solid-svg-icons'
+import {faLock} from '@fortawesome/free-solid-svg-icons';
 
 const renderTooltip1 = (props) => (
   <Tooltip id="button-tooltip" {...props}>
@@ -23,15 +24,11 @@ const MainCard = (props) => {
     console.log(modal);
   })
 
-  async function toggle(event) {
-    event.preventDefault();
-    setModal(!modal);
-    console.log(modal);
-    
-    if(!modal)
-    {
-      console.log("ppppppp");
-      const res = await fetch(`https://api.codedigger.tech/lists/userlist/`, {
+  console.log(props);
+
+  async function getPlaylists()
+  {
+    const res = await fetch(`https://api.codedigger.tech/lists/userlist/`, {
             method:"GET",
             headers:{
                 "Content-Type":"application/json",
@@ -42,6 +39,17 @@ const MainCard = (props) => {
                 .json()
                 .then(res => setPlaylists(res))
                 .catch(error => setErrors(true));
+  }
+
+  function toggle(event) {
+    event.preventDefault();
+    setModal(!modal);
+    console.log(modal);
+    
+    if(!modal)
+    {
+      console.log("ppppppp");
+      getPlaylists();
       // fetchData();
     }
     console.log(playlists);
@@ -54,12 +62,6 @@ const MainCard = (props) => {
         <>
         <div className="card unsolvedCard">
         <h3 className="title">{props.ProblemData.name}</h3>
-        <span><OverlayTrigger
-            placement="top"
-            overlay={renderTooltip1}
-          >
-            <a onClick={toggle} style={{cursor:"pointer"}}><FontAwesomeIcon icon={faFolderPlus} /></a>
-          </OverlayTrigger></span>
           <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>Add to Playlist</ModalHeader>
         <ModalBody>
@@ -89,19 +91,17 @@ const MainCard = (props) => {
           <Button color="secondary" onClick={toggle}>Close</Button>
         </ModalFooter>
       </Modal>
-        <h6 className="ml-3 pl-1" style={{marginTop:"4rem"}}>Platform: {props.ProblemData.platform}</h6>
-        <div className="bar">
+      <h6 style={{marginTop:'6rem'}} className="ml-3 pl-1">Platform: {props.ProblemData.platform}</h6>
+        <div style={{marginTop:'2rem'}} className="bar">
           <div className="emptybar" />
           <div className={props.ProblemData.status === "solved"? "filledbar": "exapmplebar"}></div>
         </div>
-          <div className="circle">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle className="stroke" cx="60" cy="60" r="50"/>
-            </svg>
-          </div>
-          <div className="container_card">
-            <Button target="_blank" className="buttondisp" href={props.ProblemData.url}>Solve</Button>
-          </div>
+        <Button className="SolveButton" color='success'><a className="SolveLink" href={props.ProblemData.url}>Solve</a></Button>
+        <OverlayTrigger
+            placement="top"
+            overlay={renderTooltip1}
+          >
+        <Button onClick={toggle} className="SaveButton" color='primary'>Save</Button></OverlayTrigger>
         </div>
       </>
       )
@@ -111,26 +111,54 @@ const MainCard = (props) => {
       <>
         <div className="card">
         <h3 className={(props.count > props.solvedBtn && props.solvedBtn!=-1) ? "title_hide" : "title"}>{props.ProblemData.name}</h3>
-        {(props.count > props.solvedBtn && props.solvedBtn!=-1) ? <></>:<span><OverlayTrigger
+        <Modal isOpen={modal} toggle={toggle}>
+        <ModalHeader toggle={toggle}>Add to Playlist</ModalHeader>
+        <ModalBody>
+        </ModalBody>
+          <ul>
+          {playlists.map((list) => {
+            return(
+              <>
+                <li>
+                  <span style={{color:"white", fontSize:"19px"}}>{list.name}</span>
+                  <Button 
+                            color="success" 
+                            style={{padding:"5px 7px", 
+                            position:"relative", 
+                            left:"20px", 
+                            bottom:"0",
+                            borderRadius:"10%"}}>
+                              Add
+                            </Button>
+                            
+                </li>
+              </>
+            )
+          })}
+          </ul>
+        <ModalFooter>
+          <Button color="secondary" onClick={toggle}>Close</Button>
+        </ModalFooter>
+      </Modal>
+        {/* {(props.count > props.solvedBtn && props.solvedBtn!=-1) ? <></>:<span><OverlayTrigger
             placement="top"
             overlay={renderTooltip1}
           >
             <a href=""><FontAwesomeIcon icon={faFolderPlus} /></a>
-          </OverlayTrigger></span>}
-        <h6 className={(props.count > props.solvedBtn && props.solvedBtn!=-1) ? "title_hide" : "mt-5 ml-3 pl-1"}>Platform: {props.ProblemData.platform}</h6>
+          </OverlayTrigger></span>} */}
+        <h6 style={{marginTop:'6rem'}} className={(props.count > props.solvedBtn && props.solvedBtn!=-1) ? "title_hide" : "marginTop6 ml-3 pl-1"}>Platform: {props.ProblemData.platform}</h6>
         <h3 className={(props.count > props.solvedBtn && props.solvedBtn!=-1) ? "title_locked" : "title_hide"}>?</h3>
-        <div className="bar">
+        <div style={{marginTop:'2rem'}} className="bar">
           <div className="emptybar" />
           <div className={props.ProblemData.status === "solved"? "filledbar": ""}></div>
         </div>
-          <div className="circle">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle className="stroke" cx="60" cy="60" r="50"/>
-            </svg>
-          </div>
-          <div className="container_card">
-              <a target="_blank" href={(props.count > props.solvedBtn && props.solvedBtn!=-1) ? "" : props.ProblemData.url}><div className={(props.count > props.solvedBtn && props.solvedBtn!=-1) ? "lock": "check"}></div></a>
-          </div>
+        {/* <Button className="SolveButton" color='success'><a className="SolveLink" href={props.ProblemData.url}>Solve</a></Button> */}
+        {(props.count > props.solvedBtn && props.solvedBtn!=-1) ? <><Button style={{marginTop:'4rem',marginTop:'4rem'}} id="lockHover" className="SolveButton" color='success'><a className="SolveLink" href={(props.count > props.solvedBtn && props.solvedBtn!=-1) ? "" : props.ProblemData.url}><FontAwesomeIcon id="lockIcon" style={{width:'2.5rem',height:'2.5rem',color:'red'}} icon={faLock}/></a></Button></>: <><Button className="DoneButton" color='success'><a className="DoneLink" href={props.ProblemData.url}>Done</a></Button></>}
+        {(props.count > props.solvedBtn && props.solvedBtn!=-1) ? <></>:<><OverlayTrigger
+            placement="top"
+            overlay={renderTooltip1}
+          >
+        <Button onClick={toggle} className="SaveButton" color='primary'>Save</Button></OverlayTrigger></>}
         </div>
       </>
     )
@@ -146,25 +174,46 @@ const MainCard = (props) => {
         <>
         <div className="card unsolvedCard">
         <h3 className="title">{props.ProblemData.name}</h3>
-        <span><OverlayTrigger
-            placement="top"
-            overlay={renderTooltip1}
-          >
-            <a href=""><FontAwesomeIcon icon={faFolderPlus} /></a>
-          </OverlayTrigger></span>
-        <h6 className="mt-5 ml-3 pl-1">Platform: {props.ProblemData.platform}</h6>
-        <div className="bar">
+        <Modal isOpen={modal} toggle={toggle}>
+        <ModalHeader toggle={toggle}>Add to Playlist</ModalHeader>
+        <ModalBody>
+        </ModalBody>
+          <ul>
+          {playlists.map((list) => {
+            return(
+              <>
+                <li>
+                  <span style={{color:"white", fontSize:"19px"}}>{list.name}</span>
+                  <Button 
+                            color="success" 
+                            style={{padding:"5px 7px", 
+                            position:"relative", 
+                            left:"20px", 
+                            bottom:"0",
+                            borderRadius:"10%"}}>
+                              Add
+                            </Button>
+                            
+                </li>
+              </>
+            )
+          })}
+          </ul>
+        <ModalFooter>
+          <Button color="secondary" onClick={toggle}>Close</Button>
+        </ModalFooter>
+      </Modal>
+        <h6 style={{marginTop:'6rem'}} className="ml-3 pl-1">Platform: {props.ProblemData.platform}</h6>
+        <div style={{marginTop:'2rem'}} className="bar">
           <div className="emptybar" />
           <div className={props.ProblemData.status === "solved"? "filledbar": "exapmplebar"}></div>
         </div>
-          <div className="circle">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle className="stroke" cx="60" cy="60" r="50"/>
-            </svg>
-          </div>
-          <div className="container_card">
-            <Button target="_blank" className="buttondisp" href={props.ProblemData.url}>Solve</Button>
-          </div>
+        <Button className="SolveButton" color='success'><a className="SolveLink" href={props.ProblemData.url}>Solve</a></Button>
+        <OverlayTrigger
+            placement="top"
+            overlay={renderTooltip1}
+          >
+        <Button onClick={toggle} className="SaveButton" color='primary'>Save</Button></OverlayTrigger>
         </div>
       </>
       )
@@ -175,57 +224,108 @@ const MainCard = (props) => {
       {
         return(
           <>
+          <Modal isOpen={modal} toggle={toggle}>
+        <ModalHeader toggle={toggle}>Add to Playlist</ModalHeader>
+        <ModalBody>
+        </ModalBody>
+          <ul>
+          {playlists.map((list) => {
+            return(
+              <>
+                <li>
+                  <span style={{color:"white", fontSize:"19px"}}>{list.name}</span>
+                  <Button 
+                            color="success" 
+                            style={{padding:"5px 7px", 
+                            position:"relative", 
+                            left:"20px", 
+                            bottom:"0",
+                            borderRadius:"10%"}}>
+                              Add
+                            </Button>
+                            
+                </li>
+              </>
+            )
+          })}
+          </ul>
+        <ModalFooter>
+          <Button color="secondary" onClick={toggle}>Close</Button>
+        </ModalFooter>
+      </Modal>
         <div className="card">
         <h3 className="title">{props.ProblemData.name}</h3>
-        <span><OverlayTrigger
-            placement="top"
-            overlay={renderTooltip1}
-          >
-            <a href=""><FontAwesomeIcon icon={faFolderPlus} /></a>
-          </OverlayTrigger></span>
-        <h6 className="mt-5 ml-3 pl-1">Platform: {props.ProblemData.platform}</h6>
-        <div className="bar">
+        <h6 style={{marginTop:'6rem'}} className="ml-3 pl-1">Platform: {props.ProblemData.platform}</h6>
+        <div style={{marginTop:'2rem'}} className="bar">
           <div className="emptybar" />
           <div className="exapmplebar"></div>
         </div>
-          <div className="circle">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <Button className="SolveButton" color='success'><a className="SolveLink" href={props.ProblemData.url}>Solve</a></Button>
+        <OverlayTrigger
+            placement="top"
+            overlay={renderTooltip1}
+          >
+        <Button onClick={toggle} className="SaveButton" color='primary'>Save</Button></OverlayTrigger>
+          {/* <div className={'circle ' + (props.pageLast=="true" ? 'circlePosLast':'circlePosNormal')}>
+            <svg style={{width:'111px',height:'111px'}} version="1.1" xmlns="http://www.w3.org/2000/svg">
               <circle className="stroke" cx="60" cy="60" r="50"/>
             </svg>
-          </div>
-          <div className="container_card">
+          </div> */}
+          {/* <div className="container_card">
             <Button target="_blank" className="buttondisp" href={props.ProblemData.url}>Solve</Button>
-          </div>
+          </div> */}
         </div>
       </>
         )
       }
       else
       {
+        console.log("Here i am");
         return(
           <>
+          <Modal isOpen={modal} toggle={toggle}>
+        <ModalHeader toggle={toggle}>Add to Playlist</ModalHeader>
+        <ModalBody>
+        </ModalBody>
+          <ul>
+          {playlists.map((list) => {
+            return(
+              <>
+                <li>
+                  <span style={{color:"white", fontSize:"19px"}}>{list.name}</span>
+                  <Button 
+                            color="success" 
+                            style={{padding:"5px 7px", 
+                            position:"relative", 
+                            left:"20px", 
+                            bottom:"0",
+                            borderRadius:"10%"}}>
+                              Add
+                            </Button>
+                            
+                </li>
+              </>
+            )
+          })}
+          </ul>
+        <ModalFooter>
+          <Button color="secondary" onClick={toggle}>Close</Button>
+        </ModalFooter>
+      </Modal>
         <div className="card">
         <h3 className="title">{props.ProblemData.name}</h3>
-        <span><OverlayTrigger
-            placement="top"
-            overlay={renderTooltip1}
-          >
-            <a href=""><FontAwesomeIcon icon={faFolderPlus} /></a>
-          </OverlayTrigger></span>
-        <h6 className="mt-5 ml-3 pl-1">Platform: {props.ProblemData.platform}</h6>
-        <h3 className="title_hide">?</h3>
-        <div className="bar">
+        
+        <h6 style={{marginTop:'6rem'}} className="ml-3 pl-1">Platform: {props.ProblemData.platform}</h6>
+        <div style={{marginTop:'2rem'}} className="bar">
           <div className="emptybar" />
           <div className= "filledbar"></div>
         </div>
-          <div className="circle">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <circle className="stroke" cx="60" cy="60" r="50"/>
-            </svg>
-          </div>
-          <div className="container_card">
-              <a target="_blank" href={props.ProblemData.url}><div className="check"></div></a>
-          </div>
+        <Button className="DoneButton" color='success'><a className="DoneLink" href={props.ProblemData.url}>Done</a></Button>
+        <OverlayTrigger
+            placement="top"
+            overlay={renderTooltip1}
+          >
+        <Button onClick={toggle} className="SaveButton" color='primary'>Save</Button></OverlayTrigger>
         </div>
       </>
         )

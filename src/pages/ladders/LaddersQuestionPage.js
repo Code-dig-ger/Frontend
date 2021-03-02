@@ -115,18 +115,18 @@ function LaddersQuestionPage(props) {
             placement="top"
             overlay={renderTooltip1}
           >
-            <a href={firstPage}><FontAwesomeIcon className="pageNavIcons" icon={faAngleDoubleLeft} /></a>
+            <a style={{position:'absolute',left:'15px'}} href={firstPage}><FontAwesomeIcon className="pageNavIcons" icon={faAngleDoubleLeft} /></a>
           </OverlayTrigger>
 
           <OverlayTrigger
             placement="top"
             overlay={renderTooltip2}
           >
-            <a href={prevPage}><FontAwesomeIcon className="pageNavIcons" icon={faAngleLeft} style={{marginLeft:"13px"}}/></a>
+            <a style={{position:'absolute',left:'65px'}} href={prevPage}><FontAwesomeIcon className="pageNavIcons" icon={faAngleLeft}/></a>
           </OverlayTrigger></>:<></>}
           
 
-            {problems.meta.current_page===1 ? <div className="container-card marginLeftOfCards" style={{marginTop:"75px"}}>
+            {problems.meta.current_page===1 ? <div className="container-card" style={{marginTop:"75px"}}>
                 {problems.result.map((ProblemData)=>{
                     // console.log(ProblemData.solved);
                     count++;
@@ -138,7 +138,7 @@ function LaddersQuestionPage(props) {
                     return(
                         <>
                         {/* {console.log(locked)} */}
-                          {locked ? <MainCard type={props.type} count={20} ProblemData={ProblemData} solvedBtn={10}/>:<MainCard type={props.type} count={count} ProblemData={ProblemData} solvedBtn={solvedBtn}/>}
+                          {locked ? <MainCard pageLast={'false'} type={props.type} count={20} ProblemData={ProblemData} solvedBtn={10}/>:<MainCard type={props.type} count={count} ProblemData={ProblemData} solvedBtn={solvedBtn}/>}
                                 
                                 {/* {console.log(count,ProblemData,solvedBtn)} */}
                         </>
@@ -158,7 +158,7 @@ function LaddersQuestionPage(props) {
                     }
                     return(
                         <>
-                                {locked ? <MainCard type={props.type} count={20} ProblemData={ProblemData} solvedBtn={10}/>:<MainCard type={props.type} count={count} ProblemData={ProblemData} solvedBtn={solvedBtn}/>}
+                                {locked ? <MainCard pageLast={problems.meta.current_page==problems.meta.last_page ? 'true':'false'} type={props.type} count={20} ProblemData={ProblemData} solvedBtn={10}/>:<MainCard type={props.type} count={count} ProblemData={ProblemData} solvedBtn={solvedBtn}/>}
                                 {/* {console.log(count,ProblemData,solvedBtn)} */}
                         </>
                     )
@@ -172,14 +172,14 @@ function LaddersQuestionPage(props) {
                   placement="top"
                   overlay={renderTooltip3}
                 >
-                  <a href={nextPage}><FontAwesomeIcon className="pageNavIcons" icon={faAngleRight} style={{marginLeft:"82px",marginRight:"12px"}}/></a>
+                  <a style={{position:'absolute',right:'75px'}} href={nextPage}><FontAwesomeIcon className="pageNavIcons" icon={faAngleRight}/></a>
                 </OverlayTrigger>
 
                 <OverlayTrigger
                   placement="top"
                   overlay={renderTooltip4}
                 >
-                  <a href={lastPage}><FontAwesomeIcon className="pageNavIcons" icon={faAngleDoubleRight} /></a>
+                  <a style={{position:'absolute',right:'15px'}} href={lastPage}><FontAwesomeIcon className="pageNavIcons" icon={faAngleDoubleRight} /></a>
                 </OverlayTrigger></>:<></>}
           
                 {/* <Col>

@@ -74,7 +74,7 @@
     height: 400px;
     width: 1000px;
     top: 0px;
-    left: calc(35% - 415px);
+    left: calc(35% - 310px);
     display: flex;
 }
 
@@ -186,7 +186,14 @@
 .circle {
     position: absolute;
     top: 150px;
+}
+
+.circlePosNormal{
     left: calc(50% - 60px);
+}
+
+.circlePosLast{
+    left: calc(50% - 68px);
 }
 
 .stroke {
