@@ -3,6 +3,7 @@ import Spinner from 'react-bootstrap/Spinner'
 import Navbar from '../../components/Header/Navbar'
 import './forg.style.css'
 import {setNewPass} from '../../actions/auth.actions'
+import { Nav } from 'reactstrap';
 const NewPassForm =()=>{
      const [pass,setPass]=useState();
      const [msg,setMsg]=useState("");
@@ -36,7 +37,7 @@ const NewPassForm =()=>{
     }    
     return (
         <>
-        
+        <Navbar/><br></br><br></br>
         <h4 className="heads">Set Your New Password</h4>
         <form className="newPassForm">
         <input className="inputbox" onChange={(e)=>setPass(e.target.value)} placeholder="new password"></input><br></br>

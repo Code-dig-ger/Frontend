@@ -16,7 +16,7 @@
 }
 .upsolve{
   background-color: rgb(0, 0, 0);
-  color:rgb(72, 144, 168);
+  color:rgb(238, 157, 5);
   border-radius: 10px;
   height: 90px;
   text-align: center;
@@ -201,7 +201,7 @@ a{
   color: black;
 }
 .active-page{
-  background-color: gold;
+  background-color: rgb(3, 62, 102);
   padding: 9px;
   
   

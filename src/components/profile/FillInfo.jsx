@@ -72,7 +72,7 @@ const Info=()=>{
     }
     return(
         <>
-      <Navbar/><br></br>
+      <Navbar/><br></br><br></br>
       <div className="outeri">
        <div className="flex-containeri">
   <div className="content-containeri">
