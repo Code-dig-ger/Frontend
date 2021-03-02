@@ -11,7 +11,7 @@ import Spinner from 'react-bootstrap/Spinner'
 import Footer from '../../components/Footer/FooterSmall'
 import '../../../node_modules/reactjs-popup/dist/index.css';
 import Popup from 'reactjs-popup';
-
+import Tags from '../../assets/tags-icon2.png'
 
 //import actions
 import {codeforces} from '../../actions/upsolve.actions'
@@ -107,7 +107,7 @@ const responisve={superLargeDesktop: {
 },
 desktop: {
   breakpoint: { max: 3000, min: 1024 },
-  items: 4
+  items: 3
 },
 tablet: {
   breakpoint: { max: 1024, min: 464 },
@@ -130,15 +130,15 @@ mobile: {
         {conData.length>0?
         <>
          <div className="upperButtons">
-           <h5 style={{color:"white"}}>CODEFORCES</h5>
+           
            {
              page!=1?
           <button onClick={()=>{
               setTimeout(()=>{setLoader(true)},1000)
             
              setPage(prev)}} className='page-link'>{`< Prev Page`}</button>:<></>}
-
-             <h6 className="green">Solved</h6><h6 className="red">Wrong</h6><h6 className="blue">Upsolved</h6><h6 className="viol">Not attempted</h6>
+          <h5 style={{color:"white"}}>CODEFORCES</h5>
+             
 {page!=last?
 <button onClick={()=>{
                  setTimeout(()=>{setLoader(true)},1000)
@@ -170,30 +170,38 @@ setPage(next)}} className='page-link'>{`Next Page>`}</button>:<></>}</div>
               res. problems.map((prob)=>{
                    if(prob.status==="solved"){
                    return(
-                   <Col><div className="solved" ><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a>
-                  <Popup trigger={<button className="tags"> Tags</button>} position="right center">
-                   <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div>
-  </Popup>
+                  
+                   <Col><div className="solved" ><a className="solved" href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br><br></br>
+                  <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"20px"}} src={Tags}></img>} position="right">
+                   <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div></Popup>
+                   <h7 className="solved">Solved</h7>
                    </div></Col>
+                   
+  
+                   
                    )}
                    else if(prob.status==="wrong"){
                    return(
-                   <Col> <div className="wrong"><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a> <Popup trigger={<button className="tags"> Tags</button>} position="right center">
-                   <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div>
-  </Popup></div></Col>
+                   <Col> <div className="wrong"><a className="solved" href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br><br></br>
+                   <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"20px"}} src={Tags}></img>} position="right">
+                    <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div></Popup>
+                    <h7 className="wrong">Wrong</h7>
+                    </div></Col>
                    )}
                    else if(prob.status==="upsolved"){
                    return(
-                   <Col> <div className="upsolve"><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a> <Popup trigger={<button className="tags"> Tags</button>} position="right center">
-                   <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div>
-  </Popup><br></br>
-                   </div></Col>
+                   <Col> <div className="upsolve"><a className="solved" href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br><br></br>
+                   <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"20px"}} src={Tags}></img>} position="right">
+                    <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div></Popup>
+                    <h7 className="upsolve">Upsolved</h7>
+                    </div></Col>
                    )}
                    return (
-                    <Col> <div className="not_attempted"><h7>{prob.index}-{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a> <Popup trigger={<button className="tags"> Tags</button>} position="right center">
-                    <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div>
-   </Popup><br></br>
-                    </div></Col>
+                    <Col> <div className="not_attempted"><a className="solved" href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br><br></br>
+                    <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"20px"}} src={Tags}></img>} position="right">
+                     <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div></Popup>
+                     <h7 className="not_attempted">Not Attempted</h7>
+                     </div></Col>
                    )
                })}
                </Carousel></Col>

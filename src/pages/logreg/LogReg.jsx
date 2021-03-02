@@ -36,6 +36,7 @@ const LogReg =()=>{
     setLoaderR(true);
      
         const data=await register(emailR,usernameR,passwordR);
+       // console.log(data)
         if(data.status==="OK"){
           setmsgR("Successful, verify your email");
         }
@@ -128,7 +129,7 @@ setmsgR(data.result);
       e.preventDefault();
       setLoaderL(true);
       const data=await login(usernameL,passwordL);
-     // console.log(data);
+     //console.log(data);
       if(data.status==="FAILED"){
         setmsgL(data.error);
       }
@@ -145,10 +146,10 @@ setmsgR(data.result);
       
         if(data.first_time_login===true){
     
-          window.location='/profile/:id'
+        window.location='/profile/:id'
          }
          else{
-         window.location='/home'
+        window.location='/home'
          } 
       }
       setLoaderL(false);
@@ -198,7 +199,7 @@ switchers.forEach((item) => {
         Login
         <span className="underline"></span>
       </button>
-        {loaderL?<Spinner className="loading-animation" animation="border"/>:
+        
       <form className="form form-login">
         <fieldset>
           <legend>Please, enter your email and password for login.</legend>
@@ -218,10 +219,11 @@ switchers.forEach((item) => {
         </fieldset>
       {msgL.length>0?
        <Popup open={true}>
-      <div style={{backgroundColor:"white",color:"black"}}>{msgL}</div>
+      <div className="pops">{msgL}</div>
    </Popup>:<></>}
-  
-        <button onClick={Login} type="submit" className="btn-login">Login</button>
+     
+        <button onClick={Login} type="submit" className="btn-login">{loaderL?'Processing..':'Login'}</button>
+        {loaderL?<Spinner className="loading-animation" animation="border"/>:<></>}
         <div className="loginops">
     <img style={{width:'35px',height:'35px','margin-top':'4px'}} src={GoogleIcon}></img>
       <GoogleLogin 
@@ -235,7 +237,7 @@ switchers.forEach((item) => {
         <div style={{'display':'block','text-align':'center','font-size':'16px'}}><a href='/ForgPass'>Forgot Password ?</a></div>
          </form>
      
-            }
+            
     </div>
     <div class="form-wrapper">
       <button type="button" className="switcher switcher-signup" onClick={()=>{
@@ -253,7 +255,7 @@ switchers.forEach((item) => {
         Register
         <span className="underline"></span>
       </button>
-      {loaderR?<Spinner className="loading-animation" animation="border"/>:
+     
       <form className="form form-signup">
       {((msgR==="")||(msgR!=="Successful, verify your email"))?<>
         <fieldset>
@@ -276,23 +278,27 @@ switchers.forEach((item) => {
         </fieldset>
         {msgR.length>0?
         <Popup open={true}>
-      <div style={{backgroundColor:"white",color:"black"}}>{msgR}</div>
+      <div className="pops">{msgR}</div>
    </Popup>:<></>}
-        <button onClick={Register} type="submit" className="btn-signup">Register</button></>
+        <button onClick={Register} type="submit" disable={loaderR} className="btn-signup"> {loaderR?'Processing..':
+       'Register'}
+          </button>
+          {loaderR?<Spinner className="loading-animation" animation="border"/>:<></>}
+          </>
         :
         <>
         <h7 className="goodmsgs">{`We have sent you a verification link on ${emailR} .`}</h7><br></br><h7 className="goodmsgs">{`Please verify your email and move to login. \n If you haven't recieved any mail regarding this, click here to send again.`}</h7>
         <button className="goodmsgs" onClick={Sendagain}>Send again</button></>}
       </form>
-    
-}
+
+
     </div>
   </div>
 </section>
         
       </div>
        <FooterSmall/></>)
-      }
+        }
     </div>
    
     </>

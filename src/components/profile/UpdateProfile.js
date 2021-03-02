@@ -36,36 +36,42 @@ const UpdateInfo=()=>{
               const tt=token;
               let cc,cf,at,uva,sp,na;
               //console.log(newcodeforces)
-             if(newname!=="")
+             if(newname!==""){
              na=newname
-             else
+             }
+             else{
              na=name
-             
-             if(newcodeforces!=="")
+             }
+             if(newcodeforces!==""){
              cf=newcodeforces
-             else
+             }
+             else{
              cf=codeforces
-
-             if(newcodechef!=="")
+             }
+             if(newcodechef!==""){
              cc=(newcodechef)
-             else
+             }
+             else{
              cc=(codechef)
-
-             if(newatcoder!=="")
+             }
+             if(newatcoder!==""){
              at=(newatcoder)
-             else
+             }
+             else{
              at=(atcoder)
-
-             if(newspoj!="")
+             }
+             if(newspoj!=""){
              sp=(newspoj)
-             else
+             }
+             else{
              sp=(spoj)
-
-             if(newuv!="")
+             }
+             if(newuv!=""){
              uva=(newuv)
-             else
+             }
+             else{
              uva=(uv)
-
+             }
 
             const response=await fetch(`https://api.codedigger.tech/auth/profile/${uu}`,{
                 method:"PUT",
@@ -129,7 +135,7 @@ const UpdateInfo=()=>{
         
     return(
         <>
-      <Navbar/><br></br>
+      <Navbar/><br></br><br></br>
       <div className="outeri">
        <div className="flex-containeri">
   <div className="content-containeri">
@@ -141,7 +147,7 @@ const UpdateInfo=()=>{
         
         <br></br>
 
-        
+         
         <input placeholder={`Name : ${name}`} onChange={(e)=>setnewName(e.target.value)} className="inputi" type="text" required/>
         <br></br>
         <input placeholder={`Codeforces : ${codeforces}`} onChange={(e)=>setnewCodeforces(e.target.value)} className="inputi" type="text" required/>

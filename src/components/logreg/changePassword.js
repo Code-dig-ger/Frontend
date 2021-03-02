@@ -2,14 +2,17 @@ import React, { useState } from 'react'
 import './chanePassword.style.css'
 import Navbar from '../Header/Navbar'
 import {NewPassRequest} from '../../actions/auth.actions'
+import Spinner from 'react-bootstrap/Spinner'
 const PassChangeForm=()=>{
 
 
     const [old,setOld]=useState();
     const [newPass,setNewPass]=useState();
+    const [loader,setLoader] =useState(false);
     
     async function handle(e){
         e.preventDefault();
+        setLoader(true);
         const creds=JSON.parse(localStorage.getItem("creds"));
         const acc=creds.access; 
         const data=await NewPassRequest(old,newPass,acc);
@@ -20,8 +23,9 @@ const PassChangeForm=()=>{
         }
         else{
             alert(data.result)
-            window.location='/home'
+            //window.location='/home'
         }
+        setLoader(false);
     }
      return(
         <>
@@ -44,7 +48,8 @@ const PassChangeForm=()=>{
         <br></br>
         <input onChange={(e)=>setNewPass(e.target.value)} className="input" type="text"  required/>
         <br></br>
-        <input onClick={handle} type="submit" value="SUBMIT" className="submit-btn"/>
+        <input onClick={handle} type="submit" value={`${loader?'loading....':'SUBMIT'}`} className="submit-btn"></input>
+        {loader?<Spinner className="loading-animation" animation="border"/>:<></>}
       </form>
     </div>
   </div>
