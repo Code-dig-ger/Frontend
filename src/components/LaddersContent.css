@@ -45,20 +45,6 @@
     
 }
 
-.bgIndex1{
-	background-color: #032C50;
-}
-.bgIndex2{
-	background-color: #06558A;
-}
-.bgIndex3{
-	background-color: #33A1C8;
-}
-.bgIndex4{
-	background-color: #A6CCD9;
-}
-
-
 .course-preview {
 	color: #fff;
 	padding: 30px;
@@ -106,20 +92,42 @@
 	width: 66%;
 }
 
+
+.bgIndex1{
+	background-color: #1C3850;
+}
+.bgIndex2{
+	background-color: #00759E;
+}
+.bgIndex3{
+	background-color: #00AECF;
+}
+.bgIndex4{
+	background-color: #56BCD6;
+}
+
+.bgIndex5{
+	background-color: #A4DEED;
+}
+
 .progbgIndex1::after{
-	background-color: #032C50;
+	background-color: #1C3850;
 }
 
 .progbgIndex2::after{
-	background-color: #06558A;
+	background-color: #00759E;
 }
 
 .progbgIndex3::after{
-	background-color: #33A1C8;
+	background-color: #00AECF;
 }
 
 .progbgIndex4::after{
-	background-color: #A6CCD9;
+	background-color: #56BCD6;
+}
+
+.progbgIndex5::after{
+	background-color: #A4DEED;
 }
 
 .TopicbgIndex1{
@@ -133,6 +141,10 @@
 }
 .TopicbgIndex4{
 	background-color: #71C1BF;
+}
+
+.TopicbgIndex5{
+	background-color: #95D2CF;
 }
 
 .TopicprogbgIndex1::after{
@@ -149,6 +161,10 @@
 
 .TopicprogbgIndex4::after{
 	background-color: #71C1BF;
+}
+
+.TopicprogbgIndex5::after{
+	background-color: #95D2CF;
 }
 
 .progress-text {
