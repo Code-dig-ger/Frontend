@@ -55,6 +55,13 @@ const MainCard = (props) => {
     console.log(playlists);
   };
 
+  function addProb(e,prob_id){
+    // toggle(e);
+    console.log(prob_id);
+  }
+
+  
+
   if(props.type === "ladder")
   {
     if(props.solvedBtn === props.count){
@@ -91,6 +98,7 @@ const MainCard = (props) => {
           <Button color="secondary" onClick={toggle}>Close</Button>
         </ModalFooter>
       </Modal>
+      
       <h6 style={{marginTop:'6rem'}} className="ml-3 pl-1">Platform: {props.ProblemData.platform}</h6>
         <div style={{marginTop:'2rem'}} className="bar">
           <div className="emptybar" />
