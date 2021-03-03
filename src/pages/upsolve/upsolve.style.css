@@ -34,7 +34,7 @@
 }
 .contestRow{
  height: 90px;
-
+  
  border-radius: 10px;
   
 }
@@ -48,6 +48,7 @@ margin-left: 8px;
 
 Col{
   border-radius: 10px;
+ 
 }
 .heads{
   text-align: center;
@@ -57,19 +58,8 @@ Col{
   display: flex;
   justify-content: space-around;
 }
-.correct{
-  color: rgb(0, 117, 0);
-  text-align: center;
 
-}
-.incorrect{
-  color: rgb(248, 126, 126);
- 
-}
-.todo{
-  color: rgb(150, 150, 250);
-  
-}
+
 
 
 .vir{
@@ -110,7 +100,7 @@ Col{
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(3, 3, 3, 0.7);
   transition: opacity 500ms;
   visibility: hidden;
   opacity: 0;
@@ -208,8 +198,8 @@ a{
 }
 
 .not_attempted{
-  background-color: rgb(0,0,0);
-  color:rgb(177, 0, 212);
+  color: rgb(8, 224, 224);
+  background-color: black;
   border-radius: 10px;
   height: 90px;
   text-align: center;
