@@ -3,6 +3,7 @@ import './info.css'
 
 import Navbar from '../Header/Navbar'
 import Footer from '../Footer/FooterSmall'
+import Spinner from 'react-bootstrap/Spinner'
 
 const Info=()=>{
       //states for handles
@@ -16,6 +17,7 @@ const Info=()=>{
          const [msg,setMsg]=useState("Create Your Profile");
          const [user,setUser]=useState();
          const [show,setShow]=useState(false);
+        
     async function handle(e){
         e.preventDefault();
         setShow(true);
@@ -69,6 +71,7 @@ const Info=()=>{
       
         
     }
+    setShow(false);
     }
     return(
         <>
@@ -104,7 +107,10 @@ const Info=()=>{
         <br></br>
         <input placeholder="UVA" onChange={(e)=>setUv(e.target.value)} className="inputi" type="text"  />
         <br></br>
-        <input onClick={handle} type="submit" value="SUBMIT" className="submit-btni"/>
+        
+        <input onClick={handle} type="submit" value={show?'Processing...':'SUBMIT'} className="submit-btni"/>
+        {show?<Spinner className="loading-animation" animation="border"/>:<></>}
+       
       </form>
     </div>
   </div>

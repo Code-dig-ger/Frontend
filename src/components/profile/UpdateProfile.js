@@ -6,6 +6,7 @@ import Footer from '../Footer/FooterSmall'
 //import actions
 import {getProfile} from '../../actions/profile.actions.js'
 import Validate from '../../helpers/Validate'
+import Spinner from 'react-bootstrap/Spinner'
 
 const UpdateInfo=()=>{
       //states for handles
@@ -20,7 +21,7 @@ const UpdateInfo=()=>{
           const[username,setUsername]=useState();
           const [token,setToken]=useState();
 
-
+          const[show,setShow]=useState(false);
           //new states
           const [newname,setnewName]=useState("");
           const [newcodeforces,setnewCodeforces]=useState("");
@@ -32,6 +33,7 @@ const UpdateInfo=()=>{
            
           async function handle(e){
               e.preventDefault();
+              setShow(true)
               const uu=username;
               const tt=token;
               let cc,cf,at,uva,sp,na;
@@ -103,6 +105,7 @@ const UpdateInfo=()=>{
           
             
         }
+        setShow(false)
           }
         
           useEffect(()=>{
@@ -167,7 +170,8 @@ const UpdateInfo=()=>{
         <br></br>
         <input placeholder={`UVA : ${uv}`} onChange={(e)=>setnewUv(e.target.value)} className="inputi" type="text"  />
         <br></br>
-        <input  onClick={handle} type="submit" value="UPDATE" className="submit-btni"/>
+        <input  onClick={handle} type="submit" value={show?"Processing..":"UPDATE"} className="submit-btni"/>
+        {show?<Spinner className="loading-animation" animation="border"/>:<></>}
       </form>
     </div>
   </div>

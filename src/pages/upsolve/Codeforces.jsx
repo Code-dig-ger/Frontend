@@ -12,6 +12,8 @@ import Footer from '../../components/Footer/FooterSmall'
 import '../../../node_modules/reactjs-popup/dist/index.css';
 import Popup from 'reactjs-popup';
 import Tags from '../../assets/tags-icon2.png'
+import Right from '../../assets/rightarrow.png'
+import Left from '../../assets/leftarrow.png'
 
 //import actions
 import {codeforces} from '../../actions/upsolve.actions'
@@ -107,7 +109,7 @@ const responisve={superLargeDesktop: {
 },
 desktop: {
   breakpoint: { max: 3000, min: 1024 },
-  items: 3
+  items: 4
 },
 tablet: {
   breakpoint: { max: 1024, min: 464 },
@@ -136,14 +138,14 @@ mobile: {
           <button onClick={()=>{
               setTimeout(()=>{setLoader(true)},1000)
             
-             setPage(prev)}} className='page-link'>{`< Prev Page`}</button>:<></>}
+             setPage(prev)}} className='page-link'><img style={{height:'30px',width:'30px'}} src={Left}></img></button>:<></>}
           <h5 style={{color:"white"}}>CODEFORCES</h5>
              
 {page!=last?
 <button onClick={()=>{
                  setTimeout(()=>{setLoader(true)},1000)
                
-setPage(next)}} className='page-link'>{`Next Page>`}</button>:<></>}</div>
+setPage(next)}} className='page-link'><img style={{height:'30px',width:'30px'}}src={Right}></img></button>:<></>}</div>
                 <br></br>
 
 
