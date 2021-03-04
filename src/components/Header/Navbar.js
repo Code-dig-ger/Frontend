@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect } from 'react-router';
 import {
   Collapse,
   Navbar,
@@ -54,30 +53,30 @@ useEffect(() => {
 if(creds){
   return(
     <div>
-      <Navbar id="navbar" color="light" light expand="md" style={{background:'transparent !important', paddingLeft: '6%', paddingRight: '6% '}}>
-        <NavbarBrand href="/"><img src={logo1} id="BrandLogo"/>CODEDIGGER</NavbarBrand>
+      <Navbar id="navbar" color="dark" light expand="md" style={{background:'transparent !important', paddingLeft: '6%', paddingRight: '6% '}}>
+        <NavbarBrand href="/" light><img src={logo1} id="BrandLogo"/>CODEDIGGER</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
             
             <NavItem>
-              <NavLink href="/problems">Problems</NavLink>
+              <NavLink style={{color: 'white'}} href="/problems">Problems</NavLink>
             </NavItem>
             
             <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
+              <DropdownToggle nav caret style={{color: 'white'}}>
                 Upsolve
               </DropdownToggle>
-              <DropdownMenu left>
+              <DropdownMenu left className="dropdown_background">
                 <DropdownItem>
-                <NavLink href="/upsolve/codeforces">Codeforces</NavLink>
+                <NavLink className="dropdown_link" href="/upsolve/codeforces">Codeforces</NavLink>
                   
                 </DropdownItem>
                 <DropdownItem>
-                <NavLink href="/upsolve/codechef">Codechef</NavLink>
+                <NavLink className="dropdown_link" href="/upsolve/codechef">Codechef</NavLink>
                 </DropdownItem>
                 <DropdownItem>
-                <NavLink href="/upsolve/atcoder">Atcoder</NavLink>
+                <NavLink className="dropdown_link" href="/upsolve/atcoder">Atcoder</NavLink>
                 </DropdownItem>
                 
                 
@@ -85,16 +84,16 @@ if(creds){
             </UncontrolledDropdown>
 
             <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
+              <DropdownToggle nav caret style={{color: 'white'}}>
                 Ladders
               </DropdownToggle>
-              <DropdownMenu left>
+              <DropdownMenu left className="dropdown_background">
                 <DropdownItem>
-                <NavLink href="/topicwise/ladder">Topicwise</NavLink>
+                <NavLink className="dropdown_link" href="/topicwise/ladder">Topicwise</NavLink>
                   
                 </DropdownItem>
                 <DropdownItem>
-                <NavLink href="/levelwise/ladder">Levelwise</NavLink>
+                <NavLink className="dropdown_link" href="/levelwise/ladder">Levelwise</NavLink>
                 </DropdownItem>
                 
                 
@@ -102,15 +101,15 @@ if(creds){
             </UncontrolledDropdown>
 
             <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
+              <DropdownToggle nav caret style={{color: 'white'}}>
                 Practice
               </DropdownToggle>
-              <DropdownMenu left>
+              <DropdownMenu left className="dropdown_background">
                 <DropdownItem>
-                <NavLink href="/topicwise/practice">Topicwise</NavLink>
+                <NavLink className="dropdown_link" href="/topicwise/practice">Topicwise</NavLink>
                 </DropdownItem>
                 <DropdownItem>
-                <NavLink href="/levelwise/practice">Levelwise</NavLink>
+                <NavLink className="dropdown_link" href="/levelwise/practice">Levelwise</NavLink>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
@@ -118,24 +117,24 @@ if(creds){
               <NavLink href="/profile">Hello, {creds.username}</NavLink>
             </NavItem> */}
             <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
+              <DropdownToggle nav caret style={{color: 'white'}}>
                  Hello, {creds.username}
               </DropdownToggle>
-              <DropdownMenu left>
+              <DropdownMenu left className="dropdown_background">
                 <DropdownItem>
-                <NavLink href={handle}>Profile</NavLink>
+                <NavLink className="dropdown_link" href={handle}>Profile</NavLink>
                 </DropdownItem>
                 <DropdownItem>
-                <NavLink href="/updateProfile">Edit Profile</NavLink>
+                <NavLink className="dropdown_link" href="/updateProfile">Edit Profile</NavLink>
                 </DropdownItem>
                 <DropdownItem>
-                <NavLink href={`/change_password_request`}>Edit Password</NavLink>
+                <NavLink className="dropdown_link" href={`/change_password_request`}>Edit Password</NavLink>
                 </DropdownItem>
                 <DropdownItem>
-                <NavLink href={`/list/${uu}`}>Lists</NavLink>
+                <NavLink className="dropdown_link" href={`/list/${uu}`}>Lists</NavLink>
                 </DropdownItem>
                 <DropdownItem>
-                <NavLink onClick={deleteCred}>Log Out</NavLink>
+                <NavLink className="dropdown_link" onClick={deleteCred}>Log Out</NavLink>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
@@ -149,30 +148,30 @@ if(creds){
 
   return (
     <div>
-      <Navbar id="navbar" color="light" light expand="md">
-        <NavbarBrand href="/">CODEDIGGER</NavbarBrand>
+     <Navbar id="navbar" color="dark" light expand="md" style={{background:'transparent !important', paddingLeft: '6%', paddingRight: '6% '}}>
+        <NavbarBrand href="/" light><img src={logo1} id="BrandLogo"/>CODEDIGGER</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
             
-            <NavItem>
-              <NavLink href="/problems">Problems</NavLink>
+            <NavItem style={{color: 'white'}}>
+              <NavLink style={{color: 'white'}} href="/problems">Problems</NavLink>
             </NavItem>
             
             <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
+              <DropdownToggle nav caret style={{color: 'white'}}>
                 Upsolve
               </DropdownToggle>
-              <DropdownMenu left>
+              <DropdownMenu left className="dropdown_background">
                 <DropdownItem>
-                <NavLink href="/upsolve/codeforces">Codeforces</NavLink>
+                <NavLink className="dropdown_link" href="/upsolve/codeforces">Codeforces</NavLink>
                   
                 </DropdownItem>
                 <DropdownItem>
-                <NavLink href="/upsolve/codechef">Codechef</NavLink>
+                <NavLink className="dropdown_link" href="/upsolve/codechef">Codechef</NavLink>
                 </DropdownItem>
                 <DropdownItem>
-                <NavLink href="/upsolve/atcoder">Atcoder</NavLink>
+                <NavLink className="dropdown_link" href="/upsolve/atcoder">Atcoder</NavLink>
                 </DropdownItem>
                 
                 
@@ -180,16 +179,16 @@ if(creds){
             </UncontrolledDropdown>
 
             <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
+              <DropdownToggle nav caret style={{color: 'white'}}>
                 Ladders
               </DropdownToggle>
-              <DropdownMenu left>
+              <DropdownMenu left className="dropdown_background">
                 <DropdownItem>
-                <NavLink href="/topicwise/ladder">Topicwise</NavLink>
+                <NavLink className="dropdown_link" href="/topicwise/ladder">Topicwise</NavLink>
                   
                 </DropdownItem>
                 <DropdownItem>
-                <NavLink href="/levelwise/ladder">Levelwise</NavLink>
+                <NavLink className="dropdown_link" href="/levelwise/ladder">Levelwise</NavLink>
                 </DropdownItem>
                 
                 
@@ -197,21 +196,22 @@ if(creds){
             </UncontrolledDropdown>
 
             <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
+              <DropdownToggle nav caret style={{color: 'white'}}>
                 Practice
               </DropdownToggle>
-              <DropdownMenu left>
+              <DropdownMenu left className="dropdown_background">
                 <DropdownItem>
-                <NavLink href="/topicwise/practice">Topicwise</NavLink>
+                <NavLink className="dropdown_link" href="/topicwise/practice">Topicwise</NavLink>
                 </DropdownItem>
                 <DropdownItem>
-                <NavLink href="/levelwise/practice">Levelwise</NavLink>
+                <NavLink className="dropdown_link" href="/levelwise/practice">Levelwise</NavLink>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
-            <NavItem>
-              <NavLink href="/login">Login/Register</NavLink>
-            </NavItem>
+            {/* <NavItem>
+              <NavLink href="/profile">Hello, {creds.username}</NavLink>
+            </NavItem> */}
+            <NavLink style={{color: 'white'}} href="/login">Login/Register</NavLink>
           </Nav>   
         </Collapse>
       </Navbar>

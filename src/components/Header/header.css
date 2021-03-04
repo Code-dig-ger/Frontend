@@ -9,15 +9,15 @@
     width: 100%;
     transition: top 0.3s;
     z-index: 200;
-    /* background-color: #101212 !important; */
     background: transparent !important;
     font-size: 1rem;
-    color: white;
     font-weight: 400;
 }
 
-a {
-    color: white !important;
+.dropdown_link {
+    color: black !important;
+    font-size: 16px;
+    padding: 3px;
 }
 .dropdown:hover > .dropdown-menu {
     display: block;
@@ -33,16 +33,20 @@ a {
 }
 
 .dropdown:hover {
-    background-color: grey;
+    background-color: #353839;
     border-radius: 10px;
 }
 
 .dropdown-item:hover {
-    background-color: grey;
+    background-color: lightgray;
 }
 
 #BrandLogo {
     width: 50px;
     margin-right: 0;
     float: none;
+}
+
+.dropdown_background {
+    background-color: whitesmoke;
 }
