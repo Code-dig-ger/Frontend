@@ -77,6 +77,27 @@ function ProfilePage({handle}) {
                 $($this.attr('href')).addClass('active');
             });
         });
+
+        $(function() {
+            // Reference the tab links.
+            const tabLinks = $('#myTab li a');
+            console.log("PP");
+            // Handle link clicks.
+            tabLinks.click(function(event) {
+                
+                var $this = $(this);
+                
+                // Prevent default click behaviour.
+                event.preventDefault();
+                
+                // Remove the active class from the active link and section.
+                $('#platform-tab').removeClass('active');
+                
+                // Add the active class to the current link and corresponding section.
+                $this.addClass('active');
+                $($this.attr('href')).addClass('active');
+            });
+        });
     })
 
     useEffect(() => {
@@ -156,7 +177,7 @@ function ProfilePage({handle}) {
                   <>
                 <Navbar/>
 
-                <div className="container" style={{marginTop: '100px'}}>
+                <div className="container-fluid pr-5 pl-5">
                     <div className="main-body">
                         <div className="row gutters-sm">
                             <div className="col-md-4 mb-3">
@@ -164,7 +185,7 @@ function ProfilePage({handle}) {
                                 <div className="card-body">
                                     {user.result.about_user === "Logged In User Itself" ? 
                                     <div>
-                                        {/* <FontAwesomeIcon onClick={toggleNested3} alt="Click to view pending requests" style={{fontSize:"1.5rem",cursor:"pointer"}} icon={faUserClock}/> */}
+                                        
                                         <div style={{width:'2rem'}}><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><defs><linearGradient id="WatsonOnboard_svg__a" x1="4" y1="24" x2="4" y2="9" gradientUnits="userSpaceOnUse"><stop offset=".2"></stop><stop offset="1" stop-opacity="0"></stop></linearGradient><linearGradient id="WatsonOnboard_svg__b" x1="28.5" y1="-1959" x2="28.5" y2="-1976" gradientTransform="translate(-1 1984)" gradientUnits="userSpaceOnUse"><stop offset=".5"></stop><stop offset="1" stop-opacity="0"></stop></linearGradient><linearGradient id="WatsonOnboard_svg__d" y1="32" x2="32" gradientUnits="userSpaceOnUse"><stop offset=".1" stop-color="#a56eff"></stop><stop offset=".9" stop-color="#0f62fe"></stop></linearGradient><mask id="WatsonOnboard_svg__c" x="0" y="0" width="32" height="32" maskUnits="userSpaceOnUse"><path d="M3.873 23A14 14 0 0125.9 6.1l-1.415 1.415A12 12 0 005.6 22zM16 29.993A13.952 13.952 0 016.1 25.9l1.414-1.414A12 12 0 0026.4 10l1.731-1A14 14 0 0116 29.993z" fill="#fff"></path><path fill="url(#WatsonOnboard_svg__a)" d="M1 9h6v15H1z"></path><path transform="rotate(180 27.5 16.5)" fill="url(#WatsonOnboard_svg__b)" d="M24 8h7v17h-7z"></path></mask></defs><g data-name="Layer 2"><g data-name="Light theme icons"><g mask="url(#WatsonOnboard_svg__c)"><path fill="url(#WatsonOnboard_svg__d)" d="M0 0h32v32H0z"></path></g><path d="M19 18h-6a3 3 0 00-3 3v2h2v-2a1 1 0 011-1h6a1 1 0 011 1v2h2v-2a3 3 0 00-3-3zM16 17a4 4 0 10-4-4 4 4 0 004 4zm0-6a2 2 0 11-2 2 2 2 0 012-2zM30 12h-2v-2h-2v2h-2v2h2v2h2v-2h2v-2z" fill="#001d6c"></path></g></g></svg></div>
                                         <Modal isOpen={nestedModal3} toggle={toggleNested3}>
                                             <ModalHeader>List of Received Friend Requests</ModalHeader>
@@ -216,12 +237,12 @@ function ProfilePage({handle}) {
                             </div>
                             </div>
                             <div className="col-md-8">
-                            <div className="card1 mb-3">
+                            <div className="card1">
                                 <div className="card-body" style={{color:"black"}}>
-                                    <div style={{display:"flex"}}>
+                                    {/* <div style={{display:"flex"}}>
                                         <span><img style={{height:"1rem", width:"6rem", float:"left", marginRight:"0"}} src={CodeforcesImg}></img></span>
                                         <span style={{marginLeft:"14rem"}}>{user.result.codeforces}</span>
-                                    </div>
+                                    </div> */}
 
                                     {codeforcesStatus===true?<>
 
@@ -239,7 +260,93 @@ function ProfilePage({handle}) {
                                             </p>
                                             </div>
                                             </div>
-                                        </> :<> <div style={{marginTop:"20px"}}>
+                                        </> :<> 
+                <div className="container py-5">
+
+  <div className="p-5 bg-white rounded shadow mb-5">
+    <ul id="myTab" role="tablist" className="nav nav-tabs nav-pills flex-column flex-sm-row text-center bg-light border-0 rounded-nav">
+      <li className="nav-item flex-sm-fill">
+        <a id="platform-tab" data-toggle="tab" href="#codeforces" role="tab" aria-controls="home" aria-selected="true" className="nav-link border-0 text-uppercase white font-weight-bold active">Codeforces</a>
+      </li>
+      <li className="nav-item flex-sm-fill">
+        <a id="platform1-tab" data-toggle="tab" href="#codechef" role="tab" aria-controls="profile" aria-selected="false" className="nav-link border-0 text-uppercase text-white font-weight-bold">Codechef</a>
+      </li>
+      <li className="nav-item flex-sm-fill">
+        <a id="platform2-tab" data-toggle="tab" href="#spoj" role="tab" aria-controls="contact" aria-selected="false" className="nav-link border-0 text-uppercase text-white font-weight-bold">SPOJ</a>
+      </li>
+      <li className="nav-item flex-sm-fill">
+        <a id="platform-tab" data-toggle="tab" href="#uva" role="tab" aria-controls="contact" aria-selected="false" className="nav-link border-0 text-uppercase text-white font-weight-bold">UVA</a>
+      </li>
+      <li className="nav-item flex-sm-fill">
+        <a id="platform-tab" data-toggle="tab" href="#atcoder" role="tab" aria-controls="contact" aria-selected="false" className="nav-link border-0 text-uppercase text-white font-weight-bold">Atcoder</a>
+      </li>
+    </ul>
+    <div id="myTabContent" className="tab-content">
+      <div id="codeforces" role="tabpanel" aria-labelledby="home-tab" className="tab-pane fade px-4 py-5 show active">
+            <div style={{marginTop:"20px"}}>
+                {/* <div>Current Rating : {codechefDat.result.rating}</div>
+                <div>Max Rating : {codechefDat.result.maxRating}</div> */}
+            </div>
+
+            <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
+                                    <div style={{marginRight: "60px"}}>
+                                        
+                                        <ProfileCarousel codeforces={codeforcesDat}/>
+
+
+                                    </div>
+                                        <div className="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px"}}>
+                                            {codeforcesDat.result.contestRank.length===0 ? 
+                                                <h6 style={{color:"white", fontSize:"2rem"}}>You havent done any contest</h6> 
+                                                :
+                                                <>
+                                                <ul id="tab-links" style={{marginBottom:"0", height:"160px"}}>
+                                                    {codeforcesDat.result.contestRank.map((contestDat, index) => {
+                                                        return(
+                                                            <li key={index}><a href={tabs[index]} className={index===0 ? "active":""}>{index+1}</a></li>
+                                                        )
+                                                    })}
+                                                </ul>
+
+                                                {codeforcesDat.result.contestRank.map((contestDat, index) => {
+                                                    return(
+                                                        <section style={{width:"100%"}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
+                                                            <h6 style={{color:"black"}}>{contestDat.contest.name}</h6>
+                                                            <p>World Rank : {contestDat.worldRank}</p>
+                                                            <p>Country Rank : {contestDat.countryRank}</p>
+                                                            <p>Org Rank : {contestDat.organizationRank}</p>
+                                                        </section>
+                                                    )
+                                                })} </>
+                                                }
+                                        </div>
+                                        </div>
+
+            
+
+      </div>
+      <div id="codechef" role="tabpanel" aria-labelledby="profile-tab" className="tab-pane fade px-4 py-5">
+        <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+          irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p className="text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+          irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <div id="contact" role="tabpanel" aria-labelledby="contact-tab" className="tab-pane fade px-4 py-5 active">
+        <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+          irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+          irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+                                        
+                                        
+                                        
+                                        
+                                        <div style={{marginTop:"20px"}}>
                                         <div>Current Rating : {codeforcesDat.result.rating}</div>
                                         <div>Max Rating : {codeforcesDat.result.maxRating}</div>
                                     </div>
@@ -277,28 +384,133 @@ function ProfilePage({handle}) {
                                                     )
                                                 })} </>
                                                 }
-                                            
-
-                                            {/* <section id="tab-1" className="active">
-                                                <h3>Code</h3>
-                                                
-                                                <p>Thousands of free tutorials and online courses to help you learn software development from mobile devices to web applications and everything in between.</p>
-                                            </section>
-                                            
-                                            <section id="tab-2">
-                                                <h3>Graphic Design &amp; Illustration</h3>
-                                                
-                                                <p>Keep up to date or learn a new skill with our graphic design and illustration content.</p>
-                                            </section>
-                                            
-                                            <section id="tab-3">
-                                                <h3>Web Design</h3>
-                                                
-                                                <p>Free tutorials, learning guides, and online courses to help you learn web design.</p>
-                                            </section> */}
                                         </div>
                                         </div> </>}
-                                            <br/>
+
+                                        <div style={{display:"flex"}}>
+                                        <span><img style={{height:"1rem", width:"2rem", float:"left", marginRight:"0"}} src={CodechefImg}></img></span>
+                                        <span style={{marginLeft:"14rem"}}>{user.result.codechef}</span>
+                                    </div>   
+                                        {codechefStatus===true?<>
+
+                                        <div className="body2">
+                                            <div id="container">
+                                            <div className="divider" aria-hidden="true"></div>
+                                            <p className="loading-text" aria-label="Loading">
+                                                <span className="letter" aria-hidden="true">L</span>
+                                                <span className="letter" aria-hidden="true">o</span>
+                                                <span className="letter" aria-hidden="true">a</span>
+                                                <span className="letter" aria-hidden="true">d</span>
+                                                <span className="letter" aria-hidden="true">i</span>
+                                                <span className="letter" aria-hidden="true">n</span>
+                                                <span className="letter" aria-hidden="true">g</span>
+                                            </p>
+                                            </div>
+                                            </div>
+                                        </> :<> <div style={{marginTop:"20px"}}>
+                                        <div>Current Rating : {codechefDat.result.rating}</div>
+                                        <div>Max Rating : {codechefDat.result.maxRating}</div>
+                                    </div>
+                                    
+                                    
+
+                                    <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
+                                    <div style={{marginRight: "60px"}}>
+                                        
+                                        <ProfileCarousel codechef={codechefDat}/>
+
+
+                                    </div>
+                                        <div className="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px"}}>
+                                            {codechefDat.result.contestRank.length===0 ? 
+                                                <h6 style={{color:"white", fontSize:"2rem"}}>You havent done any contest</h6> 
+                                                :
+                                                <>
+                                                <ul id="tab-links" style={{marginBottom:"0", height:"160px"}}>
+                                                    {codechefDat.result.contestRank.map((contestDat, index) => {
+                                                        return(
+                                                            <li key={index}><a href={tabs[index]} className={index===0 ? "active":""}>{index+1}</a></li>
+                                                        )
+                                                    })}
+                                                </ul>
+
+                                                {codechefDat.result.contestRank.map((contestDat, index) => {
+                                                    return(
+                                                        <section style={{width:"100%"}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
+                                                            <h6 style={{color:"black"}}>{contestDat.name}</h6>
+                                                            <p>Rank : {contestDat.rank}</p>
+                                                        </section>
+                                                    )
+                                                })} </>
+                                                }
+                                            
+                                        </div>
+                                        </div> </>}
+
+                                        <br/>
+                                            <br/><br/>
+
+                                        <div style={{display:"flex"}}>
+                                        <span><img style={{height:"1rem", width:"2rem", float:"left", marginRight:"0"}} src={CodechefImg}></img></span>
+                                        <span style={{marginLeft:"14rem"}}>{user.result.codechef}</span>
+                                    </div>   
+                                        {codechefStatus===true?<>
+
+                                        <div className="body2">
+                                            <div id="container">
+                                            <div className="divider" aria-hidden="true"></div>
+                                            <p className="loading-text" aria-label="Loading">
+                                                <span className="letter" aria-hidden="true">L</span>
+                                                <span className="letter" aria-hidden="true">o</span>
+                                                <span className="letter" aria-hidden="true">a</span>
+                                                <span className="letter" aria-hidden="true">d</span>
+                                                <span className="letter" aria-hidden="true">i</span>
+                                                <span className="letter" aria-hidden="true">n</span>
+                                                <span className="letter" aria-hidden="true">g</span>
+                                            </p>
+                                            </div>
+                                            </div>
+                                        </> :<> <div style={{marginTop:"20px"}}>
+                                        <div>Current Rating : {codechefDat.result.rating}</div>
+                                        <div>Max Rating : {codechefDat.result.maxRating}</div>
+                                    </div>
+                                    
+                                    
+
+                                    <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
+                                    <div style={{marginRight: "60px"}}>
+                                        
+                                        <ProfileCarousel codechef={codechefDat}/>
+
+
+                                    </div>
+                                        <div className="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px"}}>
+                                            {codechefDat.result.contestRank.length===0 ? 
+                                                <h6 style={{color:"white", fontSize:"2rem"}}>You havent done any contest</h6> 
+                                                :
+                                                <>
+                                                <ul id="tab-links" style={{marginBottom:"0", height:"160px"}}>
+                                                    {codechefDat.result.contestRank.map((contestDat, index) => {
+                                                        return(
+                                                            <li key={index}><a href={tabs[index]} className={index===0 ? "active":""}>{index+1}</a></li>
+                                                        )
+                                                    })}
+                                                </ul>
+
+                                                {codechefDat.result.contestRank.map((contestDat, index) => {
+                                                    return(
+                                                        <section style={{width:"100%"}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
+                                                            <h6 style={{color:"black"}}>{contestDat.name}</h6>
+                                                            <p>Rank : {contestDat.rank}</p>
+                                                        </section>
+                                                    )
+                                                })} </>
+                                                }
+         
+                                        </div>
+                                        </div> </>}
+
+                                        <br/>
                                             <br/><br/>
 
                                         <div style={{display:"flex"}}>
@@ -358,24 +570,6 @@ function ProfilePage({handle}) {
                                                 })} </>
                                                 }
                                             
-
-                                            {/* <section id="tab-1" className="active">
-                                                <h3>Code</h3>
-                                                
-                                                <p>Thousands of free tutorials and online courses to help you learn software development from mobile devices to web applications and everything in between.</p>
-                                            </section>
-                                            
-                                            <section id="tab-2">
-                                                <h3>Graphic Design &amp; Illustration</h3>
-                                                
-                                                <p>Keep up to date or learn a new skill with our graphic design and illustration content.</p>
-                                            </section>
-                                            
-                                            <section id="tab-3">
-                                                <h3>Web Design</h3>
-                                                
-                                                <p>Free tutorials, learning guides, and online courses to help you learn web design.</p>
-                                            </section> */}
                                         </div>
                                         </div> </>}
 
@@ -440,246 +634,12 @@ function ProfilePage({handle}) {
                                                 }
                                             
 
-                                            {/* <section id="tab-1" className="active">
-                                                <h3>Code</h3>
-                                                
-                                                <p>Thousands of free tutorials and online courses to help you learn software development from mobile devices to web applications and everything in between.</p>
-                                            </section>
-                                            
-                                            <section id="tab-2">
-                                                <h3>Graphic Design &amp; Illustration</h3>
-                                                
-                                                <p>Keep up to date or learn a new skill with our graphic design and illustration content.</p>
-                                            </section>
-                                            
-                                            <section id="tab-3">
-                                                <h3>Web Design</h3>
-                                                
-                                                <p>Free tutorials, learning guides, and online courses to help you learn web design.</p>
-                                            </section> */}
-                                        </div>
-                                        </div> </>}
-
-                                        <br/>
-                                            <br/><br/>
-
-                                        <div style={{display:"flex"}}>
-                                        <span><img style={{height:"1rem", width:"2rem", float:"left", marginRight:"0"}} src={CodechefImg}></img></span>
-                                        <span style={{marginLeft:"14rem"}}>{user.result.codechef}</span>
-                                    </div>   
-                                        {codechefStatus===true?<>
-
-                                        <div className="body2">
-                                            <div id="container">
-                                            <div className="divider" aria-hidden="true"></div>
-                                            <p className="loading-text" aria-label="Loading">
-                                                <span className="letter" aria-hidden="true">L</span>
-                                                <span className="letter" aria-hidden="true">o</span>
-                                                <span className="letter" aria-hidden="true">a</span>
-                                                <span className="letter" aria-hidden="true">d</span>
-                                                <span className="letter" aria-hidden="true">i</span>
-                                                <span className="letter" aria-hidden="true">n</span>
-                                                <span className="letter" aria-hidden="true">g</span>
-                                            </p>
-                                            </div>
-                                            </div>
-                                        </> :<> <div style={{marginTop:"20px"}}>
-                                        <div>Current Rating : {codechefDat.result.rating}</div>
-                                        <div>Max Rating : {codechefDat.result.maxRating}</div>
-                                    </div>
-                                    
-                                    
-
-                                    <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
-                                    <div style={{marginRight: "60px"}}>
-                                        
-                                        <ProfileCarousel codechef={codechefDat}/>
-
-
-                                    </div>
-                                        <div className="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px"}}>
-                                            {codechefDat.result.contestRank.length===0 ? 
-                                                <h6 style={{color:"white", fontSize:"2rem"}}>You havent done any contest</h6> 
-                                                :
-                                                <>
-                                                <ul id="tab-links" style={{marginBottom:"0", height:"160px"}}>
-                                                    {codechefDat.result.contestRank.map((contestDat, index) => {
-                                                        return(
-                                                            <li key={index}><a href={tabs[index]} className={index===0 ? "active":""}>{index+1}</a></li>
-                                                        )
-                                                    })}
-                                                </ul>
-
-                                                {codechefDat.result.contestRank.map((contestDat, index) => {
-                                                    return(
-                                                        <section style={{width:"100%"}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
-                                                            <h6 style={{color:"black"}}>{contestDat.name}</h6>
-                                                            <p>Rank : {contestDat.rank}</p>
-                                                        </section>
-                                                    )
-                                                })} </>
-                                                }
-                                            
-
-                                            {/* <section id="tab-1" className="active">
-                                                <h3>Code</h3>
-                                                
-                                                <p>Thousands of free tutorials and online courses to help you learn software development from mobile devices to web applications and everything in between.</p>
-                                            </section>
-                                            
-                                            <section id="tab-2">
-                                                <h3>Graphic Design &amp; Illustration</h3>
-                                                
-                                                <p>Keep up to date or learn a new skill with our graphic design and illustration content.</p>
-                                            </section>
-                                            
-                                            <section id="tab-3">
-                                                <h3>Web Design</h3>
-                                                
-                                                <p>Free tutorials, learning guides, and online courses to help you learn web design.</p>
-                                            </section> */}
-                                        </div>
-                                        </div> </>}
-
-                                        <br/>
-                                            <br/><br/>
-
-                                        <div style={{display:"flex"}}>
-                                        <span><img style={{height:"1rem", width:"2rem", float:"left", marginRight:"0"}} src={CodechefImg}></img></span>
-                                        <span style={{marginLeft:"14rem"}}>{user.result.codechef}</span>
-                                    </div>   
-                                        {codechefStatus===true?<>
-
-                                        <div className="body2">
-                                            <div id="container">
-                                            <div className="divider" aria-hidden="true"></div>
-                                            <p className="loading-text" aria-label="Loading">
-                                                <span className="letter" aria-hidden="true">L</span>
-                                                <span className="letter" aria-hidden="true">o</span>
-                                                <span className="letter" aria-hidden="true">a</span>
-                                                <span className="letter" aria-hidden="true">d</span>
-                                                <span className="letter" aria-hidden="true">i</span>
-                                                <span className="letter" aria-hidden="true">n</span>
-                                                <span className="letter" aria-hidden="true">g</span>
-                                            </p>
-                                            </div>
-                                            </div>
-                                        </> :<> <div style={{marginTop:"20px"}}>
-                                        <div>Current Rating : {codechefDat.result.rating}</div>
-                                        <div>Max Rating : {codechefDat.result.maxRating}</div>
-                                    </div>
-                                    
-                                    
-
-                                    <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
-                                    <div style={{marginRight: "60px"}}>
-                                        
-                                        <ProfileCarousel codechef={codechefDat}/>
-
-
-                                    </div>
-                                        <div className="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px"}}>
-                                            {codechefDat.result.contestRank.length===0 ? 
-                                                <h6 style={{color:"white", fontSize:"2rem"}}>You havent done any contest</h6> 
-                                                :
-                                                <>
-                                                <ul id="tab-links" style={{marginBottom:"0", height:"160px"}}>
-                                                    {codechefDat.result.contestRank.map((contestDat, index) => {
-                                                        return(
-                                                            <li key={index}><a href={tabs[index]} className={index===0 ? "active":""}>{index+1}</a></li>
-                                                        )
-                                                    })}
-                                                </ul>
-
-                                                {codechefDat.result.contestRank.map((contestDat, index) => {
-                                                    return(
-                                                        <section style={{width:"100%"}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
-                                                            <h6 style={{color:"black"}}>{contestDat.name}</h6>
-                                                            <p>Rank : {contestDat.rank}</p>
-                                                        </section>
-                                                    )
-                                                })} </>
-                                                }
-                                            
-
-                                            {/* <section id="tab-1" className="active">
-                                                <h3>Code</h3>
-                                                
-                                                <p>Thousands of free tutorials and online courses to help you learn software development from mobile devices to web applications and everything in between.</p>
-                                            </section>
-                                            
-                                            <section id="tab-2">
-                                                <h3>Graphic Design &amp; Illustration</h3>
-                                                
-                                                <p>Keep up to date or learn a new skill with our graphic design and illustration content.</p>
-                                            </section>
-                                            
-                                            <section id="tab-3">
-                                                <h3>Web Design</h3>
-                                                
-                                                <p>Free tutorials, learning guides, and online courses to help you learn web design.</p>
-                                            </section> */}
                                         </div>
                                         </div> </>}
 
                                 </div>
                             </div>
-                            {/* <div className="row gutters-sm">
-                                <div className="col-sm-6 mb-3">
-                                <div className="card1 h-100">
-                                    <div className="card-body">
-                                    <h6 className="d-flex align-items-center mb-3"><i className="material-icons text-info mr-2">assignment</i>Project Status</h6>
-                                    <small>Web Design</small>
-                                    <div className="progress mb-3" style={{height: "5px"}}>
-                                        <div className="progress-bar bg-primary" role="progressbar" style={{width: "80%", ariaValueNow:"80", ariaValueMin:"0", ariaValueMax:"100"}}></div>
-                                    </div>
-                                    <small>Website Markup</small>
-                                    <div className="progress mb-3" style={{height: "5px"}}>
-                                        <div className="progress-bar bg-primary" role="progressbar" style={{width: "72%", ariaValueNow:"72", ariaValueMin:"0", ariaValueMax:"100"}}></div>
-                                    </div>
-                                    <small>One Page</small>
-                                    <div className="progress mb-3" style={{height: "5px"}}>
-                                        <div className="progress-bar bg-primary" role="progressbar" style={{width: "89%", ariaValueNow:"89", ariaValueMin:"0", ariaValueMax:"100"}}></div>
-                                    </div>
-                                    <small>Mobile Template</small>
-                                    <div className="progress mb-3" style={{height: "5px"}}>
-                                        <div className="progress-bar bg-primary" role="progressbar" style={{width: "55%", ariaValueNow:"55", ariaValueMin:"0", ariaValueMax:"100"}}></div>
-                                    </div>
-                                    <small>Backend API</small>
-                                    <div className="progress mb-3" style={{height: "5px"}}>
-                                        <div className="progress-bar bg-primary" role="progressbar" style={{width: "66%", ariaValueNow:"66", ariaValueMin:"0", ariaValueMax:"100"}}></div>
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                                <div className="col-sm-6 mb-3">
-                                <div className="card1 h-100">
-                                    <div className="card-body">
-                                    <h6 className="d-flex align-items-center mb-3"><i className="material-icons text-info mr-2">assignment</i>Project Status</h6>
-                                    <small>Web Design</small>
-                                    <div className="progress mb-3" style={{height: "5px"}}>
-                                        <div className="progress-bar bg-primary" role="progressbar" style={{width: "80%", ariaValueNow:"80", ariaValueMin:"0", ariaValueMax:"100"}}></div>
-                                    </div>
-                                    <small>Website Markup</small>
-                                    <div className="progress mb-3" style={{height: "5px"}}>
-                                        <div className="progress-bar bg-primary" role="progressbar" style={{width: "72%", ariaValueNow:"72", ariaValueMin:"0", ariaValueMax:"100"}}></div>
-                                    </div>
-                                    <small>One Page</small>
-                                    <div className="progress mb-3" style={{height: "5px"}}>
-                                        <div className="progress-bar bg-primary" role="progressbar" style={{width: "89%", ariaValueNow:"89", ariaValueMin:"0", ariaValueMax:"100"}}></div>
-                                    </div>
-                                    <small>Mobile Template</small>
-                                    <div className="progress mb-3" style={{height: "5px"}}>
-                                        <div className="progress-bar bg-primary" role="progressbar" style={{width: "55%", ariaValueNow:"55", ariaValueMin:"0", ariaValueMax:"100"}}></div>
-                                    </div>
-                                    <small>Backend API</small>
-                                    <div className="progress mb-3" style={{height: "5px"}}>
-                                        <div className="progress-bar bg-primary" role="progressbar" style={{width: "66%", ariaValueNow:"66", ariaValueMin:"0", ariaValueMax:"100"}}></div>
-                                    </div>
-                                    </div>
-                                </div>
-                                </div> */}
-                            {/* </div> */}
+                            
                             </div>
                         </div>
                         </div>
