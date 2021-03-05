@@ -282,6 +282,7 @@ const MainCard = (props) => {
           {/* <div className="container_card">
             <Button target="_blank" className="buttondisp" href={props.ProblemData.url}>Solve</Button>
           </div> */}
+          
         </div>
       </>
         )

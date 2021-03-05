@@ -11,7 +11,15 @@ import VisibilitySensor from 'react-visibility-sensor';
 import Typewriter from 'typewriter-effect';
 import '../../../node_modules/reactjs-popup/dist/index.css';
 import Popup from 'reactjs-popup';
-import {Bee} from '@carbon/icons-react'
+import {Bee} from '@carbon/icons-react';
+import whiteHand from '../../assets/homepage/images/whiteHand.png';
+import FriendSVG from '../../assets/homepage/images/FriendSVG.js';
+import ProfileFeature from '../../assets/homepage/images/ProfileFeature';
+import ThirdIcon from '../../assets/homepage/images/ThirdIcon';
+import UpsolveIcon from '../../assets/homepage/images/UpsolveIcon';
+import LadderIcon from '../../assets/homepage/images/LadderIcon';
+import PlaylistIcon from '../../assets/homepage/images/PlaylistIcon';
+import Saly10 from '../../assets/homepage/images/Saly10.png'
 
 // const func = () => {
 //   var testimonialItems = document.querySelectorAll(".item label");
@@ -113,68 +121,109 @@ const Homepage = () => {
           {/* <div className="headingImage"><img src={image} className="floating"></img></div> */}
         </div>
         </Col>
+        <Row className="qouteRoww">
+          {/* <img className="qouteHandImg" src={whiteHand} /> */}
+          <Col className="qoute-row" lg={11} md={11} sm={11}>
+          </Col>
         </Row>
+        </Row>
+        
         
 
         {/*Features Section*/} 
-       <Row className="bigRow">
+       <Row style={{paddingTop:'25rem'}} className="bigRow">
             <div className="featureHeading"><h1>FEATURES</h1></div>
-            <Row className="featureRow">
-              <Col md="4" className="featureRowCol">
-                <div className="featureRowColInfo" style={{paddingTop:'25%',backgroundColor:'#E6F8F3',color:'black'}}>
-                  <h3 style={{color:'black'}}>Feature 1</h3>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            <Row style={{marginTop:'4rem'}}>
+              <Col lg={11} sm={11} md={11} id='friendFtRow'>
+                <div className='friendContent'>
+                  <h2>Friends and Mentors</h2>
+                  <div>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
+                  </div>
                 </div>
-              </Col>             
-              <Col md="8" className="featureRowCol" style={{width:'12.499999995%'}}>
-              <div className="featureRowColInfo">
-                  <h4>Image</h4>
-                </div>
-              </Col>             
+                <FriendSVG/>
+              </Col>
             </Row>
-            <Row className="featureRow">
-              <Col md="4" className="featureRowCol">
-                <div className="featureRowColInfo" style={{paddingTop:'25%',backgroundColor:'#FDEDEC',color:'black'}}>
-                  <h4 style={{color:'black'}}>Feature 1</h4>
-                </div>
-              </Col>             
-              <Col md="8" className="featureRowCol" style={{width:'12.499999995%'}}>
-              <div className="featureRowColInfo">
-                  <h4>Image</h4>
-                </div>
-              </Col>             
-            </Row>
-            <Row className="featureRow">
-              <Col md="4" className="featureRowCol">
-                <div className="featureRowColInfo">
-                  <h4>Feature 1</h4>
-                </div>
-              </Col>             
-              <Col md="8" className="featureRowCol" style={{width:'12.499999995%'}}>
-              <div className="featureRowColInfo">
-                  <h4>Image</h4>
-                </div>
-              </Col>             
-            </Row>
-            <Row className="featureRow">
-              <Col md="4" className="featureRowCol">
-                <div className="featureRowColInfo">
-                  <h4>Feature 1</h4>
-                </div>
-              </Col>             
-              <Col md="8" className="featureRowCol" style={{width:'12.499999995%'}}>
-              <div className="featureRowColInfo">
-                  <h4>Image</h4>
-                </div>
-              </Col>             
-            </Row>
-          </Row>
 
-        
-      
-          
-          <br/>
-          <br/>
+            <Row style={{marginTop:'4rem'}}>
+            <ProfileFeature/>
+              <Col lg={8} sm={8} md={8} id='friendFtRow' style={{background: 'linear-gradient(to bottom, #203025 0%, #151516 100%)'}}>
+              
+                <div className='friendContent'>
+                  <h2 style={{color:'#4CD265'}}>Profile and Github connect</h2>
+                  <div>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
+                  </div>
+                </div>
+                
+              </Col>
+            </Row>
+
+            <Row id='thirdRowIcon' style={{marginTop:'4rem'}}>
+              <ThirdIcon/>
+              <Col lg={5} sm={5} md={5} id='friendFtRow' style={{background: '#151516',marginRight:'1.5rem',marginLeft:'6rem',height:'90vh'}}>
+              
+                <div className='friendContent'>
+                  <h2 style={{color:'#f81337'}}>Rating Change Reminder</h2>
+                  <div>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                  </div>
+                </div>
+                
+              </Col>
+              <Col lg={5} sm={5} md={5} id='friendFtRow' style={{background: 'linear-gradient(to top, #636363, #a2ab58)',marginLeft:'1.8rem',height:'90vh'}}>
+              
+                <div className='friendContent'>
+                  <h2 style={{color:'#ffff57'}}>Problem/Contest Filter</h2>
+                  <div>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                  </div>
+                </div>
+                
+              </Col>
+            </Row>
+
+            <Row style={{marginTop:'13rem'}}>
+              <Col lg={11} sm={11} md={11} className='fourthRoww' id='friendFtRow' style={{background:'linear-gradient(360deg, hsla(39, 83%, 77%, 1) 0%, hsla(39, 90%, 30%, 1) 100%)'}}>
+              <UpsolveIcon/>
+                <div className='friendContent'>
+                  <h2 style={{color:'rgb(255 203 149)'}}>UpSolve</h2>
+                  <div id='fourthRowContent'>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
+                  </div>
+                </div>
+                
+              </Col>
+            </Row>
+
+            <Row style={{marginTop:'2rem'}}>
+              <Col lg={11} sm={11} md={11} className='fourthRoww' id='friendFtRow' style={{background:'linear-gradient(-135deg, #590a0d 0%, #10071c 100%)',height:'87vh'}}>
+              
+                <div style={{marginLeft:'2rem',zIndex:'2'}} className='friendContent'>
+                  <h2 style={{color:'#ff3a4f'}}>Ladders</h2>
+                  <div id='fourthRowContent'>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
+                  </div>
+                </div>
+                <LadderIcon/>
+              </Col>
+            </Row>
+
+            <Row style={{marginTop:'4rem'}}>
+              <Col lg={8} sm={8} md={8} id='friendFtRow' style={{background: 'linear-gradient(-135deg, #c6368a 0%, #673dc2 100%)',marginRight:'0'}}>
+              
+                <div className='friendContent'>
+                  <h2 style={{color:'rgb(254 132 255)'}}>Your Playlist Of Questions</h2>
+                  <div>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
+                  </div>
+                </div>
+                
+              </Col>
+              <img id='playListImg' src={Saly10} />
+            </Row>
+            
+          </Row>
           
           
           {/*videos section*/}

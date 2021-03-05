@@ -9,9 +9,10 @@
     width: 100%;
     transition: top 0.3s;
     z-index: 200;
-    background: transparent !important;
+    /* background: transparent !important; */
     font-size: 1rem;
     font-weight: 400;
+    border: none;
 }
 
 .dropdown_link {

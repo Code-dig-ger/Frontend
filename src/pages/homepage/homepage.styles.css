@@ -8,11 +8,11 @@
 }
 
 #LandingBanner{
-  background-image: url('../../assets//homepage/images/codingBg7.jpg');
+  background-image: url('../../assets/homepage/images/codingBg7.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   /* background-color: #161616 !important; */
-  height: 100vh;
+  height: 146vh;
 }
 
 .bigRow:nth-of-type(2n+1){
@@ -20,7 +20,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   color: white !important;
-  background-color: #161616 !important;
+  background-color: #030507 !important;
   height: inherit;
 }
 .pops{
@@ -34,7 +34,7 @@
   /* background-repeat: no-repeat;
   background-size: cover; */
   color: white !important;
-  background-color: #161616 !important;
+  background-color: #030507 !important;
   height: inherit;
 }
 
@@ -274,438 +274,109 @@ section{
   position: relative;
 }
 
-#left-zone {
-  height: 50%;
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
+.qouteRoww{
+  margin-top: 16rem;
 }
 
-#left-zone .list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  list-style: none;
-  -ms-flex-line-pack: stretch;
-  align-content: stretch;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-flex: 1;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
+.qoute-row{
+  height: 75vh;
+  background-color: #222222;
   margin: auto;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  border-radius: 25px;
+  opacity: 0.6;
 }
 
-.item input {
-  display: none;
-}
-
-label {
-  display: block;
-  opacity: 0.75;
-  height: 50px;
-  text-align: center;
-  line-height: 50px;
-  position: relative;
-}
-
-label:hover {
-  opacity: 0.75;
-  cursor: pointer;
-}
-
-.content-test {
+.qouteHandImg{
   position: absolute;
   right: 0;
-  bottom: 0;
-  opacity: 0;
-  -webkit-transform: translateY(100%);
-  -ms-transform: translateY(100%);
-  transform: translateY(100%);
-  height: 50%;
-  width: 100%;
-  -webkit-transition: 0.5s ease-out;
-  -o-transition: 0.5s ease-out;
-  transition: 0.5s ease-out;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  pointer-events: none;
+  height: 30vh;
+  width: 75vh;
+  z-index: 2;
+  top: 59rem;
+  padding-right: 0;
 }
 
-.content-test p {
-  max-width: 50%;
+.featureHeading>h1{
+  font-family: 'Roboto Mono',monospace;
   text-align: center;
 }
 
-#right-zone {
-  width: 100%;
-  -webkit-box-flex: 1;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
-  height: 50%;
+#friendFtRow{
+  border-radius: 1rem;
+  background: linear-gradient(
+    180deg
+    , #517281 0%, #3b5d70 27%, #4d5c82 72%, #5d647f 100%);
+    height: 75vh;
+    margin-left: auto;
+    margin-right: 2.5rem;
+    display: flex;
 }
 
-input:checked ~ .content-test {
-  -webkit-transform: translateY(0%);
-  -ms-transform: translateY(0%);
-  transform: translateY(0%);
-  -webkit-transition: -webkit-transform 1s;
-  transition: -webkit-transform 1s;
-  -o-transition: transform 1s;
-  transition: transform 1s;
-  transition: transform 1s, -webkit-transform 1s;
-  opacity: 1;
+#friendFtRow>svg{
+  margin-top: 3rem;
+  height: 60vh;
+  width: 18rem;
 }
 
-@media (min-width: 480px) {
-  #flex-container {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    min-height: auto;
-    height: 400px;
-    /* position: absolute; */
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-
-  #left-zone .list {
-    border-right: 2px solid #cccccc;
-  }
-
-  .content-test {
-    width: 65%;
-    height: 100%;
-    pointer-events: auto;
-    -webkit-transform: translateY(-100%);
-    -ms-transform: translateY(-100%);
-    transform: translateY(-100%);
-  }
-
-  #left-zone {
-    width: 35%;
-  }
-
-  #right-zone {
-    height: 100%;
-    width: 65%;
-  }
-}
-/* If the screen size is 480px or less */
-@media (max-width: 480px) {
-  .content_testimonial-1 .picto {
-    padding-top: 100px;
-  }
-  .content_testimonial-2 .picto {
-    padding-top: 100px;
-  }
-  .content_testimonial-3 .picto {
-    padding-top: 100px;
-  }
-  .content_testimonial-4 .picto {
-    padding-top: 100px;
-  }
-  .item > label {
-    font-size: 1.3rem;
-  }
+.friendContent{
+  padding: 1rem;
+  width: 67vw;
+  color: #FAFAFA;
+  /* font-size: ; */
 }
 
-.content_testimonial-1 .picto {
-  height: 100px;
-  width: 100px;
-  background-image: url("https://i.postimg.cc/RFBHkG46/diamond-Pest-Logo-small.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+.friendContent>h2{
+  font-weight: 700;
+  color: #a6e5ed;
 }
 
-.content_testimonial-1 h1 {
-  color: #d64541;
-  text-align: center;
+.friendContent>div{
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  padding-right: 5rem;
 }
 
-.content_testimonial-2 .picto {
-  height: 100px;
-  width: 100px;
-  background-image: url("https://i.postimg.cc/bsqXXKCV/a-Plus-Handyman-Logo.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+#profileSvg{
+  width: 23rem;
+  height: 23rem;
+  margin-left: 1rem;
+  margin-top: 2rem;
 }
 
-.content_testimonial-2 h1 {
-  color: #f5d76e;
-}
-
-.content_testimonial-3 .picto {
-  height: 100px;
-  width: 100px;
-  background-image: url("https://i.postimg.cc/zV7sq04z/mod-Movers-Logo.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.content_testimonial-3 h1 {
-  color: #00b16a;
-}
-
-.content_testimonial-4 .picto {
-  height: 100px;
-  width: 100px;
-  background-image: url("https://i.postimg.cc/4Y3rypTz/ak-Pest-Control-Logo.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.content_testimonial-4 h1 {
-  color: #f27935;
-}
-
-.content-test h1:first-letter {
-  text-transform: uppercase;
-}
-
-input:checked ~ label {
-  opacity: 1;
-  -webkit-animation: all 1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  animation: all 1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-}
-
-input:checked ~ label.label_testimonial-1 {
-  color: #d64541;
-  border-right: solid 4px #d64541;
-}
-
-input:checked ~ label.label_testimonial-2 {
-  color: #f5d76e;
-  border-right: solid 4px #f5d76e;
-}
-
-input:checked ~ label.label_testimonial-3 {
-  color: #00b16a;
-  border-right: solid 4px #00b16a;
-}
-
-input:checked ~ label.label_testimonial-4 {
-  color: #f27935;
-  border-right: solid 4px #f27935;
-}
-
-label.label_testimonial-1:before {
-  content: " ";
-  display: block;
+#thirdRowIcon>svg{
   position: absolute;
-  width: 50px;
-  height: 50px;
-  margin-left: 15px;
-  background-image: url("https://i.postimg.cc/RFBHkG46/diamond-Pest-Logo-small.jpg");
-  background-position: center;
-  background-size: 75% 75%;
-  background-repeat: no-repeat;
-  border-radius: 50%;
+  width: 35rem;
+  height: 46rem;
+  z-index: 2;
+  left: 28%;
+  padding-top: 16rem;
 }
 
-label.label_testimonial-2:before {
-  content: " ";
-  display: block;
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  margin-left: 15px;
-  background-image: url("https://i.postimg.cc/bsqXXKCV/a-Plus-Handyman-Logo.jpg");
-  background-position: center;
-  background-size: 75% 75%;
-  border-radius: 50%;
-  background-repeat: no-repeat;
+.fourthRoww>svg{
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
-label.label_testimonial-3:before {
-  content: " ";
-  display: block;
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  margin-left: 15px;
-  background-image: url("https://i.postimg.cc/zV7sq04z/mod-Movers-Logo.jpg");
-  background-position: center;
-  background-size: 75% 75%;
-  background-repeat: no-repeat;
-  border-radius: 50%;
+#fourthRowContent{
+  padding-right: 0;
 }
 
-label.label_testimonial-4:before {
-  content: " ";
-  display: block;
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  margin-left: 15px;
-  background-image: url("https://i.postimg.cc/4Y3rypTz/ak-Pest-Control-Logo.jpg");
-  background-position: center;
-  background-size: 75% 75%;
-  background-repeat: no-repeat;
-  border-radius: 50%;
+#upsolveSvg{
+  margin-top: 0 !important;
+  height: 81vh !important;
 }
 
-.featureHeading h1{
-  color: white !important;
-  text-align: center;
-  margin-top: 30px;
+#ladderIcon{
+  padding-top: 3rem !important;
+  margin: 0 !important;
+  position: absolute !important;
+  width: 72rem !important;
+  height: 33rem !important;
 }
 
-label{
-  font-size: 17px;
-  font-weight: 200;
-  letter-spacing: 0px !important;
+#playListImg{
+  padding-top: 3rem;
+    width: 24rem;
+    height: 24rem;
+    padding-right: 0;
 }
-
-.item h1{
-  font-size: 3rem;
-}
-
-label:first-letter {
-  text-transform: uppercase;
-}
-
-.label_testimonial-1:hover {
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(#ffffff),
-    to(#d64541a3)
-  );
-  background-image: -webkit-linear-gradient(left, #ffffff, #d64541a3);
-  background-image: -o-linear-gradient(left, #ffffff, #d64541a3);
-  background-image: linear-gradient(to right, #ffffff, #d64541a3);
-  font-size: 0.9rem;
-  -webkit-transition: font-size 0.5s;
-  -o-transition: font-size 0.5s;
-  transition: font-size 0.5s;
-}
-
-.label_testimonial-2:hover {
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(#ffffff),
-    to(#f5d76e59)
-  );
-  background-image: -webkit-linear-gradient(left, #ffffff, #f5d76e59);
-  background-image: -o-linear-gradient(left, #ffffff, #f5d76e59);
-  background-image: linear-gradient(to right, #ffffff, #f5d76e59);
-  font-size: 0.9rem;
-  -webkit-transition: font-size 0.5s;
-  -o-transition: font-size 0.5s;
-  transition: font-size 0.5s;
-}
-
-.label_testimonial-3:hover {
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(#ffffff),
-    to(#00b16aa3)
-  );
-  background-image: -webkit-linear-gradient(left, #ffffff, #00b16aa3);
-  background-image: -o-linear-gradient(left, #ffffff, #00b16aa3);
-  background-image: linear-gradient(to right, #ffffff, #00b16aa3);
-  font-size: 0.9rem;
-  -webkit-transition: font-size 0.5s;
-  -o-transition: font-size 0.5s;
-  transition: font-size 0.5s;
-}
-
-.label_testimonial-4:hover {
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(#ffffff),
-    to(#f27935a3)
-  );
-  background-image: -webkit-linear-gradient(left, #ffffff, #f27935a3);
-  background-image: -o-linear-gradient(left, #ffffff, #f27935a3);
-  background-image: linear-gradient(to right, #ffffff, #f27935a3);
-  font-size: 0.9rem;
-  -webkit-transition: font-size 0.5s;
-  -o-transition: font-size 0.5s;
-  transition: font-size 0.5s;
-}
-
-p.testimonialState {
-  margin-top: -5px;
-  font-size: 0.8rem;
-  font-style: italic;
-  color: #808080d4;
-}
-
-p.testimonialFrom {
-  margin-top: 5px;
-  font-weight: bold;
-  color: #33475c;
-}
-
-.featureRow{
-  height: 82vh;
-  background-color: inherit;
-  margin-bottom: -25px;
-  padding: 16px !important;
-  padding-left: 52px !important;
-}
-
-.featureRowCol{
-  background-color: inherit;
-  border-radius: 10px;
-  padding: 20px;
-}
-
-.featureRowColInfo{
-  border-radius: 10px;
-  padding: 20px;
-  height: 100%;
-  width: 100%;
-  background-color: #222222;
-  color: #909090;
-  font-size: 20px;
-}
-
-/* // CSS custom class name to set the fill of the icon to `yellow` */
-/* svg.outer-icon-fill {
-  fill: yellow;
-} */
-
-/* // Use the `data-icon-path` attribute selector to target the inner path
-// where we want to set the fill to `black`. We also set `opacity` to `1` so
-// that this inner-path is visible. */
-/* svg.outer-icon-fill [data-icon-path='inner-path'] {
-  fill: black;
-  opacity: 1;
-} */
