@@ -124,6 +124,10 @@ const Homepage = () => {
         <Row className="qouteRoww">
           {/* <img className="qouteHandImg" src={whiteHand} /> */}
           <Col className="qoute-row" lg={11} md={11} sm={11}>
+            <div id="qouteDiv">
+            <p>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."</p>
+            <p style={{textAlign:'end',fontSize:'2rem'}}> - Team CodeDigger</p>
+            </div>
           </Col>
         </Row>
         </Row>

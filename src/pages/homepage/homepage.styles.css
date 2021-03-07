@@ -380,3 +380,11 @@ section{
     height: 24rem;
     padding-right: 0;
 }
+
+#qouteDiv{
+  color: #FAFAFA;
+    /* opacity: 8.3; */
+    font-size: 3rem;
+    font-weight: 700;
+    padding: 4rem;
+}
