@@ -121,7 +121,10 @@ const Homepage = () => {
           {/* <div className="headingImage"><img src={image} className="floating"></img></div> */}
         </div>
         </Col>
-        <Row className="qouteRoww">
+        
+        </Row>
+
+        <Row className="qouteRoww bigRow">
           {/* <img className="qouteHandImg" src={whiteHand} /> */}
           <Col className="qoute-row" lg={11} md={11} sm={11}>
             <div id="qouteDiv">
@@ -130,12 +133,11 @@ const Homepage = () => {
             </div>
           </Col>
         </Row>
-        </Row>
         
         
 
         {/*Features Section*/} 
-       <Row style={{paddingTop:'25rem'}} className="bigRow">
+       <Row style={{paddingTop:'5rem'}} className="bigRow">
             <div className="featureHeading"><h1>FEATURES</h1></div>
             <Row style={{marginTop:'4rem'}}>
               <Col lg={11} sm={11} md={11} id='friendFtRow'>
@@ -165,7 +167,7 @@ const Homepage = () => {
 
             <Row id='thirdRowIcon' style={{marginTop:'4rem'}}>
               <ThirdIcon/>
-              <Col lg={5} sm={5} md={5} id='friendFtRow' style={{background: '#151516',marginRight:'1.5rem',marginLeft:'6rem',height:'90vh'}}>
+              <Col lg={5} sm={5} md={5} id='friendFtRow' style={{background: '#151516',marginRight:'1.5rem',marginLeft:'6rem'}}>
               
                 <div className='friendContent'>
                   <h2 style={{color:'#f81337'}}>Rating Change Reminder</h2>
@@ -175,7 +177,7 @@ const Homepage = () => {
                 </div>
                 
               </Col>
-              <Col lg={5} sm={5} md={5} id='friendFtRow' style={{background: 'linear-gradient(to top, #636363, #a2ab58)',marginLeft:'1.8rem',height:'90vh'}}>
+              <Col lg={5} sm={5} md={5} id='friendFtRow' style={{background: 'linear-gradient(to top, #636363, #a2ab58)',marginLeft:'1.8rem'}}>
               
                 <div className='friendContent'>
                   <h2 style={{color:'#ffff57'}}>Problem/Contest Filter</h2>
@@ -201,7 +203,7 @@ const Homepage = () => {
             </Row>
 
             <Row style={{marginTop:'2rem'}}>
-              <Col lg={11} sm={11} md={11} className='fourthRoww' id='friendFtRow' style={{background:'linear-gradient(-135deg, #590a0d 0%, #10071c 100%)',height:'87vh'}}>
+              <Col lg={11} sm={11} md={11} className='fourthRoww' id='friendFtRow' style={{background:'linear-gradient(-135deg, #590a0d 0%, #10071c 100%)'}}>
               
                 <div style={{marginLeft:'2rem',zIndex:'2'}} className='friendContent'>
                   <h2 style={{color:'#ff3a4f'}}>Ladders</h2>
