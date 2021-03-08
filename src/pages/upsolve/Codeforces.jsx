@@ -14,6 +14,7 @@ import Popup from 'reactjs-popup';
 import Tags from '../../assets/tags-icon2.png'
 import Right from '../../assets/rightarrow.png'
 import Left from '../../assets/leftarrow.png'
+import logo from '../../assets/cf-logo.png'
 
 
 //import actions
@@ -110,7 +111,7 @@ const responisve={superLargeDesktop: {
 },
 desktop: {
   breakpoint: { max: 3000, min: 1024 },
-  items: 4
+  items: 3
 },
 tablet: {
   breakpoint: { max: 1024, min: 464 },
@@ -132,8 +133,15 @@ mobile: {
      
         {conData.length>0?
         <>
- <h4 style={{textAlign:"center"}}>CODEFORCES</h4>
-        
+      
+        <div style={{display:"flex"}}>
+ <h3 textAlign="center">CODEFORCES</h3><img style={{width:'60px',height:'50px'}}src={logo}/></div>
+ <div><button className="vir" onClick={e=>{window.location.reload(false)}}>Solved? Update</button></div>
+               <div>
+               <button onClick={e=>{
+        setTimeout(()=>{setLoader(true)},1000)
+        setPage(1);
+       setVir(!vir)}} className="vir">{`${vir?`Exclude virtual`:`Include virtual`}`}</button></div><br></br><br></br>
          <div className="upperButtons">
            
            {
@@ -149,17 +157,12 @@ mobile: {
                  setTimeout(()=>{setLoader(true)},1000)
                
 setPage(next)}} className='page-link'><img style={{height:'30px',width:'30px'}}src={Right}></img></button>:<></>}</div>
-                <br></br>
+              
 
 
-         <div><button className="vir" onClick={e=>{window.location.reload(false)}}>Solved? Update</button></div>
-               <div>
-               <button onClick={e=>{
-        setTimeout(()=>{setLoader(true)},1000)
-        setPage(1);
-       setVir(!vir)}} className="vir">{`${vir?`Exclude virtual`:`Include virtual`}`}</button></div><br></br>
+        
      
-<br></br>
+
        { conData.map(res=>{
           return(
             <>
@@ -168,7 +171,7 @@ setPage(next)}} className='page-link'><img style={{height:'30px',width:'30px'}}s
             
             <>
             <Row className="contestRow">
-    <Col sm={2} md={2} lg={3}>< div className={`contestName bgcol${count}`}><h6>{res.name}</h6> 
+    <Col sm={2} md={2} lg={3}>< div className={`contestName`}><h6>{res.name}</h6> 
    </div>
     </Col>
     
@@ -180,10 +183,10 @@ setPage(next)}} className='page-link'><img style={{height:'30px',width:'30px'}}s
                    if(prob.status==="solved"){
                    return(
                   
-                   <Col><div className={`solved bgcol${count}`} ><a href={prob.url} target="_blank"><h7>{prob.index}-{prob.name}</h7></a><br></br><br></br>
+                   <Col><div className={`solved`} ><a href={prob.url} target="_blank"><h7>{prob.index}-{prob.name}</h7></a><br></br><br></br>
                   <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"15px"}} src={Tags}></img>} position="right">
                    <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div></Popup>
-                   <h7>SOLVED</h7>
+                   <h7 className="green">SOLVED</h7>
                    </div></Col>
                    
   
@@ -191,25 +194,25 @@ setPage(next)}} className='page-link'><img style={{height:'30px',width:'30px'}}s
                    )}
                    else if(prob.status==="wrong"){
                    return(
-                   <Col> <div className={`solved bgcol${count}`}><a href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br><br></br>
+                   <Col> <div className={`solved`}><a href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br><br></br>
                    <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"15px"}} src={Tags}></img>} position="right">
                     <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div></Popup>
-                    <h7>WRONG</h7>
+                    <h7 className="red">WRONG</h7>
                     </div></Col>
                    )}
                    else if(prob.status==="upsolved"){
                    return(
-                   <Col> <div className={`solved bgcol${count}`}><a  href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br><br></br>
+                   <Col> <div className={`solved`}><a  href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br><br></br>
                    <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"15px"}} src={Tags}></img>} position="right">
                     <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div></Popup>
-                    <h7>UPSOLVED</h7>
+                    <h7 className="blue">UPSOLVED</h7>
                     </div></Col>
                    )}
                    return (
-                    <Col> <div className={`solved bgcol${count}`}><a href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br><br></br>
+                    <Col> <div className={`solved`}><a href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br><br></br>
                     <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"15px"}} src={Tags}></img>} position="right">
                      <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div></Popup>
-                     <h7 >NOT ATTEMPTED</h7>
+                     <h7 className="viol">NOT ATTEMPTED</h7>
                      </div></Col>
                    )
                })}
