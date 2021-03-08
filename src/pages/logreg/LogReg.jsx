@@ -175,7 +175,7 @@ switchers.forEach((item) => {
 
     return (
       <>
-      <Navbar/><br></br>
+      <Navbar/><br></br><br></br><br></br>
       {
      err?
       

@@ -15,6 +15,7 @@ import Tags from '../../assets/tags-icon2.png'
 import Right from '../../assets/rightarrow.png'
 import Left from '../../assets/leftarrow.png'
 
+
 //import actions
 import {codeforces} from '../../actions/upsolve.actions'
 
@@ -124,13 +125,15 @@ mobile: {
 
      return(
       <>
-      <Navbar></Navbar><br></br><br></br><br></br><br></br>
+      <Navbar></Navbar><br></br><br></br><br></br><br></br><br></br>
       {loader?<Spinner className="loading-animation" animation="border"/>:
       <>
                
      
         {conData.length>0?
         <>
+ <h4 style={{textAlign:"center"}}>CODEFORCES</h4>
+        
          <div className="upperButtons">
            
            {
@@ -139,7 +142,7 @@ mobile: {
               setTimeout(()=>{setLoader(true)},1000)
             
              setPage(prev)}} className='page-link'><img style={{height:'30px',width:'30px'}} src={Left}></img></button>:<></>}
-          <h5 style={{color:"white"}}>CODEFORCES</h5>
+          
              
 {page!=last?
 <button onClick={()=>{
@@ -164,9 +167,12 @@ setPage(next)}} className='page-link'><img style={{height:'30px',width:'30px'}}s
             {res.problems.length>0?
             <>
             <Row className="contestRow">
-    <Col sm={2} md={2} lg={3}>< div className="contestName text-white"><h6>{res.name}</h6></div></Col>
+    <Col sm={2} md={2} lg={3}>< div className="contestName text-white"><h6>{res.name}</h6> 
+   </div>
+    </Col>
+    
     <Col sm={2} md={2} lg={9}><Carousel responsive={responisve}>
-               
+    
                { 
              
               res. problems.map((prob)=>{
