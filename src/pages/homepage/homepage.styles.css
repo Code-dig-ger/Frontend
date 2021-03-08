@@ -12,7 +12,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   /* background-color: #161616 !important; */
-  height: 146vh;
+  height: 105vh;
 }
 
 .bigRow:nth-of-type(2n+1){
@@ -275,11 +275,11 @@ section{
 }
 
 .qouteRoww{
-  margin-top: 16rem;
+  padding-top: 2rem;
 }
 
 .qoute-row{
-  height: 75vh;
+  /* height: 75vh; */
   background-color: #222222;
   margin: auto;
   border-radius: 25px;
@@ -306,7 +306,7 @@ section{
   background: linear-gradient(
     180deg
     , #517281 0%, #3b5d70 27%, #4d5c82 72%, #5d647f 100%);
-    height: 75vh;
+    /* height: 75vh; */
     margin-left: auto;
     margin-right: 2.5rem;
     display: flex;
@@ -363,7 +363,7 @@ section{
 
 #upsolveSvg{
   margin-top: 0 !important;
-  height: 81vh !important;
+  /* height: 81vh !important; */
 }
 
 #ladderIcon{
