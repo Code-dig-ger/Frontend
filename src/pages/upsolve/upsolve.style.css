@@ -1,11 +1,11 @@
 .solved{
-  background-color:rgb(0,0,0);
-  color: rgb(252, 140, 13);
+
+  color: black;
   border-radius: 10px;
   height: 90px;
   text-align: center;
   padding-top: 10px;
-  border: 2px solid white;
+ 
 }
 .wrong{
   background-color:rgb(0,0,0);
@@ -14,7 +14,7 @@
   height: 90px;
   text-align: center;
   padding-top: 10px;
-  border: 2px solid white;
+
 }
 .upsolve{
   background-color: rgb(0, 0, 0);
@@ -26,15 +26,38 @@
   border: 2px solid white;
 }
 .contestName{
-  background:white;
-  
+ 
    font-weight: bolder;
   border-radius: 10px;
-  border: 2px solid rgb(0, 53, 97);
+ 
   height: 90px;
   text-align: center;
   padding-top: 10px;
   color:white;
+}
+.bgcol1{
+  background-color:#503970;
+  color:black
+
+}
+.bgcol2{
+  background-color: #8965a7;
+  color:black
+}
+.bgcol3{
+  background-color: #976fd0;
+  color:black
+}
+.bgcol4{
+  background-color:#cb97ef;
+  color:black
+
+}
+.bgcol5{
+  background-color: #ffbefc;
+}
+.bgcol6{
+  background-color: #ceabce;
 }
 .contestRow{
  height: 90px;
@@ -173,6 +196,7 @@ Col{
 a{
   text-align: center;
   text-decoration: none;
+  color: rgb(0, 0, 0);
 }
 .upperButtons{
   display: flex;

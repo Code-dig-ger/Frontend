@@ -22,7 +22,7 @@ import {codeforces} from '../../actions/upsolve.actions'
 function Codeforces(){
  
   const pageNumbers=[];
-    
+   let count =1; 
     const [page,setPage]=useState(1);
     const [curPage,setCurPage]=useState(1);
     const [loader,setLoader]=useState(false);
@@ -165,9 +165,10 @@ setPage(next)}} className='page-link'><img style={{height:'30px',width:'30px'}}s
             <>
            
             {res.problems.length>0?
+            
             <>
             <Row className="contestRow">
-    <Col sm={2} md={2} lg={3}>< div className="contestName text-white"><h6>{res.name}</h6> 
+    <Col sm={2} md={2} lg={3}>< div className={`contestName bgcol${count}`}><h6>{res.name}</h6> 
    </div>
     </Col>
     
@@ -179,7 +180,7 @@ setPage(next)}} className='page-link'><img style={{height:'30px',width:'30px'}}s
                    if(prob.status==="solved"){
                    return(
                   
-                   <Col><div className="solved" ><a href={prob.url} target="_blank"><h7>{prob.index}-{prob.name}</h7></a><br></br><br></br>
+                   <Col><div className={`solved bgcol${count}`} ><a href={prob.url} target="_blank"><h7>{prob.index}-{prob.name}</h7></a><br></br><br></br>
                   <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"15px"}} src={Tags}></img>} position="right">
                    <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div></Popup>
                    <h7>SOLVED</h7>
@@ -190,7 +191,7 @@ setPage(next)}} className='page-link'><img style={{height:'30px',width:'30px'}}s
                    )}
                    else if(prob.status==="wrong"){
                    return(
-                   <Col> <div className="wrong"><a href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br><br></br>
+                   <Col> <div className={`solved bgcol${count}`}><a href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br><br></br>
                    <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"15px"}} src={Tags}></img>} position="right">
                     <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div></Popup>
                     <h7>WRONG</h7>
@@ -198,14 +199,14 @@ setPage(next)}} className='page-link'><img style={{height:'30px',width:'30px'}}s
                    )}
                    else if(prob.status==="upsolved"){
                    return(
-                   <Col> <div className="upsolve"><a  href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br><br></br>
+                   <Col> <div className={`solved bgcol${count}`}><a  href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br><br></br>
                    <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"15px"}} src={Tags}></img>} position="right">
                     <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div></Popup>
                     <h7>UPSOLVED</h7>
                     </div></Col>
                    )}
                    return (
-                    <Col> <div className="not_attempted"><a href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br><br></br>
+                    <Col> <div className={`solved bgcol${count}`}><a href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br><br></br>
                     <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"15px"}} src={Tags}></img>} position="right">
                      <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div></Popup>
                      <h7 >NOT ATTEMPTED</h7>
@@ -213,6 +214,8 @@ setPage(next)}} className='page-link'><img style={{height:'30px',width:'30px'}}s
                    )
                })}
                </Carousel></Col>
+               {
+               count>=6?count=1:count+=1}
               </Row><br></br></>:<></>}</>)})}
               <div >
                     <nav className="paginator">
