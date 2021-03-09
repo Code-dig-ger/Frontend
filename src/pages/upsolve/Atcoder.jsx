@@ -9,7 +9,10 @@ import Loading from '../logreg/loading'
 import Footer from '../../components/Footer/FooterSmall'
 import 'reactjs-popup/dist/index.css';
 import './upsolve.style.css'
-import {atcoder} from '../../actions/upsolve.actions'
+import {atcoder} from '../../actions/upsolve.actions' 
+import logo from '../../assets/atcoder.png'
+import Right from '../../assets/rightarrow.png'
+import Left from '../../assets/leftarrow.png'
 
 const Atcoder=()=>{
    
@@ -110,33 +113,40 @@ if(last!=null){
            return(
              
             <>
-            <Navbar></Navbar><br></br><br></br>
+            <Navbar></Navbar><br></br><br></br><br></br><br></br>
             {loader?<Spinner className="loading-animation" animation="border"/>:
             <>
                      
               
               {conData.length>0?
               <>
-              <div className="upperButtons">
-                <h5 style={{color:"white"}}>ATCODER</h5>
-                {
-                  page!=1?
-          <button onClick={()=>{
-              setTimeout(()=>{setLoader(true)},1000)
-             setPage(prev)}} className='page-link'>{`< Prev`}</button>:<></>}
-               <h6 className="green">Solved</h6><h6 className="red">Wrong</h6><h6 className="blue">Upsolve</h6><h6 className="viol">Not attempted</h6>
-{
-  page!=last?
-<button onClick={()=>{
-                 setTimeout(()=>{setLoader(true)},1000)
-setPage(next)}} className='page-link'>{`Next >`}</button>:<></>}</div>
-              <div><button className="vir" onClick={e=>{window.location.reload(false)}}>Solved? Update</button></div>
+              <div style={{display:"flex"}}>
+ <h3 textAlign="center">ATCODER</h3><img style={{width:'60px',height:'50px'}}src={logo}/></div>
+ <div><button className="vir" onClick={e=>{window.location.reload(false)}}>Solved? Update</button></div>
                      <div>
      <button onClick={e=>{
         setTimeout(()=>{setLoader(true)},1000)
         setPage(1);
        setPrac(!Prac)}} className="vir">{`${Prac?`Exclude Practice`:`Include Practice`}`}</button></div><br></br>
            <br></br>
+           <div className="upperButtons">
+           
+           {
+             page!=1?
+          <button onClick={()=>{
+              setTimeout(()=>{setLoader(true)},1000)
+            
+             setPage(prev)}} className='page-link'><img style={{height:'30px',width:'30px'}} src={Left}></img></button>:<></>}
+          
+             
+{page!=last?
+<button onClick={()=>{
+                 setTimeout(()=>{setLoader(true)},1000)
+               
+setPage(next)}} className='page-link'><img style={{height:'30px',width:'30px'}}src={Right}></img></button>:<></>}</div>
+              
+
+              
               {conData.map(res=>{
                 return(
                   <>
@@ -151,20 +161,27 @@ setPage(next)}} className='page-link'>{`Next >`}</button>:<></>}</div>
                     res. problems.map((prob)=>{
                          if(prob.status==="solved"){
                          return(
-                         <Col><div className="solved" ><h7>{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a></div></Col>
+                          <Col><div className={`solved`} ><a href={prob.url} target="_blank"><h7>{prob.name}</h7></a><br></br><br></br>
+                     <h7 className="green">SOLVED</h7>
+                   </div></Col>
                          )}
                          else if(prob.status==="wrong"){
                          return(
-                         <Col> <div className="wrong"><h7>{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a></div></Col>
+                          <Col> <div className={`solved`}><a href={prob.url} target="_blank"><h7 >{prob.name}</h7></a><br></br><br></br>
+                          <h7 className="red">WRONG</h7>
+                           </div></Col>
                          )}
                          else if(prob.status=="upsolved"){
                          return(
-                         <Col> <div className="upsolve"><h7>{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a><br></br>
-                         </div></Col>
+                          <Col> <div className={`solved`}><a  href={prob.url} target="_blank"><h7 >{prob.name}</h7></a><br></br><br></br>
+                           <h7 className="blue">UPSOLVED</h7>
+                           </div></Col>
                          )}
                          return(
-                          <Col> <div className="not_attempted"><h7>{prob.name}</h7><br></br><a className="link" href={prob.url} target="_blank">Solve</a><br></br>
-                          </div></Col>
+                          <Col> <div className={`solved`}><a href={prob.url} target="_blank"><h7 >{prob.name}</h7></a><br></br><br></br>
+                        
+                           <h7 className="viol">NOT ATTEMPTED</h7>
+                           </div></Col>
                          )
                      })}
                      </Carousel></Col>

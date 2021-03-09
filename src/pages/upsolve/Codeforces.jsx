@@ -111,7 +111,7 @@ const responisve={superLargeDesktop: {
 },
 desktop: {
   breakpoint: { max: 3000, min: 1024 },
-  items: 3
+  items: 4
 },
 tablet: {
   breakpoint: { max: 1024, min: 464 },
@@ -141,7 +141,7 @@ mobile: {
                <button onClick={e=>{
         setTimeout(()=>{setLoader(true)},1000)
         setPage(1);
-       setVir(!vir)}} className="vir">{`${vir?`Exclude virtual`:`Include virtual`}`}</button></div><br></br><br></br>
+       setVir(!vir)}} className="vir">{`${vir?`Exclude virtual`:`Include virtual`}`}</button></div><br></br>
          <div className="upperButtons">
            
            {
@@ -184,7 +184,7 @@ setPage(next)}} className='page-link'><img style={{height:'30px',width:'30px'}}s
                    return(
                   
                    <Col><div className={`solved`} ><a href={prob.url} target="_blank"><h7>{prob.index}-{prob.name}</h7></a><br></br><br></br>
-                  <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"15px"}} src={Tags}></img>} position="right">
+                  <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"14px"}} src={Tags}></img>} position="right">
                    <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div></Popup>
                    <h7 className="green">SOLVED</h7>
                    </div></Col>
@@ -195,7 +195,7 @@ setPage(next)}} className='page-link'><img style={{height:'30px',width:'30px'}}s
                    else if(prob.status==="wrong"){
                    return(
                    <Col> <div className={`solved`}><a href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br><br></br>
-                   <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"15px"}} src={Tags}></img>} position="right">
+                   <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"14px"}} src={Tags}></img>} position="right">
                     <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div></Popup>
                     <h7 className="red">WRONG</h7>
                     </div></Col>
@@ -203,14 +203,14 @@ setPage(next)}} className='page-link'><img style={{height:'30px',width:'30px'}}s
                    else if(prob.status==="upsolved"){
                    return(
                    <Col> <div className={`solved`}><a  href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br><br></br>
-                   <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"15px"}} src={Tags}></img>} position="right">
+                   <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"14px"}} src={Tags}></img>} position="right">
                     <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div></Popup>
                     <h7 className="blue">UPSOLVED</h7>
                     </div></Col>
                    )}
                    return (
                     <Col> <div className={`solved`}><a href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br><br></br>
-                    <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"15px"}} src={Tags}></img>} position="right">
+                    <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"14px"}} src={Tags}></img>} position="right">
                      <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div></Popup>
                      <h7 className="viol">NOT ATTEMPTED</h7>
                      </div></Col>
