@@ -16,6 +16,7 @@ import {faUserClock} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import FriendList from '../../components/profile/FriendList.js';
 import {Modal,ModalBody,ModalFooter,ModalHeader,Button} from 'reactstrap';
+import { Carousel } from 'react-bootstrap'
 import { getProfile, getInfoBySite, getFriendReq } from "../../actions/profile.actions.js"
 
 
@@ -215,15 +216,17 @@ function ProfilePage({handle}) {
                                 </ul>
                             </div>
                             </div>
-                            <div className="col-md-8">
-                            <div className="card1 mb-3">
-                                <div className="card-body" style={{color:"black"}}>
-                                    <div style={{display:"flex"}}>
-                                        <span><img style={{height:"1rem", width:"6rem", float:"left", marginRight:"0"}} src={CodeforcesImg}></img></span>
-                                        <span style={{marginLeft:"14rem"}}>{user.result.codeforces}</span>
-                                    </div>
 
-                                    {codeforcesStatus===true?<>
+                            {/* Platform Cards Starts */}
+
+                            <div className="col-md-8">
+                                <div className="card1 mb-3" >
+                                    <div className="card-body" style={{color:"black"}}>
+                                        <div>
+                                            <span><img style={{height:"1rem", width:"6rem", marginRight:"auto", marginLeft: 'auto', display: 'block'}} src={CodeforcesImg}></img></span>
+                                        </div>
+                                        {console.log(codeforcesDat)}
+                                    {codeforcesStatus===true?<> 
 
                                         <div className="body2">
                                             <div id="container">
@@ -239,17 +242,50 @@ function ProfilePage({handle}) {
                                             </p>
                                             </div>
                                             </div>
-                                        </> :<> <div style={{marginTop:"20px"}}>
-                                        <div>Current Rating : {codeforcesDat.result.rating}</div>
-                                        <div>Max Rating : {codeforcesDat.result.maxRating}</div>
-                                    </div>
+                                        </> :<div> 
+                                        <div style={{marginTop:"20px"}}>
+                                            <div>Current Rating : {codeforcesDat.result.rating}</div>
+                                            <div>Max Rating : {codeforcesDat.result.maxRating}</div>
+                                        </div>
                                     
-                                    
-
                                     <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
-                                    <div style={{marginRight: "60px"}}>
+                                    <div style={{marginRight: "40px", marginLeft: '20px'}}>
                                         
-                                        <ProfileCarousel codeforces={codeforcesDat}/>
+                                    <Carousel controls={false}>
+                                        <Carousel.Item style={{height: '150px', width: '100px'}}>
+                                            <img
+                                            className="d-block w-100"
+                                            src="https://img.freepik.com/free-photo/dark-grunge-style-scratched-metal-surface_1048-12951.jpg?size=626&ext=jpg"
+                                            alt="First slide"
+                                            />
+                                            <Carousel.Caption style={{position: 'absolute', top: '0px'}}>
+                                            <h3 style={{fontSize: '17px', fontWeight: '700'}}>Organization Rank</h3>
+                                            <p style={{fontSize: '18px', marginTop: '0px'}}>{codeforcesDat.result.organizationRank? codeforcesDat.result.organizationRank:"NA"}</p>
+                                            </Carousel.Caption>
+                                        </Carousel.Item>
+                                        <Carousel.Item style={{height: '150px', width: '100px'}}>
+                                            <img
+                                            className="d-block w-100"
+                                            src="https://img.freepik.com/free-photo/dark-grunge-style-scratched-metal-surface_1048-12951.jpg?size=626&ext=jpg"
+                                            alt="First slide"
+                                            />
+                                            <Carousel.Caption style={{position: 'absolute', top: '5px'}}>
+                                            <h3 style={{fontSize: '20px', fontWeight: '700'}}>Country Rank</h3>
+                                            <p style={{fontSize: '18px'}}>{codeforcesDat.result.countryRank? codeforcesDat.result.countryRank:"NA"}</p>
+                                            </Carousel.Caption>
+                                        </Carousel.Item>
+                                        <Carousel.Item style={{height: '150px', width: '100px'}}>
+                                            <img
+                                            className="d-block w-100"
+                                            src="https://img.freepik.com/free-photo/dark-grunge-style-scratched-metal-surface_1048-12951.jpg?size=626&ext=jpg"
+                                            alt="First slide"
+                                            />
+                                            <Carousel.Caption style={{position: 'absolute', top: '5px'}}>
+                                            <h3 style={{fontSize: '20px', fontWeight: '700'}}>World Rank</h3>
+                                            <p style={{fontSize: '18px'}}>{codeforcesDat.result.worldRank}</p>
+                                            </Carousel.Caption>
+                                        </Carousel.Item>
+                                        </Carousel>
 
 
                                     </div>
@@ -269,43 +305,26 @@ function ProfilePage({handle}) {
                                                 {codeforcesDat.result.contestRank.map((contestDat, index) => {
                                                     return(
                                                         <section style={{width:"100%"}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
-                                                            <h6 style={{color:"black"}}>{contestDat.contest.name}</h6>
-                                                            <p>World Rank : {contestDat.worldRank}</p>
-                                                            <p>Country Rank : {contestDat.countryRank}</p>
-                                                            <p>Org Rank : {contestDat.organizationRank}</p>
+                                                            <h6 style={{color:"black", fontSize: '20px', fontWeight: '700', textDecoration: 'underline'}}>{contestDat.contest.name}</h6>
+                                                            <p style={{ fontSize: '14px', fontWeight: '500'}}>World Rank : {contestDat.worldRank? contestDat.worldRank : "NA"}</p>
+                                                            <p style={{ fontSize: '14px', fontWeight: '500'}}>Country Rank : {contestDat.countryRank? contestDat.countryRank : "NA"}</p>
+                                                            <p style={{ fontSize: '14px', fontWeight: '500'}}>Org Rank : {contestDat.organizationRank? contestDat.organizationRank : "NA"}</p>
                                                         </section>
                                                     )
                                                 })} </>
                                                 }
                                             
-
-                                            {/* <section id="tab-1" className="active">
-                                                <h3>Code</h3>
-                                                
-                                                <p>Thousands of free tutorials and online courses to help you learn software development from mobile devices to web applications and everything in between.</p>
-                                            </section>
-                                            
-                                            <section id="tab-2">
-                                                <h3>Graphic Design &amp; Illustration</h3>
-                                                
-                                                <p>Keep up to date or learn a new skill with our graphic design and illustration content.</p>
-                                            </section>
-                                            
-                                            <section id="tab-3">
-                                                <h3>Web Design</h3>
-                                                
-                                                <p>Free tutorials, learning guides, and online courses to help you learn web design.</p>
-                                            </section> */}
                                         </div>
-                                        </div> </>}
-                                            <br/>
-                                            <br/><br/>
+                                        </div> </div>}
+                                        <hr width="100%" className="mt-4" style={{color: 'lightgrey'}}/>
 
-                                        <div style={{display:"flex"}}>
-                                        <span><img style={{height:"1rem", width:"2rem", float:"left", marginRight:"0"}} src={CodechefImg}></img></span>
-                                        <span style={{marginLeft:"14rem"}}>{user.result.codechef}</span>
-                                    </div>   
-                                        {codechefStatus===true?<>
+                                            {/* Codechef card starts */}
+
+                                        <div>
+                                            <span><img style={{height:"3rem", width:"6rem", marginRight:"auto", marginLeft: 'auto', display: 'block'}} src="https://upload.wikimedia.org/wikipedia/en/thumb/7/7b/Codechef%28new%29_logo.svg/1200px-Codechef%28new%29_logo.svg.png"></img></span>
+                                        </div>
+
+                                    {codechefStatus===true?<>
 
                                         <div className="body2">
                                             <div id="container">
@@ -321,17 +340,39 @@ function ProfilePage({handle}) {
                                             </p>
                                             </div>
                                             </div>
-                                        </> :<> <div style={{marginTop:"20px"}}>
-                                        <div>Current Rating : {codechefDat.result.rating}</div>
-                                        <div>Max Rating : {codechefDat.result.maxRating}</div>
-                                    </div>
+                                        </> :<div> 
+                                        <div style={{marginTop:"20px"}}>
+                                            <div>Current Rating : {codechefDat.result.rating}</div>
+                                            <div>Max Rating : {codechefDat.result.maxRating}</div>
+                                        </div>
                                     
-                                    
-
                                     <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
-                                    <div style={{marginRight: "60px"}}>
+                                    <div style={{marginRight: "40px", marginLeft: '20px'}}>
                                         
-                                        <ProfileCarousel codechef={codechefDat}/>
+                                    <Carousel controls={false}>
+                                        <Carousel.Item style={{height: '150px', width: '100px'}}>
+                                            <img
+                                            className="d-block w-100"
+                                            src="https://img.freepik.com/free-photo/dark-grunge-style-scratched-metal-surface_1048-12951.jpg?size=626&ext=jpg"
+                                            alt="First slide"
+                                            />
+                                            <Carousel.Caption style={{position: 'absolute', top: '5px'}}>
+                                            <h3 style={{fontSize: '20px', fontWeight: '700'}}>Country Rank</h3>
+                                            <p style={{fontSize: '18px'}}>{codechefDat.result.countryRank? codechefDat.result.countryRank:"NA"}</p>
+                                            </Carousel.Caption>
+                                        </Carousel.Item>
+                                        <Carousel.Item style={{height: '150px', width: '100px'}}>
+                                            <img
+                                            className="d-block w-100"
+                                            src="https://img.freepik.com/free-photo/dark-grunge-style-scratched-metal-surface_1048-12951.jpg?size=626&ext=jpg"
+                                            alt="First slide"
+                                            />
+                                            <Carousel.Caption style={{position: 'absolute', top: '5px'}}>
+                                            <h3 style={{fontSize: '20px', fontWeight: '700'}}>World Rank</h3>
+                                            <p style={{fontSize: '18px'}}>{codechefDat.result.worldRank}</p>
+                                            </Carousel.Caption>
+                                        </Carousel.Item>
+                                        </Carousel>
 
 
                                     </div>
@@ -351,43 +392,25 @@ function ProfilePage({handle}) {
                                                 {codechefDat.result.contestRank.map((contestDat, index) => {
                                                     return(
                                                         <section style={{width:"100%"}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
-                                                            <h6 style={{color:"black"}}>{contestDat.name}</h6>
-                                                            <p>Rank : {contestDat.rank}</p>
+                                                            <h6 style={{color:"black", fontSize: '21px', fontWeight: '700', textDecoration: 'underline'}}>{contestDat.name}</h6>
+                                                            <p style={{marginTop: '20px', fontSize: '16px', fontWeight: '500'}}>Rank : {contestDat.rank}</p>
                                                         </section>
                                                     )
                                                 })} </>
                                                 }
                                             
-
-                                            {/* <section id="tab-1" className="active">
-                                                <h3>Code</h3>
-                                                
-                                                <p>Thousands of free tutorials and online courses to help you learn software development from mobile devices to web applications and everything in between.</p>
-                                            </section>
-                                            
-                                            <section id="tab-2">
-                                                <h3>Graphic Design &amp; Illustration</h3>
-                                                
-                                                <p>Keep up to date or learn a new skill with our graphic design and illustration content.</p>
-                                            </section>
-                                            
-                                            <section id="tab-3">
-                                                <h3>Web Design</h3>
-                                                
-                                                <p>Free tutorials, learning guides, and online courses to help you learn web design.</p>
-                                            </section> */}
                                         </div>
-                                        </div> </>}
+                                        </div> </div>}
+                                        <hr width="100%" className="mt-4" style={{color: 'lightgrey'}}/>
 
-                                        <br/>
-                                            <br/><br/>
+                                        {/* Atcoder Card Starts */}
 
-                                        <div style={{display:"flex"}}>
-                                        <span><img style={{height:"1rem", width:"2rem", float:"left", marginRight:"0"}} src={CodechefImg}></img></span>
-                                        <span style={{marginLeft:"14rem"}}>{user.result.codechef}</span>
-                                    </div>   
-                                        {codechefStatus===true?<>
-
+                                        <div>
+                                            <span><img style={{height:"3rem", width:"3rem", marginRight:"auto", marginLeft: 'auto', display: 'block', marginBottom: '0px'}} src={AtcoderImg}></img></span>
+                                        </div>
+                                        {console.log(uvaDat)}
+                                    {atcoderStatus===true?<>   
+                                        
                                         <div className="body2">
                                             <div id="container">
                                             <div className="divider" aria-hidden="true"></div>
@@ -402,284 +425,158 @@ function ProfilePage({handle}) {
                                             </p>
                                             </div>
                                             </div>
-                                        </> :<> <div style={{marginTop:"20px"}}>
-                                        <div>Current Rating : {codechefDat.result.rating}</div>
-                                        <div>Max Rating : {codechefDat.result.maxRating}</div>
-                                    </div>
+                                        </> :<div> 
+                                        <div style={{marginTop:"20px"}}>
+                                            <div>Rating : {atcoderDat.result.rating}</div>
+                                            <div>Max Rating : {atcoderDat.result.maxRating}</div>
+                                        </div>
                                     
-                                    
-
                                     <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
-                                    <div style={{marginRight: "60px"}}>
+                                    <div style={{marginRight: "40px", marginLeft: '20px'}}>
                                         
-                                        <ProfileCarousel codechef={codechefDat}/>
+                                    <Carousel controls={false}>
+                                        <Carousel.Item style={{height: '150px', width: '100px'}}>
+                                            <img
+                                            className="d-block w-100"
+                                            src="https://img.freepik.com/free-photo/dark-grunge-style-scratched-metal-surface_1048-12951.jpg?size=626&ext=jpg"
+                                            alt="First slide"
+                                            />
+                                            <Carousel.Caption style={{position: 'absolute', top: '5px'}}>
+                                            <h3 style={{fontSize: '20px', fontWeight: '700'}}>World Rank</h3>
+                                            <p style={{fontSize: '18px'}}>{atcoderDat.result.worldRank? atcoderDat.result.worldRank:"NA"}</p>
+                                            </Carousel.Caption>
+                                        </Carousel.Item>
+                                        </Carousel>
 
 
                                     </div>
                                         <div className="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px"}}>
-                                            {codechefDat.result.contestRank.length===0 ? 
+                                            {atcoderDat.result.contestRank.length===0 ? 
                                                 <h6 style={{color:"white", fontSize:"2rem"}}>You havent done any contest</h6> 
                                                 :
                                                 <>
                                                 <ul id="tab-links" style={{marginBottom:"0", height:"160px"}}>
-                                                    {codechefDat.result.contestRank.map((contestDat, index) => {
+                                                    {atcoderDat.result.contestRank.map((contestDat, index) => {
                                                         return(
                                                             <li key={index}><a href={tabs[index]} className={index===0 ? "active":""}>{index+1}</a></li>
                                                         )
                                                     })}
                                                 </ul>
 
-                                                {codechefDat.result.contestRank.map((contestDat, index) => {
+                                                {atcoderDat.result.contestRank.map((contestDat, index) => {
                                                     return(
                                                         <section style={{width:"100%"}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
-                                                            <h6 style={{color:"black"}}>{contestDat.name}</h6>
-                                                            <p>Rank : {contestDat.rank}</p>
+                                                            <h6 style={{color:"black", fontSize: '21px', fontWeight: '700', textDecoration: 'underline'}}>{contestDat.name}</h6>
+                                                            <p style={{marginTop: '20px', fontSize: '16px', fontWeight: '500'}}>World Rank : {contestDat.worldRank}</p>
                                                         </section>
                                                     )
                                                 })} </>
                                                 }
                                             
-
-                                            {/* <section id="tab-1" className="active">
-                                                <h3>Code</h3>
-                                                
-                                                <p>Thousands of free tutorials and online courses to help you learn software development from mobile devices to web applications and everything in between.</p>
-                                            </section>
-                                            
-                                            <section id="tab-2">
-                                                <h3>Graphic Design &amp; Illustration</h3>
-                                                
-                                                <p>Keep up to date or learn a new skill with our graphic design and illustration content.</p>
-                                            </section>
-                                            
-                                            <section id="tab-3">
-                                                <h3>Web Design</h3>
-                                                
-                                                <p>Free tutorials, learning guides, and online courses to help you learn web design.</p>
-                                            </section> */}
                                         </div>
-                                        </div> </>}
+                                        </div> </div>}
+                                        <hr width="100%" className="mt-4" style={{color: 'lightgrey'}}/>
+                                    <div className="row">
 
-                                        <br/>
-                                            <br/><br/>
-
-                                        <div style={{display:"flex"}}>
-                                        <span><img style={{height:"1rem", width:"2rem", float:"left", marginRight:"0"}} src={CodechefImg}></img></span>
-                                        <span style={{marginLeft:"14rem"}}>{user.result.codechef}</span>
-                                    </div>   
-                                        {codechefStatus===true?<>
-
-                                        <div className="body2">
-                                            <div id="container">
-                                            <div className="divider" aria-hidden="true"></div>
-                                            <p className="loading-text" aria-label="Loading">
-                                                <span className="letter" aria-hidden="true">L</span>
-                                                <span className="letter" aria-hidden="true">o</span>
-                                                <span className="letter" aria-hidden="true">a</span>
-                                                <span className="letter" aria-hidden="true">d</span>
-                                                <span className="letter" aria-hidden="true">i</span>
-                                                <span className="letter" aria-hidden="true">n</span>
-                                                <span className="letter" aria-hidden="true">g</span>
-                                            </p>
-                                            </div>
-                                            </div>
-                                        </> :<> <div style={{marginTop:"20px"}}>
-                                        <div>Current Rating : {codechefDat.result.rating}</div>
-                                        <div>Max Rating : {codechefDat.result.maxRating}</div>
-                                    </div>
-                                    
-                                    
-
-                                    <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
-                                    <div style={{marginRight: "60px"}}>
-                                        
-                                        <ProfileCarousel codechef={codechefDat}/>
-
-
-                                    </div>
-                                        <div className="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px"}}>
-                                            {codechefDat.result.contestRank.length===0 ? 
-                                                <h6 style={{color:"white", fontSize:"2rem"}}>You havent done any contest</h6> 
-                                                :
-                                                <>
-                                                <ul id="tab-links" style={{marginBottom:"0", height:"160px"}}>
-                                                    {codechefDat.result.contestRank.map((contestDat, index) => {
-                                                        return(
-                                                            <li key={index}><a href={tabs[index]} className={index===0 ? "active":""}>{index+1}</a></li>
-                                                        )
-                                                    })}
-                                                </ul>
-
-                                                {codechefDat.result.contestRank.map((contestDat, index) => {
-                                                    return(
-                                                        <section style={{width:"100%"}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
-                                                            <h6 style={{color:"black"}}>{contestDat.name}</h6>
-                                                            <p>Rank : {contestDat.rank}</p>
-                                                        </section>
-                                                    )
-                                                })} </>
-                                                }
-                                            
-
-                                            {/* <section id="tab-1" className="active">
-                                                <h3>Code</h3>
+                                                {/* SPOJ Card Starts */}
+                                        <div className="col-md-6 border-right">
+                                                <div>
+                                                    <span><img style={{height:"1rem", width:"6rem", marginRight:"auto", marginLeft: 'auto', display: 'block', marginBottom: '0px'}} src={SpojImg}></img></span>
+                                                </div>
+                                                {console.log(spojDat)}
+                                            {spojStatus===true?<>   
                                                 
-                                                <p>Thousands of free tutorials and online courses to help you learn software development from mobile devices to web applications and everything in between.</p>
-                                            </section>
+                                                <div className="body2">
+                                                    <div id="container">
+                                                    <div className="divider" aria-hidden="true"></div>
+                                                    <p className="loading-text" aria-label="Loading">
+                                                        <span className="letter" aria-hidden="true">L</span>
+                                                        <span className="letter" aria-hidden="true">o</span>
+                                                        <span className="letter" aria-hidden="true">a</span>
+                                                        <span className="letter" aria-hidden="true">d</span>
+                                                        <span className="letter" aria-hidden="true">i</span>
+                                                        <span className="letter" aria-hidden="true">n</span>
+                                                        <span className="letter" aria-hidden="true">g</span>
+                                                    </p>
+                                                    </div>
+                                                    </div>
+                                                </> :<div> 
+                                                <div style={{marginTop:"20px"}}>
+                                                    <div>Points : {spojDat.result.points}</div>
+                                                    <div>Solved : {spojDat.result.solvedCount}</div>
+                                                </div>
                                             
-                                            <section id="tab-2">
-                                                <h3>Graphic Design &amp; Illustration</h3>
+                                            <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
+                                            <div style={{marginRight: "40px", marginLeft: '20px'}}>
                                                 
-                                                <p>Keep up to date or learn a new skill with our graphic design and illustration content.</p>
-                                            </section>
+                                            <Carousel controls={false}>
+                                                <Carousel.Item style={{height: '150px', width: '60px'}}>
+                                                    <img
+                                                    className="d-block w-100"
+                                                    src="https://img.freepik.com/free-photo/dark-grunge-style-scratched-metal-surface_1048-12951.jpg?size=626&ext=jpg"
+                                                    alt="First slide"
+                                                    />
+                                                    <Carousel.Caption style={{position: 'absolute', top: '5px'}}>
+                                                    <h3 style={{fontSize: '20px', fontWeight: '700'}}>World Rank</h3>
+                                                    <p style={{fontSize: '18px'}}>{spojDat.result.worldRank? spojDat.result.worldRank:"NA"}</p>
+                                                    </Carousel.Caption>
+                                                </Carousel.Item>
+                                                </Carousel>
+                                                </div>
+                                                </div> </div>}
+                                         </div>
+
+                                         {/* UVA Card Starts */}
+                                         <div className="col-md-6">
+                                                <div>
+                                                    <span><img style={{height:"2rem", width:"2rem", marginRight:"auto", marginLeft: 'auto', display: 'block', marginBottom: '0px'}} src={UAVImg}></img></span>
+                                                </div>
+                                                {console.log(spojDat)}
+                                            {uvaStatus===true?<>   
+                                                
+                                                <div className="body2">
+                                                    <div id="container">
+                                                    <div className="divider" aria-hidden="true"></div>
+                                                    <p className="loading-text" aria-label="Loading">
+                                                        <span className="letter" aria-hidden="true">L</span>
+                                                        <span className="letter" aria-hidden="true">o</span>
+                                                        <span className="letter" aria-hidden="true">a</span>
+                                                        <span className="letter" aria-hidden="true">d</span>
+                                                        <span className="letter" aria-hidden="true">i</span>
+                                                        <span className="letter" aria-hidden="true">n</span>
+                                                        <span className="letter" aria-hidden="true">g</span>
+                                                    </p>
+                                                    </div>
+                                                    </div>
+                                                </> :<div> 
+                                                <div style={{marginTop:"20px"}}>
+                                                    <div>Solved : {uvaDat.result.solvedCount}</div>
+                                                </div>
                                             
-                                            <section id="tab-3">
-                                                <h3>Web Design</h3>
+                                            <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
+                                            <div style={{marginRight: "40px", marginLeft: '20px'}}>
                                                 
-                                                <p>Free tutorials, learning guides, and online courses to help you learn web design.</p>
-                                            </section> */}
-                                        </div>
-                                        </div> </>}
-
-                                        <br/>
-                                            <br/><br/>
-
-                                        <div style={{display:"flex"}}>
-                                        <span><img style={{height:"1rem", width:"2rem", float:"left", marginRight:"0"}} src={CodechefImg}></img></span>
-                                        <span style={{marginLeft:"14rem"}}>{user.result.codechef}</span>
-                                    </div>   
-                                        {codechefStatus===true?<>
-
-                                        <div className="body2">
-                                            <div id="container">
-                                            <div className="divider" aria-hidden="true"></div>
-                                            <p className="loading-text" aria-label="Loading">
-                                                <span className="letter" aria-hidden="true">L</span>
-                                                <span className="letter" aria-hidden="true">o</span>
-                                                <span className="letter" aria-hidden="true">a</span>
-                                                <span className="letter" aria-hidden="true">d</span>
-                                                <span className="letter" aria-hidden="true">i</span>
-                                                <span className="letter" aria-hidden="true">n</span>
-                                                <span className="letter" aria-hidden="true">g</span>
-                                            </p>
-                                            </div>
-                                            </div>
-                                        </> :<> <div style={{marginTop:"20px"}}>
-                                        <div>Current Rating : {codechefDat.result.rating}</div>
-                                        <div>Max Rating : {codechefDat.result.maxRating}</div>
-                                    </div>
-                                    
-                                    
-
-                                    <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
-                                    <div style={{marginRight: "60px"}}>
-                                        
-                                        <ProfileCarousel codechef={codechefDat}/>
-
-
-                                    </div>
-                                        <div className="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px"}}>
-                                            {codechefDat.result.contestRank.length===0 ? 
-                                                <h6 style={{color:"white", fontSize:"2rem"}}>You havent done any contest</h6> 
-                                                :
-                                                <>
-                                                <ul id="tab-links" style={{marginBottom:"0", height:"160px"}}>
-                                                    {codechefDat.result.contestRank.map((contestDat, index) => {
-                                                        return(
-                                                            <li key={index}><a href={tabs[index]} className={index===0 ? "active":""}>{index+1}</a></li>
-                                                        )
-                                                    })}
-                                                </ul>
-
-                                                {codechefDat.result.contestRank.map((contestDat, index) => {
-                                                    return(
-                                                        <section style={{width:"100%"}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
-                                                            <h6 style={{color:"black"}}>{contestDat.name}</h6>
-                                                            <p>Rank : {contestDat.rank}</p>
-                                                        </section>
-                                                    )
-                                                })} </>
-                                                }
-                                            
-
-                                            {/* <section id="tab-1" className="active">
-                                                <h3>Code</h3>
-                                                
-                                                <p>Thousands of free tutorials and online courses to help you learn software development from mobile devices to web applications and everything in between.</p>
-                                            </section>
-                                            
-                                            <section id="tab-2">
-                                                <h3>Graphic Design &amp; Illustration</h3>
-                                                
-                                                <p>Keep up to date or learn a new skill with our graphic design and illustration content.</p>
-                                            </section>
-                                            
-                                            <section id="tab-3">
-                                                <h3>Web Design</h3>
-                                                
-                                                <p>Free tutorials, learning guides, and online courses to help you learn web design.</p>
-                                            </section> */}
-                                        </div>
-                                        </div> </>}
+                                            <Carousel controls={false}>
+                                                <Carousel.Item style={{height: '150px', width: '60px'}}>
+                                                    <img
+                                                    className="d-block w-100"
+                                                    src="https://img.freepik.com/free-photo/dark-grunge-style-scratched-metal-surface_1048-12951.jpg?size=626&ext=jpg"
+                                                    alt="First slide"
+                                                    />
+                                                    <Carousel.Caption style={{position: 'absolute', top: '5px'}}>
+                                                    <h3 style={{fontSize: '20px', fontWeight: '700'}}>World Rank</h3>
+                                                    <p style={{fontSize: '18px'}}>{uvaDat.result.worldRank? uvaDat.result.worldRank:"NA"}</p>
+                                                    </Carousel.Caption>
+                                                </Carousel.Item>
+                                                </Carousel>
+                                                </div>
+                                                </div> </div>}
+                                         </div>
+                                         </div>
+                                         
 
                                 </div>
                             </div>
-                            {/* <div className="row gutters-sm">
-                                <div className="col-sm-6 mb-3">
-                                <div className="card1 h-100">
-                                    <div className="card-body">
-                                    <h6 className="d-flex align-items-center mb-3"><i className="material-icons text-info mr-2">assignment</i>Project Status</h6>
-                                    <small>Web Design</small>
-                                    <div className="progress mb-3" style={{height: "5px"}}>
-                                        <div className="progress-bar bg-primary" role="progressbar" style={{width: "80%", ariaValueNow:"80", ariaValueMin:"0", ariaValueMax:"100"}}></div>
-                                    </div>
-                                    <small>Website Markup</small>
-                                    <div className="progress mb-3" style={{height: "5px"}}>
-                                        <div className="progress-bar bg-primary" role="progressbar" style={{width: "72%", ariaValueNow:"72", ariaValueMin:"0", ariaValueMax:"100"}}></div>
-                                    </div>
-                                    <small>One Page</small>
-                                    <div className="progress mb-3" style={{height: "5px"}}>
-                                        <div className="progress-bar bg-primary" role="progressbar" style={{width: "89%", ariaValueNow:"89", ariaValueMin:"0", ariaValueMax:"100"}}></div>
-                                    </div>
-                                    <small>Mobile Template</small>
-                                    <div className="progress mb-3" style={{height: "5px"}}>
-                                        <div className="progress-bar bg-primary" role="progressbar" style={{width: "55%", ariaValueNow:"55", ariaValueMin:"0", ariaValueMax:"100"}}></div>
-                                    </div>
-                                    <small>Backend API</small>
-                                    <div className="progress mb-3" style={{height: "5px"}}>
-                                        <div className="progress-bar bg-primary" role="progressbar" style={{width: "66%", ariaValueNow:"66", ariaValueMin:"0", ariaValueMax:"100"}}></div>
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                                <div className="col-sm-6 mb-3">
-                                <div className="card1 h-100">
-                                    <div className="card-body">
-                                    <h6 className="d-flex align-items-center mb-3"><i className="material-icons text-info mr-2">assignment</i>Project Status</h6>
-                                    <small>Web Design</small>
-                                    <div className="progress mb-3" style={{height: "5px"}}>
-                                        <div className="progress-bar bg-primary" role="progressbar" style={{width: "80%", ariaValueNow:"80", ariaValueMin:"0", ariaValueMax:"100"}}></div>
-                                    </div>
-                                    <small>Website Markup</small>
-                                    <div className="progress mb-3" style={{height: "5px"}}>
-                                        <div className="progress-bar bg-primary" role="progressbar" style={{width: "72%", ariaValueNow:"72", ariaValueMin:"0", ariaValueMax:"100"}}></div>
-                                    </div>
-                                    <small>One Page</small>
-                                    <div className="progress mb-3" style={{height: "5px"}}>
-                                        <div className="progress-bar bg-primary" role="progressbar" style={{width: "89%", ariaValueNow:"89", ariaValueMin:"0", ariaValueMax:"100"}}></div>
-                                    </div>
-                                    <small>Mobile Template</small>
-                                    <div className="progress mb-3" style={{height: "5px"}}>
-                                        <div className="progress-bar bg-primary" role="progressbar" style={{width: "55%", ariaValueNow:"55", ariaValueMin:"0", ariaValueMax:"100"}}></div>
-                                    </div>
-                                    <small>Backend API</small>
-                                    <div className="progress mb-3" style={{height: "5px"}}>
-                                        <div className="progress-bar bg-primary" role="progressbar" style={{width: "66%", ariaValueNow:"66", ariaValueMin:"0", ariaValueMax:"100"}}></div>
-                                    </div>
-                                    </div>
-                                </div>
-                                </div> */}
-                            {/* </div> */}
                             </div>
                         </div>
                         </div>

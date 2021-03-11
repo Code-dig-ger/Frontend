@@ -166,6 +166,7 @@ setPage(next)}} className='page-link'><img style={{height:'30px',width:'30px'}}s
             <Row className="contestRow">
     <Col sm={2} md={2} lg={3}>< div className="contestName text-white"><h6>{res.name}</h6></div></Col>
     <Col sm={2} md={2} lg={9}><Carousel responsive={responisve}>
+    <img src="https://www.flaticon.com/svg/vstatic/svg/591/591855.svg?token=exp=1615194865~hmac=231badd26c99fb4d304073dd8f89c877" alt="" height="100px" width="100px"style={{backgroundColor: 'white', padding: '10px', position: 'absolute', right:'100px'}}/>
                
                { 
              
@@ -173,7 +174,7 @@ setPage(next)}} className='page-link'><img style={{height:'30px',width:'30px'}}s
                    if(prob.status==="solved"){
                    return(
                   
-                   <Col><div className="solved" ><a href={prob.url} target="_blank"><h7>{prob.index}-{prob.name}</h7></a><br></br><br></br>
+                   <Col><div className="solved"><a href={prob.url} target="_blank"><h7>{prob.index}-{prob.name}</h7></a><br></br><br></br>
                   <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"15px"}} src={Tags}></img>} position="right">
                    <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div></Popup>
                    <h7>SOLVED</h7>
