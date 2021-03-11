@@ -78,6 +78,10 @@ function ProfilePage({handle}) {
                 $($this.attr('href')).addClass('active');
             });
         });
+
+        $(window).scroll(function(){
+            $("#profileCard").stop().animate({"marginTop": ($(window).scrollTop()) + "px", "marginLeft":($(window).scrollLeft()) + "px"}, "middle" );
+          });
     })
 
     useEffect(() => {
@@ -160,7 +164,7 @@ function ProfilePage({handle}) {
                 <div className="container" style={{marginTop: '100px'}}>
                     <div className="main-body">
                         <div className="row gutters-sm">
-                            <div className="col-md-4 mb-3">
+                        <div className="col-md-4 mb-3" id="profileCard">
                             <div className="card1">
                                 <div className="card-body">
                                     {user.result.about_user === "Logged In User Itself" ? 
