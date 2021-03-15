@@ -180,7 +180,7 @@ switchers.forEach((item) => {
      err?
       
       
-     <Popup open={true}>
+     <Popup open={true} >
       <div className="pops">{err}</div>
    </Popup>
      
@@ -218,7 +218,7 @@ switchers.forEach((item) => {
           </div>
         </fieldset>
       {msgL.length>0?
-       <Popup open={true}>
+       <Popup open={true} >
       <div className="pops">{msgL}</div>
    </Popup>:<></>}
      

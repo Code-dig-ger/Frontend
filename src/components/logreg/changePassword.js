@@ -23,7 +23,8 @@ const PassChangeForm=()=>{
         }
         else{
             alert(data.result)
-            //window.location='/home'
+            window.location='/login'
+            localStorage.clear();
         }
         setLoader(false);
     }
