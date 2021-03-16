@@ -10,10 +10,10 @@ import Navbar from '../../components/Header/Navbar'
 import Footer from '../../components/Footer/FooterSmall'
 import '../../../node_modules/reactjs-popup/dist/index.css';
 import Popup from 'reactjs-popup';
-import Right from '../../assets/rightarrow.png'
-import Left from '../../assets/leftarrow.png'
-import Tags from '../../assets/tags-icon2.png'
-import logo from '../../assets/codechef.png'
+
+import Tags from '../../assets/upsolve/tags-icon2.png'
+import logo from '../../assets/upsolve/codechef_logo.png'
+import refresh from '../../assets/upsolve/reload.png'
 //actions import
 import {codechef} from '../../actions/upsolve.actions'
 const Codechef=()=>{
@@ -124,25 +124,13 @@ if(last!=null){
             
             {conData.length>0?
             <>
-<div style={{display:"flex"}}>
- <h3 textAlign="center">CODECHEF</h3><img style={{width:'60px',height:'50px'}}src={logo}/></div>
- <div><button className="vir" onClick={e=>{window.location.reload(false)}}>Solved? Update</button></div>
-<div className="upperButtons">
-  
-          {
-            page!=1?
-            <button onClick={()=>{
-              setTimeout(()=>{setLoader(true)},1000)
-               setPage(prev)}} className='page-link'><img style={{height:'30px',width:'30px'}} src={Left}></img></button>:<></>
-          }
-            
+<div style={{display:"flex",justifyContent:'space-between'}}>
+ <img style={{width:'220px',height:'68px'}}src={logo}/>
+ <div><button title="solved? update" style={{float:'right',borderRadius:'35px'}} onClick={e=>{window.location.reload(false)}}><img style={{width:'50px',height:'52px'}}src={refresh}></img></button></div>
+ </div>
+ 
 
-{page!=last?
-
-<button onClick={()=>{
-                 setTimeout(()=>{setLoader(true)},1000)
-               setPage(next)}} className='page-link'><img style={{height:'30px',width:'30px'}}src={Right}></img></button>:<></>}</div>
-                <br></br>
+                <br></br><br></br>
                
 
              
@@ -176,7 +164,7 @@ if(last!=null){
                    )}
                    else if(prob.status==="upsolved"){
                    return(
-                    <Col> <div className="upsolve"><a  href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br>
+                    <Col> <div className="upsolved"><a  href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br>
                    <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"14px"}} src={Tags}></img>} position="right">
                     <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div></Popup>
                     <h7 className="blue">UPSOLVED</h7>
@@ -185,7 +173,7 @@ if(last!=null){
 
                    )}
                    return (
-                    <Col> <div className="solved"><a href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br>
+                    <Col> <div className="not_attempted"><a href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br>
                     <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"14px"}} src={Tags}></img>} position="right">
                      <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div></Popup>
                      <h7 className="viol" >NOT ATTEMPTED</h7>
@@ -195,24 +183,24 @@ if(last!=null){
                </Carousel></Col>
                </Row><br></br></>:<></>}</>)})}
 
-               <div >
+               <div className="paginate">
                     <nav className="paginator">
             <ul className='pagination'>
               {page!=1?
-                <a onClick={()=>{
+                <a style={{padding:'15px'}}onClick={()=>{
                   setTimeout(()=>{setLoader(true)},1000)
 
                   setPage(first)}} className='page-link'>First</a>:<></>}
             {      
             page!=1?
-           <a onClick={()=>{
+           <a style={{padding:'15px'}}onClick={()=>{
               setTimeout(()=>{setLoader(true)},1000)
               
              setPage(prev)}} className='page-link'>{`<`}</a>:<></>}
 
               {pageNumbers.map(number => (
                 <li key={number} className='page-item'>
-                  <a onClick={() =>{
+                  <a style={{padding:'15px'}}onClick={() =>{
                       setTimeout(()=>{setLoader(true)},1000)
                        setPage(number)
                        setTimeout(100)
@@ -223,12 +211,12 @@ if(last!=null){
               ))}
               {
                 page!=last?
-              <a onClick={()=>{
+              <a style={{padding:'15px'}}onClick={()=>{
                  setTimeout(()=>{setLoader(true)},1000)
                 setPage(next)
                 setCurPage(next)}} className='page-link'>{`>`}</a>:<></>}
                 {page!=last?
-             <a onClick={()=>{
+             <a style={{padding:'15px'}}onClick={()=>{
                 setTimeout(()=>{setLoader(true)},1000)
                setPage(last)
                setCurPage(last)}} className='page-link'>Last</a>:<></>}

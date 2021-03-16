@@ -10,9 +10,9 @@ import Footer from '../../components/Footer/FooterSmall'
 import 'reactjs-popup/dist/index.css';
 import './upsolve.style.css'
 import {atcoder} from '../../actions/upsolve.actions' 
-import logo from '../../assets/atcoder.png'
-import Right from '../../assets/rightarrow.png'
-import Left from '../../assets/leftarrow.png'
+import logo from '../../assets/upsolve/atcoder_logo.png'
+import refresh from '../../assets/upsolve/reload.png'
+import ToggleButton from 'react-toggle-button'
 
 const Atcoder=()=>{
    
@@ -120,30 +120,27 @@ if(last!=null){
               
               {conData.length>0?
               <>
-              <div style={{display:"flex"}}>
+              <div style={{display:"flex",justifyContent:'space-between'}}>
+                <div style={{display:"flex"}}>
  <h3 textAlign="center">ATCODER</h3><img style={{width:'60px',height:'50px'}}src={logo}/></div>
- <div><button className="vir" onClick={e=>{window.location.reload(false)}}>Solved? Update</button></div>
-                     <div>
-     <button onClick={e=>{
-        setTimeout(()=>{setLoader(true)},1000)
-        setPage(1);
-       setPrac(!Prac)}} className="vir">{`${Prac?`Exclude Practice`:`Include Practice`}`}</button></div><br></br>
+ <div><button title="solved? update" style={{float:'right',borderRadius:'35px'}} onClick={e=>{window.location.reload(false)}}><img style={{width:'50px',height:'52px'}}src={refresh}></img></button></div>
+ </div>
+<br></br>
+<div style={{display:"flex",float:"right",backgroundColor:'white',borderRadius:'5px'}}> 
+               <h6 style={{padding:'2px',color:"black",marginTop:'3px'}}>Include Practice</h6>
+       <ToggleButton
+       inactiveLabel={''}
+       activeLabel={''}
+      
+  value={ Prac || false }
+  onToggle={(val) => {
+   setPrac(!vir)
+   setTimeout(()=>{setLoader(true)},1000)
+   setPage(1);
+  }} />
+              </div><br></br>
            <br></br>
-           <div className="upperButtons">
-           
-           {
-             page!=1?
-          <button onClick={()=>{
-              setTimeout(()=>{setLoader(true)},1000)
-            
-             setPage(prev)}} className='page-link'><img style={{height:'30px',width:'30px'}} src={Left}></img></button>:<></>}
-          
-             
-{page!=last?
-<button onClick={()=>{
-                 setTimeout(()=>{setLoader(true)},1000)
-               
-setPage(next)}} className='page-link'><img style={{height:'30px',width:'30px'}}src={Right}></img></button>:<></>}</div>
+          <br></br>
               
 
               
@@ -167,18 +164,18 @@ setPage(next)}} className='page-link'><img style={{height:'30px',width:'30px'}}s
                          )}
                          else if(prob.status==="wrong"){
                          return(
-                          <Col> <div className={`solved`}><a href={prob.url} target="_blank"><h7 >{prob.name}</h7></a><br></br><br></br>
+                          <Col> <div className={`wrong`}><a href={prob.url} target="_blank"><h7 >{prob.name}</h7></a><br></br><br></br>
                           <h7 className="red">WRONG</h7>
                            </div></Col>
                          )}
                          else if(prob.status=="upsolved"){
                          return(
-                          <Col> <div className={`solved`}><a  href={prob.url} target="_blank"><h7 >{prob.name}</h7></a><br></br><br></br>
+                          <Col> <div className={`upsolved`}><a  href={prob.url} target="_blank"><h7 >{prob.name}</h7></a><br></br><br></br>
                            <h7 className="blue">UPSOLVED</h7>
                            </div></Col>
                          )}
                          return(
-                          <Col> <div className={`solved`}><a href={prob.url} target="_blank"><h7 >{prob.name}</h7></a><br></br><br></br>
+                          <Col> <div className={`not_attempted`}><a href={prob.url} target="_blank"><h7 >{prob.name}</h7></a><br></br><br></br>
                         
                            <h7 className="viol">NOT ATTEMPTED</h7>
                            </div></Col>
@@ -187,21 +184,21 @@ setPage(next)}} className='page-link'><img style={{height:'30px',width:'30px'}}s
                      </Carousel></Col>
                     
                      </Row><br></br></>:<></>}</>)})}
-                     <div >
+                     <div className="paginate" >
                     <nav className="paginator">
             <ul className='pagination'>
               {page!=1?
-                <a onClick={()=>{
+                <a style={{padding:'15px'}}onClick={()=>{
                   setTimeout(()=>{setLoader(true)},1000)
 
                   setPage(first)}} className='page-link'>First</a>:<></>}
                   {page!=1?
-           <a onClick={()=>{
+           <a style={{padding:'15px'}}onClick={()=>{
               setTimeout(()=>{setLoader(true)},1000)
              setPage(prev)}} className='page-link'>{`<`}</a>:<></>}
               {pageNumbers.map(number => (
                 <li key={number} className='page-item'>
-                  <a onClick={() =>{
+                  <a style={{padding:'15px'}}onClick={() =>{
                       setTimeout(()=>{setLoader(true)},1000)
                      setPage(number)}} className={`${page==number?`active-page`:'page-link'}`}>
                     {number}
@@ -209,7 +206,7 @@ setPage(next)}} className='page-link'><img style={{height:'30px',width:'30px'}}s
                 </li>
               ))}
               {page!=last?
-              <a onClick={()=>{
+              <a style={{padding:'15px'}}onClick={()=>{
                  setTimeout(()=>{setLoader(true)},1000)
                 setPage(next)}} className='page-link'>{`>`}</a>:<></>}
                 {page!=last?

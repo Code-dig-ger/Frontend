@@ -37,6 +37,7 @@
     "react-scripts": "^4.0.0",
     "react-scroll-to": "^3.0.0-beta.6",
     "react-slick": "^0.27.13",
+    "react-toggle-button": "^2.2.0",
     "react-tooltip": "^4.2.13",
     "react-typewriting-effect": "^1.0.4",
     "react-visibility-sensor": "^5.1.1",
