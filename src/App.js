@@ -10,7 +10,7 @@ import Codechef from './pages/upsolve/Codechef'
 import Atcoder from './pages/upsolve/Atcoder'
 import LaddersLevel from "./pages/ladders/LaddersLevel";
 import Profile from './pages/profile/ProfilePage'
-import Virtual from './pages/upsolve/virtual.page'
+
 import Info from './components/profile/FillInfo';
 import '../node_modules/aos/dist/aos.css'
 import '../node_modules/react-multi-carousel/lib/styles.css'
@@ -119,7 +119,7 @@ const App = () => {
              
              {/* <Route exact path="/laddersLevel/topic/page1" component={LaddersQuestionPage}/> */}
              
-             <Route exact path="/upsolve/virtual" component={Virtual}/>
+            
               
             <Route exact path="/home" component={Homepage}/>
             <Route exact path="/createProfile" component={Info}/>
