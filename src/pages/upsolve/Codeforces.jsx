@@ -134,25 +134,24 @@ mobile: {
      
         {conData.length>0?
         <>
-      
-        <div style={{display:"flex",justifyContent:'space-between'}}>
- <img style={{width:'220px',height:'50px'}}src={logo}/>
- <div><button title="solved? update" style={{float:'right',borderRadius:'35px'}} onClick={e=>{window.location.reload(false)}}><img style={{width:'50px',height:'52px'}}src={refresh}></img></button></div>
- </div><br></br>
+      <img style={{width:'220px',height:'50px'}}src={logo}/>
  
-               <div style={{display:"flex",float:"right",backgroundColor:'white',borderRadius:'5px'}}> 
-               <h6 style={{padding:'2px',color:"black",marginTop:'3px'}}>Include virtual</h6>
+ <div style={{display:"flex",float:"right"}}>
+ 
+               <div style={{float:"right",backgroundColor:'white',borderRadius:'5px',alignItems:"center"}}> 
+               <h6 style={{padding:"3px",color:"black",marginTop:'6px'}}>Include virtual</h6>
        <ToggleButton
        inactiveLabel={''}
        activeLabel={''}
-       trackStyle={width}
+      
   value={ vir || false }
   onToggle={(val) => {
    setVir(!vir)
    setTimeout(()=>{setLoader(true)},1000)
    setPage(1);
-  }} />
-              </div><br></br><br></br><br></br>
+  }} /></div>
+  <div><button title="solved? update" style={{float:'right',borderRadius:'35px'}} onClick={e=>{window.location.reload(false)}}><img style={{width:'50px',height:'52px'}}src={refresh}></img></button></div>
+              </div><br></br><br></br>
        
         
         

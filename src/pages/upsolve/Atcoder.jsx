@@ -120,14 +120,12 @@ if(last!=null){
               
               {conData.length>0?
               <>
-              <div style={{display:"flex",justifyContent:'space-between'}}>
+            
                 <div style={{display:"flex"}}>
  <h3 textAlign="center">ATCODER</h3><img style={{width:'60px',height:'50px'}}src={logo}/></div>
- <div><button title="solved? update" style={{float:'right',borderRadius:'35px'}} onClick={e=>{window.location.reload(false)}}><img style={{width:'50px',height:'52px'}}src={refresh}></img></button></div>
- </div>
-<br></br>
-<div style={{display:"flex",float:"right",backgroundColor:'white',borderRadius:'5px'}}> 
-               <h6 style={{padding:'2px',color:"black",marginTop:'3px'}}>Include Practice</h6>
+ <div style={{display:"flex",float:"right"}}>
+ <div style={{float:"right",backgroundColor:'white',borderRadius:'5px'}}> 
+               <h6 style={{padding:"3px",color:"black",marginTop:'6px'}}>Include Practice</h6>
        <ToggleButton
        inactiveLabel={''}
        activeLabel={''}
@@ -138,11 +136,11 @@ if(last!=null){
    setTimeout(()=>{setLoader(true)},1000)
    setPage(1);
   }} />
+              </div>
+              <div><button title="solved? update" style={{float:'right',borderRadius:'35px'}} onClick={e=>{window.location.reload(false)}}><img style={{width:'50px',height:'52px'}}src={refresh}></img></button></div>
               </div><br></br>
-           <br></br>
-          <br></br>
-              
-
+           
+<br></br><br></br><br></br>
               
               {conData.map(res=>{
                 return(
