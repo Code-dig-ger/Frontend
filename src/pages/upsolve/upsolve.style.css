@@ -5,7 +5,7 @@
     text-align: center;
     padding-top: 10px;
     background-color: black;
-    border-left: 2px solid #00b33e;
+    border-left: 2px solid #33A168;
 }
 .wrong {
     background-color: rgb(0, 0, 0);
@@ -14,7 +14,7 @@
     height: 90px;
     text-align: center;
     padding-top: 10px;
-    border-left: 2px solid #e05e5e;
+    border-left: 2px soliD salmon;
 }
 .upsolved {
     background-color: rgb(0, 0, 0);
@@ -23,7 +23,7 @@
     height: 90px;
     text-align: center;
     padding-top: 10px;
-    border-left: 2px solid #6eadf5;
+    border-left: 2px solid lightskyblue;
 }
 .contestName {
     font-weight: 900;
@@ -43,7 +43,7 @@
     height: 90px;
     text-align: center;
     padding-top: 10px;
-    border-left: 2px solid violet;
+    border-left: 2px solid #bba187;
 }
 
 
@@ -194,16 +194,16 @@ a {
     margin: 2px;
 }
 .green {
-    color: #00b33e;
+    color: #33a168;
 }
 .red {
-    color:#e05e5e;
+    color:salmon;
 }
 .viol{
-    color:violet;
+    color:#bba187;
 }
 .blue {
-    color: #6eadf5;
+    color: lightskyblue;
 }
 .tagsbox {
     color: black;
