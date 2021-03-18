@@ -123,9 +123,11 @@ if(last!=null){
             
                 <div style={{display:"flex"}}>
  <h3 textAlign="center">ATCODER</h3><img style={{width:'60px',height:'50px'}}src={logo}/></div>
+ 
  <div style={{display:"flex",float:"right"}}>
- <div style={{float:"right",backgroundColor:'white',borderRadius:'5px'}}> 
-               <h6 style={{padding:"3px",color:"black",marginTop:'6px'}}>Include Practice</h6>
+ <div style={{float:"right",backgroundColor:"lightslategrey",borderRadius:'5px',border:"2px solid black"}}> 
+               <h6 style={{padding:"3px",color:"black",marginTop:"2px"}}>Include Practice</h6>
+               <div style={{display:"block",marginLeft:"25px"}}>
        <ToggleButton
        inactiveLabel={''}
        activeLabel={''}
@@ -135,7 +137,7 @@ if(last!=null){
    setPrac(!vir)
    setTimeout(()=>{setLoader(true)},1000)
    setPage(1);
-  }} />
+  }} /></div>
               </div>
               <div><button title="solved? update" style={{float:'right',borderRadius:'35px'}} onClick={e=>{window.location.reload(false)}}><img style={{width:'50px',height:'52px'}}src={refresh}></img></button></div>
               </div><br></br>

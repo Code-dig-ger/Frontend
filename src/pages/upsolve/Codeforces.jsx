@@ -138,8 +138,9 @@ mobile: {
  
  <div style={{display:"flex",float:"right"}}>
  
-               <div style={{float:"right",backgroundColor:'white',borderRadius:'5px',alignItems:"center"}}> 
-               <h6 style={{padding:"3px",color:"black",marginTop:'6px'}}>Include virtual</h6>
+               <div style={{float:"right",backgroundColor:'lightslategrey',borderRadius:'5px',alignItems:"center"}}> 
+               <h6 style={{padding:"3px",color:"black",marginTop:'2px'}}>Include Virtual</h6>
+               <div style={{display:"block",marginLeft:"25px"}}>
        <ToggleButton
        inactiveLabel={''}
        activeLabel={''}
@@ -149,11 +150,11 @@ mobile: {
    setVir(!vir)
    setTimeout(()=>{setLoader(true)},1000)
    setPage(1);
-  }} /></div>
+  }} /></div></div>
   <div><button title="solved? update" style={{float:'right',borderRadius:'35px'}} onClick={e=>{window.location.reload(false)}}><img style={{width:'50px',height:'52px'}}src={refresh}></img></button></div>
               </div><br></br><br></br>
        
-        
+        <br></br>
         
 
 
