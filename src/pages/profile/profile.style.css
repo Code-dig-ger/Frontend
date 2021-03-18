@@ -123,12 +123,9 @@ h6 {
     max-width: 30rem;
     display: flex;
     min-width: 428px;
-    min-height: 198px;
+    min-height: 175px;
     max-width: 428px;
     max-height: 198px;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #11111a;
 }
 .tabs > ul {
     list-style-type: none;
@@ -147,14 +144,14 @@ h6 {
     transition: all 0.2s ease-in-out;
 }
 .tabs > ul li a.active {
-    background: #fff;
+    background: #fadadd;
     color: #2c2c2c !important;
 }
 .tabs > ul li a:hover:not(.active) {
     color: white;
 }
 .tabs section {
-    background: #fff;
+    background: #fadadd;
     padding: 1rem 1.5rem;
     display: none;
 }

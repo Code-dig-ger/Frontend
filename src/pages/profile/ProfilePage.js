@@ -80,7 +80,7 @@ function ProfilePage({handle}) {
         });
 
         $(window).scroll(function(){
-            $("#profileCard").stop().animate({"marginTop": ($(window).scrollTop()) + "px", "marginLeft":($(window).scrollLeft()) + "px"}, "middle" );
+            $("#profileCard").stop().animate({"marginTop": ($(window).scrollTop()) + "px", "marginLeft":($(window).scrollLeft()) + "px"}, "fast" );
           });
     })
 
@@ -293,7 +293,7 @@ function ProfilePage({handle}) {
 
 
                                     </div>
-                                        <div className="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px"}}>
+                                        <div className="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px", paddingTop: '12px'}}>
                                             {codeforcesDat.result.contestRank.length===0 ? 
                                                 <h6 style={{color:"white", fontSize:"2rem"}}>You havent done any contest</h6> 
                                                 :
@@ -308,7 +308,7 @@ function ProfilePage({handle}) {
 
                                                 {codeforcesDat.result.contestRank.map((contestDat, index) => {
                                                     return(
-                                                        <section style={{width:"100%"}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
+                                                        <section style={{width:"100%", height: '160px'}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
                                                             <h6 style={{color:"black", fontSize: '20px', fontWeight: '700', textDecoration: 'underline'}}>{contestDat.contest.name}</h6>
                                                             <p style={{ fontSize: '14px', fontWeight: '500'}}>World Rank : {contestDat.worldRank? contestDat.worldRank : "NA"}</p>
                                                             <p style={{ fontSize: '14px', fontWeight: '500'}}>Country Rank : {contestDat.countryRank? contestDat.countryRank : "NA"}</p>
@@ -380,7 +380,7 @@ function ProfilePage({handle}) {
 
 
                                     </div>
-                                        <div className="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px"}}>
+                                        <div className="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px", paddingTop: '12px'}}>
                                             {codechefDat.result.contestRank.length===0 ? 
                                                 <h6 style={{color:"white", fontSize:"2rem"}}>You havent done any contest</h6> 
                                                 :
@@ -395,7 +395,7 @@ function ProfilePage({handle}) {
 
                                                 {codechefDat.result.contestRank.map((contestDat, index) => {
                                                     return(
-                                                        <section style={{width:"100%"}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
+                                                        <section style={{width:"100%", height: '160px'}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
                                                             <h6 style={{color:"black", fontSize: '21px', fontWeight: '700', textDecoration: 'underline'}}>{contestDat.name}</h6>
                                                             <p style={{marginTop: '20px', fontSize: '16px', fontWeight: '500'}}>Rank : {contestDat.rank}</p>
                                                         </section>
@@ -454,7 +454,7 @@ function ProfilePage({handle}) {
 
 
                                     </div>
-                                        <div className="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px"}}>
+                                        <div className="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px", paddingTop: '12px'}}>
                                             {atcoderDat.result.contestRank.length===0 ? 
                                                 <h6 style={{color:"white", fontSize:"2rem"}}>You havent done any contest</h6> 
                                                 :
@@ -469,7 +469,7 @@ function ProfilePage({handle}) {
 
                                                 {atcoderDat.result.contestRank.map((contestDat, index) => {
                                                     return(
-                                                        <section style={{width:"100%"}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
+                                                        <section style={{width:"100%", height: '160px'}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
                                                             <h6 style={{color:"black", fontSize: '21px', fontWeight: '700', textDecoration: 'underline'}}>{contestDat.name}</h6>
                                                             <p style={{marginTop: '20px', fontSize: '16px', fontWeight: '500'}}>World Rank : {contestDat.worldRank}</p>
                                                         </section>
