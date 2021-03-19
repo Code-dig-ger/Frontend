@@ -144,14 +144,14 @@ h6 {
     transition: all 0.2s ease-in-out;
 }
 .tabs > ul li a.active {
-    background: #fadadd;
+    background: ghostwhite;
     color: #2c2c2c !important;
 }
 .tabs > ul li a:hover:not(.active) {
     color: white;
 }
 .tabs section {
-    background: #fadadd;
+    background: ghostwhite;
     padding: 1rem 1.5rem;
     display: none;
 }
