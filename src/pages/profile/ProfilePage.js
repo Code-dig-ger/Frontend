@@ -18,7 +18,7 @@ import FriendList from '../../components/profile/FriendList.js';
 import {Modal,ModalBody,ModalFooter,ModalHeader,Button} from 'reactstrap';
 import { Carousel } from 'react-bootstrap'
 import { getProfile, getInfoBySite, getFriendReq } from "../../actions/profile.actions.js"
-
+import Photo from "../../assets/1.png.png"
 
 
 function ProfilePage({handle}) {
@@ -255,38 +255,39 @@ function ProfilePage({handle}) {
                                     <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
                                     <div style={{marginRight: "40px", marginLeft: '20px'}}>
                                         
-                                    <Carousel controls={false}>
-                                        <Carousel.Item style={{height: '150px', width: '100px'}}>
+                                    <Carousel controls={false} indicators={false}>
+                                        <Carousel.Item style={{height: '190px', width: '100px'}}>
                                             <img
                                             className="d-block w-100"
-                                            src="https://img.freepik.com/free-photo/dark-grunge-style-scratched-metal-surface_1048-12951.jpg?size=626&ext=jpg"
+                                            src={Photo}
                                             alt="First slide"
+                                            style={{objectFit: 'contain'}}
                                             />
-                                            <Carousel.Caption style={{position: 'absolute', top: '0px'}}>
-                                            <h3 style={{fontSize: '17px', fontWeight: '700'}}>Organization Rank</h3>
-                                            <p style={{fontSize: '18px', marginTop: '0px'}}>{codeforcesDat.result.organizationRank? codeforcesDat.result.organizationRank:"NA"}</p>
+                                            <Carousel.Caption style={{position: 'absolute', top: '50px', right: '20px'}}>
+                                            <h3 style={{fontSize: '17px', fontWeight: '700', color: 'black'}}>Organization Rank</h3>
+                                            <p style={{fontSize: '18px', color: 'black', marginTop: '0px', marginTop: '0px', color: 'black'}}>{codeforcesDat.result.organizationRank? codeforcesDat.result.organizationRank:"12023"}</p>
                                             </Carousel.Caption>
                                         </Carousel.Item>
-                                        <Carousel.Item style={{height: '150px', width: '100px'}}>
+                                        <Carousel.Item style={{height: '190px', width: '100px'}}>
                                             <img
                                             className="d-block w-100"
-                                            src="https://img.freepik.com/free-photo/dark-grunge-style-scratched-metal-surface_1048-12951.jpg?size=626&ext=jpg"
+                                            src={Photo}
                                             alt="First slide"
                                             />
-                                            <Carousel.Caption style={{position: 'absolute', top: '5px'}}>
-                                            <h3 style={{fontSize: '20px', fontWeight: '700'}}>Country Rank</h3>
-                                            <p style={{fontSize: '18px'}}>{codeforcesDat.result.countryRank? codeforcesDat.result.countryRank:"NA"}</p>
+                                            <Carousel.Caption style={{position: 'absolute', top: '50px', right: '20px'}}>
+                                            <h3 style={{fontSize: '17px', fontWeight: '700', color: 'black'}}>Country Rank</h3>
+                                            <p style={{fontSize: '18px', color: 'black', marginTop: '0px', color: 'black', marginTop: '0px'}}>{codeforcesDat.result.countryRank? codeforcesDat.result.countryRank:"NA"}</p>
                                             </Carousel.Caption>
                                         </Carousel.Item>
-                                        <Carousel.Item style={{height: '150px', width: '100px'}}>
+                                        <Carousel.Item style={{height: '190px', width: '100px'}}>
                                             <img
                                             className="d-block w-100"
-                                            src="https://img.freepik.com/free-photo/dark-grunge-style-scratched-metal-surface_1048-12951.jpg?size=626&ext=jpg"
+                                            src={Photo}
                                             alt="First slide"
                                             />
-                                            <Carousel.Caption style={{position: 'absolute', top: '5px'}}>
-                                            <h3 style={{fontSize: '20px', fontWeight: '700'}}>World Rank</h3>
-                                            <p style={{fontSize: '18px'}}>{codeforcesDat.result.worldRank}</p>
+                                            <Carousel.Caption style={{position: 'absolute', top: '50px', right: '20px'}}>
+                                            <h3 style={{fontSize: '20px', fontWeight: '700', color: 'black'}}>World Rank</h3>
+                                            <p style={{fontSize: '18px', color: 'black', marginTop: '0px'}}>{codeforcesDat.result.worldRank}</p>
                                             </Carousel.Caption>
                                         </Carousel.Item>
                                         </Carousel>
@@ -309,7 +310,7 @@ function ProfilePage({handle}) {
                                                 {codeforcesDat.result.contestRank.map((contestDat, index) => {
                                                     return(
                                                         <section style={{width:"100%", height: '160px'}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
-                                                            <h6 style={{color:"black", fontSize: '20px', fontWeight: '700', textDecoration: 'underline'}}>{contestDat.contest.name}</h6>
+                                                            <h6 style={{color:"black", fontSize: '20px', fontWeight: '700', color: 'black', textDecoration: 'underline'}}>{contestDat.contest.name}</h6>
                                                             <p style={{ fontSize: '14px', fontWeight: '500'}}>World Rank : {contestDat.worldRank? contestDat.worldRank : "NA"}</p>
                                                             <p style={{ fontSize: '14px', fontWeight: '500'}}>Country Rank : {contestDat.countryRank? contestDat.countryRank : "NA"}</p>
                                                             <p style={{ fontSize: '14px', fontWeight: '500'}}>Org Rank : {contestDat.organizationRank? contestDat.organizationRank : "NA"}</p>
@@ -353,27 +354,27 @@ function ProfilePage({handle}) {
                                     <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
                                     <div style={{marginRight: "40px", marginLeft: '20px'}}>
                                         
-                                    <Carousel controls={false}>
-                                        <Carousel.Item style={{height: '150px', width: '100px'}}>
+                                    <Carousel controls={false} indicators={false}>
+                                        <Carousel.Item style={{height: '190px', width: '100px'}}>
                                             <img
                                             className="d-block w-100"
-                                            src="https://img.freepik.com/free-photo/dark-grunge-style-scratched-metal-surface_1048-12951.jpg?size=626&ext=jpg"
+                                            src={Photo}
                                             alt="First slide"
                                             />
-                                            <Carousel.Caption style={{position: 'absolute', top: '5px'}}>
-                                            <h3 style={{fontSize: '20px', fontWeight: '700'}}>Country Rank</h3>
-                                            <p style={{fontSize: '18px'}}>{codechefDat.result.countryRank? codechefDat.result.countryRank:"NA"}</p>
+                                            <Carousel.Caption style={{position: 'absolute', top: '50px', right: '20px'}}>
+                                            <h3 style={{fontSize: '17px', fontWeight: '700', color: 'black'}}>Country Rank</h3>
+                                            <p style={{fontSize: '18px', color: 'black', marginTop: '0px'}}>{codechefDat.result.countryRank? codechefDat.result.countryRank:"NA"}</p>
                                             </Carousel.Caption>
                                         </Carousel.Item>
-                                        <Carousel.Item style={{height: '150px', width: '100px'}}>
+                                        <Carousel.Item style={{height: '190px', width: '100px'}}>
                                             <img
                                             className="d-block w-100"
-                                            src="https://img.freepik.com/free-photo/dark-grunge-style-scratched-metal-surface_1048-12951.jpg?size=626&ext=jpg"
+                                            src={Photo}
                                             alt="First slide"
                                             />
-                                            <Carousel.Caption style={{position: 'absolute', top: '5px'}}>
-                                            <h3 style={{fontSize: '20px', fontWeight: '700'}}>World Rank</h3>
-                                            <p style={{fontSize: '18px'}}>{codechefDat.result.worldRank}</p>
+                                            <Carousel.Caption style={{position: 'absolute', top: '50px', right: '20px'}}>
+                                            <h3 style={{fontSize: '20px', fontWeight: '700', color: 'black'}}>World Rank</h3>
+                                            <p style={{fontSize: '18px', color: 'black', marginTop: '0px'}}>{codechefDat.result.worldRank}</p>
                                             </Carousel.Caption>
                                         </Carousel.Item>
                                         </Carousel>
@@ -396,7 +397,7 @@ function ProfilePage({handle}) {
                                                 {codechefDat.result.contestRank.map((contestDat, index) => {
                                                     return(
                                                         <section style={{width:"100%", height: '160px'}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
-                                                            <h6 style={{color:"black", fontSize: '21px', fontWeight: '700', textDecoration: 'underline'}}>{contestDat.name}</h6>
+                                                            <h6 style={{color:"black", fontSize: '21px', fontWeight: '700', color: 'black', textDecoration: 'underline'}}>{contestDat.name}</h6>
                                                             <p style={{marginTop: '20px', fontSize: '16px', fontWeight: '500'}}>Rank : {contestDat.rank}</p>
                                                         </section>
                                                     )
@@ -438,16 +439,16 @@ function ProfilePage({handle}) {
                                     <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
                                     <div style={{marginRight: "40px", marginLeft: '20px'}}>
                                         
-                                    <Carousel controls={false}>
-                                        <Carousel.Item style={{height: '150px', width: '100px'}}>
+                                    <Carousel controls={false} indicators={false}>
+                                        <Carousel.Item style={{height: '190px', width: '100px'}}>
                                             <img
                                             className="d-block w-100"
-                                            src="https://img.freepik.com/free-photo/dark-grunge-style-scratched-metal-surface_1048-12951.jpg?size=626&ext=jpg"
+                                            src={Photo}
                                             alt="First slide"
                                             />
-                                            <Carousel.Caption style={{position: 'absolute', top: '5px'}}>
-                                            <h3 style={{fontSize: '20px', fontWeight: '700'}}>World Rank</h3>
-                                            <p style={{fontSize: '18px'}}>{atcoderDat.result.worldRank? atcoderDat.result.worldRank:"NA"}</p>
+                                            <Carousel.Caption style={{position: 'absolute', top: '50px', right: '20px'}}>
+                                            <h3 style={{fontSize: '20px', fontWeight: '700', color: 'black'}}>World Rank</h3>
+                                            <p style={{fontSize: '18px', color: 'black', marginTop: '0px'}}>{atcoderDat.result.worldRank? atcoderDat.result.worldRank:"NA"}</p>
                                             </Carousel.Caption>
                                         </Carousel.Item>
                                         </Carousel>
@@ -470,7 +471,7 @@ function ProfilePage({handle}) {
                                                 {atcoderDat.result.contestRank.map((contestDat, index) => {
                                                     return(
                                                         <section style={{width:"100%", height: '160px'}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
-                                                            <h6 style={{color:"black", fontSize: '21px', fontWeight: '700', textDecoration: 'underline'}}>{contestDat.name}</h6>
+                                                            <h6 style={{color:"black", fontSize: '21px', fontWeight: '700', color: 'black', textDecoration: 'underline'}}>{contestDat.name}</h6>
                                                             <p style={{marginTop: '20px', fontSize: '16px', fontWeight: '500'}}>World Rank : {contestDat.worldRank}</p>
                                                         </section>
                                                     )
@@ -513,16 +514,17 @@ function ProfilePage({handle}) {
                                             <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
                                             <div style={{marginRight: "40px", marginLeft: '20px'}}>
                                                 
-                                            <Carousel controls={false}>
-                                                <Carousel.Item style={{height: '150px', width: '60px'}}>
+                                            <Carousel controls={false} indicators={false}>
+                                                <Carousel.Item style={{height: '190px', width: '60px'}}>
                                                     <img
-                                                    className="d-block w-100"
-                                                    src="https://img.freepik.com/free-photo/dark-grunge-style-scratched-metal-surface_1048-12951.jpg?size=626&ext=jpg"
+                                                    className="d-block"
+                                                    src={Photo}
                                                     alt="First slide"
+                                                    style={{width: '80%', position: 'relative', left: '30px', top: '-10px'}}
                                                     />
-                                                    <Carousel.Caption style={{position: 'absolute', top: '5px'}}>
-                                                    <h3 style={{fontSize: '20px', fontWeight: '700'}}>World Rank</h3>
-                                                    <p style={{fontSize: '18px'}}>{spojDat.result.worldRank? spojDat.result.worldRank:"NA"}</p>
+                                                    <Carousel.Caption style={{position: 'absolute', top: '50px', right: '20px'}}>
+                                                    <h3 style={{fontSize: '20px', fontWeight: '700', color: 'black'}}>World Rank</h3>
+                                                    <p style={{fontSize: '18px', color: 'black', marginTop: '0px'}}>{spojDat.result.worldRank? spojDat.result.worldRank:"NA"}</p>
                                                     </Carousel.Caption>
                                                 </Carousel.Item>
                                                 </Carousel>
@@ -560,16 +562,17 @@ function ProfilePage({handle}) {
                                             <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
                                             <div style={{marginRight: "40px", marginLeft: '20px'}}>
                                                 
-                                            <Carousel controls={false}>
-                                                <Carousel.Item style={{height: '150px', width: '60px'}}>
+                                            <Carousel controls={false} indicators={false}>
+                                                <Carousel.Item style={{height: '190px', width: '60px'}}>
                                                     <img
-                                                    className="d-block w-100"
-                                                    src="https://img.freepik.com/free-photo/dark-grunge-style-scratched-metal-surface_1048-12951.jpg?size=626&ext=jpg"
+                                                    className="d-block"
+                                                    src={Photo}
                                                     alt="First slide"
+                                                    style={{width: '80%', position: 'relative', left: '30px', top: '-10px'}}
                                                     />
-                                                    <Carousel.Caption style={{position: 'absolute', top: '5px'}}>
-                                                    <h3 style={{fontSize: '20px', fontWeight: '700'}}>World Rank</h3>
-                                                    <p style={{fontSize: '18px'}}>{uvaDat.result.worldRank? uvaDat.result.worldRank:"NA"}</p>
+                                                    <Carousel.Caption style={{position: 'absolute', top: '50px', right: '20px'}}>
+                                                    <h3 style={{fontSize: '20px', fontWeight: '700', color: 'black'}}>World Rank</h3>
+                                                    <p style={{fontSize: '18px', color: 'black', marginTop: '0px'}}>{uvaDat.result.worldRank? uvaDat.result.worldRank:"NA"}</p>
                                                     </Carousel.Caption>
                                                 </Carousel.Item>
                                                 </Carousel>
