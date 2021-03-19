@@ -306,7 +306,7 @@ section{
   background: linear-gradient(
     180deg
     , #517281 0%, #3b5d70 27%, #4d5c82 72%, #5d647f 100%);
-    /* height: 75vh; */
+    height: 75vh;
     margin-left: auto;
     margin-right: 2.5rem;
     display: flex;
@@ -331,7 +331,8 @@ section{
 }
 
 .friendContent>div{
-  font-size: 1.4rem;
+  font-size: 1.6rem;
+  font-weight: 500;
   margin-top: 2rem;
   padding-right: 5rem;
 }
@@ -346,7 +347,7 @@ section{
 #thirdRowIcon>svg{
   position: absolute;
   width: 35rem;
-  height: 46rem;
+  height: 53rem;
   z-index: 2;
   left: 28%;
   padding-top: 16rem;
@@ -362,16 +363,18 @@ section{
 }
 
 #upsolveSvg{
-  margin-top: 0 !important;
+  margin-top: -2rem !important;
   /* height: 81vh !important; */
+  height: 90vh !important;
+  width: 20rem !important;
 }
 
 #ladderIcon{
-  padding-top: 3rem !important;
+  padding-top: 0rem !important;
   margin: 0 !important;
   position: absolute !important;
   width: 72rem !important;
-  height: 33rem !important;
+  height: 32rem !important;
 }
 
 #playListImg{

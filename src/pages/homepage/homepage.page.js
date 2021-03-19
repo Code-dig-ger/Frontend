@@ -144,7 +144,7 @@ const Homepage = () => {
                 <div className='friendContent'>
                   <h2>Friends and Mentors</h2>
                   <div>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
+                  Practicing CP alone can be a bit boring and frustrating. Codedigger helps the users to add a friend with whom they can practice problems and also a feature to add a mentor who can provide the guidance required, which makes the journey much easier and exciting.
                   </div>
                 </div>
                 <FriendSVG/>
@@ -158,8 +158,7 @@ const Homepage = () => {
                 <div className='friendContent'>
                   <h2 style={{color:'#4CD265'}}>Profile and Github connect</h2>
                   <div>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
-                  </div>
+                  The site provides Competitive Programming profiles which help the users to analyze their algorithmic progress. Cards help the users to view their profiles for different Competitive Programming sites.                  </div>
                 </div>
                 
               </Col>
@@ -172,8 +171,7 @@ const Homepage = () => {
                 <div className='friendContent'>
                   <h2 style={{color:'#f81337'}}>Rating Change Reminder</h2>
                   <div>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                  </div>
+                  After participating in any contest, rating changes are emailed to the users on their registered email-ids, which helps them to analyze the mistakes and keep improving.                  </div>
                 </div>
                 
               </Col>
@@ -182,20 +180,20 @@ const Homepage = () => {
                 <div className='friendContent'>
                   <h2 style={{color:'#ffff57'}}>Problem/Contest Filter</h2>
                   <div>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                  Problems can be solved on the basis of difficulty and tags from five different platforms( Codechef, Codeforces, Atcoder, &nbsp;&nbsp;&nbsp;Spoj, and Uva Online Judge).
                   </div>
                 </div>
                 
               </Col>
             </Row>
 
-            <Row style={{marginTop:'13rem'}}>
+            <Row style={{marginTop:'22rem'}}>
               <Col lg={11} sm={11} md={11} className='fourthRoww' id='friendFtRow' style={{background:'linear-gradient(360deg, hsla(39, 83%, 77%, 1) 0%, hsla(39, 90%, 30%, 1) 100%)'}}>
               <UpsolveIcon/>
                 <div className='friendContent'>
                   <h2 style={{color:'rgb(255 203 149)'}}>UpSolve</h2>
                   <div id='fourthRowContent'>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
+                  The site provides the feature of upsolving the problems in a live or a virtual contest from three sites including Codechef, Codeforces, and Atcoder which helps the users to analyze their mistakes and thus provides scope for improvement.
                   </div>
                 </div>
                 
@@ -203,12 +201,12 @@ const Homepage = () => {
             </Row>
 
             <Row style={{marginTop:'2rem'}}>
-              <Col lg={11} sm={11} md={11} className='fourthRoww' id='friendFtRow' style={{background:'linear-gradient(-135deg, #590a0d 0%, #10071c 100%)'}}>
+              <Col lg={11} sm={11} md={11} className='fourthRoww' id='friendFtRow' style={{background:'linear-gradient(-135deg, #590a0d 0%, #10071c 100%)',height:'79vh'}}>
               
-                <div style={{marginLeft:'2rem',zIndex:'2'}} className='friendContent'>
+                <div style={{marginLeft:'2rem',zIndex:'2',paddingTop:'0'}} className='friendContent'>
                   <h2 style={{color:'#ff3a4f'}}>Ladders</h2>
                   <div id='fourthRowContent'>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
+                  It helps in listing the problems topic wise and levelwise (that is on the basis of difficulty). Before attempting the new problems the user has to make sure that he/she has solved all the previously listed problems.
                   </div>
                 </div>
                 <LadderIcon/>
@@ -221,7 +219,7 @@ const Homepage = () => {
                 <div className='friendContent'>
                   <h2 style={{color:'rgb(254 132 255)'}}>Your Playlist Of Questions</h2>
                   <div>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
+                  It is a collection of problems added by the user from different platforms, which can be reviewed later. 
                   </div>
                 </div>
                 
@@ -254,7 +252,7 @@ const Homepage = () => {
           <Row className="bigRow">
           <Col className="first heading1" lg={12} md={12} sm={12}>
             <div class="aboutUsHeading">ABOUT US</div>  
-            <div className="aboutUsContent">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</div> 
+            <div className="aboutUsContent" style={{padding:'0 2rem'}}>Codeddiger is a platform to analyze and improve your Competitive Programming Progress. It is a place where a user can find a variety of problems from competitive sites including Codechef, Codeforces, Atcoder, Spoj, and Uva online judge and can start their way to Competitive programming.</div> 
           <section id="counter" class="counter">
             <div class="main_counter_area">
                 <div class="overlay p-y-3">
