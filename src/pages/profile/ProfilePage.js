@@ -321,7 +321,7 @@ function ProfilePage({handle}) {
                                             
                                         </div>
                                         </div> </div>}
-                                        <hr width="100%" className="mt-4" style={{color: 'lightgrey'}}/>
+                                        <hr width="100%" className="mt-4" style={{height: '5px', color: 'black', opacity: '1'}}/>
 
                                             {/* Codechef card starts */}
 
@@ -406,7 +406,7 @@ function ProfilePage({handle}) {
                                             
                                         </div>
                                         </div> </div>}
-                                        <hr width="100%" className="mt-4" style={{color: 'lightgrey'}}/>
+                                        <hr width="100%" className="mt-4" style={{height: '5px', color: 'black', opacity: '1'}}/>
 
                                         {/* Atcoder Card Starts */}
 
@@ -480,7 +480,7 @@ function ProfilePage({handle}) {
                                             
                                         </div>
                                         </div> </div>}
-                                        <hr width="100%" className="mt-4" style={{color: 'lightgrey'}}/>
+                                        <hr width="100%" className="mt-4" style={{height: '5px', color: 'black', opacity: '1'}}/>
                                     <div className="row">
 
                                                 {/* SPOJ Card Starts */}
