@@ -193,7 +193,7 @@
     }
   }
   
-  @import url(https://fonts.googleapis.com/css?family=Archivo + Narrow);
+  @import url('https://fonts.googleapis.com/css?family=Archivo + Narrow');
   
   .cube-wrapper {
     position: fixed;

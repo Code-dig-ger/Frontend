@@ -126,10 +126,10 @@ mobile: {
 
 
      return(
-      <div className="body">
+      <>
       <Navbar></Navbar><br></br><br></br><br></br><br></br><br></br>
       {loader?<Spinner className="loading-animation" animation="border"/>:
-      <>
+      <div className="body">
                
      
         {conData.length>0?
@@ -263,8 +263,8 @@ mobile: {
               <Footer/>
               
               </>:<Loading/>}
-              </>}
-              </div>
+              </div>}
+              </>
             
                
   ) 
