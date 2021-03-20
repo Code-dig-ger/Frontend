@@ -128,7 +128,7 @@ const Homepage = () => {
           {/* <img className="qouteHandImg" src={whiteHand} /> */}
           <Col className="qoute-row" lg={11} md={11} sm={11}>
             <div id="qouteDiv">
-            <p>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."</p>
+            <p>We at Codedigger have grinded lots of websites together to provide you a single platform with all the features to start your journey of competitive programming, “From Beginner to Pro.” </p>
             <p style={{textAlign:'end',fontSize:'2rem'}}> - Team CodeDigger</p>
             </div>
           </Col>
@@ -219,7 +219,7 @@ const Homepage = () => {
                 <div className='friendContent'>
                   <h2 style={{color:'rgb(254 132 255)'}}>Your Playlist Of Questions</h2>
                   <div>
-                  It is a collection of problems added by the user from different platforms, which can be reviewed later. 
+                  As one keep solving lots of problems but have no way of keep track of all the problem or to store them in categorized way so to solve this issue we provide you with this feature in which you can make you problem playlist in a manner which will help you later for revision or sharing resources.
                   </div>
                 </div>
                 
