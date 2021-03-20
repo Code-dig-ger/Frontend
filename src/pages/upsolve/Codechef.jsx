@@ -119,7 +119,7 @@ if(last!=null){
 
             <Navbar/><br></br><br></br><br></br><br></br>
             {loader?<Spinner className="loading-animation" animation="border"/>:
-            <>
+            <div className="body">
            
             
             {conData.length>0?
@@ -226,7 +226,7 @@ if(last!=null){
                <Footer/>
               
               </>:<Loading/>}
-              </>}
+              </div>}
               </>
           
           

@@ -181,7 +181,7 @@ switchers.forEach((item) => {
       
       
      <Popup open={true} >
-      <div className="pops">{err}</div>
+      <div style={{color:'white',backgroundColor:'black',padding:'4px'}}>{err}</div>
    </Popup>
      
     :<></>
@@ -205,21 +205,21 @@ switchers.forEach((item) => {
           <legend>Please, enter your email and password for login.</legend>
           <div className="input-block">
             <label for="login-email">Username</label>
-            <input required onChange={(e)=>setUserNameL(e.target.value)} className="text-primary" id="login-email" type="text" required/>
+            <input required onChange={(e)=>setUserNameL(e.target.value)}  id="login-email" type="text" required/>
           </div>
           <div className="input-block">
             <label for="login-password">Password</label>
            
-            <input required onChange={(e)=>setpasswordL(e.target.value)} id="login-password" className="text-primary" type={(togL)?"password":"text"} required></input>
+            <input required onChange={(e)=>setpasswordL(e.target.value)} id="login-password" type={(togL)?"password":"text"} required></input>
            
-            <span  class="field-icon toggle-password"><img src={Eye} onClick={e=>{
+            <span  class="field-icon toggle-password"><img style={{marginRight:'4px'}} src={Eye} onClick={e=>{
               e.preventDefault();
             setTogL(!togL)}} className="eye"></img></span>
           </div>
         </fieldset>
       {msgL.length>0?
        <Popup open={true} >
-      <div className="pops">{msgL}</div>
+      <div style={{color:'white',backgroundColor:'black',padding:'4px'}}>{msgL}</div>
    </Popup>:<></>}
      
         <button onClick={Login} type="submit" className="btn-login">{loaderL?'Processing..':'Login'}</button>
@@ -271,14 +271,14 @@ switchers.forEach((item) => {
           <div className="input-block">
             <label for="signup-password">Password</label>
             <input value={passwordR} onChange={(e)=>{setPassWordR(e.target.value)}} id="signup-password" type={(togR)?"password":"text"} required/>
-            <span  class="field-icon toggle-password"><img src={Eye} onClick={e=>{
+            <span  class="field-icon toggle-password"><img style={{marginRight:'4px'}} src={Eye} onClick={e=>{
               e.preventDefault();
               setTogR(!togR)}} className="eye"></img></span>
           </div>
         </fieldset>
         {msgR.length>0?
         <Popup open={true}>
-      <div className="pops">{msgR}</div>
+      <div style={{color:'white',backgroundColor:'black',padding:'4px'}}>{msgR}</div>
    </Popup>:<></>}
         <button onClick={Register} type="submit" disable={loaderR} className="btn-signup"> {loaderR?'Processing..':
        'Register'}
