@@ -190,7 +190,10 @@ switchers.forEach((item) => {
       <div>
         {
           show?(<Loading/>):(<>{/**start */}
-         <img src={leftlowerIcon} style={{marginLeft:'20px',float:'left',width:'500px',height:'500px',marginTop:'62px'}}></img>         
+          <div style={{alignItems:'center',float:'left',width:'40%',paddingLeft:'60px'}}>
+         <img src={leftlowerIcon} style={{marginLeft:'50px',width:'480px',height:'480px',marginTop:'65px'}}></img>     
+         </div>
+
        <div className="ContBody">
 
       <section className="forms-section">
