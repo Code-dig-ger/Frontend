@@ -14,7 +14,7 @@ import GoogleIcon from '../../assets/logreg/google-icon2.png'
 import {register} from '../../actions/auth.actions'
 import {sendVerEmail} from '../../actions/auth.actions'
 import {login} from '../../actions/auth.actions'
-
+import leftlowerIcon from '../../assets/logreg/ne2.png'
 
 
 const LogReg =()=>{
@@ -189,9 +189,10 @@ switchers.forEach((item) => {
    }
       <div>
         {
-          show?(<Loading/>):(<>
-         
+          show?(<Loading/>):(<>{/**start */}
+         <img src={leftlowerIcon} style={{marginLeft:'20px',float:'left',width:'500px',height:'500px',marginTop:'62px'}}></img>         
        <div className="ContBody">
+
       <section className="forms-section">
   <div className="forms">
     <div className="form-wrapper is-active">
