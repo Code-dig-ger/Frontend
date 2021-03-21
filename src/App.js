@@ -26,6 +26,9 @@ import changePassForm from './components/logreg/changePassword'
 import EmailVerfiedMsg from './components/logreg/EmailVerifiedMsgPage'
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import UpdateProfile from './components/profile/UpdateProfile'
+import PrivacyPolicy from './pages/ExtraInfoPages/PrivacyPolicy'
+import TermsAndConditions from './pages/ExtraInfoPages/TermsAndConditions'
+
 
 //react context
 export const CredentialsContext=React.createContext();
@@ -129,6 +132,9 @@ const App = () => {
             <Route exact path="/error" component={ErrorPage}/>
             
             <Route exact path="/updateProfile" component={UpdateProfile}/>
+            <Route exact path="/privacyPolicy" component={PrivacyPolicy}/>
+            <Route exact path="/termsandconditions" component={TermsAndConditions}/>
+            
             <Link to="/:wise/:type/:slug?page=pageNo" component={LaddersQuestionPage1}/>
             <Link to="/problems/?difficulty=diff&platforms=plats" component={ProblemsPage1}/>
             
