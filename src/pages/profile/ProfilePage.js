@@ -19,6 +19,7 @@ import {Modal,ModalBody,ModalFooter,ModalHeader,Button} from 'reactstrap';
 import { Carousel } from 'react-bootstrap'
 import { getProfile, getInfoBySite, getFriendReq } from "../../actions/profile.actions.js"
 import Photo from "../../assets/1.png.png"
+import LoadingProfile from '../../components/profile/Loading'
 
 
 function ProfilePage({handle}) {
@@ -333,23 +334,11 @@ function ProfilePage({handle}) {
                                             <span><img style={{height:"3rem", width:"6rem", marginRight:"auto", marginLeft: 'auto', display: 'block'}} src="https://upload.wikimedia.org/wikipedia/en/thumb/7/7b/Codechef%28new%29_logo.svg/1200px-Codechef%28new%29_logo.svg.png"></img></span>
                                         </div>
 
-                                    {codechefStatus===true?<>
-
-                                        <div className="body2">
-                                            <div id="container">
-                                            <div className="divider" aria-hidden="true"></div>
-                                            <p className="loading-text" aria-label="Loading">
-                                                <span className="letter" aria-hidden="true">L</span>
-                                                <span className="letter" aria-hidden="true">o</span>
-                                                <span className="letter" aria-hidden="true">a</span>
-                                                <span className="letter" aria-hidden="true">d</span>
-                                                <span className="letter" aria-hidden="true">i</span>
-                                                <span className="letter" aria-hidden="true">n</span>
-                                                <span className="letter" aria-hidden="true">g</span>
-                                            </p>
-                                            </div>
-                                            </div>
-                                        </> :<div> 
+                                    {codechefStatus===true?<LoadingProfile/> :
+                                    
+                                    codechefDat.status === "FAILED"? <></>:
+                                    
+                                    <div> 
                                         <div style={{marginTop:"20px"}}>
                                             <div>Current Rating : {codechefDat.result.rating}</div>
                                             <div>Max Rating : {codechefDat.result.maxRating}</div>
@@ -409,32 +398,25 @@ function ProfilePage({handle}) {
                                                 }
                                             
                                         </div>
-                                        </div> </div>}
+                                        </div>
                                         <hr width="100%" className="mt-4" style={{height: '5px', color: 'black', opacity: '1'}}/>
+                                         </div>}
+                                        
 
                                         {/* Atcoder Card Starts */}
 
-                                        <div>
+                                       
+                                        {console.log(atcoderDat)}
+
+
+                                    {atcoderStatus===true?<LoadingProfile/> :
+                                    
+                                    atcoderDat.status === "FAILED"? <></>:
+                                        
+                                         <div> 
+                                              <div>
                                             <span><img style={{height:"3rem", width:"3rem", marginRight:"auto", marginLeft: 'auto', display: 'block', marginBottom: '0px'}} src={AtcoderImg}></img></span>
                                         </div>
-                                        {console.log(uvaDat)}
-                                    {atcoderStatus===true?<>   
-                                        
-                                        <div className="body2">
-                                            <div id="container">
-                                            <div className="divider" aria-hidden="true"></div>
-                                            <p className="loading-text" aria-label="Loading">
-                                                <span className="letter" aria-hidden="true">L</span>
-                                                <span className="letter" aria-hidden="true">o</span>
-                                                <span className="letter" aria-hidden="true">a</span>
-                                                <span className="letter" aria-hidden="true">d</span>
-                                                <span className="letter" aria-hidden="true">i</span>
-                                                <span className="letter" aria-hidden="true">n</span>
-                                                <span className="letter" aria-hidden="true">g</span>
-                                            </p>
-                                            </div>
-                                            </div>
-                                        </> :<div> 
                                         <div style={{marginTop:"20px"}}>
                                             <div>Rating : {atcoderDat.result.rating}</div>
                                             <div>Max Rating : {atcoderDat.result.maxRating}</div>
@@ -483,33 +465,24 @@ function ProfilePage({handle}) {
                                                 }
                                             
                                         </div>
-                                        </div> </div>}
+                                        </div> 
                                         <hr width="100%" className="mt-4" style={{height: '5px', color: 'black', opacity: '1'}}/>
+                                        </div>}
+                                        
                                     <div className="row">
 
                                                 {/* SPOJ Card Starts */}
                                         <div className="col-md-6 border-right">
-                                                <div>
+                                                
+                                                {console.log(spojDat)}
+                                            {spojStatus===true?<LoadingProfile/> :
+                                    
+                                                spojDat.status === "FAILED"? <></>:   
+                                                
+                                                <div> 
+                                                    <div>
                                                     <span><img style={{height:"1rem", width:"6rem", marginRight:"auto", marginLeft: 'auto', display: 'block', marginBottom: '0px'}} src={SpojImg}></img></span>
                                                 </div>
-                                                {console.log(spojDat)}
-                                            {spojStatus===true?<>   
-                                                
-                                                <div className="body2">
-                                                    <div id="container">
-                                                    <div className="divider" aria-hidden="true"></div>
-                                                    <p className="loading-text" aria-label="Loading">
-                                                        <span className="letter" aria-hidden="true">L</span>
-                                                        <span className="letter" aria-hidden="true">o</span>
-                                                        <span className="letter" aria-hidden="true">a</span>
-                                                        <span className="letter" aria-hidden="true">d</span>
-                                                        <span className="letter" aria-hidden="true">i</span>
-                                                        <span className="letter" aria-hidden="true">n</span>
-                                                        <span className="letter" aria-hidden="true">g</span>
-                                                    </p>
-                                                    </div>
-                                                    </div>
-                                                </> :<div> 
                                                 <div style={{marginTop:"20px"}}>
                                                     <div>Points : {spojDat.result.points}</div>
                                                     <div>Solved : {spojDat.result.solvedCount}</div>
@@ -538,27 +511,16 @@ function ProfilePage({handle}) {
 
                                          {/* UVA Card Starts */}
                                          <div className="col-md-6">
-                                                <div>
+                                                
+                                                {console.log(spojDat)}
+                                            {uvaStatus===true?<LoadingProfile/> :
+                                    
+                                                uvaDat.status === "FAILED"? <></>:
+                                                
+                                               <div> 
+                                                   <div>
                                                     <span><img style={{height:"2rem", width:"2rem", marginRight:"auto", marginLeft: 'auto', display: 'block', marginBottom: '0px'}} src={UAVImg}></img></span>
                                                 </div>
-                                                {console.log(spojDat)}
-                                            {uvaStatus===true?<>   
-                                                
-                                                <div className="body2">
-                                                    <div id="container">
-                                                    <div className="divider" aria-hidden="true"></div>
-                                                    <p className="loading-text" aria-label="Loading">
-                                                        <span className="letter" aria-hidden="true">L</span>
-                                                        <span className="letter" aria-hidden="true">o</span>
-                                                        <span className="letter" aria-hidden="true">a</span>
-                                                        <span className="letter" aria-hidden="true">d</span>
-                                                        <span className="letter" aria-hidden="true">i</span>
-                                                        <span className="letter" aria-hidden="true">n</span>
-                                                        <span className="letter" aria-hidden="true">g</span>
-                                                    </p>
-                                                    </div>
-                                                    </div>
-                                                </> :<div> 
                                                 <div style={{marginTop:"20px"}}>
                                                     <div>Solved : {uvaDat.result.solvedCount}</div>
                                                 </div>
