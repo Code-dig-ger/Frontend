@@ -3,9 +3,9 @@
     "name":"Codedigger",
     "icons":[
         {
-            "src":"/logo1.png",
+            "src":"/images/codedigger-logo-256px.png",
             "type":"image/png",
-            "sizes":"1024x1024",
+            "sizes":"256x256",
             "purpose":"any maskable"
         }
     ],
