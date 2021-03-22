@@ -19,10 +19,8 @@ function Footer() {
                     <ul className="list-unstyled">
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/">About</Link></li>
-                        <li><Link to="/">Menu</Link></li>
-                        <li><Link to="/">Contact Us</Link></li>
-                        <li><Link to="/privacypolicy">Privacy Policy</Link></li>
-                        <li><Link to="/termsandconditions">Terms of Service</Link></li>
+                        <li><Link to="/privacy">Privacy Policy</Link></li>
+                        <li><Link to="/terms">Terms of Service</Link></li>
                     </ul>
                 </div>
                 <div className="col-12 col-sm-3 contactUs">

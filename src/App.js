@@ -132,8 +132,8 @@ const App = () => {
             <Route exact path="/error" component={ErrorPage}/>
             
             <Route exact path="/updateProfile" component={UpdateProfile}/>
-            <Route exact path="/privacyPolicy" component={PrivacyPolicy}/>
-            <Route exact path="/termsandconditions" component={TermsAndConditions}/>
+            <Route exact path="/privacy" component={PrivacyPolicy}/>
+            <Route exact path="/terms" component={TermsAndConditions}/>
             
             <Link to="/:wise/:type/:slug?page=pageNo" component={LaddersQuestionPage1}/>
             <Link to="/problems/?difficulty=diff&platforms=plats" component={ProblemsPage1}/>

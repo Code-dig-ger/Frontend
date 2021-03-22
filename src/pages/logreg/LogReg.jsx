@@ -36,9 +36,12 @@ const LogReg =()=>{
     setLoaderR(true);
      
         const data=await register(emailR,usernameR,passwordR);
-       // console.log(data)
+        console.log(data)
         if(data.status==="OK"){
           setmsgR("Successful, verify your email");
+        }
+        else if(data.status=="FAILED"){
+          setmsgR(data.error)
         }
        else{ 
              
