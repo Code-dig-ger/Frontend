@@ -18,11 +18,11 @@ function Footer() {
                     <br/>
                     <ul className="list-unstyled">
                         <li><Link to="/">Home</Link></li>
-                        <li><Link to="/aboutUs">About</Link></li>
+                        <li><Link to="/about">About</Link></li>
                         <li><Link to="/">Menu</Link></li>
                         <li><Link to="/">Contact Us</Link></li>
-                        <li><Link to="/privacypolicy">Privacy Policy</Link></li>
-                        <li><Link to="/termsandconditions">Terms of Service</Link></li>
+                        <li><Link to="/privacy">Privacy Policy</Link></li>
+                        <li><Link to="/terms">Terms of Service</Link></li>
                     </ul>
                 </div>
                 <div className="col-12 col-sm-3 contactUs">
@@ -45,11 +45,11 @@ function Footer() {
                         
                     <h5>Follow Us</h5>
                     <br/>
-                        <a className="social_media" href="http://codedigger.tech/"><FontAwesomeIcon icon={faFacebook} size="2x"/></a>
+                        <a className="social_media" href="https://www.facebook.com/practicewithcodedigger"><FontAwesomeIcon icon={faFacebook} size="2x"/></a>
                         <a className="social_media" href="http://codedigger.tech"><FontAwesomeIcon icon={faTwitter} size="2x"/></a>
                         <a className="social_media" href="http://codedigger.tech"><FontAwesomeIcon icon={faInstagram} size="2x"/></a>
-                        <a className="social_media" href="http://codedigger.tech"><FontAwesomeIcon icon={faGithub} size="2x"/></a>
-                        <a className="social_media" href="http://codedigger.tech"><FontAwesomeIcon icon={faYoutube} size="2x"/></a>
+                        <a className="social_media" href="https://github.com/Code-dig-ger"><FontAwesomeIcon icon={faGithub} size="2x"/></a>
+                        <a className="social_media" href="https://www.youtube.com/channel/UCY5XRYpEGKT9cpzZmfWvh6A"><FontAwesomeIcon icon={faYoutube} size="2x"/></a>
                         
                     </div>
                 </div>
