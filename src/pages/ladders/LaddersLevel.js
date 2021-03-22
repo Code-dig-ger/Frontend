@@ -47,7 +47,7 @@ function LaddersLevel(props) {
         }
         setData();
         fetchData();
-        }else if (props.type=-"ladder"){
+        }else if (props.type=="ladder"){
             alert("Please Login to Proceed");
             window.location='/login' 
         }
