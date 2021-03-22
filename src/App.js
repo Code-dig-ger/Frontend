@@ -128,7 +128,7 @@ const App = () => {
             <Route exact path="/home" component={Homepage}/>
             <Route exact path="/createProfile" component={Info}/>
             <Route exact path="/forgPass" component={NewpassEmail}/>
-            <Route exact path="/aboutUs" component={AboutUsPage}/>
+            <Route exact path="/about" component={AboutUsPage}/>
             
             <Route exact path="/setNewPass" component={NewPassSet}/>
             <Route exact path="/error" component={ErrorPage}/>
