@@ -48,8 +48,8 @@
     "typewriter-effect": "^2.17.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts --max_old_space_size=256 build",
+    "start": "react-scripts --max_old_space_size=1024 start",
+    "build": "react-scripts --max_old_space_size=1024 build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
