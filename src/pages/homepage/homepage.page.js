@@ -6,8 +6,7 @@ import "./homepage.styles.css";
 import AOS from 'aos';
 import Navbar from '../../components/Header/Navbar';
 import Footer from '../../components/Footer/footer';
-import CountUp from 'react-countup';
-import VisibilitySensor from 'react-visibility-sensor';
+
 import Typewriter from 'typewriter-effect';
 import '../../../node_modules/reactjs-popup/dist/index.css';
 import Popup from 'reactjs-popup';
@@ -139,6 +138,31 @@ const Homepage = () => {
         {/*Features Section*/} 
        <Row style={{paddingTop:'5rem'}} className="bigRow">
             <div className="featureHeading"><h1>FEATURES</h1></div>
+            <Row style={{marginTop:'2rem'}} >
+              <Col lg={11} sm={11} md={11} className='fourthRoww' id='friendFtRow' style={{background:'linear-gradient(360deg, hsla(39, 83%, 77%, 1) 0%, hsla(39, 90%, 30%, 1) 100%)'}}>
+              <UpsolveIcon/>
+                <div className='friendContent'>
+                  <h2 style={{color:'rgb(255 203 149)'}}>UpSolve</h2>
+                  <div id='fourthRowContent'>
+                  The site provides the feature of upsolving the problems in a live or a virtual contest from three sites including Codechef, Codeforces, and Atcoder which helps the users to analyze their mistakes and thus provides scope for improvement.
+                  </div>
+                </div>
+                
+              </Col>
+            </Row>
+
+            <Row style={{marginTop:'2rem'}}>
+              <Col lg={11} sm={11} md={11} className='fourthRoww' id='friendFtRow' style={{background:'linear-gradient(-135deg, #590a0d 0%, #10071c 100%)',height:'79vh'}}>
+              
+                <div style={{marginLeft:'2rem',zIndex:'2',paddingTop:'0'}} className='friendContent'>
+                  <h2 style={{color:'#ff3a4f'}}>Ladders</h2>
+                  <div id='fourthRowContent'>
+                  It helps in listing the problems topic wise and levelwise (that is on the basis of difficulty). Before attempting the new problems the user has to make sure that he/she has solved all the previously listed problems.
+                  </div>
+                </div>
+                <LadderIcon/>
+              </Col>
+            </Row>
             <Row style={{marginTop:'4rem'}}>
               <Col lg={11} sm={11} md={11} id='friendFtRow'>
                 <div className='friendContent'>
@@ -187,33 +211,7 @@ const Homepage = () => {
               </Col>
             </Row>
 
-            <Row style={{marginTop:'22rem'}}>
-              <Col lg={11} sm={11} md={11} className='fourthRoww' id='friendFtRow' style={{background:'linear-gradient(360deg, hsla(39, 83%, 77%, 1) 0%, hsla(39, 90%, 30%, 1) 100%)'}}>
-              <UpsolveIcon/>
-                <div className='friendContent'>
-                  <h2 style={{color:'rgb(255 203 149)'}}>UpSolve</h2>
-                  <div id='fourthRowContent'>
-                  The site provides the feature of upsolving the problems in a live or a virtual contest from three sites including Codechef, Codeforces, and Atcoder which helps the users to analyze their mistakes and thus provides scope for improvement.
-                  </div>
-                </div>
-                
-              </Col>
-            </Row>
-
-            <Row style={{marginTop:'2rem'}}>
-              <Col lg={11} sm={11} md={11} className='fourthRoww' id='friendFtRow' style={{background:'linear-gradient(-135deg, #590a0d 0%, #10071c 100%)',height:'79vh'}}>
-              
-                <div style={{marginLeft:'2rem',zIndex:'2',paddingTop:'0'}} className='friendContent'>
-                  <h2 style={{color:'#ff3a4f'}}>Ladders</h2>
-                  <div id='fourthRowContent'>
-                  It helps in listing the problems topic wise and levelwise (that is on the basis of difficulty). Before attempting the new problems the user has to make sure that he/she has solved all the previously listed problems.
-                  </div>
-                </div>
-                <LadderIcon/>
-              </Col>
-            </Row>
-
-            <Row style={{marginTop:'4rem'}}>
+            <Row style={{marginTop:'22rem',marginBottom:'2rem'}}>
               <Col lg={8} sm={8} md={8} id='friendFtRow' style={{background: 'linear-gradient(-135deg, #c6368a 0%, #673dc2 100%)',marginRight:'0'}}>
               
                 <div className='friendContent'>
@@ -249,66 +247,7 @@ const Homepage = () => {
             </Row>
           </Row>
 
-          <Row className="bigRow">
-          <Col className="first heading1" lg={12} md={12} sm={12}>
-            <div class="aboutUsHeading">ABOUT US</div>  
-            <div className="aboutUsContent" style={{padding:'0 2rem'}}>Codeddiger is a platform to analyze and improve your Competitive Programming Progress. It is a place where a user can find a variety of problems from competitive sites including Codechef, Codeforces, Atcoder, Spoj, and Uva online judge and can start their way to Competitive programming.</div> 
-          <section id="counter" class="counter">
-            <div class="main_counter_area">
-                <div class="overlay p-y-3">
-                    <div class="container">
-                        <div class="row">
-                            <div class="main_counter_content text-center white-text wow fadeInUp">
-                                <div class="col-md-4">
-                                    <div class="single_counter p-y-2 m-t-1"> <i class="fa fa-briefcase m-b-1"></i>
-                                        <h2 class="statistic-counter">
-                                          <CountUp start={0} end={100} duration={3} redraw={true}>
-                                                {({ countUpRef, start }) => (
-                                                    <VisibilitySensor onChange={start} delayedCall>
-                                                        <h2 ref={countUpRef} />
-                                                    </VisibilitySensor>
-                                                )}
-                                            </CountUp>
-                                          </h2> <span></span>
-                                        <p>Success Stories of Students</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="single_counter p-y-2 m-t-1"> <i class="fa fa-check m-b-1"></i>
-                                        <h2 class="statistic-counter">
-                                        <CountUp start={0} end={1000} duration={3}>
-                                                {({ countUpRef, start }) => (
-                                                    <VisibilitySensor onChange={start} delayedCall>
-                                                        <h2 ref={countUpRef} />
-                                                    </VisibilitySensor>
-                                                )}
-                                            </CountUp>
-                                        </h2>
-                                        <p>Problems Solved</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="single_counter p-y-2 m-t-1"> <i class="fa fa-coffee m-b-1"></i>
-                                        <h2 class="statistic-counter">
-                                        <CountUp start={0} end={500} duration={3} redraw={true}>
-                                                {({ countUpRef, start }) => (
-                                                    <VisibilitySensor onChange={start} delayedCall>
-                                                        <h2 ref={countUpRef} />
-                                                    </VisibilitySensor>
-                                                )}
-                                            </CountUp>
-                                        </h2>
-                                        <p>Registered Users</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          </section>
-          </Col>
-        </Row>
+          
        
       {/*Footer*/}
       {/* <Row data-aos="slide-up" className="fixed-bottom  footer"> */}

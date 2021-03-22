@@ -26,6 +26,7 @@ import changePassForm from './components/logreg/changePassword'
 import EmailVerfiedMsg from './components/logreg/EmailVerifiedMsgPage'
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import UpdateProfile from './components/profile/UpdateProfile'
+import AboutUsPage from './pages/AboutUsPage/AboutUsPage'
 
 //react context
 export const CredentialsContext=React.createContext();
@@ -124,6 +125,7 @@ const App = () => {
             <Route exact path="/home" component={Homepage}/>
             <Route exact path="/createProfile" component={Info}/>
             <Route exact path="/forgPass" component={NewpassEmail}/>
+            <Route exact path="/aboutUs" component={AboutUsPage}/>
             
             <Route exact path="/setNewPass" component={NewPassSet}/>
             <Route exact path="/error" component={ErrorPage}/>
