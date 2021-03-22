@@ -75,47 +75,48 @@ const Info=()=>{
     }
     return(
         <>
-      <Navbar/><br></br><br></br>
+      <Navbar/><br></br><br></br><br></br>
       <div className="outeri">
        <div className="flex-containeri">
   <div className="content-containeri">
     <div className="form-containeri">
       <form className="thisformi" >
+        <br></br>
         <h3 className="headingi">
           {msg}
         </h3>
-        
+        <h6 style={{color:'white'}}>Fields marked with asteric are reqired.</h6>
         <br></br>
 
         
         <input placeholder="Name" onChange={(e)=>setName(e.target.value)} className="inputi" type="text" required/>
         <br></br>
-        <input placeholder="Codeforces" onChange={(e)=>setCodeforces(e.target.value)} className="inputi" type="text" required/>
+        <input placeholder="Codeforces handle" onChange={(e)=>setCodeforces(e.target.value)} className="inputi" type="text" required/>
         <br></br>
         
        
-        <input placeholder="Codechef" onChange={(e)=>setCodechef(e.target.value)} className="inputi" type="text" />
+        <input placeholder="Codechef handle" onChange={(e)=>setCodechef(e.target.value)} className="inputi" type="text" />
         <br></br>
         
         
-        <input placeholder="Atcoder" onChange={(e)=>setAtcoder(e.target.value)} className="inputi" type="text"/>
+        <input placeholder="Atcoder handle" onChange={(e)=>setAtcoder(e.target.value)} className="inputi" type="text"/>
         <br></br>
         
         
-        <input placeholder="Spoj" onChange={(e)=>setSpoj(e.target.value)} className="inputi" type="text" />
+        <input placeholder="Spoj handle" onChange={(e)=>setSpoj(e.target.value)} className="inputi" type="text" />
         
         <br></br>
-        <input placeholder="UVA" onChange={(e)=>setUv(e.target.value)} className="inputi" type="text"  />
+        <input placeholder="UVA handle" onChange={(e)=>setUv(e.target.value)} className="inputi" type="text"  />
         <br></br>
         
         <input onClick={handle} type="submit" value={show?'Processing...':'SUBMIT'} className="submit-btni"/>
         {show?<Spinner className="loading-animation" animation="border"/>:<></>}
-       
+       <br></br><br></br>
       </form>
     </div>
   </div>
 </div></div>
-           
+           <br></br>
       
        <Footer/>
      

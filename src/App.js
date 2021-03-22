@@ -128,14 +128,14 @@ const App = () => {
             <Route exact path="/home" component={Homepage}/>
             <Route exact path="/createProfile" component={Info}/>
             <Route exact path="/forgPass" component={NewpassEmail}/>
-            <Route exact path="/aboutUs" component={AboutUsPage}/>
+            <Route exact path="/about" component={AboutUsPage}/>
             
             <Route exact path="/setNewPass" component={NewPassSet}/>
             <Route exact path="/error" component={ErrorPage}/>
             
             <Route exact path="/updateProfile" component={UpdateProfile}/>
-            <Route exact path="/privacyPolicy" component={PrivacyPolicy}/>
-            <Route exact path="/termsandconditions" component={TermsAndConditions}/>
+            <Route exact path="/privacy" component={PrivacyPolicy}/>
+            <Route exact path="/terms" component={TermsAndConditions}/>
             
             <Link to="/:wise/:type/:slug?page=pageNo" component={LaddersQuestionPage1}/>
             <Link to="/problems/?difficulty=diff&platforms=plats" component={ProblemsPage1}/>

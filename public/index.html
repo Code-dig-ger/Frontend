@@ -2,8 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="./logo1.png" />
+    <link rel="icon" type="image/png" href="./logo1.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
     <link rel="apple-touch-icon" href="./logo1.png" />
     
     <link
@@ -14,11 +15,29 @@
     <link rel="stylesheet" href="bower_components/aos/dist/aos.css" />
     <link rel="stylesheet" href=  
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta
+      name="description"
+      content="Codedigger"
+    />
+    <link rel="manifest" href="./manifest.json" />
     <!-- <script src="bower_components/aos/dist/aos.js"></script>  -->
     <title>CODEDIGGER</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script>
+      if('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./serviceworker.js', { scope: '/' })
+          .then((reg) => {
+            console.log("success: ", reg.scope)
+          })
+          .catch((err) => {
+            console.log("Failure: ", err);
+          })
+        })
+      }
+    </script>
   </body>
 </html>
