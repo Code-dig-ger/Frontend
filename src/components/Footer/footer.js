@@ -19,8 +19,6 @@ function Footer() {
                     <ul className="list-unstyled">
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/about">About</Link></li>
-                        <li><Link to="/">Menu</Link></li>
-                        <li><Link to="/">Contact Us</Link></li>
                         <li><Link to="/privacy">Privacy Policy</Link></li>
                         <li><Link to="/terms">Terms of Service</Link></li>
                     </ul>
@@ -29,10 +27,8 @@ function Footer() {
                     <h5>Contact Us</h5>
                     <br/>
                     <div>
-                        <FontAwesomeIcon icon={faPhone} size="md"/> : +852 1234 5678<br />
-		                <FontAwesomeIcon icon={faPhone} size="md"/> : +852 8765 4321<br />
-		                <FontAwesomeIcon icon={faEnvelope} size="md"/> : <a href="mailto:confusion@food.net">
-                         confusion@food.net</a>
+		                <FontAwesomeIcon icon={faEnvelope} size="md"/> : <a href="mailto:contact.codedigger@gmail.com">
+                        contact.codedigger@gmail.com</a>
                     </div>
                     
                     
