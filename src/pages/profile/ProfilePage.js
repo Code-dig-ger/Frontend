@@ -79,8 +79,12 @@ function ProfilePage({handle}) {
             });
         });
 
-        $(window).scroll(function(){
-            $("#profileCard").stop().animate({"marginTop": ($(window).scrollTop()) + "px", "marginLeft":($(window).scrollLeft()) + "px"}, "fast" );
+          $(window).scroll(function(){
+            if($(window).scrollTop() <=800) 
+            { 
+                $("#profileCard").css({"margin-top": ($(window).scrollTop()) + "px", "margin-left":($(window).scrollLeft()) + "px"});
+            }
+            
           });
     })
 

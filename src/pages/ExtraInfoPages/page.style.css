@@ -1,0 +1,11 @@
+.body1{
+  
+    
+    display: block;
+    margin: auto;
+    padding: 20px;
+    margin: 10px;
+   border-radius: 10px;
+   background: rgb(253,249,249);
+   background: linear-gradient(0deg, rgba(253,249,249,1) 1%, rgba(25,151,190,0) 100%);
+}

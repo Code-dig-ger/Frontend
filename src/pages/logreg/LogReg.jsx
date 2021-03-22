@@ -234,7 +234,7 @@ switchers.forEach((item) => {
         clientId="879021189199-7dj21idsu3mvo8qnup47vc3fntntegma.apps.googleusercontent.com"
         buttonText="Login with Google"
         onSuccess={handleGoogleSuccess}
-        onFailure={handleGoogleFail}
+       //onFailure={handleGoogleFail}
         cookiePolicy={"single_host_origin"}
         icon={false}
         /></div><br></br>

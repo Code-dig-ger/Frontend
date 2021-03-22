@@ -5,6 +5,8 @@ import {OverlayTrigger,Tooltip} from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFolderPlus} from '@fortawesome/free-solid-svg-icons'
 import {faLock} from '@fortawesome/free-solid-svg-icons';
+import Popup from 'reactjs-popup';
+import { data } from 'jquery';
 
 const renderTooltip1 = (props) => (
   <Tooltip id="button-tooltip" {...props}>
@@ -19,12 +21,12 @@ const MainCard = (props) => {
   const [modal, setModal] = useState(false);
   const [playlists, setPlaylists] = useState([]);
   const [error, setErrors] = useState(false);
+  const [problemAdd, setProblemAdd] = useState({});
 
   useEffect(() => {
     console.log(modal);
   })
 
-  console.log(props);
 
   async function getPlaylists()
   {
@@ -55,12 +57,42 @@ const MainCard = (props) => {
     console.log(playlists);
   };
 
-  function addProb(e,prob_id){
-    // toggle(e);
-    console.log(prob_id);
-  }
+  function addProblem(slug, prob_id, platform){
+    let p;
+    if(platform === "Codeforces"){
+      p = "F";
+    }else if(platform === "Codechef"){
+      p = "C";
+    }else if(platform === "Atcoder"){
+      p = "A";
+    }else if(platform === "UVA"){
+      p = "U";
+    }else if(platform === "SPOJ"){
+      p = "S";
+    }
 
-  
+    console.log(slug, prob_id, platform)
+      fetch (`https://api.codedigger.tech/lists/userlist/add`,{
+          method:"POST",
+          headers:{
+              "Content-type":"application/json",
+              "Authorization":`Bearer ${creds.access}`
+          },
+          body:JSON.stringify({
+              "prob_id": prob_id,
+              "slug": slug,
+              "platform": p
+          })
+      }).then(data => setProblemAdd(data));
+      
+      if(problemAdd.status == 200){
+        alert("Problem Added")
+      }else{
+        alert("Problem already added")
+      }
+      
+      
+  }
 
   if(props.type === "ladder")
   {
@@ -78,8 +110,9 @@ const MainCard = (props) => {
             return(
               <>
                 <li>
-                  <span style={{color:"white", fontSize:"19px"}}>{list.name}</span>
+                  <span style={{color:"white", fontSize:"19px"}}>{list.slug}</span>
                   <Button 
+                            onClick={() => {addProblem(list.slug, props.ProblemData.prob_id, props.ProblemData.platform)}}
                             color="success" 
                             style={{padding:"5px 7px", 
                             position:"relative", 
@@ -128,8 +161,10 @@ const MainCard = (props) => {
             return(
               <>
                 <li>
+                  
                   <span style={{color:"white", fontSize:"19px"}}>{list.name}</span>
                   <Button 
+                            onClick={addProblem(list.slug, props.ProblemData.prob_id, props.ProblemData.platform)}
                             color="success" 
                             style={{padding:"5px 7px", 
                             position:"relative", 
@@ -193,6 +228,7 @@ const MainCard = (props) => {
                 <li>
                   <span style={{color:"white", fontSize:"19px"}}>{list.name}</span>
                   <Button 
+                             onClick={() => {addProblem(list.slug, props.ProblemData.prob_id, props.ProblemData.platform)}}
                             color="success" 
                             style={{padding:"5px 7px", 
                             position:"relative", 
@@ -243,6 +279,7 @@ const MainCard = (props) => {
                 <li>
                   <span style={{color:"white", fontSize:"19px"}}>{list.name}</span>
                   <Button 
+                            onClick={() => {addProblem(list.slug, props.ProblemData.prob_id, props.ProblemData.platform)}}
                             color="success" 
                             style={{padding:"5px 7px", 
                             position:"relative", 
@@ -303,6 +340,7 @@ const MainCard = (props) => {
                 <li>
                   <span style={{color:"white", fontSize:"19px"}}>{list.name}</span>
                   <Button 
+                            onClick={() => {addProblem(list.slug, props.ProblemData.prob_id, props.ProblemData.platform)}}
                             color="success" 
                             style={{padding:"5px 7px", 
                             position:"relative", 
