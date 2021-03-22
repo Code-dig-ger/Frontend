@@ -18,14 +18,8 @@ function Footer() {
                     <br/>
                     <ul className="list-unstyled">
                         <li><Link to="/">Home</Link></li>
-<<<<<<< HEAD
                         <li><Link to="/aboutUs">About</Link></li>
                        
-=======
-                        <li><Link to="/about">About</Link></li>
-                        <li><Link to="/">Menu</Link></li>
-                        <li><Link to="/">Contact Us</Link></li>
->>>>>>> 0d9519301c141da055b5dde2030d27df2d2917b5
                         <li><Link to="/privacy">Privacy Policy</Link></li>
                         <li><Link to="/terms">Terms of Service</Link></li>
                     </ul>
