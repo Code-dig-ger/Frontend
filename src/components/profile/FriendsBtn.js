@@ -107,8 +107,8 @@ const FriendsBtn = ({creds, acc, handle, user}) => {
             <div>
                 <ButtonToggle style={{
                 position: "absolute",
-                right: "185px",
-                bottom: "275px"}}
+                right: "200px",
+                bottom: "265px"}}
                 onClick={sendReq}> Add Friend</ButtonToggle>
             </div>
         )
@@ -118,8 +118,8 @@ const FriendsBtn = ({creds, acc, handle, user}) => {
             <div>
                 <ButtonToggle style={{
                 position: "absolute",
-                right: "175px",
-                bottom: "275px"}}> Request Sent</ButtonToggle>
+                right: "200px",
+                bottom: "265px"}}> Request Sent</ButtonToggle>
             </div>
         )
     }else if(user.result.about_user === "Logged In User Itself"){

@@ -1,19 +1,19 @@
-.MentorButton{
+.MentorButton {
     width: 135px;
     padding: 7px;
     border-radius: 7px;
     background-color: black;
     margin-left: 22px;
-    margin-top: 10px;
+    margin-top: -15px;
 }
 
-.MentorButton:focus{
-	background-color: black;
-	border-color: black;
-	box-shadow: none;
+.MentorButton:focus {
+    background-color: black;
+    border-color: black;
+    box-shadow: none;
 }
 
-.MentorButton:hover{
-	background-color: black;
-	border-color: black;
+.MentorButton:hover {
+    background-color: black;
+    border-color: black;
 }

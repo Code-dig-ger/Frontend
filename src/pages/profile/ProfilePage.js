@@ -190,7 +190,7 @@ function ProfilePage({handle}) {
                                     <img src="https://www.bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" className="rounded-circle" style={{height:"8rem", width:"8rem"}} width="150" />
                                         <div className="mt-3">
                                             <h4 style={{color:"black"}}>{user.result.name}</h4>
-                                            <p className="text-secondary mb-1">{uu}</p>
+                                            <p className="text-secondary mb-5">{uu}</p>
                                             <FriendsBtn creds={creds} acc={acc} handle={uu} user={user}/>
                                             <MentorBtn creds={creds} acc={acc} handle={uu} user={user}/>
                                         </div>
