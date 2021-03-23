@@ -60,6 +60,11 @@ const Atcoder=()=>{
                   const result=await (data.result);
                    await setData(result);
                }
+               else if(Prac==true){
+                 localStorage.setItem("err","Please practice or compete to view this page");
+                 window.location='/home'
+               }
+               
                else{
                    setPrac(true)
                }
@@ -134,7 +139,7 @@ if(last!=null){
       
   value={ Prac || false }
   onToggle={(val) => {
-   setPrac(!vir)
+   setPrac(!Prac)
    setTimeout(()=>{setLoader(true)},1000)
    setPage(1);
   }} /></div>

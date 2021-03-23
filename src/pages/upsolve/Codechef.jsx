@@ -44,6 +44,7 @@ const Codechef=()=>{
         const response=await codechef(acc,page)
         if(response.status===200){
             const data=await response.json();
+            console.log(data)
             if(data.status==="OK"){
             
                 const newLinks=data.links;
@@ -58,8 +59,10 @@ const Codechef=()=>{
                await setLast(data.meta.last_page);
                await setCurPage(data.meta.current_page);
             }
-            else{
+            else {
                 console.log("sad");
+                localStorage.setItem("err","No contest found for this handle");
+                window.location="/home"
             }
             
          
@@ -68,8 +71,12 @@ const Codechef=()=>{
              setLoader(false);
                
           }
+          else if(response.status==500){
+            localStorage.setItem("err","No contest found for this handle");
+            window.location="/home"
+          }
           else{
-        
+            
             const data=await response.json();
               localStorage.setItem("err",data.error);
               window.location='/home'  

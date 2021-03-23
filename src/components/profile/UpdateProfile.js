@@ -120,14 +120,26 @@ const UpdateInfo=()=>{
               const data=await getProfile(acc,uu);
              
                const Prevdata=data.result;
+               console.log(Prevdata)
               if(data.status=="OK"){
+                  if(Prevdata.atcoder!=null){
                   setAtcoder(Prevdata.atcoder);
+                  }
+                  if(Prevdata.codechef!=null){
                   setCodechef(Prevdata.codechef);
+                  }
+                  if(Prevdata.codeforces!=null){
                   setCodeforces(Prevdata.codeforces);
+                  }
+                  if(Prevdata.spoj!=null){
                   setSpoj(Prevdata.spoj);
+                  }
+                  if(Prevdata.name!=null){
                   setName(Prevdata.name);
+                  }
+                  if(Prevdata.uva_handle!=null){
                   setUv(Prevdata.uva_handle);
-                  
+                  }
               }  
 
 
@@ -147,8 +159,8 @@ const UpdateInfo=()=>{
         <h3 className="headingi">
           Update Profile
         </h3>
+        <h6 style={{color:'white'}}>Fields marked with asteric are required.</h6>
         
-        <br></br>
 
          
         <input placeholder={`Name : ${name}`} onChange={(e)=>setnewName(e.target.value)} className="inputi" type="text" required/>
