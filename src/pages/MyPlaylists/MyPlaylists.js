@@ -31,14 +31,14 @@ function MyPlaylists(props) {
                     style={{
                         textAlign: 'center'
                     }}
-                >My Playlists</h2>
+                >My Problem Lists</h2>
 
                 <p
                     style={{
                         fontSize: '17px',
                         textAlign: 'center',
                     }}
-                >All your playlists are given below.</p>
+                >All your Problem Lists are given below.</p>
             </div>
                     <PlaylistModal acc={creds.access}/>
             <div className="container" >
@@ -52,7 +52,7 @@ function MyPlaylists(props) {
                                 <h1>{playlist.name}</h1>
                                         <p>{playlist.description}</p>
                                 </div>
-                                <a href={`/list/${uu}/${playlist.slug}`}>View Playlist</a>
+                                <a href={`/list/${uu}/${playlist.slug}`}>View Problem List</a>
                                 {console.log(playlist.slug)}
                                 <div className="ico-card11">
                                 <i className={i % 2 === 0 ? "fa fa-empire" : "fa fa-codepen"}></i>

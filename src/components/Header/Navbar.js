@@ -131,7 +131,7 @@ if(creds){
                 <NavLink className="dropdown_link" href={`/change_password_request`}>Edit Password</NavLink>
                 </DropdownItem>
                 <DropdownItem>
-                <NavLink className="dropdown_link" href={`/list/${uu}`}>Lists</NavLink>
+                <NavLink className="dropdown_link" href={`/list/${uu}`}>Problem Lists</NavLink>
                 </DropdownItem>
                 <DropdownItem>
                 <NavLink className="dropdown_link" onClick={deleteCred}>Log Out</NavLink>

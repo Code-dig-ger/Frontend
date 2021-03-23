@@ -31,11 +31,11 @@ const PlaylistModal = (props) => {
           backgroundColor: '#1379e7',
           position: 'relative',
           left: '85%'
-      }}>Add Playlist</Button>
+      }}>Add Problem List</Button>
       <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>Add a Playlist</ModalHeader>
+        <ModalHeader toggle={toggle}>Add a Problem List</ModalHeader>
         <ModalBody>
-          Add the name and the description for your playlist.
+          Add the name and the description for your Problem List.
         </ModalBody>
         <Form  style={{marginBottom:"70px"}}>
                 <div>
@@ -45,7 +45,7 @@ const PlaylistModal = (props) => {
                         position: 'relative',
                         right: '-40%',
                         top: '70px'
-                    }}>Add Playlist</Button>
+                    }}>Add Problem List</Button>
                 </div>
             </Form>
         <ModalFooter>

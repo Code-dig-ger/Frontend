@@ -55,7 +55,7 @@ function PlaylistList(props) {
                     padding: '13px',
                     fontSize: '15px'
                 }}
-            >Delete Playlist</button>
+            >Delete Problem List</button>
         {!playlist.result? (<Loading />) : 
             (
                 <>
