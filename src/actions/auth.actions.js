@@ -12,7 +12,7 @@ export function login(usernameL,passwordL){
 }
 
 export function register (emailR, usernameR, passwordR){
-    return fetch(`https://api.codedigger.tech/auth/register/?redirect_url=${process.env.SEND_EMAIL_RDURL||`http://localhost:3000/email-verified`}`,{
+    return fetch(`https://api.codedigger.tech/auth/register/?redirect_url=https://demo.codedigger.tech/email-verified`,{
             method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -33,7 +33,7 @@ export function passreqEmail(email){
         },
         body:JSON.stringify({
             "email":email,
-            "redirect_url":process.env.NEWPASS_EMAIL_RDURL||"http://localhost:3000/setNewPass"
+            "redirect_url":"https://demo.codedigger.tech/setNewPass"
             
         })
         })
@@ -53,7 +53,7 @@ export function setNewPass(password,token,uidb64){
 }
 
 export function sendVerEmail(emailR){
-    return fetch(`https://api.codedigger.tech/auth/send-email/?redirect_url=${process.env.SEND_EMAIL_RDURL||`http://localhost:3000/email-verified`}`,{
+    return fetch(`https://api.codedigger.tech/auth/send-email/?redirect_url=https://demo.codedigger.tech/email-verified`,{
             method:"POST",
         headers:{
             "Content-Type":"application/json"
