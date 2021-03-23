@@ -74,8 +74,8 @@ function MentorBtn({creds, acc, handle, user}) {
                 onClick={() => {removeMentor(user.result.codeforces)}}
                  style={{
                 position: "absolute",
-                right: "03px",
-                bottom: "275px"
+                right: "35px",
+                bottom: "265px"
                 }}>Remove Mentor</ButtonToggle>
         )
     }
@@ -87,8 +87,8 @@ function MentorBtn({creds, acc, handle, user}) {
                 onClick={() => {addMentor(user.result.codeforces)}}
                  style={{
                 position: "absolute",
-                right: "23px",
-                bottom: "275px"
+                right: "50px",
+                bottom: "265px"
                 }}>Add Mentor</ButtonToggle>
             </div>
         )
