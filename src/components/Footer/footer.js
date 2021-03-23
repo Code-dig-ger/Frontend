@@ -18,7 +18,7 @@ function Footer() {
                     <br/>
                     <ul className="list-unstyled">
                         <li><Link to="/">Home</Link></li>
-                        <li><Link to="/aboutUs">About</Link></li>
+                        <li><Link to="/aboutus">About</Link></li>
                        
                         <li><Link to="/privacy">Privacy Policy</Link></li>
                         <li><Link to="/terms">Terms of Service</Link></li>
