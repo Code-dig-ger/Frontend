@@ -10,7 +10,7 @@ import Navbar from '../../components/Header/Navbar'
 import Footer from '../../components/Footer/FooterSmall'
 import '../../../node_modules/reactjs-popup/dist/index.css';
 import Popup from 'reactjs-popup';
-
+import ToggleButton from 'react-toggle-button'
 import Tags from '../../assets/upsolve/tags-icon2.png'
 import logo from '../../assets/upsolve/codechef_logo.png'
 import refresh from '../../assets/upsolve/reload.png'
@@ -28,6 +28,7 @@ const Codechef=()=>{
     const [last,setLast]=useState(null);
     const [conData,setData]=useState([]);
     const [curPage,setCurPage]=useState(1);
+    const [wn,setWN]=useState(false);
     useEffect(()=>{
 
         setFirst(null);
@@ -44,9 +45,10 @@ const Codechef=()=>{
         const response=await codechef(acc,page)
         if(response.status===200){
             const data=await response.json();
-            console.log(data)
+           // console.log(data)
+
             if(data.status==="OK"){
-            
+                if(data.result.length>0){
                 const newLinks=data.links;
                 await setFirst(newLinks.first.split("=")[1]);
                 await setLast(newLinks.last.split("=")[1]);
@@ -59,6 +61,11 @@ const Codechef=()=>{
                await setLast(data.meta.last_page);
                await setCurPage(data.meta.current_page);
             }
+            else{
+              localStorage.setItem("err","Codechef upsolve is availble when you participate in atleast one contest");
+              window.location='/home'
+            }
+          }
             else {
                 console.log("sad");
                 localStorage.setItem("err","No contest found for this handle");
@@ -132,12 +139,28 @@ if(last!=null){
             {conData.length>0?
             <>
 <div style={{display:"flex",justifyContent:'space-between'}}>
- <img style={{width:'220px',height:'68px'}}src={logo}/>
- <div><button title="solved? update" style={{float:'right',borderRadius:'35px'}} onClick={e=>{window.location.reload(false)}}><img style={{width:'50px',height:'52px'}}src={refresh}></img></button></div>
- </div>
  
+<img style={{width:'220px',height:'68px'}}src={logo}/>
+<div  style={{display:"flex",float:"right"}}>
+ 
+ <div style={{float:"right",backgroundColor:"lightslategrey",borderRadius:'5px',border:"2px solid black"}}> 
+               <h6 style={{padding:"3px",color:"black",marginTop:"2px"}}>Only Wrong/Not Attempted</h6>
+               <div style={{display:"block",marginLeft:"45px"}}>
+       <ToggleButton
+       inactiveLabel={''}
+       activeLabel={''}
+      
+  value={ wn || false }
+  onToggle={(val) => {
+   setWN(!wn)
+   
+  }} /></div>
+              </div>
+              
+ <div><button title="solved? update" style={{float:'right',borderRadius:'35px'}} onClick={e=>{window.location.reload(false)}}><img style={{width:'50px',height:'52px'}}src={refresh}></img></button></div>
+ </div></div>
 
-                <br></br><br></br>
+                <br></br>
                
 
              
@@ -154,13 +177,14 @@ if(last!=null){
               
               res. problems.map((prob)=>{
                    if(prob.status==="solved"){
+                     if(wn==false){
                    return(
                     <Col><div className="solved" ><a href={prob.url} target="_blank"><h7>{prob.index}-{prob.name}</h7></a><br></br>
                     <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"14px"}} src={Tags}></img>} position="right">
                      <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div></Popup>
                      <h7 className="green">SOLVED</h7>
                      </div></Col>
-                   )}
+                   )}}
                    else if(prob.status==="wrong"){
                    return(
                     <Col> <div className="wrong"><a href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br>
@@ -170,6 +194,7 @@ if(last!=null){
                      </div></Col>
                    )}
                    else if(prob.status==="upsolved"){
+                     if(wn==false){
                    return(
                     <Col> <div className="upsolved"><a  href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br>
                    <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"14px"}} src={Tags}></img>} position="right">
@@ -178,14 +203,15 @@ if(last!=null){
                     </div></Col>
                    
 
-                   )}
+                   )}}
+                   else if(prob.status=="not_attempt"){
                    return (
                     <Col> <div className="not_attempted"><a href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br>
                     <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"14px"}} src={Tags}></img>} position="right">
                      <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div></Popup>
                      <h7 className="viol" >NOT ATTEMPTED</h7>
                      </div></Col>
-                   )
+                   )}
                })}
                </Carousel></Col>
                </Row><br></br></>:<></>}</>)})}

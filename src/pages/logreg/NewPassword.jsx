@@ -27,7 +27,7 @@ const NewPassForm =()=>{
         console.log(data);
         if(data.status==="OK"){
             setMsg(data.result);
-            window.location='http://localhost:3000/login';
+            window.location='/login';
         }
         else{
             alert(JSON.stringify(data));

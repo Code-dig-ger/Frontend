@@ -26,6 +26,7 @@ const Atcoder=()=>{
     const [last,setLast]=useState(null);
     const [conData,setData]=useState([]);
     const [Prac,setPrac]=useState(false);
+    const [wn,setWN]=useState(false);
    
     const [curPage,setCurPage]=useState(1);
     useEffect(()=>{
@@ -144,6 +145,19 @@ if(last!=null){
    setPage(1);
   }} /></div>
               </div>
+              <div style={{float:"right",backgroundColor:"lightslategrey",borderRadius:'5px',border:"2px solid black"}}> 
+               <h6 style={{padding:"3px",color:"black",marginTop:"2px"}}>Only Wrong/Not Attempted</h6>
+               <div style={{display:"block",marginLeft:"45px"}}>
+       <ToggleButton
+       inactiveLabel={''}
+       activeLabel={''}
+      
+  value={ wn || false }
+  onToggle={(val) => {
+   setWN(!wn)
+   
+  }} /></div>
+              </div>
               <div><button title="solved? update" style={{float:'right',borderRadius:'35px'}} onClick={e=>{window.location.reload(false)}}><img style={{width:'50px',height:'52px'}}src={refresh}></img></button></div>
               </div><br></br>
            
@@ -162,11 +176,12 @@ if(last!=null){
                     
                     res. problems.map((prob)=>{
                          if(prob.status==="solved"){
+                           if(wn==false){
                          return(
                           <Col><div className={`solved`} ><a href={prob.url} target="_blank"><h7>{prob.name}</h7></a><br></br><br></br>
                      <h7 className="green">SOLVED</h7>
                    </div></Col>
-                         )}
+                         )}}
                          else if(prob.status==="wrong"){
                          return(
                           <Col> <div className={`wrong`}><a href={prob.url} target="_blank"><h7 >{prob.name}</h7></a><br></br><br></br>
@@ -174,17 +189,19 @@ if(last!=null){
                            </div></Col>
                          )}
                          else if(prob.status=="upsolved"){
+                           if(wn==false){
                          return(
                           <Col> <div className={`upsolved`}><a  href={prob.url} target="_blank"><h7 >{prob.name}</h7></a><br></br><br></br>
                            <h7 className="blue">UPSOLVED</h7>
                            </div></Col>
-                         )}
+                         )}}
+                         else if(prob.status=="not_attempt"){
                          return(
                           <Col> <div className={`not_attempted`}><a href={prob.url} target="_blank"><h7 >{prob.name}</h7></a><br></br><br></br>
                         
                            <h7 className="viol">NOT ATTEMPTED</h7>
                            </div></Col>
-                         )
+                         )}
                      })}
                      </Carousel></Col>
                     

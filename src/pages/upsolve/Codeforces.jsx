@@ -16,6 +16,7 @@ import Tags from '../../assets/upsolve/tags-icon2.png'
 import logo from '../../assets/upsolve/codeforces_logo.png'
 import refresh from '../../assets/upsolve/reload.png'
 import ToggleButton from 'react-toggle-button'
+import {Modal} from 'reactstrap'
 
 //import actions
 import {codeforces} from '../../actions/upsolve.actions'
@@ -23,7 +24,7 @@ import {codeforces} from '../../actions/upsolve.actions'
 function Codeforces(){
  
   const pageNumbers=[];
-   let count =1; 
+  
     const [page,setPage]=useState(1);
     const [curPage,setCurPage]=useState(1);
     const [loader,setLoader]=useState(false);
@@ -34,6 +35,11 @@ function Codeforces(){
     const [conData,setData]=useState([]);
     const [vir,setVir]=useState(false);
    
+   
+    const [wn,setWN]=useState(false);
+  
+    
+  
     const width={width:200}
    
     
@@ -59,8 +65,9 @@ function Codeforces(){
            const response=await codeforces(acc,vir,page);
            if(response.status===200){
             const data=await response.json();
+           // console.log(data)
                   if(data.status==="OK"){
-                  
+                      if(data.result.length>0){
                       const newLinks=data.links;
                       setFirst(newLinks.first.split("=")[1]);
                       setLast(newLinks.last.split("=")[1]);
@@ -72,7 +79,14 @@ function Codeforces(){
                       }
                      await setLast(data.meta.last_page);
                      setCurPage(data.meta.current_page);
-                     
+                    }
+                    else if(vir==false){
+                      setVir(true);
+                    }
+                    else{
+                      localStorage.setItem("err","Codeforces upsolve is available when you participate in atleast one contest(official/virtual)");
+                      window.location="/home";
+                    }
                      //console.log(first+" "+last)
                   
                     }
@@ -99,7 +113,7 @@ function Codeforces(){
     fetchData();
    
     
-},[page,vir])
+},[page,vir,wn])
 if(last!=null){
 for(let i=1;i<=last;i++){
   pageNumbers.push(i);
@@ -137,22 +151,38 @@ mobile: {
       <img style={{width:'220px',height:'50px'}}src={logo}/>
  
  <div style={{display:"flex",float:"right"}}>
- 
-               <div style={{float:"right",backgroundColor:'lightslategrey',borderRadius:'5px',alignItems:"center"}}> 
-               <h6 style={{padding:"3px",color:"black",marginTop:'2px'}}>Include Virtual</h6>
+ <div style={{float:"right",backgroundColor:"lightslategrey",borderRadius:'5px',border:"2px solid black"}}> 
+               <h6 style={{padding:"3px",color:"black",marginTop:"2px"}}>Include Virtual</h6>
                <div style={{display:"block",marginLeft:"25px"}}>
        <ToggleButton
        inactiveLabel={''}
        activeLabel={''}
       
-  value={ vir || false }
+  value={ vir|| false }
   onToggle={(val) => {
    setVir(!vir)
    setTimeout(()=>{setLoader(true)},1000)
    setPage(1);
-  }} /></div></div>
+  }} /></div>
+              </div>
+              <div style={{float:"right",backgroundColor:"lightslategrey",borderRadius:'5px',border:"2px solid black"}}> 
+               <h6 style={{padding:"3px",color:"black",marginTop:"2px"}}>Only Wrong/Not Attempted</h6>
+               <div style={{display:"block",marginLeft:"45px"}}>
+       <ToggleButton
+       inactiveLabel={''}
+       activeLabel={''}
+      
+  value={ wn || false }
+  onToggle={(val) => {
+   setWN(!wn)
+   
+  }} /></div>
+              </div>
+              
   <div><button title="solved? update" style={{float:'right',borderRadius:'35px'}} onClick={e=>{window.location.reload(false)}}><img style={{width:'50px',height:'52px'}}src={refresh}></img></button></div>
-              </div><br></br><br></br>
+              </div>
+             
+              <br></br><br></br>
        
         <br></br>
         
@@ -179,6 +209,7 @@ mobile: {
              
               res. problems.map((prob)=>{
                    if(prob.status==="solved"){
+                     if(wn==false){
                    return(
                   
                    <Col><div className={`solved`} ><a href={prob.url} target="_blank"><h7>{prob.index}-{prob.name}</h7></a><br></br><br></br>
@@ -189,8 +220,9 @@ mobile: {
                    
   
                    
-                   )}
+                   )}}
                    else if(prob.status==="wrong"){
+                     
                    return(
                    <Col> <div className={`wrong`}><a href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br><br></br>
                    <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"14px"}} src={Tags}></img>} position="right">
@@ -199,13 +231,15 @@ mobile: {
                     </div></Col>
                    )}
                    else if(prob.status==="upsolved"){
+                     if(wn==false){
                    return(
                    <Col> <div className={`upsolved`}><a  href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br><br></br>
                    <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"14px"}} src={Tags}></img>} position="right">
                     <div className="tagsbox">{prob.tags.substring(1,prob.tags.length-1)}</div></Popup>
                     <h7 className="blue">UPSOLVED</h7>
                     </div></Col>
-                   )}
+                   )}}
+                  else if(prob.status==="not_attempt")
                    return (
                     <Col> <div className={`not_attempted`}><a href={prob.url} target="_blank"><h7 >{prob.index}-{prob.name}</h7></a><br></br><br></br>
                     <Popup trigger={<img style={{width:"25px",height:"15px",float:"right",marginTop:"14px"}} src={Tags}></img>} position="right">
@@ -215,8 +249,7 @@ mobile: {
                    )
                })}
                </Carousel></Col>
-               {
-               count>=6?count=1:count+=1}
+               
               </Row><br></br></>:<></>}</>)})}
               <div className="paginate">
                     <nav className="paginator">
