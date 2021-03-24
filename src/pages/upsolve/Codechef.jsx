@@ -62,7 +62,7 @@ const Codechef=()=>{
                await setCurPage(data.meta.current_page);
             }
             else{
-              localStorage.setItem("err","Codechef upsolve is availble when you participate in atleast one contest");
+              localStorage.setItem("err","Codechef upsolve is available when you participate in atleast one contest");
               window.location='/home'
             }
           }
