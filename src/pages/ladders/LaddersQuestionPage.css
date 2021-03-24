@@ -7,7 +7,7 @@
     justify-content: center;
   } */
 
-.container_card {
+  .container_card {
     top: 50%;
     left: 26%;
     width: 9.4rem;
@@ -74,7 +74,7 @@
     height: 400px;
     width: 1000px;
     top: 0px;
-    left: calc(35% - 310px);
+    left: calc(35% - 415px);
     display: flex;
 }
 
@@ -186,14 +186,11 @@
 .circle {
     position: absolute;
     top: 150px;
-}
-
-.circlePosNormal{
     left: calc(50% - 60px);
 }
 
-.circlePosLast{
-    left: calc(50% - 68px);
+.circle>svg{
+    width: 8rem;
 }
 
 .stroke {
