@@ -140,7 +140,7 @@ if(last!=null){
             <>
 <div style={{display:"flex",justifyContent:'space-between'}}>
  
-<img style={{width:'220px',height:'68px'}}src={logo}/>
+<img style={{width:'220px',height:'55px'}}src={logo}/>
 <div  style={{display:"flex",float:"right"}}>
  
  <div style={{float:"right",backgroundColor:"lightslategrey",borderRadius:'5px',border:"2px solid black"}}> 
@@ -157,7 +157,7 @@ if(last!=null){
   }} /></div>
               </div>
               
- <div><button title="solved? update" style={{float:'right',borderRadius:'35px'}} onClick={e=>{window.location.reload(false)}}><img style={{width:'50px',height:'52px'}}src={refresh}></img></button></div>
+ <div><button title="solved? update" style={{float:'right',borderRadius:'35px'}} onClick={e=>{window.location.reload(false)}}><img style={{width:'40px',height:'40px'}}src={refresh}></img></button></div>
  </div></div>
 
                 <br></br>

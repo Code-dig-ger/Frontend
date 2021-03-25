@@ -119,7 +119,7 @@ if(last!=null){
            return(
              
             <>
-            <Navbar></Navbar><br></br><br></br><br></br><br></br>
+            <Navbar></Navbar><br></br><br></br><br></br><br></br><br></br>
             {loader?<Spinner className="loading-animation" animation="border"/>:
             <div className="body">
                      
@@ -127,7 +127,8 @@ if(last!=null){
               {conData.length>0?
               <>
             
-                <div style={{display:"flex"}}>
+                <div style={{display:"flex",justifyContent:'space-between'}}>
+                  <div style={{display:"flex"}}>
  <h3 textAlign="center">ATCODER</h3><img style={{width:'60px',height:'50px'}}src={logo}/></div>
  
  <div style={{display:"flex",float:"right"}}>
@@ -159,9 +160,11 @@ if(last!=null){
   }} /></div>
               </div>
               <div><button title="solved? update" style={{float:'right',borderRadius:'35px'}} onClick={e=>{window.location.reload(false)}}><img style={{width:'50px',height:'52px'}}src={refresh}></img></button></div>
-              </div><br></br>
+              </div>
+              </div>
+              <br></br>
            
-<br></br><br></br><br></br>
+<br></br>
               
               {conData.map(res=>{
                 return(

@@ -148,7 +148,7 @@ mobile: {
      
         {conData.length>0?
         <>
-      <img style={{width:'220px',height:'50px'}}src={logo}/>
+      <img style={{width:'220px',height:'30px'}}src={logo}/>
  
  <div style={{display:"flex",float:"right"}}>
  <div style={{float:"right",backgroundColor:"lightslategrey",borderRadius:'5px',border:"2px solid black"}}> 
@@ -166,7 +166,7 @@ mobile: {
   }} /></div>
               </div>
               <div style={{float:"right",backgroundColor:"lightslategrey",borderRadius:'5px',border:"2px solid black"}}> 
-               <h6 style={{padding:"3px",color:"black",marginTop:"2px"}}>Only Wrong/Not Attempted</h6>
+               <h6 style={{padding:'2px',color:"black",marginTop:"2px"}}>Only Wrong/Not Attempted</h6>
                <div style={{display:"block",marginLeft:"45px"}}>
        <ToggleButton
        inactiveLabel={''}
@@ -179,7 +179,7 @@ mobile: {
   }} /></div>
               </div>
               
-  <div><button title="solved? update" style={{float:'right',borderRadius:'35px'}} onClick={e=>{window.location.reload(false)}}><img style={{width:'50px',height:'52px'}}src={refresh}></img></button></div>
+  <div><button title="solved? update" style={{float:'right',borderRadius:'35px',marginTop:'2px'}} onClick={e=>{window.location.reload(false)}}><img style={{width:'40px',height:'40px'}}src={refresh}></img></button></div>
               </div>
              
               <br></br><br></br>
