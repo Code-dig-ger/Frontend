@@ -17,9 +17,15 @@ const Info=()=>{
          const [msg,setMsg]=useState("Create Your Profile");
          const [user,setUser]=useState();
          const [show,setShow]=useState(false);
+         const [checked,setChecked]=useState(false);
         
     async function handle(e){
         e.preventDefault();
+        if(checked==false){
+          alert("Please check the checkbox.");
+          return;
+        }
+        
         setShow(true);
         const creds=await JSON.parse(localStorage.getItem("creds"));
       
@@ -49,7 +55,7 @@ const Info=()=>{
         })
       
         const data=await response.json();
-       console.log(data);
+      // console.log(data);
         if(response.status===200){
         
         localStorage.setItem("creds",JSON.stringify({
@@ -66,8 +72,27 @@ const Info=()=>{
       window.location=`/profile/${usser}`;
     }
     else{
-        
-      alert(data.error);
+     
+      let m="";
+      if(data.name){
+      m+="Name :"+data.name+'\n';
+      }
+      if(data.codeforces){
+        m+="Codeforces :"+data.codeforces+'\n';
+      }
+       if(data.codechef){
+          m+="Codechef :"+data.codechef+'\n';
+          }
+          if(data.atcoder){
+            m+="Atcoder :"+data.atcoder+'\n';
+          }
+          if(data.spoj){
+            m+="Spoj :"+data.spoj+'\n';
+            }
+            if(data.uva_handle){
+              m+="UVA :"+data.uva_handle+'\n';
+              }
+           alert(m);
       
         
     }
@@ -108,7 +133,12 @@ const Info=()=>{
         <br></br>
         <input placeholder="UVA handle" onChange={(e)=>setUv(e.target.value)} className="inputi" type="text"  />
         <br></br>
-        
+        <p>
+      <label>
+        <input type="checkbox" onChange={()=>setChecked(!checked)}/>
+        <span> I have read and agree to the <a href="/privacy" target="_blank">Privacy Policy</a> and <br></br> <a href="/terms" target="_blank">Terms and Services.</a></span>
+      </label>
+    </p>
         <input onClick={handle} type="submit" value={show?'Processing...':'SUBMIT'} className="submit-btni"/>
         {show?<Spinner className="loading-animation" animation="border"/>:<></>}
        <br></br><br></br>

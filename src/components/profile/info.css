@@ -45,7 +45,7 @@
   .headingi {
     color: white;
      
-    font-size: 35px;
+    font-size: 30px;
     font-weight: 800;
   }
   
@@ -61,7 +61,7 @@
   
   .content-containeri {
     width: 500px;
-    height: 500px;
+    height: 550px;
   }
   
   .form-containeri {
@@ -70,7 +70,7 @@
     align-items: center;
   
     width: 450px;
-    height: 500px;
+    height: 550px;
   
     
    
