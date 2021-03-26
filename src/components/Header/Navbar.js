@@ -59,10 +59,42 @@ if(creds){
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
             
-            <NavItem>
+          {/* <NavItem style={{color: 'white'}}>
               <NavLink style={{color: 'white'}} href="/problems">Problems</NavLink>
-            </NavItem>
+            </NavItem> */}
             
+
+          <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret style={{color: 'white'}}>
+                Practice
+              </DropdownToggle>
+              <DropdownMenu left className="dropdown_background">
+                <DropdownItem>
+                <NavLink className="dropdown_link" href="/topicwise/practice">Topicwise</NavLink>
+                </DropdownItem>
+                <DropdownItem>
+                <NavLink className="dropdown_link" href="/levelwise/practice">Levelwise</NavLink>
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+            
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret style={{color: 'white'}}>
+                Ladders
+              </DropdownToggle>
+              <DropdownMenu left className="dropdown_background">
+                <DropdownItem>
+                <NavLink className="dropdown_link" href="/topicwise/ladder">Topicwise</NavLink>
+                  
+                </DropdownItem>
+                <DropdownItem>
+                <NavLink className="dropdown_link" href="/levelwise/ladder">Levelwise</NavLink>
+                </DropdownItem>
+                
+                
+              </DropdownMenu>
+            </UncontrolledDropdown>
+
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret style={{color: 'white'}}>
                 Upsolve
@@ -83,36 +115,9 @@ if(creds){
               </DropdownMenu>
             </UncontrolledDropdown>
 
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret style={{color: 'white'}}>
-                Ladders
-              </DropdownToggle>
-              <DropdownMenu left className="dropdown_background">
-                <DropdownItem>
-                <NavLink className="dropdown_link" href="/topicwise/ladder">Topicwise</NavLink>
-                  
-                </DropdownItem>
-                <DropdownItem>
-                <NavLink className="dropdown_link" href="/levelwise/ladder">Levelwise</NavLink>
-                </DropdownItem>
-                
-                
-              </DropdownMenu>
-            </UncontrolledDropdown>
+            
 
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret style={{color: 'white'}}>
-                Practice
-              </DropdownToggle>
-              <DropdownMenu left className="dropdown_background">
-                <DropdownItem>
-                <NavLink className="dropdown_link" href="/topicwise/practice">Topicwise</NavLink>
-                </DropdownItem>
-                <DropdownItem>
-                <NavLink className="dropdown_link" href="/levelwise/practice">Levelwise</NavLink>
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
+            
             {/* <NavItem>
               <NavLink href="/profile">Hello, {creds.username}</NavLink>
             </NavItem> */}
@@ -148,15 +153,46 @@ if(creds){
 
   return (
     <div>
-     <Navbar id="navbar" color="dark" light expand="md" style={{background:'transparent !important', paddingLeft: '6%', paddingRight: '6% '}}>
+     <Navbar id="navbar" color="dark" light expand="md" style={{background:'transparent !important', paddingLeft: '3%', paddingRight: '4% '}}>
         <NavbarBrand href="/" light><img src={logo1} id="BrandLogo"/>CODEDIGGER</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
             
-            <NavItem style={{color: 'white'}}>
+            {/* <NavItem style={{color: 'white'}}>
               <NavLink style={{color: 'white'}} href="/problems">Problems</NavLink>
-            </NavItem>
+            </NavItem> */}
+
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret style={{color: 'white'}}>
+                Practice
+              </DropdownToggle>
+              <DropdownMenu left className="dropdown_background">
+                <DropdownItem>
+                <NavLink className="dropdown_link" href="/topicwise/practice">Topicwise</NavLink>
+                </DropdownItem>
+                <DropdownItem>
+                <NavLink className="dropdown_link" href="/levelwise/practice">Levelwise</NavLink>
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret style={{color: 'white'}}>
+                Ladders
+              </DropdownToggle>
+              <DropdownMenu left className="dropdown_background">
+                <DropdownItem>
+                <NavLink className="dropdown_link" href="/topicwise/ladder">Topicwise</NavLink>
+                  
+                </DropdownItem>
+                <DropdownItem>
+                <NavLink className="dropdown_link" href="/levelwise/ladder">Levelwise</NavLink>
+                </DropdownItem>
+                
+                
+              </DropdownMenu>
+            </UncontrolledDropdown>
             
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret style={{color: 'white'}}>
@@ -178,36 +214,9 @@ if(creds){
               </DropdownMenu>
             </UncontrolledDropdown>
 
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret style={{color: 'white'}}>
-                Ladders
-              </DropdownToggle>
-              <DropdownMenu left className="dropdown_background">
-                <DropdownItem>
-                <NavLink className="dropdown_link" href="/topicwise/ladder">Topicwise</NavLink>
-                  
-                </DropdownItem>
-                <DropdownItem>
-                <NavLink className="dropdown_link" href="/levelwise/ladder">Levelwise</NavLink>
-                </DropdownItem>
-                
-                
-              </DropdownMenu>
-            </UncontrolledDropdown>
+            
 
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret style={{color: 'white'}}>
-                Practice
-              </DropdownToggle>
-              <DropdownMenu left className="dropdown_background">
-                <DropdownItem>
-                <NavLink className="dropdown_link" href="/topicwise/practice">Topicwise</NavLink>
-                </DropdownItem>
-                <DropdownItem>
-                <NavLink className="dropdown_link" href="/levelwise/practice">Levelwise</NavLink>
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
+            
             {/* <NavItem>
               <NavLink href="/profile">Hello, {creds.username}</NavLink>
             </NavItem> */}
