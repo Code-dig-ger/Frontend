@@ -8,11 +8,11 @@ import Spinner from 'react-bootstrap/Spinner'
 const Info=()=>{
       //states for handles
          const [name,setName]=useState(null);
-         const [codeforces,setCodeforces]=useState(null);
-         const [codechef,setCodechef]=useState(null);
-         const [atcoder,setAtcoder]= useState(null);
-         const [spoj,setSpoj]=useState(null);
-         const [uv,setUv]=useState(null);
+         let [codeforces,setCodeforces]=useState(null);
+         let [codechef,setCodechef]=useState(null);
+         let [atcoder,setAtcoder]= useState(null);
+         let [spoj,setSpoj]=useState(null);
+         let [uv,setUv]=useState(null);
          
          const [msg,setMsg]=useState("Create Your Profile");
          const [user,setUser]=useState();
@@ -34,7 +34,21 @@ const Info=()=>{
         const uu=JSON.stringify(creds.username);
         const usser=JSON.parse(uu);
      await setUser(usser);
-      
+      if(codeforces==''){
+      codeforces=null;
+      }
+      if(codechef==''){
+      codechef=null;
+      }
+      if(atcoder==''){
+      atcoder=null;
+      }
+      if(spoj==''){
+        spoj=null;
+        }
+        if(uv==''){
+          uv=null;
+          }
         const response=await fetch(`https://api.codedigger.tech/auth/profile/${usser}`,{
             method:"PUT",
             headers:{
@@ -55,7 +69,7 @@ const Info=()=>{
         })
       
         const data=await response.json();
-      // console.log(data);
+    // console.log(data);
         if(response.status===200){
         
         localStorage.setItem("creds",JSON.stringify({
@@ -70,6 +84,9 @@ const Info=()=>{
 
         setMsg("Successful.....");
       window.location=`/profile/${usser}`;
+    }
+    else if(data.status=="FAILED"){
+      alert(data.error);
     }
     else{
      
