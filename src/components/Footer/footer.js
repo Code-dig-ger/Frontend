@@ -3,7 +3,7 @@ import './footer.css';
 import { Link } from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEnvelope, faPhone} from '@fortawesome/free-solid-svg-icons';
-import { faFacebook, faGithub, faGooglePlus, faGooglePlusSquare, faInstagram, faInstagramSquare, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faGithub, faGooglePlus, faGooglePlusSquare,faLinkedin,faLinkedinIn, faInstagram, faInstagramSquare, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 //FUCNTIONAL COMPONENT
 
@@ -44,8 +44,7 @@ function Footer() {
                     <h5>Follow Us</h5>
                     <br/>
                         <a className="social_media" href="https://www.facebook.com/practicewithcodedigger"><FontAwesomeIcon icon={faFacebook} size="2x"/></a>
-                        <a className="social_media" href="http://codedigger.tech"><FontAwesomeIcon icon={faTwitter} size="2x"/></a>
-                        <a className="social_media" href="http://codedigger.tech"><FontAwesomeIcon icon={faInstagram} size="2x"/></a>
+                        <a className="social_media" href="http://codedigger.tech"><FontAwesomeIcon icon={faLinkedin} size="2x"/></a>
                         <a className="social_media" href="https://github.com/Code-dig-ger"><FontAwesomeIcon icon={faGithub} size="2x"/></a>
                         <a className="social_media" href="https://www.youtube.com/channel/UCY5XRYpEGKT9cpzZmfWvh6A"><FontAwesomeIcon icon={faYoutube} size="2x"/></a>
                         

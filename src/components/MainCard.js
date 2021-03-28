@@ -7,7 +7,7 @@ import {faFolderPlus} from '@fortawesome/free-solid-svg-icons'
 
 const renderTooltip1 = (props) => (
   <Tooltip id="button-tooltip" {...props}>
-    Add to Playlist
+    Add to Problem List
   </Tooltip>
 );
 
@@ -102,7 +102,7 @@ const MainCard = (props) => {
             <span onClick={toggle} ><FontAwesomeIcon style={{cursor:"pointer"}} icon={faFolderPlus} /></span>
           </OverlayTrigger></span>
           <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>Add to Playlist</ModalHeader>
+        <ModalHeader toggle={toggle}>Add to Problem List</ModalHeader>
         <ModalBody>
         </ModalBody>
           <ul>
@@ -160,7 +160,7 @@ const MainCard = (props) => {
             <span onClick={toggle} ><FontAwesomeIcon style={{cursor:"pointer"}} icon={faFolderPlus} /></span>
           </OverlayTrigger></span>}
           <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>Add to Playlist</ModalHeader>
+        <ModalHeader toggle={toggle}>Add to Problem List</ModalHeader>
         <ModalBody>
         </ModalBody>
           <ul>
@@ -225,7 +225,7 @@ const MainCard = (props) => {
             <span onClick={toggle} ><FontAwesomeIcon style={{cursor:"pointer"}} icon={faFolderPlus} /></span>
           </OverlayTrigger></span>
           <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>Add to Playlist</ModalHeader>
+        <ModalHeader toggle={toggle}>Add to Problem List</ModalHeader>
         <ModalBody>
         </ModalBody>
           <ul>
@@ -286,7 +286,7 @@ const MainCard = (props) => {
             <span onClick={toggle} ><FontAwesomeIcon style={{cursor:"pointer"}} icon={faFolderPlus} /></span>
           </OverlayTrigger></span>
           <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>Add to Playlist</ModalHeader>
+        <ModalHeader toggle={toggle}>Add to Problem List</ModalHeader>
         <ModalBody>
         </ModalBody>
           <ul>
@@ -345,7 +345,7 @@ const MainCard = (props) => {
             <span onClick={toggle} ><FontAwesomeIcon style={{cursor:"pointer"}} icon={faFolderPlus} /></span>
           </OverlayTrigger></span>
           <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>Add to Playlist</ModalHeader>
+        <ModalHeader toggle={toggle}>Add to Problem List</ModalHeader>
         <ModalBody>
         </ModalBody>
           <ul>

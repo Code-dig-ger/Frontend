@@ -3,9 +3,11 @@ import Loading from '../logreg/loading'
 import './profile.style.css'
 import Navbar from '../../components/Header/Navbar'
 import FooterSmall from '../../components/Footer/FooterSmall';
-import CodeforcesImg from '../../assets/codeforces.png';
+import CodeforcesImg from '../../assets/cf-logo.png';
+import CodeforcesLongImg from '../../assets/codeforces.png';
 import CodechefImg from '../../assets/codechef.png';
-import SpojImg from '../../assets/spoj.png';
+import SpojImg from '../../assets/spojShort.png';
+import SpojLongImg from '../../assets/spoj.png';
 import UAVImg from '../../assets/uva_online_judge.png';
 import AtcoderImg from '../../assets/atcoder.png';
 import ProfileCarousel from '../../components/profile/ProfileCarousel'
@@ -266,29 +268,39 @@ function ProfilePage({handle}) {
                                 </div>
                                 <ul className="list-group list-group-flush">
                                 <li className="d-flex justify-content-between align-items-center flex-wrap handlesItem">
-                                    <img style={{height:"1rem", width:"6rem", marginRight:"0"}} src={CodeforcesImg}></img>
+                                    <div style={{display:'flex',alignItems:'center'}}>
+                                    <img style={{height:"2.4rem", width:"2.4rem", marginRight:"0.5rem"}} src={CodeforcesImg}></img>
                                     <h6 className="mb-0">Codeforces</h6>
-                                    <span className="text-secondary">{user.result.codeforces !="" ? <a className="handleName" href={"https://codeforces.com/profile/" + user.result.codeforces}>{user.result.codeforces}</a> : "NA"}</span>
+                                    </div>
+                                    <span className="text-secondary">{user.result.codeforces !=null ? <a className="handleName" href={"https://codeforces.com/profile/" + user.result.codeforces}>{user.result.codeforces}</a> : "NA"}</span>
                                 </li>
                                 <li className="d-flex justify-content-between align-items-center flex-wrap handlesItem">
-                                    <img style={{height:"2rem", width:"2rem", marginRight:"3.3rem"}} src={CodechefImg}></img>
+                                    <div style={{display:'flex',alignItems:'center'}}>
+                                    <img style={{height:"2rem", width:"2rem", marginRight:"0.5rem"}} src={CodechefImg}></img>
                                     <h6 className="mb-0">Codechef</h6>
+                                    </div>
                                     <span className="text-secondary">{user.result.codechef !="" ? <a className="handleName" href={"https://codechef.com/users/" + user.result.codechef}>{user.result.codechef}</a> : "NA"}</span>
                                 </li>
                                 <li className="d-flex justify-content-between align-items-center flex-wrap handlesItem">
-                                    <img style={{height:"1rem", width:"7rem", marginRight:"-5.8rem"}} src={SpojImg}></img>
+                                    <div style={{display:'flex',alignItems:'center'}}>
+                                    <img style={{height:"2rem", width:"2rem", marginRight:"0.5rem"}} src={SpojImg}></img>
                                     <h6 className="mb-0">SPOJ</h6>
-                                    <span className="text-secondary">{user.result.spoj !="" ? <a className="handleName" href={"https://spoj.com/users/" + user.result.spoj}>{user.result.spoj}</a> : "NA"}</span>
+                                    </div>
+                                    <span className="text-secondary">{user.result.spoj !=null ? <a className="handleName" href={"https://spoj.com/users/" + user.result.spoj}>{user.result.spoj}</a> : "NA"}</span>
                                 </li>
                                 <li className="d-flex justify-content-between align-items-center flex-wrap handlesItem">
-                                    <img style={{height:"2rem", width:"2rem", marginRight:"-0.8rem"}} src={UAVImg}></img>
+                                    <div style={{display:'flex',alignItems:'center'}}> 
+                                    <img style={{height:"2rem", width:"2rem", marginRight:"0.5rem"}} src={UAVImg}></img>
                                     <h6 className="mb-0">UVA</h6>
-                                    <span className="text-secondary">{user.result.uva_handle !="" ? <a className="handleName" href={"https://uva.com/users/" + user.result.uva_handle}>{user.result.uva_handle}</a> : "NA"}</span>
+                                    </div>
+                                    <span className="text-secondary">{user.result.uva_handle !=null ? <a className="handleName" href={"https://uva.com/users/" + user.result.uva_handle}>{user.result.uva_handle}</a> : "NA"}</span>
                                 </li>
                                 <li className="d-flex justify-content-between align-items-center flex-wrap handlesItem">
-                                    <img style={{height:"2rem", width:"2rem", marginRight:"0"}} src={AtcoderImg}></img>
+                                    <div style={{display:'flex',alignItems:'center'}}>
+                                    <img style={{height:"2rem", width:"2rem", marginRight:"0.5rem"}} src={AtcoderImg}></img>
                                     <h6 className="mb-0">Atcoder</h6>
-                                    <span className="text-secondary">{user.result.atcoder !="" ? <a className="handleName" href={"https://atcoder.com/users/" + user.result.atcoder}>{user.result.atcoder}</a> : "NA"}</span>
+                                    </div>
+                                    <span className="text-secondary">{user.result.atcoder ===null ?  "NA" : <a className="handleName" href={"https://atcoder.com/users/" + user.result.atcoder}>{user.result.atcoder}</a>}</span>
                                 </li>
                                 </ul>
                             </div>
@@ -300,7 +312,7 @@ function ProfilePage({handle}) {
                                 <div className="card1 mb-3" >
                                     <div className="card-body" style={{color:"black"}}>
                                         <div>
-                                            <span><img style={{height:"1rem", width:"6rem", marginRight:"auto", marginLeft: 'auto', display: 'block'}} src={CodeforcesImg}></img></span>
+                                            <span><img style={{height:"1rem", width:"6rem", marginRight:"auto", marginLeft: 'auto', display: 'block'}} src={CodeforcesLongImg}></img></span>
                                         </div>
                                         {console.log(codeforcesDat)}
                                     {codeforcesStatus===true?<> 
@@ -369,7 +381,7 @@ function ProfilePage({handle}) {
                                     </div>
                                         <div className="tabs1" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px", paddingTop: '12px'}}>
                                             {codeforcesDat.result.contestRank.length===0 ? 
-                                                <h6 style={{color:"white", fontSize:"2rem"}}>You havent done any contest</h6> 
+                                                <h6 style={{color:"black", fontSize:"2rem"}}>You havent participated in any contest</h6> 
                                                 :
                                                 <>
                                                 <ul id="tab1-links" style={{marginBottom:"0", height:"160px"}}>
@@ -444,7 +456,7 @@ function ProfilePage({handle}) {
                                     </div>
                                         <div className="tabs2" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px", paddingTop: '12px'}}>
                                             {codechefDat.result.contestRank.length===0 ? 
-                                                <h6 style={{color:"white", fontSize:"2rem"}}>You havent done any contest</h6> 
+                                                <h6 style={{color:"black", fontSize:"2rem"}}>You havent participated in any contest</h6> 
                                                 :
                                                 <>
                                                 <ul id="tab2-links" style={{marginBottom:"0", height:"160px"}}>
@@ -511,7 +523,7 @@ function ProfilePage({handle}) {
                                     </div>
                                         <div className="tabs3" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px", paddingTop: '12px'}}>
                                             {atcoderDat.result.contestRank.length===0 ? 
-                                                <h6 style={{color:"white", fontSize:"2rem"}}>You havent done any contest</h6> 
+                                                <h6 style={{color:"black", fontSize:"2rem"}}>You havent participated in any contest</h6> 
                                                 :
                                                 <>
                                                 <ul id="tab3-links" style={{marginBottom:"0", height:"160px"}}>
@@ -549,7 +561,7 @@ function ProfilePage({handle}) {
                                                 
                                                 <div> 
                                                     <div>
-                                                    <span><img style={{height:"1rem", width:"6rem", marginRight:"auto", marginLeft: 'auto', display: 'block', marginBottom: '0px'}} src={SpojImg}></img></span>
+                                                    <span><img style={{height:"1rem", width:"6rem", marginRight:"auto", marginLeft: 'auto', display: 'block', marginBottom: '0px'}} src={SpojLongImg}></img></span>
                                                 </div>
                                                 <div style={{marginTop:"20px"}}>
                                                     <div>Points : {spojDat.result.points}</div>
