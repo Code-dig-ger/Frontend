@@ -120,7 +120,7 @@ h6 {
     background: #272635;
     color: #2c2c2c;
 }
-.tabs {
+.tabs1 {
     max-width: 30rem;
     display: flex;
     min-width: 428px;
@@ -128,15 +128,15 @@ h6 {
     max-width: 428px;
     max-height: 198px;
 }
-.tabs > ul {
+.tabs1 > ul {
     list-style-type: none;
     padding: 0;
 }
-.tabs > ul li {
+.tabs1 > ul li {
     display: block;
     text-align: center;
 }
-.tabs > ul li a {
+.tabs1 > ul li a {
     display: block;
     text-decoration: none;
     background: #11111a;
@@ -144,23 +144,23 @@ h6 {
     color: rgba(255, 255, 255, 0.6);
     transition: all 0.2s ease-in-out;
 }
-.tabs > ul li a.active {
+.tabs1 > ul li a.active1 {
     background: ghostwhite;
     color: #2c2c2c !important;
 }
-.tabs > ul li a:hover:not(.active) {
+.tabs1 > ul li a:hover:not(.active1) {
     color: white;
 }
-.tabs section {
+.tabs1 section {
     background: ghostwhite;
     padding: 1rem 1.5rem;
     display: none;
 }
-.tabs section.active {
+.tabs1 section.active1 {
     display: block;
 }
 
-.tabs > section > h3 {
+.tabs1 > section > h3 {
     color: black;
 }
 
@@ -540,6 +540,94 @@ h6 {
     bottom: 0;
     height: 50px;
     margin: auto;
+}
+
+.tabs2 {
+    max-width: 30rem;
+    display: flex;
+    min-width: 428px;
+    min-height: 175px;
+    max-width: 428px;
+    max-height: 198px;
+}
+.tabs2 > ul {
+    list-style-type: none;
+    padding: 0;
+}
+.tabs2 > ul li {
+    display: block;
+    text-align: center;
+}
+.tabs2 > ul li a {
+    display: block;
+    text-decoration: none;
+    background: #11111a;
+    padding: 1rem 1.5rem;
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.2s ease-in-out;
+}
+.tabs2 > ul li a.active2 {
+    background: ghostwhite;
+    color: #2c2c2c !important;
+}
+.tabs2 > ul li a:hover:not(.active2) {
+    color: white;
+}
+.tabs2 section {
+    background: ghostwhite;
+    padding: 1rem 1.5rem;
+    display: none;
+}
+.tabs2 section.active2 {
+    display: block;
+}
+
+.tabs2 > section > h3 {
+    color: black;
+}
+
+.tabs2 {
+    max-width: 30rem;
+    display: flex;
+    min-width: 428px;
+    min-height: 175px;
+    max-width: 428px;
+    max-height: 198px;
+}
+.tabs2 > ul {
+    list-style-type: none;
+    padding: 0;
+}
+.tabs2 > ul li {
+    display: block;
+    text-align: center;
+}
+.tabs2 > ul li a {
+    display: block;
+    text-decoration: none;
+    background: #11111a;
+    padding: 1rem 1.5rem;
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.2s ease-in-out;
+}
+.tabs2 > ul li a.active3 {
+    background: ghostwhite;
+    color: #2c2c2c !important;
+}
+.tabs2 > ul li a:hover:not(.active3) {
+    color: white;
+}
+.tabs2 section {
+    background: ghostwhite;
+    padding: 1rem 1.5rem;
+    display: none;
+}
+.tabs2 section.active3 {
+    display: block;
+}
+
+.tabs2 > section > h3 {
+    color: black;
 }
 
 /* .card-body path {

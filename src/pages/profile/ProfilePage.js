@@ -47,8 +47,12 @@ function ProfilePage({handle}) {
 
     const [show,setShow]=useState(true);
 
-    const tabs = ["#tab-1","#tab-2","#tab-3"];
-    const tabSection = ["tab-1","tab-2","tab-3"];
+    const tabs1 = ["#tab1-1","#tab1-2","#tab1-3"];
+    const tabs2 = ["#tab2-1","#tab2-2","#tab2-3"];
+    const tabs3 = ["#tab3-1","#tab3-2","#tab3-3"];
+    const tabSection1 = ["tab1-1","tab1-2","tab1-3"];
+    const tabSection2 = ["tab2-1","tab2-2","tab2-3"];
+    const tabSection3 = ["tab3-1","tab3-2","tab3-3"];
     const [nestedModal3, setNestedModal3] = useState(false);
     const [friendReq,setFriendReq] = useState({});
     const [friendReqStatus,setFriendReqStatus] = useState(false);
@@ -61,7 +65,7 @@ function ProfilePage({handle}) {
     useEffect(() => {
         $(function() {
             // Reference the tab links.
-            const tabLinks = $('#tab-links li a');
+            const tabLinks = $('#tab1-links li a');
             console.log("PP");
             // Handle link clicks.
             tabLinks.click(function(event) {
@@ -72,11 +76,75 @@ function ProfilePage({handle}) {
                 event.preventDefault();
                 
                 // Remove the active class from the active link and section.
-                $('#tab-links a.active, section.active').removeClass('active');
+                $('#tab1-links a.active1, section.active1').removeClass('active1');
                 
                 // Add the active class to the current link and corresponding section.
-                $this.addClass('active');
-                $($this.attr('href')).addClass('active');
+                $this.addClass('active1');
+                $($this.attr('href')).addClass('active1');
+            });
+        });
+
+          $(window).scroll(function(){
+            if($(window).scrollTop() <=800) 
+            { 
+                $("#profileCard").css({"margin-top": ($(window).scrollTop()) + "px", "margin-left":($(window).scrollLeft()) + "px"});
+            }
+            
+          });
+    })
+
+
+    useEffect(() => {
+        $(function() {
+            // Reference the tab links.
+            const tabLinks = $('#tab2-links li a');
+            console.log("PP");
+            // Handle link clicks.
+            tabLinks.click(function(event) {
+                
+                var $this = $(this);
+                
+                // Prevent default click behaviour.
+                event.preventDefault();
+                
+                // Remove the active class from the active link and section.
+                $('#tab2-links a.active2, section.active2').removeClass('active2');
+                
+                // Add the active class to the current link and corresponding section.
+                $this.addClass('active2');
+                $($this.attr('href')).addClass('active2');
+            });
+        });
+
+          $(window).scroll(function(){
+            if($(window).scrollTop() <=800) 
+            { 
+                $("#profileCard").css({"margin-top": ($(window).scrollTop()) + "px", "margin-left":($(window).scrollLeft()) + "px"});
+            }
+            
+          });
+    })
+
+
+    useEffect(() => {
+        $(function() {
+            // Reference the tab links.
+            const tabLinks = $('#tab3-links li a');
+            console.log("PP");
+            // Handle link clicks.
+            tabLinks.click(function(event) {
+                
+                var $this = $(this);
+                
+                // Prevent default click behaviour.
+                event.preventDefault();
+                
+                // Remove the active class from the active link and section.
+                $('#tab3-links a.active3, section.active3').removeClass('active3');
+                
+                // Add the active class to the current link and corresponding section.
+                // $this.addClass('active3');
+                $($this.attr('href')).addClass('active3');
             });
         });
 
@@ -299,22 +367,22 @@ function ProfilePage({handle}) {
 
 
                                     </div>
-                                        <div className="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px", paddingTop: '12px'}}>
+                                        <div className="tabs1" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px", paddingTop: '12px'}}>
                                             {codeforcesDat.result.contestRank.length===0 ? 
                                                 <h6 style={{color:"white", fontSize:"2rem"}}>You havent done any contest</h6> 
                                                 :
                                                 <>
-                                                <ul id="tab-links" style={{marginBottom:"0", height:"160px"}}>
+                                                <ul id="tab1-links" style={{marginBottom:"0", height:"160px"}}>
                                                     {codeforcesDat.result.contestRank.map((contestDat, index) => {
                                                         return(
-                                                            <li key={index}><a href={tabs[index]} className={index===0 ? "active":""}>{index+1}</a></li>
+                                                            <li key={index}><a href={tabs1[index]} className={index===0 ? "active1":""}>{index+1}</a></li>
                                                         )
                                                     })}
                                                 </ul>
 
                                                 {codeforcesDat.result.contestRank.map((contestDat, index) => {
                                                     return(
-                                                        <section style={{width:"100%", height: '160px'}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
+                                                        <section style={{width:"100%", height: '160px'}} id={tabSection1[index]} key={index} className={index===0 ? "active1":""}>
                                                             <h6 style={{color:"black", fontSize: '20px', fontWeight: '700', color: 'black', textDecoration: 'underline'}}>{contestDat.contest.name}</h6>
                                                             <p style={{ fontSize: '14px', fontWeight: '500'}}>World Rank : {contestDat.worldRank? contestDat.worldRank : "NA"}</p>
                                                             <p style={{ fontSize: '14px', fontWeight: '500'}}>Country Rank : {contestDat.countryRank? contestDat.countryRank : "NA"}</p>
@@ -374,22 +442,22 @@ function ProfilePage({handle}) {
 
 
                                     </div>
-                                        <div className="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px", paddingTop: '12px'}}>
+                                        <div className="tabs2" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px", paddingTop: '12px'}}>
                                             {codechefDat.result.contestRank.length===0 ? 
                                                 <h6 style={{color:"white", fontSize:"2rem"}}>You havent done any contest</h6> 
                                                 :
                                                 <>
-                                                <ul id="tab-links" style={{marginBottom:"0", height:"160px"}}>
+                                                <ul id="tab2-links" style={{marginBottom:"0", height:"160px"}}>
                                                     {codechefDat.result.contestRank.map((contestDat, index) => {
                                                         return(
-                                                            <li key={index}><a href={tabs[index]} className={index===0 ? "active":""}>{index+1}</a></li>
+                                                            <li key={index}><a href={tabs2[index]} className={index===0 ? "active2":""}>{index+1}</a></li>
                                                         )
                                                     })}
                                                 </ul>
 
                                                 {codechefDat.result.contestRank.map((contestDat, index) => {
                                                     return(
-                                                        <section style={{width:"100%", height: '160px'}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
+                                                        <section style={{width:"100%", height: '160px'}} id={tabSection2[index]} key={index} className={index===0 ? "active2":""}>
                                                             <h6 style={{color:"black", fontSize: '21px', fontWeight: '700', color: 'black', textDecoration: 'underline'}}>{contestDat.name}</h6>
                                                             <p style={{marginTop: '20px', fontSize: '16px', fontWeight: '500'}}>Rank : {contestDat.rank}</p>
                                                         </section>
@@ -441,22 +509,22 @@ function ProfilePage({handle}) {
 
 
                                     </div>
-                                        <div className="tabs" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px", paddingTop: '12px'}}>
+                                        <div className="tabs3" style={{ minWidth:"428px", minHeight:"198px", maxWidth:"428px", maxHeight:"198px", paddingTop: '12px'}}>
                                             {atcoderDat.result.contestRank.length===0 ? 
                                                 <h6 style={{color:"white", fontSize:"2rem"}}>You havent done any contest</h6> 
                                                 :
                                                 <>
-                                                <ul id="tab-links" style={{marginBottom:"0", height:"160px"}}>
+                                                <ul id="tab3-links" style={{marginBottom:"0", height:"160px"}}>
                                                     {atcoderDat.result.contestRank.map((contestDat, index) => {
                                                         return(
-                                                            <li key={index}><a href={tabs[index]} className={index===0 ? "active":""}>{index+1}</a></li>
+                                                            <li key={index}><a href={tabs3[index]} className={index===0 ? "active3":""}>{index+1}</a></li>
                                                         )
                                                     })}
                                                 </ul>
 
                                                 {atcoderDat.result.contestRank.map((contestDat, index) => {
                                                     return(
-                                                        <section style={{width:"100%", height: '160px'}} id={tabSection[index]} key={index} className={index===0 ? "active":""}>
+                                                        <section style={{width:"100%", height: '160px'}} id={tabSection3[index]} key={index} className={index===0 ? "active3":""}>
                                                             <h6 style={{color:"black", fontSize: '21px', fontWeight: '700', color: 'black', textDecoration: 'underline'}}>{contestDat.name}</h6>
                                                             <p style={{marginTop: '20px', fontSize: '16px', fontWeight: '500'}}>World Rank : {contestDat.worldRank}</p>
                                                         </section>
