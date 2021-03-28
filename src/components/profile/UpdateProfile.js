@@ -120,7 +120,7 @@ const UpdateInfo=()=>{
               const data=await getProfile(acc,uu);
              
                const Prevdata=data.result;
-               console.log(Prevdata)
+               //console.log(Prevdata)
               if(data.status=="OK"){
                   if(Prevdata.atcoder!=null){
                   setAtcoder(Prevdata.atcoder);
@@ -160,27 +160,28 @@ const UpdateInfo=()=>{
           Update Profile
         </h3>
         <h6 style={{color:'white'}}>Fields marked with asteric are required.</h6>
-        
+        <h6 style={{color:'white'}}>Please change only those fields you want to update.</h6>
 
-         
+       
+        
         <input placeholder={`Name : ${name}`} onChange={(e)=>setnewName(e.target.value)} className="inputi" type="text" required/>
         <br></br>
-        <input placeholder={`Codeforces : ${codeforces}`} onChange={(e)=>setnewCodeforces(e.target.value)} className="inputi" type="text" required/>
+        <input placeholder={`Codeforces handle : ${codeforces}`} onChange={(e)=>setnewCodeforces(e.target.value)} className="inputi" type="text" required/>
         <br></br>
         
        
-        <input placeholder={`Codechef : ${codechef}`} onChange={(e)=>setnewCodechef(e.target.value)} className="inputi" type="text" />
+        <input placeholder={`Codechef handle : ${codechef}`} onChange={(e)=>setnewCodechef(e.target.value)} className="inputi" type="text" />
         <br></br>
         
         
-        <input placeholder={`Atcoder : ${atcoder}`} onChange={(e)=>setnewAtcoder(e.target.value)} className="inputi" type="text"/>
+        <input placeholder={`Atcoder handle : ${atcoder}`} onChange={(e)=>setnewAtcoder(e.target.value)} className="inputi" type="text"/>
         <br></br>
         
         
-        <input placeholder={`Spoj : ${spoj}`} onChange={(e)=>setnewSpoj(e.target.value)} className="inputi" type="text" />
+        <input placeholder={`Spoj handle : ${spoj}`} onChange={(e)=>setnewSpoj(e.target.value)} className="inputi" type="text" />
         
         <br></br>
-        <input placeholder={`UVA : ${uv}`} onChange={(e)=>setnewUv(e.target.value)} className="inputi" type="text"  />
+        <input placeholder={`UVA handle : ${uv}`} onChange={(e)=>setnewUv(e.target.value)} className="inputi" type="text"  />
         <br></br>
         <input  onClick={handle} type="submit" value={show?"Processing..":"UPDATE"} className="submit-btni"/>
         {show?<Spinner className="loading-animation" animation="border"/>:<></>}

@@ -294,7 +294,7 @@ switchers.forEach((item) => {
           </>
         :
         <>
-        <h7 className="goodmsgs">{`We have sent you a verification link on ${emailR} .`}</h7><br></br><h7 className="goodmsgs">{`Please verify your email and move to login. \n If you haven't recieved any mail regarding this, click here to send again.`}</h7>
+        <h7 className="goodmsgs">{`We have sent you a verification link on ${emailR} (Please check your spam folder too!).`}</h7><br></br><h7 className="goodmsgs">{`Please verify your email and move to login. \n If you haven't recieved any mail regarding this, click here to send again.`}</h7>
         <button className="goodmsgs" onClick={Sendagain}>Send again</button></>}
       </form>
 
