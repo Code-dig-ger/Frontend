@@ -4,7 +4,18 @@
     background-size: contain;
     
 }
-
+.footerSmall{
+    position:fixed ;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    height: 54px;
+   
+}
+.hide{
+    display: none;
+}
 i{
     color: aqua;
 }

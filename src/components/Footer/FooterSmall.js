@@ -4,8 +4,16 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faFacebook, faGithub, faGooglePlus, faGooglePlusSquare,faLinkedin,faLinkedinIn, faInstagram, faInstagramSquare, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 function FooterSmall() {
+   window.addEventListener('scroll',(e)=>{myFunction()})
+function myFunction() {
+  if (window.pageYOffset<200) {
+    document.getElementById("myfooter").className = "hide";
+  } else {
+    document.getElementById("myfooter").className = "";
+  }
+}
     return(
-    <div className="footer m-0">
+    <div id="myfooter" className="footerSmall m-0">
         <div className="container-fluid p-4 m-0">
             <div className="row justify-content-center"> 
                             
