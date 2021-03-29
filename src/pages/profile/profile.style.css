@@ -586,7 +586,7 @@ h6 {
     color: black;
 }
 
-.tabs2 {
+.tabs3 {
     max-width: 30rem;
     display: flex;
     min-width: 428px;
@@ -594,15 +594,15 @@ h6 {
     max-width: 428px;
     max-height: 198px;
 }
-.tabs2 > ul {
+.tabs3 > ul {
     list-style-type: none;
     padding: 0;
 }
-.tabs2 > ul li {
+.tabs3 > ul li {
     display: block;
     text-align: center;
 }
-.tabs2 > ul li a {
+.tabs3 > ul li a {
     display: block;
     text-decoration: none;
     background: #11111a;
@@ -610,23 +610,23 @@ h6 {
     color: rgba(255, 255, 255, 0.6);
     transition: all 0.2s ease-in-out;
 }
-.tabs2 > ul li a.active3 {
+.tabs3 > ul li a.active3 {
     background: ghostwhite;
     color: #2c2c2c !important;
 }
-.tabs2 > ul li a:hover:not(.active3) {
+.tabs3 > ul li a:hover:not(.active3) {
     color: white;
 }
-.tabs2 section {
+.tabs3 section {
     background: ghostwhite;
     padding: 1rem 1.5rem;
     display: none;
 }
-.tabs2 section.active3 {
+.tabs3 section.active3 {
     display: block;
 }
 
-.tabs2 > section > h3 {
+.tabs3 > section > h3 {
     color: black;
 }
 
