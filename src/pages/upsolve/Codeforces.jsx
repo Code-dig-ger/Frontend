@@ -161,7 +161,7 @@ mobile: {
   value={ vir|| false }
   onToggle={(val) => {
    setVir(!vir)
-   setTimeout(()=>{setLoader(true)},1000)
+   setTimeout(()=>{setLoader(true)},2000)
    setPage(1);
   }} /></div>
               </div>
