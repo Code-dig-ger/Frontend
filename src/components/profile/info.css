@@ -22,6 +22,7 @@
     overflow-x: hidden;
    overflow-y: hidden;
     height: 100%;
+    margin-bottom: 100px;
   
     /* code to make all text unselectable */
     -webkit-user-select: none;

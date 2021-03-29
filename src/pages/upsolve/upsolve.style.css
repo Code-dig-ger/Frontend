@@ -222,4 +222,6 @@ a {
 }
 .body{
     padding-left: 8px;
+    overflow: hidden;
+    margin-bottom: 100px;
 }

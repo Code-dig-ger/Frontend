@@ -162,7 +162,7 @@ if(last!=null){
               <div><button title="solved? update" style={{float:'right',borderRadius:'35px'}} onClick={e=>{window.location.reload(false)}}><img style={{width:'50px',height:'52px'}}src={refresh}></img></button></div>
               </div>
               </div>
-              <br></br>
+             
            
 <br></br>
               
