@@ -410,15 +410,18 @@ function ProfilePage({handle}) {
 
                                             {/* Codechef card starts */}
 
-                                        <div>
-                                            <span><img style={{height:"3rem", width:"6rem", marginRight:"auto", marginLeft: 'auto', display: 'block'}} src="https://upload.wikimedia.org/wikipedia/en/thumb/7/7b/Codechef%28new%29_logo.svg/1200px-Codechef%28new%29_logo.svg.png"></img></span>
-                                        </div>
+                                        
 
                                     {codechefStatus===true?<LoadingProfile/> :
                                     
                                     codechefDat.status === "FAILED"? <></>:
+
+                                    
                                     
                                     <div> 
+                                        <div>
+                                        <span><img style={{height:"3rem", width:"6rem", marginRight:"auto", marginLeft: 'auto', display: 'block'}} src="https://upload.wikimedia.org/wikipedia/en/thumb/7/7b/Codechef%28new%29_logo.svg/1200px-Codechef%28new%29_logo.svg.png"></img></span>
+                                    </div>
                                         <div style={{marginTop:"20px"}}>
                                             <div>Current Rating : {codechefDat.result.rating}</div>
                                             <div>Max Rating : {codechefDat.result.maxRating}</div>
