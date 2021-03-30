@@ -160,7 +160,7 @@ const UpdateInfo=()=>{
           Update Profile
         </h3>
         <h6 style={{color:'white'}}>Fields marked with asteric are required.</h6>
-        <h6 style={{color:'white'}}>Please change only those fields you want to update.</h6>
+        <h6 style={{color:'white'}}>Fill only those fields you want to update.</h6>
 
        
         

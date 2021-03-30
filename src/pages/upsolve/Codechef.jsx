@@ -143,8 +143,8 @@ if(last!=null){
 <img style={{width:'220px',height:'55px'}}src={logo}/>
 <div  style={{display:"flex",float:"right"}}>
  
- <div style={{float:"right",backgroundColor:"lightslategrey",borderRadius:'5px',border:"2px solid black"}}> 
-               <h6 style={{padding:"3px",color:"black",marginTop:"2px"}}>Only Wrong/Not Attempted</h6>
+ <div style={{float:"right",borderRadius:'5px',border:"2px solid black"}}> 
+               <h6 style={{padding:"3px",color:"white",marginTop:"2px"}}>Only Wrong/Not Attempted</h6>
                <div style={{display:"block",marginLeft:"45px"}}>
        <ToggleButton
        inactiveLabel={''}
