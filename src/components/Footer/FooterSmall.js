@@ -37,10 +37,10 @@ function FooterSmall() {
 
                         <div className="float-right m-0">
 
-                            <a className="social_media" href="http://codedigger.tech/"><FontAwesomeIcon icon={faFacebook} size="2x" /></a>
-                            <a className="social_media" href="http://codedigger.tech"><FontAwesomeIcon icon={faLinkedin} size="2x" /></a>
-                            <a className="social_media" href="http://codedigger.tech"><FontAwesomeIcon icon={faGithub} size="2x" /></a>
-                            <a className="social_media" href="http://codedigger.tech"><FontAwesomeIcon icon={faYoutube} size="2x" /></a>
+                            <a className="social_media" target="_blank" href="https://www.facebook.com/practicewithcodedigger"><FontAwesomeIcon icon={faFacebook} size="2x" /></a>
+                            <a className="social_media" target="_blank" href="https://www.linkedin.com/company/codedigger"><FontAwesomeIcon icon={faLinkedin} size="2x" /></a>
+                            <a className="social_media" target="_blank" href="https://github.com/Code-dig-ger"><FontAwesomeIcon icon={faGithub} size="2x" /></a>
+                            <a className="social_media" target="_blank" href="https://www.youtube.com/channel/UCY5XRYpEGKT9cpzZmfWvh6A"><FontAwesomeIcon icon={faYoutube} size="2x" /></a>
 
                         </div>
                     </div>
