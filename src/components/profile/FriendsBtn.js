@@ -108,7 +108,7 @@ const FriendsBtn = ({creds, acc, handle, user}) => {
                 <ButtonToggle style={{
                 position: "absolute",
                 right: "200px",
-                bottom: "265px"}}
+                bottom: "245px"}}
                 onClick={sendReq}> Add Friend</ButtonToggle>
             </div>
         )

@@ -75,7 +75,7 @@ function MentorBtn({creds, acc, handle, user}) {
                  style={{
                 position: "absolute",
                 right: "35px",
-                bottom: "265px"
+                bottom: "245px"
                 }}>Remove Mentor</ButtonToggle>
         )
     }
