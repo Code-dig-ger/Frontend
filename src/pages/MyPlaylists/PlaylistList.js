@@ -17,6 +17,46 @@ function PlaylistList(props) {
         window.location.href = `/list/${creds.username}`;
    }
 
+
+   function deleteProblem(ans){
+
+       
+    return fetch (`https://api.codedigger.tech/lists/userlist/edit/${props.slug}`,{
+        method:"PUT",
+        headers:{
+            "Content-type":"application/json",
+            "Authorization":`Bearer ${creds.access}`
+        },
+        body:JSON.stringify({
+            "delete_probs": ans
+        })
+    }).then(data => data.json());
+}
+   const deleteProb = (id, plat) => {
+       let p;
+    if(plat === "Codeforces"){
+        p = "F";
+      }else if(plat === "Codechef"){
+        p = "C";
+      }else if(plat === "Atcoder"){
+        p = "A";
+      }else if(plat === "UVA"){
+        p = "U";
+      }else if(plat === "SPOJ"){
+        p = "S";
+      }
+
+    const ans = [{
+        "prob_id": id,
+        "platform": p
+    }];
+
+    const res = deleteProblem(ans);
+    alert("Problem Deleted");
+    window.location.reload();
+
+   }
+
     useEffect(() => {
         getThisUserlist(creds.access, props.slug)
         .then(res => setPlaylist(res))
@@ -63,7 +103,8 @@ function PlaylistList(props) {
                     margin: '0px',
                     padding: '0px',
                     marginLeft: '100px',
-                    marginRight: '100px'
+                    marginRight: '100px',
+                    marginBottom: '100px'
                 }}>
                     <div className="row">
                         
@@ -93,14 +134,15 @@ function PlaylistList(props) {
                                                     color: 'white',
                                                     backgroundColor: 'green',
                                                     borderRadius: '15px',
-                                                    width: '37%',
-                                                    marginRight: '50px',
+                                                    width: '100px',
+                                                    marginRight: '30px',
                                                     outline: 'none',
                                                     textAlign: 'center',
                                                     paddingTop: '10px',
                                                     textDecoration: 'none',
                                                     fontSize: '15px',
-                                                    opacity: '0.7'
+                                                    opacity: '0.7',
+                                                    
                                                 }}
                                             >Solved</a>
                                     </>
@@ -123,7 +165,7 @@ function PlaylistList(props) {
                                             >Solve</a>
                                             </>
                                         )}
-                                        <a
+                                        <a         onClick={() => deleteProb(playlist.prob_id, playlist.platform)}
                                                 style={{
                                                     color: 'white',
                                                     backgroundColor: 'blue',
@@ -135,7 +177,8 @@ function PlaylistList(props) {
                                                     paddingTop: '10px',
                                                     textDecoration: 'none',
                                                     fontSize: '15px',
-                                                    opacity: '0.9'
+                                                    opacity: '0.9',
+                                                    cursor: 'pointer'
                                                 }}
                                             >Remove</a>
                                             </div>

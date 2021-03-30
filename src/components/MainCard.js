@@ -68,7 +68,7 @@ const MainCard = (props) => {
     }
 
     console.log(slug, prob_id, platform)
-      fetch (`https://api.codedigger.tech/lists/userlist/add`,{
+      const result =  fetch (`https://api.codedigger.tech/lists/userlist/add`,{
           method:"POST",
           headers:{
               "Content-type":"application/json",
@@ -79,13 +79,9 @@ const MainCard = (props) => {
               "slug": slug,
               "platform": p
           })
-      }).then(data => setProblemAdd(data));
+      }).then(data => data.json())
+        .then(data => data.status === "FAILED"? alert("Problem has already been added!"):alert("Problem is successfully Added to problem list."))
       
-      if(problemAdd.status == 200){
-        alert("Problem Added")
-      }else{
-        alert("Problem already added")
-      }
   }
 
   if(props.type === "ladder")
