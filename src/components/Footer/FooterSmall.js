@@ -8,7 +8,7 @@ function FooterSmall() {
    window.addEventListener('scroll',(e)=>{myFunction()})
 function myFunction() {
        console.log(window.pageYOffset);
-    if (window.pageYOffset<20) {
+    if (window.pageYOffset<700) {
           setShowFooter(false);
          
           

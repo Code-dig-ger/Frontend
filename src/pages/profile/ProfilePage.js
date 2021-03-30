@@ -269,35 +269,35 @@ function ProfilePage({handle}) {
                                 <ul className="list-group list-group-flush">
                                 <li className="d-flex justify-content-between align-items-center flex-wrap handlesItem">
                                     <div style={{display:'flex',alignItems:'center'}}>
-                                    <img style={{height:"2.4rem", width:"2.4rem", marginRight:"0.5rem"}} src={CodeforcesImg}></img>
+                                    <img style={{height:"1.5rem", width:"1.5rem", marginRight:"0.5rem"}} src={CodeforcesImg}></img>
                                     <h6 className="mb-0">Codeforces</h6>
                                     </div>
                                     <span className="text-secondary">{user.result.codeforces !=null ? <a className="handleName" href={"https://codeforces.com/profile/" + user.result.codeforces}>{user.result.codeforces}</a> : "NA"}</span>
                                 </li>
                                 <li className="d-flex justify-content-between align-items-center flex-wrap handlesItem">
                                     <div style={{display:'flex',alignItems:'center'}}>
-                                    <img style={{height:"2rem", width:"2rem", marginRight:"0.5rem"}} src={CodechefImg}></img>
+                                    <img style={{height:"1.5rem", width:"1.5rem", marginRight:"0.5rem"}} src={CodechefImg}></img>
                                     <h6 className="mb-0">Codechef</h6>
                                     </div>
                                     <span className="text-secondary">{user.result.codechef !="" ? <a className="handleName" href={"https://codechef.com/users/" + user.result.codechef}>{user.result.codechef}</a> : "NA"}</span>
                                 </li>
                                 <li className="d-flex justify-content-between align-items-center flex-wrap handlesItem">
                                     <div style={{display:'flex',alignItems:'center'}}>
-                                    <img style={{height:"2rem", width:"2rem", marginRight:"0.5rem"}} src={SpojImg}></img>
+                                    <img style={{height:"1.5rem", width:"1.5rem", marginRight:"0.5rem"}} src={SpojImg}></img>
                                     <h6 className="mb-0">SPOJ</h6>
                                     </div>
                                     <span className="text-secondary">{user.result.spoj !=null ? <a className="handleName" href={"https://spoj.com/users/" + user.result.spoj}>{user.result.spoj}</a> : "NA"}</span>
                                 </li>
                                 <li className="d-flex justify-content-between align-items-center flex-wrap handlesItem">
                                     <div style={{display:'flex',alignItems:'center'}}> 
-                                    <img style={{height:"2rem", width:"2rem", marginRight:"0.5rem"}} src={UAVImg}></img>
+                                    <img style={{height:"1.5rem", width:"1.5rem", marginRight:"0.5rem"}} src={UAVImg}></img>
                                     <h6 className="mb-0">UVA</h6>
                                     </div>
                                     <span className="text-secondary">{user.result.uva_handle !=null ? <a className="handleName" href={"https://uva.com/users/" + user.result.uva_handle}>{user.result.uva_handle}</a> : "NA"}</span>
                                 </li>
                                 <li className="d-flex justify-content-between align-items-center flex-wrap handlesItem">
                                     <div style={{display:'flex',alignItems:'center'}}>
-                                    <img style={{height:"2rem", width:"2rem", marginRight:"0.5rem"}} src={AtcoderImg}></img>
+                                    <img style={{height:"1.5rem", width:"1.5rem", marginRight:"0.5rem"}} src={AtcoderImg}></img>
                                     <h6 className="mb-0">Atcoder</h6>
                                     </div>
                                     <span className="text-secondary">{user.result.atcoder ===null ?  "NA" : <a className="handleName" href={"https://atcoder.com/users/" + user.result.atcoder}>{user.result.atcoder}</a>}</span>
@@ -395,7 +395,7 @@ function ProfilePage({handle}) {
                                                 {codeforcesDat.result.contestRank.map((contestDat, index) => {
                                                     return(
                                                         <section style={{width:"100%", height: '160px'}} id={tabSection1[index]} key={index} className={index===0 ? "active1":""}>
-                                                            <h6 style={{color:"black", fontSize: '20px', fontWeight: '700', color: 'black', textDecoration: 'underline'}}>{contestDat.contest.name}</h6>
+                                                            <h6 style={{color:"black", fontSize: '18px', fontWeight: '700', color: 'black', textDecoration: 'underline'}}>{contestDat.contest.name.slice(0,40)}</h6>
                                                             <p style={{ fontSize: '14px', fontWeight: '500'}}>World Rank : {contestDat.worldRank? contestDat.worldRank : "NA"}</p>
                                                             <p style={{ fontSize: '14px', fontWeight: '500'}}>Country Rank : {contestDat.countryRank? contestDat.countryRank : "NA"}</p>
                                                             <p style={{ fontSize: '14px', fontWeight: '500'}}>Org Rank : {contestDat.organizationRank? contestDat.organizationRank : "NA"}</p>
@@ -470,7 +470,7 @@ function ProfilePage({handle}) {
                                                 {codechefDat.result.contestRank.map((contestDat, index) => {
                                                     return(
                                                         <section style={{width:"100%", height: '160px'}} id={tabSection2[index]} key={index} className={index===0 ? "active2":""}>
-                                                            <h6 style={{color:"black", fontSize: '21px', fontWeight: '700', color: 'black', textDecoration: 'underline'}}>{contestDat.name}</h6>
+                                                            <h6 style={{color:"black", fontSize: '18px', fontWeight: '700', color: 'black', textDecoration: 'underline'}}>{contestDat.name.slice(0,40)}</h6>
                                                             <p style={{marginTop: '20px', fontSize: '16px', fontWeight: '500'}}>Rank : {contestDat.rank}</p>
                                                         </section>
                                                     )
@@ -537,7 +537,7 @@ function ProfilePage({handle}) {
                                                 {atcoderDat.result.contestRank.map((contestDat, index) => {
                                                     return(
                                                         <section style={{width:"100%", height: '160px'}} id={tabSection3[index]} key={index} className={index===0 ? "active3":""}>
-                                                            <h6 style={{color:"black", fontSize: '21px', fontWeight: '700', color: 'black', textDecoration: 'underline'}}>{contestDat.name}</h6>
+                                                            <h6 style={{color:"black", fontSize: '18px', fontWeight: '700', color: 'black', textDecoration: 'underline'}}>{contestDat.name.slice(0,40)}</h6>
                                                             <p style={{marginTop: '20px', fontSize: '16px', fontWeight: '500'}}>World Rank : {contestDat.worldRank}</p>
                                                         </section>
                                                     )
