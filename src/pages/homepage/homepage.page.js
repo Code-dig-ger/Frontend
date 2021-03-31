@@ -180,7 +180,7 @@ const Homepage = () => {
               <Col lg={8} sm={8} md={8} id='friendFtRow' style={{background: 'linear-gradient(to bottom, #203025 0%, #151516 100%)'}}>
               
                 <div className='friendContent'>
-                  <h2 style={{color:'#4CD265'}}>Profile and Github connect</h2>
+                  <h2 style={{color:'#4CD265'}}>Profile</h2>
                   <div>
                   The site provides Competitive Programming profiles which help the users to analyze their algorithmic progress. Cards help the users to view their profiles for different Competitive Programming sites.                  </div>
                 </div>
@@ -215,7 +215,7 @@ const Homepage = () => {
               <Col lg={8} sm={8} md={8} id='friendFtRow' style={{background: 'linear-gradient(-135deg, #c6368a 0%, #673dc2 100%)',marginRight:'0'}}>
               
                 <div className='friendContent'>
-                  <h2 style={{color:'rgb(254 132 255)'}}>Your Problem List Of Questions</h2>
+                  <h2 style={{color:'rgb(254 132 255)'}}>Your Personalised List Of Questions</h2>
                   <div>
                   As one keep solving lots of problems but have no way of keep track of all the problem or to store them in categorized way so to solve this issue we provide you with this feature in which you can make you problem list in a manner which will help you later for revision or sharing resources.
                   </div>

@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
-
-
 .course {
 	background-color: #fff;
 	border-radius: 10px;
@@ -81,15 +79,13 @@
 	width: 100%;
 }
 
-.progress::after {
+.progressPercent{
 	border-radius: 3px;
-	/* background-color: #2A265F; */
-	content: '';
+	background-color: #2A265F;
 	position: absolute;
 	top: 0;
 	left: 0;
 	height: 5px;
-	width: 66%;
 }
 
 

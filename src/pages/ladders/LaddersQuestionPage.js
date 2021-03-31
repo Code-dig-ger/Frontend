@@ -107,7 +107,7 @@ function LaddersQuestionPage(props) {
         show==true ? <Loading/>:<div>
         <Navbar />
         <h2 style={{textAlign:"center", marginTop: '120px', fontSize: '45px'}}>{problems.meta.name}</h2>
-        <p style={{textAlign:"center", marginTop: '10px', fontSize: '17px'}}>{problems.meta.description}</p>
+        {/* <p style={{textAlign:"center", marginTop: '10px', fontSize: '17px'}}>{problems.meta.description}</p> */}
         {console.log(problems.meta)}
         <Button variant="success" className="updateBtn" onClick={updateReload}>Update</Button>
         <div className="container-fluid" style={{display:"flex",flexDirection:"row",alignItems:"center",padding:"0rem 0rem"}}>

@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import './LaddersContent.css';
+import $ from 'jquery';
 
 
 const LaddersContent = (props) => {
@@ -8,9 +9,12 @@ const LaddersContent = (props) => {
   const [str,setStr1]=useState("/" + props.wise + "/" + str2 + "/" + props.slug);
 
   const [bgIndex,setBgIndex]=useState((props.index % 4)+1);
-  console.log(bgIndex);
+  const [progWidth, setProgWidth] = useState('66%');
 
-  console.log(str);
+  useEffect(() => {
+    setProgWidth(`${props.user_colved/props.total * 100}%`);
+    console.log(`${(props.user_colved/props.total) * 100}%`);
+  }, [])
 
   if(props.wise == "levelwise")
   {
@@ -25,7 +29,7 @@ const LaddersContent = (props) => {
                 <div className="course-info">
                   <div className="progress-container">
                     <div className={"progress " + (bgIndex == 1 ? 'progbgIndex1':(bgIndex == 2 ? 'progbgIndex2':(bgIndex == 3 ? 'progbgIndex3':(bgIndex == 4 ? 'progbgIndex4':''))))}></div>
-                    
+                    <div className="progressPercent" style={{width:`${progWidth}`}}></div>
                   </div>
                   <h6>{props.des}</h6>
                   

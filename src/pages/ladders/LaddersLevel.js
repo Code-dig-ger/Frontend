@@ -77,6 +77,7 @@ function LaddersLevel(props) {
                         {console.log(dat[0])}
             
                         {dat.map((level,index)=> {
+                            console.log(dat);
                             return(
                                 <>
                                 <LaddersContent 
@@ -87,6 +88,8 @@ function LaddersLevel(props) {
                                     wise={props.wise}
                                     type={props.type}
                                     index={index}
+                                    user_solved={level.user_solved}
+                                    total={level.total}
                                 />
             
                                 <br/>
