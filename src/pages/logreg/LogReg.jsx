@@ -65,7 +65,7 @@ const LogReg =()=>{
   async function handleGoogleSuccess(response){
     console.log("onSuccess");
     const c=await response.tokenId;
-   console.log(c);
+  // console.log(c);
     const resp=await fetch('https://api.codedigger.tech/social_auth/google/',{
       method:"POST",
       headers:{
@@ -77,7 +77,7 @@ const LogReg =()=>{
       })
       })
       const data=await resp.json();
-     console.log(data);
+     //console.log(data);
       if(resp.status!==200){
         alert(data.detail);
       }
