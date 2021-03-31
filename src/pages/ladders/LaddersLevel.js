@@ -18,7 +18,7 @@ function LaddersLevel(props) {
 
     console.log(props);
     useEffect(() => {
-        if(creds){
+        
             async function setData()
         {
             if(props.wise=="topicwise")
@@ -37,7 +37,7 @@ function LaddersLevel(props) {
                 method:"GET",
                 headers:{
                     "Content-Type":"application/json",
-                    "Authorization":`Bearer ${creds.access}`
+                    // "Authorization":`Bearer ${creds.access}`
                   }
             });
             res
@@ -47,15 +47,16 @@ function LaddersLevel(props) {
         }
         setData();
         fetchData();
-        }else if (props.type=="ladder"){
+        
+        
+        if (props.type=="ladder" && !creds){
             alert("Please Login to Proceed");
             window.location='/login' 
         }
         
     },[])
 
-    if(creds)
-    {
+    
         if(show)
         {
             return(
@@ -107,19 +108,6 @@ function LaddersLevel(props) {
             }
         }
     }
-    else
-    {
-        return(
-            <>
-                <div>
-                    {console.log("please please")}
-                    <a href="/home">Please Login to Proceed</a>
-                </div>
-            </>
-        )
-    }
-
     
-}
 
 export default LaddersLevel

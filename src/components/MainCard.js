@@ -26,6 +26,10 @@ const MainCard = (props) => {
 
   async function getPlaylists()
   {
+    if(!creds){
+      alert("Please Login to Add Problems to Playlist")
+      return;
+    }
     const res = await fetch(`https://api.codedigger.tech/lists/userlist/`, {
             method:"GET",
             headers:{
@@ -54,6 +58,10 @@ const MainCard = (props) => {
   };
 
   function addProblem(slug, prob_id, platform){
+    if(!creds){
+      
+      return;
+    }
     let p;
     if(platform === "Codeforces"){
       p = "F";
@@ -155,7 +163,8 @@ const MainCard = (props) => {
           >
             <span onClick={toggle} ><FontAwesomeIcon style={{cursor:"pointer"}} icon={faFolderPlus} /></span>
           </OverlayTrigger></span>}
-          <Modal isOpen={modal} toggle={toggle}>
+          {console.log(creds.access)}
+          <Modal isOpen={modal} toggle={creds.access? toggle:null}>
         <ModalHeader toggle={toggle}>Add to Problem List</ModalHeader>
         <ModalBody>
         </ModalBody>
