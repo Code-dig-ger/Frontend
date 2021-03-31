@@ -234,7 +234,7 @@ switchers.forEach((item) => {
         <div className="loginops">
     <img style={{width:'35px',height:'35px','margin-top':'4px'}} src={GoogleIcon}></img>
       <GoogleLogin 
-        clientId="30306268983-0sm4spgj3nt45s8em9vth5s12is3m2sq.apps.googleusercontent.com"
+        clientId={process.env.REACT_APP_CLIENTID}
         buttonText="Login with Google"
         onSuccess={handleGoogleSuccess}
        //onFailure={handleGoogleFail}
