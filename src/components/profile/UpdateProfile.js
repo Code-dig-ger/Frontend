@@ -161,7 +161,7 @@ const UpdateInfo=()=>{
         </h3>
         <h6 style={{color:'white'}}>Fields marked with asteric are required.</h6>
         <h6 style={{color:'white'}}>Fill only those fields you want to update.</h6>
-
+       <br></br>
        
         
         <input placeholder={`Name : ${name}`} onChange={(e)=>setnewName(e.target.value)} className="inputi" type="text" required/>
