@@ -32,6 +32,7 @@ function Footer() {
 		                <FontAwesomeIcon icon={faEnvelope} size="md"/> : <a href="mailto:contact.codedigger@gmail.com">
                         contact.codedigger@gmail.com</a>
                     </div>
+                    <a href="https://forms.gle/cL9ECdGDf6njYhV66" target="_blank">Feedback</a>
                     
                     
                 </div>
@@ -43,10 +44,10 @@ function Footer() {
                         
                     <h5>Follow Us</h5>
                     <br/>
-                        <a className="social_media" href="https://www.facebook.com/practicewithcodedigger"><FontAwesomeIcon icon={faFacebook} size="2x"/></a>
-                        <a className="social_media" href="http://codedigger.tech"><FontAwesomeIcon icon={faLinkedin} size="2x"/></a>
-                        <a className="social_media" href="https://github.com/Code-dig-ger"><FontAwesomeIcon icon={faGithub} size="2x"/></a>
-                        <a className="social_media" href="https://www.youtube.com/channel/UCY5XRYpEGKT9cpzZmfWvh6A"><FontAwesomeIcon icon={faYoutube} size="2x"/></a>
+                        <a target="_blank" className="social_media" href="https://www.facebook.com/practicewithcodedigger"><FontAwesomeIcon icon={faFacebook} size="2x"/></a>
+                        <a target="_blank" className="social_media" href="https://www.linkedin.com/company/codedigger"><FontAwesomeIcon icon={faLinkedin} size="2x"/></a>
+                        <a target="_blank" className="social_media" href="https://github.com/Code-dig-ger"><FontAwesomeIcon icon={faGithub} size="2x"/></a>
+                        <a target="_blank" className="social_media" href="https://www.youtube.com/channel/UCY5XRYpEGKT9cpzZmfWvh6A"><FontAwesomeIcon icon={faYoutube} size="2x"/></a>
                         
                     </div>
                 </div>

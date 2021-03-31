@@ -117,21 +117,18 @@ const Info=()=>{
     }
     return(
         <>
-      <Navbar/><br></br><br></br><br></br>
+      <Navbar/><br></br><br></br><br></br><br></br>
       <div className="outeri">
        <div className="flex-containeri">
   <div className="content-containeri">
     <div className="form-containeri">
       <form className="thisformi" >
-        <br></br>
+       
         <h3 className="headingi">
           {msg}
         </h3>
-        <h6 style={{color:'white'}}>Fields marked with asteric are reqired.</h6>
-        <br></br>
-
-        
-        <input placeholder="Name" onChange={(e)=>setName(e.target.value)} className="inputi" type="text" required/>
+        <h6 style={{color:'white'}}>Fields marked with asteric are reqired.</h6><br></br>
+       <input placeholder="Name" onChange={(e)=>setName(e.target.value)} className="inputi" type="text" required/>
         <br></br>
         <input placeholder="Codeforces handle" onChange={(e)=>setCodeforces(e.target.value)} className="inputi" type="text" required/>
         <br></br>

@@ -80,6 +80,7 @@ function LaddersQuestionPage(props) {
     })
 
     useEffect(() => {
+      if(type1 == "ladder"){
         async function fetchData()
         {
           const res=await fetch (`https://api.codedigger.tech/lists/${props.wise}/${props.type}/${props.slug}${props.pageNo}`,{
@@ -95,14 +96,31 @@ function LaddersQuestionPage(props) {
             .then(show => setShow(false));
         }
         fetchData();
+      }else{
+        async function fetchData()
+        {
+          const res=await fetch (`https://api.codedigger.tech/lists/${props.wise}/${props.type}/${props.slug}${props.pageNo}`,{
+            method:"GET",
+            headers:{
+              "Content-Type":"application/json",
+              // "Authorization":`Bearer ${creds.access}`
+            }
+          });
+          res
+            .json()
+            .then(res => setProblems(res))
+            .then(show => setShow(false));
+        }
+        fetchData();
+      }
+        
         
       },[])
 
     var count=0;
     var solvedBtn=-1;
     var button = false;
-    if(creds)
-    {
+    
       return (
         show==true ? <Loading/>:<div>
         <Navbar />
@@ -203,12 +221,6 @@ function LaddersQuestionPage(props) {
     </div>
     )
     }
-    else
-    {
-      return(
-        <>Please Login to Proceed</>
-      )
-    }
-}
+    
 
 export default LaddersQuestionPage

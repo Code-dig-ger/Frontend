@@ -26,6 +26,10 @@ const MainCard = (props) => {
 
   async function getPlaylists()
   {
+    if(!creds){
+      alert("Please Login to Add Problems to Playlist")
+      return;
+    }
     const res = await fetch(`https://api.codedigger.tech/lists/userlist/`, {
             method:"GET",
             headers:{
@@ -54,6 +58,10 @@ const MainCard = (props) => {
   };
 
   function addProblem(slug, prob_id, platform){
+    if(!creds){
+      
+      return;
+    }
     let p;
     if(platform === "Codeforces"){
       p = "F";
@@ -68,7 +76,7 @@ const MainCard = (props) => {
     }
 
     console.log(slug, prob_id, platform)
-      fetch (`https://api.codedigger.tech/lists/userlist/add`,{
+      const result =  fetch (`https://api.codedigger.tech/lists/userlist/add`,{
           method:"POST",
           headers:{
               "Content-type":"application/json",
@@ -79,13 +87,9 @@ const MainCard = (props) => {
               "slug": slug,
               "platform": p
           })
-      }).then(data => setProblemAdd(data));
+      }).then(data => data.json())
+        .then(data => data.status === "FAILED"? alert("Problem has already been added!"):alert("Problem is successfully Added to problem list."))
       
-      if(problemAdd.status == 200){
-        alert("Problem Added")
-      }else{
-        alert("Problem already added")
-      }
   }
 
   if(props.type === "ladder")
@@ -159,7 +163,8 @@ const MainCard = (props) => {
           >
             <span onClick={toggle} ><FontAwesomeIcon style={{cursor:"pointer"}} icon={faFolderPlus} /></span>
           </OverlayTrigger></span>}
-          <Modal isOpen={modal} toggle={toggle}>
+          {console.log(creds.access)}
+          <Modal isOpen={modal} toggle={creds.access? toggle:null}>
         <ModalHeader toggle={toggle}>Add to Problem List</ModalHeader>
         <ModalBody>
         </ModalBody>
