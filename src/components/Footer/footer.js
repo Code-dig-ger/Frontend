@@ -32,6 +32,7 @@ function Footer() {
 		                <FontAwesomeIcon icon={faEnvelope} size="md"/> : <a href="mailto:contact.codedigger@gmail.com">
                         contact.codedigger@gmail.com</a>
                     </div>
+                    <a href="https://forms.gle/cL9ECdGDf6njYhV66" target="_blank">Feedback</a>
                     
                     
                 </div>
