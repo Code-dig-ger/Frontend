@@ -7,7 +7,7 @@ function FooterSmall() {
     const [showFooter, setShowFooter] = useState(false);
     window.addEventListener('scroll', (e) => { myFunction() })
     function myFunction() {
-        console.log(window.pageYOffset);
+       // console.log(window.pageYOffset);
         if (window.pageYOffset < 300) {
             setShowFooter(false);
 
