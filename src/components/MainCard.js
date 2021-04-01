@@ -181,7 +181,9 @@ const MainCard = (props) => {
                             position:"relative", 
                             left:"20px", 
                             bottom:"0",
-                            borderRadius:"10%"}}>
+                            borderRadius:"10%",
+                            marginBottom: '3px'
+                            }}>
                               Add
                             </Button>
                             
