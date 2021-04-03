@@ -97,13 +97,29 @@ function LaddersQuestionPage(props) {
         }
         fetchData();
       }else{
+        if(creds){
+          async function fetchData()
+        {
+          const res=await fetch (`https://api.codedigger.tech/lists/${props.wise}/${props.type}/${props.slug}${props.pageNo}`,{
+            method:"GET",
+            headers:{
+              "Content-Type":"application/json",
+              "Authorization":`Bearer ${creds.access}`
+            }
+          });
+          res
+            .json()
+            .then(res => setProblems(res))
+            .then(show => setShow(false));
+        }
+        fetchData();
+      }else{
         async function fetchData()
         {
           const res=await fetch (`https://api.codedigger.tech/lists/${props.wise}/${props.type}/${props.slug}${props.pageNo}`,{
             method:"GET",
             headers:{
               "Content-Type":"application/json",
-              // "Authorization":`Bearer ${creds.access}`
             }
           });
           res
@@ -113,6 +129,8 @@ function LaddersQuestionPage(props) {
         }
         fetchData();
       }
+        }
+        
         
         
       },[])
