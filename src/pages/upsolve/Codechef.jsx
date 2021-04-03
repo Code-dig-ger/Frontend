@@ -28,6 +28,7 @@ const Codechef=()=>{
     const [last,setLast]=useState(null);
     const [conData,setData]=useState([]);
     const [curPage,setCurPage]=useState(1);
+    let [update,setUpdate]=useState(0);
     const [wn,setWN]=useState(false);
     useEffect(()=>{
 
@@ -100,7 +101,7 @@ const Codechef=()=>{
 
  
   
-},[page]);
+},[page,update]);
 if(last!=null){
     for(let i=1;i<=last;i++){
       pageNumbers.push(i);
@@ -143,7 +144,7 @@ if(last!=null){
 <img style={{width:'220px',height:'55px'}}src={logo}/>
 <div  style={{display:"flex",float:"right"}}>
  
- <div style={{float:"right",borderRadius:'5px',border:"2px solid black"}}> 
+ <div style={{float:"right",borderRadius:'5px'}}> 
                <h6 style={{padding:"3px",color:"white",marginTop:"2px"}}>Only Wrong/Not Attempted</h6>
                <div style={{display:"block",marginLeft:"45px"}}>
        <ToggleButton
@@ -157,7 +158,7 @@ if(last!=null){
   }} /></div>
               </div>
               
- <div><button title="solved? update" style={{float:'right',borderRadius:'35px'}} onClick={e=>{window.location.reload(false)}}><img style={{width:'40px',height:'40px'}}src={refresh}></img></button></div>
+ <div><button title="solved? update" style={{float:'right',borderRadius:'35px'}} onClick={e=>{setUpdate(update+1)}}><img style={{width:'40px',height:'40px'}}src={refresh}></img></button></div>
  </div></div>
 
                 <br></br>

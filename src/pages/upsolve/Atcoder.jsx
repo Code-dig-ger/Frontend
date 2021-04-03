@@ -27,7 +27,7 @@ const Atcoder=()=>{
     const [conData,setData]=useState([]);
     const [Prac,setPrac]=useState(false);
     const [wn,setWN]=useState(false);
-   
+   let[update,setUpdate]=useState(0);
     const [curPage,setCurPage]=useState(1);
     useEffect(()=>{
       Validate();
@@ -43,10 +43,10 @@ const Atcoder=()=>{
         const response=await atcoder(acc,page,Prac)
         if(response.status===200){
          const data=await response.json();
-         console.log(data);
+       //  console.log(data);
                if(data.status==="OK"&&data.result.length>0){
                    
-                   console.log("yipee");
+                   //console.log("yipee");
                    const newLinks=data.links;
                    setFirst(newLinks.first.split("=")[1]);
                    setLast(newLinks.last.split("=")[1]);
@@ -91,7 +91,7 @@ const Atcoder=()=>{
    
  } 
  fetchData();
-},[page,Prac])
+},[page,Prac,update])
 if(last!=null){
     for(let i=1;i<=last;i++){
       pageNumbers.push(i);
@@ -132,7 +132,7 @@ if(last!=null){
  <h3 textAlign="center">ATCODER</h3><img style={{width:'60px',height:'50px'}}src={logo}/></div>
  
  <div style={{display:"flex",float:"right"}}>
- <div style={{float:"right",borderRadius:'5px',border:"2px solid black"}}> 
+ <div style={{float:"right",borderRadius:'5px'}}> 
                <h6 style={{padding:"3px",color:"white",marginTop:"2px"}}>Include Practice</h6>
                <div style={{display:"block",marginLeft:"25px"}}>
        <ToggleButton
@@ -146,7 +146,7 @@ if(last!=null){
    setPage(1);
   }} /></div>
               </div>
-              <div style={{float:"right",borderRadius:'5px',border:"2px solid black"}}> 
+              <div style={{float:"right",borderRadius:'5px'}}> 
                <h6 style={{padding:"3px",color:"white",marginTop:"2px"}}>Only Wrong/Not Attempted</h6>
                <div style={{display:"block",marginLeft:"45px"}}>
        <ToggleButton
@@ -159,7 +159,7 @@ if(last!=null){
    
   }} /></div>
               </div>
-              <div><button title="solved? update" style={{float:'right',borderRadius:'35px'}} onClick={e=>{window.location.reload(false)}}><img style={{width:'50px',height:'52px'}}src={refresh}></img></button></div>
+              <div><button title="solved? update" style={{float:'right',borderRadius:'35px'}} onClick={e=>{setUpdate(update+1)}}><img style={{width:'50px',height:'52px'}}src={refresh}></img></button></div>
               </div>
               </div>
              

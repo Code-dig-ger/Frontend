@@ -34,7 +34,7 @@ function Codeforces(){
     const [last,setLast]=useState();
     const [conData,setData]=useState([]);
     const [vir,setVir]=useState(false);
-   
+   let [update,setUpdate]=useState(0);
    
     const [wn,setWN]=useState(false);
   
@@ -113,7 +113,7 @@ function Codeforces(){
     fetchData();
    
     
-},[page,vir,wn])
+},[page,vir,wn,update])
 if(last!=null){
 for(let i=1;i<=last;i++){
   pageNumbers.push(i);
@@ -151,7 +151,7 @@ mobile: {
       <img style={{width:'220px',height:'30px'}}src={logo}/>
  
  <div style={{display:"flex",float:"right"}}>
- <div style={{float:"right",borderRadius:'5px',border:"2px solid black"}}> 
+ <div style={{float:"right",borderRadius:'5px'}}> 
                <h6 style={{padding:"3px",color:"white",marginTop:"2px"}}>Include Virtual </h6>
                <div style={{display:"block",marginLeft:"25px"}}>
        <ToggleButton
@@ -165,7 +165,7 @@ mobile: {
    setPage(1);
   }} /></div>
               </div>
-              <div style={{float:"right",borderRadius:'5px',border:"2px solid black"}}> 
+              <div style={{float:"right",borderRadius:'5px'}}> 
                <h6 style={{padding:'2px',color:"white",marginTop:"2px"}}>Only Wrong/Not Attempted</h6>
                <div style={{display:"block",marginLeft:"45px"}}>
        <ToggleButton
@@ -179,7 +179,7 @@ mobile: {
   }} /></div>
               </div>
               
-  <div><button title="solved? update" style={{float:'right',borderRadius:'35px',marginTop:'2px'}} onClick={e=>{window.location.reload(false)}}><img style={{width:'40px',height:'40px'}}src={refresh}></img></button></div>
+  <div><button title="solved? update" style={{float:'right',borderRadius:'35px',marginTop:'2px'}} onClick={e=>{setUpdate(update+1)}}><img style={{width:'40px',height:'40px'}}src={refresh}></img></button></div>
               </div>
              
               <br></br><br></br>
