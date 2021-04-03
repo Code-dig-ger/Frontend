@@ -150,13 +150,13 @@ function ProfilePage({handle}) {
             });
         });
 
-          $(window).scroll(function(){
-            if($(window).scrollTop() <=800) 
-            { 
-                $("#profileCard").css({"margin-top": ($(window).scrollTop()) + "px", "margin-left":($(window).scrollLeft()) + "px"});
-            }
+        //   $(window).scroll(function(){
+        //     if($(window).scrollTop() <=800) 
+        //     { 
+        //         $("#profileCard").css({"margin-top": ($(window).scrollTop()) + "px", "margin-left":($(window).scrollLeft()) + "px"});
+        //     }
             
-          });
+        //   });
     })
 
     useEffect(() => {
@@ -239,7 +239,7 @@ function ProfilePage({handle}) {
                 <div className="container" style={{marginTop: '100px'}}>
                     <div className="main-body">
                         <div className="row gutters-sm">
-                        <div className="col-md-4 mb-3" id="profileCard">
+                        <div className="col-md-4 mb-3">
                             <div className="card1">
                                 <div className="card-body">
                                     {user.result.about_user === "Logged In User Itself" ? 
