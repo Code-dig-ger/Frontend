@@ -291,13 +291,13 @@ Cards{
   margin-top: 2rem;
 }
 
-#thirdRowIcon>svg{
+#thirdRowIconPNG{
   position: absolute;
   width: 35rem;
-  height: 53rem;
+  height: 50rem;
   z-index: 2;
   left: 28%;
-  padding-top: 16rem;
+  padding-top: 24rem;
 }
 
 .fourthRoww>svg{
