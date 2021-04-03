@@ -11,7 +11,6 @@ import Typewriter from 'typewriter-effect';
 import '../../../node_modules/reactjs-popup/dist/index.css';
 import Popup from 'reactjs-popup';
 import {Bee} from '@carbon/icons-react';
-import whiteHand from '../../assets/homepage/images/whiteHand.png';
 import FriendSVG from '../../assets/homepage/images/FriendSVG.js';
 import ProfileFeature from '../../assets/homepage/images/ProfileFeature';
 import ThirdIcon from '../../assets/homepage/images/ThirdIcon';
