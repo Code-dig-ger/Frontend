@@ -192,14 +192,14 @@ function LaddersQuestionPage(props) {
                   placement="top"
                   overlay={renderTooltip3}
                 >
-                  <a href={nextPage}><FontAwesomeIcon className="pageNavIcons" icon={faAngleRight} style={{marginLeft:"82px",marginRight:"12px"}}/></a>
+                  <a href={nextPage}><FontAwesomeIcon className="pageNavIcons" icon={faAngleRight} style={{position: 'absolute', right: '10%'}}/></a>
                 </OverlayTrigger>
 
                 <OverlayTrigger
                   placement="top"
                   overlay={renderTooltip4}
                 >
-                  <a href={lastPage}><FontAwesomeIcon className="pageNavIcons" icon={faAngleDoubleRight} /></a>
+                  <a href={lastPage}><FontAwesomeIcon className="pageNavIcons" icon={faAngleDoubleRight} style={{position: 'absolute', right: '5%'}}/></a>
                 </OverlayTrigger></>:<></>}
           
                 {/* <Col>
