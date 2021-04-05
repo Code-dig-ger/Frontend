@@ -33,10 +33,15 @@ const LogReg =()=>{
   localStorage.removeItem("err");
   async function Register(e){
     e.preventDefault();
+    if(passwordR.length<1||usernameR.length<1||emailR.length<1)
+    {
+      alert("Fields should not remain blank");
+      return;
+    }
     setLoaderR(true);
      
         const data=await register(emailR,usernameR,passwordR);
-        console.log(data)
+        //console.log(data)
         if(data.status==="OK"){
           setmsgR("Successful, verify your email");
         }
@@ -47,15 +52,15 @@ const LogReg =()=>{
              
             let msg="";
             if(data.email){
-            msg=msg+data.email[0]+'\n';
+            msg=msg+" email:"+data.email[0]+'\n';
             
             }
             if(data.username){
-              msg=msg+data.username[0]+'\n';
+              msg=msg+" username :"+data.username[0]+'\n';
              
             }
             if(data.password){
-              msg=msg+data.password[0];
+              msg=msg+" password :"+data.password[0];
             }
             setmsgR(msg);
           }
@@ -129,12 +134,24 @@ setmsgR(data.result);
      const [loaderL,setLoaderL]=useState(false);
  
    async  function Login(e){
+
       e.preventDefault();
+      if(usernameL.length<1||passwordL.length<1){
+        alert("Fields should not remain blank")
+        return;
+      }
       setLoaderL(true);
       const data=await login(usernameL,passwordL);
-     //console.log(data);
-      if(data.status==="FAILED"){
+      //console.log(data);
+      if(data.status=="FAILED"){
         setmsgL(data.error);
+      } 
+      else if(data.password) 
+      {
+        setmsgL("Password :"+data.password[0]);
+      }
+      else if(data.username){
+        setmsgL("Username :"+data.username[0]);
       }
       else{
         setmsgL(`Hello, ${usernameL}`)
