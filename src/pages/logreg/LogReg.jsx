@@ -142,10 +142,31 @@ setmsgR(data.result);
       }
       setLoaderL(true);
       const data=await login(usernameL,passwordL);
-      //console.log(data);
+      console.log(data);
       if(data.status=="FAILED"){
         setmsgL(data.error);
       } 
+      else if(data.tokens){
+       
+          setmsgL(`Hello, ${usernameL}`)
+          localStorage.setItem("creds",JSON.stringify({
+       
+            access:data.tokens.access,
+            refresh:data.tokens.refresh,
+            first:data.first_time_login,
+            username:usernameL
+            
+          }))
+        
+          if(data.first_time_login===true){
+      
+          window.location='/profile/:id'
+           }
+           else{
+          window.location='/home'
+           } 
+        
+      }
       else if(data.password) 
       {
         setmsgL("Password :"+data.password[0]);
@@ -153,25 +174,7 @@ setmsgR(data.result);
       else if(data.username){
         setmsgL("Username :"+data.username[0]);
       }
-      else{
-        setmsgL(`Hello, ${usernameL}`)
-        localStorage.setItem("creds",JSON.stringify({
-     
-          access:data.tokens.access,
-          refresh:data.tokens.refresh,
-          first:data.first_time_login,
-          username:usernameL
-          
-        }))
       
-        if(data.first_time_login===true){
-    
-        window.location='/profile/:id'
-         }
-         else{
-        window.location='/home'
-         } 
-      }
       setLoaderL(false);
     }
    
