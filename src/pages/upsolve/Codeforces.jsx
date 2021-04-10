@@ -55,6 +55,7 @@ function Codeforces(){
       setPage(page);
       setPrev(null);
       setNext(null);
+   //   setVir(vir);
        Validate();
       async function fetchData(){
        
@@ -159,9 +160,10 @@ mobile: {
        activeLabel={''}
       
   value={ vir|| false }
-  onToggle={(val) => {
-    setVir(!vir)
+  onToggle={async (val) => {
+    await setVir(!vir)
    setTimeout(()=>{setLoader(true)},1000)
+   //window.locatio
    setPage(1);
   }} /></div>
               </div>
