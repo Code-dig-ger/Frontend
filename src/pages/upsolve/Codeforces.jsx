@@ -163,7 +163,7 @@ mobile: {
   onToggle={async (val) => {
     await setVir(!vir)
    setTimeout(()=>{setLoader(true)},1000)
-   //window.locatio
+   
    setPage(1);
   }} /></div>
               </div>
