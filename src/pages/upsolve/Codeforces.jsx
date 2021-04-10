@@ -63,9 +63,10 @@ function Codeforces(){
            const acc=creds.access; 
           
            const response=await codeforces(acc,vir,page);
-           if(response.status===200){
+           if(response.status==200){
             const data=await response.json();
-           // console.log(data)
+           //console.log(data)
+           
                   if(data.status==="OK"){
                       if(data.result.length>0){
                       const newLinks=data.links;
@@ -98,13 +99,12 @@ function Codeforces(){
                 
            }
            else{
-        
+            setLoader(false); 
             localStorage.setItem("err",data.error);
             window.location='/home'  
 
            }
-
-          // console.log(page)
+           //setLoader(false);
            
       
     
@@ -160,8 +160,8 @@ mobile: {
       
   value={ vir|| false }
   onToggle={(val) => {
-   setVir(!vir)
-   setTimeout(()=>{setLoader(true)},2000)
+    setVir(!vir)
+   setTimeout(()=>{setLoader(true)},1000)
    setPage(1);
   }} /></div>
               </div>

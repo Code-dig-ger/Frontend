@@ -142,7 +142,7 @@ setmsgR(data.result);
       }
       setLoaderL(true);
       const data=await login(usernameL,passwordL);
-      console.log(data);
+     // console.log(data);
       if(data.status=="FAILED"){
         setmsgL(data.error);
       } 
