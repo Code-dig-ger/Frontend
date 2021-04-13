@@ -39,7 +39,11 @@ const LaddersContent = (props) => {
                   <h6>{props.user_solved == null ? <>Please Login to View Your progress</>:<>Solved : {props.user_solved}</>}</h6>
                   <h6>Total : {props.total}</h6>
                   
-                  <a href={str} className={"btn " + (bgIndex == 1 ? 'bgIndex1':(bgIndex == 2 ? 'bgIndex2':(bgIndex == 3 ? 'bgIndex3':(bgIndex == 4 ? 'bgIndex4':''))))}>Solve</a>
+                  <a href={str} className={"btn " + (bgIndex == 1 ? 'bgIndex1':(bgIndex == 2 ? 'bgIndex2':(bgIndex == 3 ? 'bgIndex3':(bgIndex == 4 ? 'bgIndex4':''))))}>
+                    {props.type == "ladder" ? <>
+                    {props.user_solved == 0 ? <>Start</>:<>Solve</>}
+                    </>:<>Solve</>}
+                  </a>
                 </div>
               </div>
             </div>
@@ -67,8 +71,12 @@ const LaddersContent = (props) => {
                   <br/>
                   <h6>{props.user_solved == null ? <>Please Login to View Your progress</>:<>Solved : {props.user_solved}</>}</h6>
                   <h6>Total : {props.total}</h6>
-                  
-                  <a href={str} className={"btn " + (bgIndex == 1 ? 'TopicbgIndex1':(bgIndex == 2 ? 'TopicbgIndex2':(bgIndex == 3 ? 'TopicbgIndex3':(bgIndex == 4 ? 'TopicbgIndex4':''))))}>Solve</a>
+                  {console.log(str)}
+                  <a href={str} className={"btn " + (bgIndex == 1 ? 'bgIndex1':(bgIndex == 2 ? 'bgIndex2':(bgIndex == 3 ? 'bgIndex3':(bgIndex == 4 ? 'bgIndex4':''))))}>
+                    {props.type == "ladder" ? <>
+                    {props.user_solved==0 ? <>Start</>:<>Solve</>}
+                    </>:<>Solve</>}
+                  </a>
                 </div>
               </div>
             </div>
