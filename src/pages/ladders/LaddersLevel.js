@@ -32,18 +32,35 @@ function LaddersLevel(props) {
         }
         async function fetchData()
         {
-            console.log("reached");
-            const res=await fetch (`https://api.codedigger.tech/lists/${props.wise}/${props.type}/`,{
+            // console.log("reached");
+            if(creds)
+            {
+                const res=await fetch (`https://api.codedigger.tech/lists/${props.wise}/${props.type}/`,{
+                method:"GET",
+                headers:{
+                    "Content-Type":"application/json",
+                    "Authorization":`Bearer ${creds.access}`
+                  }
+                });
+                res
+                    .json()
+                    .then(res => setDat(res))
+                    .then(show => setShow(false));
+            }
+            else
+            {
+                const res=await fetch (`https://api.codedigger.tech/lists/${props.wise}/${props.type}/`,{
                 method:"GET",
                 headers:{
                     "Content-Type":"application/json",
                     // "Authorization":`Bearer ${creds.access}`
                   }
-            });
-            res
-                .json()
-                .then(res => setDat(res))
-                .then(show => setShow(false));
+                });
+                res
+                    .json()
+                    .then(res => setDat(res))
+                    .then(show => setShow(false));
+            }
         }
         setData();
         fetchData();
@@ -78,7 +95,7 @@ function LaddersLevel(props) {
                         {console.log(dat[0])}
             
                         {dat.map((level,index)=> {
-                            console.log(dat);
+                            // console.log(dat);
                             return(
                                 <>
                                 <LaddersContent 
