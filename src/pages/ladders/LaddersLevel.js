@@ -94,6 +94,29 @@ function LaddersLevel(props) {
             
                         {console.log(dat[0])}
             
+                        {props.type == "ladder" ? <>
+                        {dat.map((level,index)=> {
+                            // console.log(dat);
+                            return(
+                                <>
+                                <LaddersContent 
+                                    title={level.name}
+                                    des={level.description}
+                                    slug={level.slug}
+                                    wise1={wise1}
+                                    wise={props.wise}
+                                    type={props.type}
+                                    index={index}
+                                    user_solved={level.user_solved}
+                                    total={level.total}
+                                    first_time={level.first_time}
+                                />
+            
+                                <br/>
+                                </>
+                            )
+                        })}
+                        </>:<>
                         {dat.map((level,index)=> {
                             // console.log(dat);
                             return(
@@ -114,6 +137,7 @@ function LaddersLevel(props) {
                                 </>
                             )
                         })}
+                        </>}
                             
                         </div>
                         <FooterSmall />

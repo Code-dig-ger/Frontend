@@ -5,7 +5,7 @@ import $ from 'jquery';
 
 const LaddersContent = (props) => {
   const creds= JSON.parse(localStorage.getItem("creds"));
-  console.log(props.wise);
+  // console.log(props.wise);
   const [str2,setStr2]=useState(props.type === "list" ? "practice":"ladder")
   const [str,setStr1]=useState("/" + props.wise + "/" + str2 + "/" + props.slug);
 
@@ -14,7 +14,7 @@ const LaddersContent = (props) => {
 
   useEffect(() => {
     setProgWidth(`${props.user_solved/props.total * 100}%`);
-    console.log(`${(props.user_solved/props.total) * 100}%`);
+    // console.log(`${(props.user_solved/props.total) * 100}%`);
     // console.log(props)
   }, [])
 
@@ -41,7 +41,7 @@ const LaddersContent = (props) => {
                   
                   <a href={str} className={"btn " + (bgIndex == 1 ? 'bgIndex1':(bgIndex == 2 ? 'bgIndex2':(bgIndex == 3 ? 'bgIndex3':(bgIndex == 4 ? 'bgIndex4':''))))}>
                     {props.type == "ladder" ? <>
-                    {props.user_solved == 0 ? <>Start</>:<>Solve</>}
+                    {props.first_time == true ? <>Start</>:<>Continue</>}
                     </>:<>Solve</>}
                   </a>
                 </div>
@@ -71,10 +71,10 @@ const LaddersContent = (props) => {
                   <br/>
                   <h6>{props.user_solved == null ? <>Please Login to View Your progress</>:<>Solved : {props.user_solved}</>}</h6>
                   <h6>Total : {props.total}</h6>
-                  {console.log(str)}
+                  {/* {console.log(str)} */}
                   <a href={str} className={"btn " + (bgIndex == 1 ? 'bgIndex1':(bgIndex == 2 ? 'bgIndex2':(bgIndex == 3 ? 'bgIndex3':(bgIndex == 4 ? 'bgIndex4':''))))}>
                     {props.type == "ladder" ? <>
-                    {props.user_solved==0 ? <>Start</>:<>Solve</>}
+                    {props.first_time == true ? <>Start</>:<>Continue</>}
                     </>:<>Solve</>}
                   </a>
                 </div>
