@@ -6,10 +6,11 @@ import './PlaylistList.css'
 import { deleteUserlist, getThisUserlist } from "../../actions/lists.actions"
 
 function PlaylistList(props) {
+    const pageNumbers=[];
     const creds= JSON.parse(localStorage.getItem("creds"));
     const [error, setErrors] = useState(false);
     const [playlist, setPlaylist] = useState([]);
-    console.log(props.slug)
+    //console.log(props.slug)
 
     function deletePlaylist(){
         deleteUserlist(creds.access, props.slug)
@@ -57,14 +58,40 @@ function PlaylistList(props) {
 
    }
 
+     //page states
+     const [first,setFirst]=useState(1);
+     const [last,setLast]=useState(1);
+     const [prev,setPrev]=useState(1);
+     const [next,setNext]=useState(1);
+     const [page,setPage]=useState(1);
+     const [loader,setLoader]=useState(false);
+     const [curPage,setCurPage]=useState(1);
+     const [showPagi,setShowPagi]=useState(false)
     useEffect(() => {
-        getThisUserlist(creds.access, props.slug)
-        .then(res => setPlaylist(res))
+        const url=`https://api.codedigger.tech/lists/userlist/edit/${props.slug}?page=${page}`
+        getThisUserlist(creds.access, url)
+        .then((res) => { setPlaylist(res);console.log(res)
+           
+         res.link.first!=null?  setFirst(parseInt(res.link.first.split("=")[1])):setFirst(1)
+         res.link.last!=null? setLast(parseInt(res.link.last.split("page")[1])):setLast(1);
+         res.link.prev!=null? setPrev(parseInt(res.link.prev.split("=")[1])):setPrev(null);
+         res.link.next!=null? setNext(parseInt(res.link.next.split("=")[1])):setNext(null);
+        res.result.length>0?setShowPagi(true):setShowPagi(false)
+        
+         
+        })
         .catch(error => setErrors(true));
-    }, [])
-
-
+    }, [page])
+    if(last!=null){
+        for(let i=1;i<=last;i++){
+          pageNumbers.push(i);
+        }
+        //console.log(pageNumbers)
+        //console.log("last:"+last);
+        }
+  
     return (
+          
         <>
         <Navbar />
             <h3
@@ -189,7 +216,49 @@ function PlaylistList(props) {
                                 </>
                             )
                         })}
-                      </div>      
+                      </div> 
+                      {showPagi?
+                      <div className="paginate"> 
+                      <nav className="paginator">
+            <ul className='pagination'>
+              {page!=1?
+                <a style={{padding:'15px'}} onClick={()=>{
+                  setPage(1)
+                  setTimeout(()=>{setLoader(true)},1000)
+
+                  }} className='page-link'>First</a>:<></>}
+            {      
+            page!=1?
+           <a style={{padding:'15px'}} onClick={()=>{
+              setTimeout(()=>{setLoader(true)},1000)
+              
+             setPage(prev)}} className='page-link'>{`<`}</a>:<></>}
+
+              {pageNumbers.map(number => (
+                <li key={number} className='page-item'>
+                  <a style={{padding:'15px'}} onClick={() =>{
+                      setTimeout(()=>{setLoader(true)},1000)
+                       setPage(number)
+                       setTimeout(100)
+                      setCurPage(number)}} className={`${page==number?`active-page`:'page-link'}`}>
+                    {number}
+                  </a>
+                </li>
+              ))}
+              {
+                page!=last?
+              <a style={{padding:'15px'}}onClick={()=>{
+                 setTimeout(()=>{setLoader(true)},1000)
+                setPage(next)
+                setCurPage(next)}} className='page-link'>{`>`}</a>:<></>}
+                {page!=last?
+             <a style={{padding:'15px'}}onClick={()=>{
+                setTimeout(()=>{setLoader(true)},1000)
+               setPage(last)
+               setCurPage(last)}} className='page-link'>Last</a>:<></>}
+            </ul>
+            </nav>
+                  </div>:<></>}
                     </div>
                     
                             <FooterSmall/>
@@ -199,7 +268,7 @@ function PlaylistList(props) {
             )
         }
         </>
-            
+    
     )
 
     

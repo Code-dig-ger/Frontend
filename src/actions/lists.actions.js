@@ -29,8 +29,8 @@ export function getUserList(acc)
         }).then(data => data.json());
 }
 
-export function getThisUserlist(acc,slug){
-    return fetch(`https://api.codedigger.tech/lists/userlist/edit/${slug}`, {
+export function getThisUserlist(acc,url){
+    return fetch(url, {
                method:"GET",
                headers:{
                    "Content-Type":"application/json",

@@ -17,7 +17,7 @@ function MyPlaylists(props) {
     useEffect(() => {
         
         getUserList(creds.access)
-        .then(res => setPlaylists(res))
+        .then(res => {setPlaylists(res);{console.log(playlists)}})
         .catch(error => setErrors(true));
         
     }, [])
