@@ -6,7 +6,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input} from 'reacts
 import {Form} from 'react-bootstrap';
 import queryString from 'query-string';
 import { getProblems } from "../../actions/problems.actions"
-
+import './ProblemPage.css'
 function ProblemsPage({info,queryStr}) {
 
     const creds= JSON.parse(localStorage.getItem("creds"));
@@ -59,6 +59,9 @@ function ProblemsPage({info,queryStr}) {
         range_l:0,
         range_r:0
     });
+
+
+  
 
     const setLeftRangeQuery = (event) => {
         event.preventDefault();
@@ -134,7 +137,18 @@ function ProblemsPage({info,queryStr}) {
         const urlTo = `/problems/?${finalQ}`;
         console.log(urlTo);
         window.location.href=urlTo;
+
+
+
     }
+
+
+    function openNav() {
+	    document.getElementById("mySidenav").style.width = "270px";
+	}
+	function closeNav() {
+	    document.getElementById("mySidenav").style.width="0";
+	}
 
     useEffect(() => {
         getProblems(queryStr)
@@ -154,20 +168,11 @@ function ProblemsPage({info,queryStr}) {
                         marginTop: '100px'
                     }}
                 >Problems</h3>
-                <Button style={{position:'absolute', bottom:'77vh', right:'6vw'}} onClick={toggle}>Filter</Button>
-                <Modal isOpen={modal} toggle={toggle} style={{minWidth:'55vw'}}>
-                    <ModalHeader>Filter the problems</ModalHeader>
-                    <ModalBody>
-                        {/* <h5>Difficulty</h5>
-                        {difficultyLevels.map((lev) => {
-                            return(
-                                <>
-                                    <Label for={lev}>{lev}</Label>
-                                    <Input type="checkbox" id={lev}/>
-                                </>
-                            )
-                        })} */}
-                        <Form>
+                <Button  style={{position:'absolute', bottom:'77vh', right:'6vw'}} onClick={openNav}>Filter</Button>
+                
+                <div id="mySidenav" className="sidenav">
+		        
+          <Form>
                             <h5>
                                 Difficulty
                             </h5>
@@ -192,22 +197,31 @@ function ProblemsPage({info,queryStr}) {
                                     })}
                                 </div>
                         </Form>
+                        <br></br>
                         <Form inline>
-                            <label style={{marginRight:'20px'}}>
+                        <h5>
+                            Difficulty Range
+                            </h5>
+                            <label style={{marginRight:'20px',padding:'4px'}}>
                                 Range Left
                                 <input style={{width:'100px',height:'32px',marginLeft:'11px'}} onChange={setLeftRangeQuery} type="number"/>
                             </label>
-                            <label>
+                            <br></br>
+                            <label style={{padding:'4px'}}>
                                 Range Right
                                 <input style={{width:'100px',height:'32px',marginLeft:'11px'}} onChange={setRightRangeQuery} type="number"/>
                             </label>
                         </Form>
-                    </ModalBody>
-                    <ModalFooter>
-                        <Button onClick={toggle}>Close</Button>
-                        <Button onClick={handleSubmit} style={{position:'relative',top:'-8px',right:'129px'}}>Filter</Button>
-                    </ModalFooter>
-                </Modal>
+                           
+                           <br></br>
+                        <Button style={{padding:'4px',marginLeft:'5px'}}onClick={handleSubmit}>Apply</Button>
+                        <Button style={{padding:'4px',marginLeft:'5px'}} onClick={closeNav}>Close</Button>
+		</div>
+                
+                {/**            */}
+
+	
+		
                 
             {!problems.result? (<Loading />) : 
                 (
