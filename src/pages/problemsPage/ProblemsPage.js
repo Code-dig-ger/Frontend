@@ -14,6 +14,11 @@ function ProblemsPage({info,queryStr}) {
     const [show, setShow] = useState(true);
     const [problems, setProblems] = useState([]);
     const [modal, setModal] = useState(false);
+    const[modalOpenDiffi,setModalOpenDiffi]=useState(false);
+    const[modalOpenPlat,setModalOpenPlat]=useState(false);
+    const[modalOpenDiffiRange,setModalOpenDiffiRange]=useState(false);
+    const [openTags,setOpenTags]=useState(false);
+
 
     const platforms=[
         "Codechef",
@@ -144,7 +149,7 @@ function ProblemsPage({info,queryStr}) {
 
 
     function openNav() {
-	    document.getElementById("mySidenav").style.width = "270px";
+	    document.getElementById("mySidenav").style.width = "200px";
 	}
 	function closeNav() {
 	    document.getElementById("mySidenav").style.width="0";
@@ -172,23 +177,31 @@ function ProblemsPage({info,queryStr}) {
                 
                 <div id="mySidenav" className="sidenav">
 		        
-          <Form>
-                            <h5>
-                                Difficulty
-                            </h5>
+         
+                            <Button className="filterHeading" onClick={(e)=>setModalOpenDiffi(!modalOpenDiffi)}>Difficulty</Button>
+                             <Modal isOpen={modalOpenDiffi}><ModalBody>
+                            <Form>
                                 <div key="inline-checkbox">
                                     {difficultyLevels.map((lev,i) => {
                                         return(
                                             <Form.Check onChange={(event) => changeDifficultyFilter(event,lev)} inline label={lev} type="checkbox" id={`inline-${lev}-${i}`} />
                                         )
                                     })}
-                                </div>
+                                </div></Form>
+                                <Button onClick={(e)=>setModalOpenDiffi(false)}>Set</Button>
+                            </ModalBody></Modal>
+                        
+                            <Button className="filterHeading" onClick={(e)=>setOpenTags(!openTags)}>Tags</Button>
+                             <Modal isOpen={openTags}><ModalBody>
+                        <Form inline>
+                        <h1>show tags list</h1>
                         </Form>
-                        <br/>
-                        <Form>
-                            <h5>
-                                Platforms
-                            </h5>
+                        <Button onClick={(e)=>setOpenTags(false)}>Set</Button>
+                       </ModalBody> </Modal>   <br></br><br></br>
+                       
+                        <Button className="filterHeading" onClick={(e)=>setModalOpenPlat(!modalOpenPlat)}>Platforms</Button>
+                             <Modal isOpen={modalOpenPlat}><ModalBody>
+                            <Form>
                                 <div key="inline-checkbox">
                                     {platforms.map((lev,i) => {
                                         return(
@@ -197,11 +210,13 @@ function ProblemsPage({info,queryStr}) {
                                     })}
                                 </div>
                         </Form>
-                        <br></br>
+                        <Button onClick={(e)=>setModalOpenPlat(false)}>Set</Button>
+                            </ModalBody></Modal>
+                      <br></br><br></br>
+                      <Button className="filterHeading" onClick={(e)=>setModalOpenDiffiRange(!modalOpenDiffiRange)}>Difficulty Range</Button>
+                             <Modal isOpen={modalOpenDiffiRange}><ModalBody>
                         <Form inline>
-                        <h5>
-                            Difficulty Range
-                            </h5>
+                       
                             <label style={{marginRight:'20px',padding:'4px'}}>
                                 Range Left
                                 <input style={{width:'100px',height:'32px',marginLeft:'11px'}} onChange={setLeftRangeQuery} type="number"/>
@@ -212,10 +227,12 @@ function ProblemsPage({info,queryStr}) {
                                 <input style={{width:'100px',height:'32px',marginLeft:'11px'}} onChange={setRightRangeQuery} type="number"/>
                             </label>
                         </Form>
-                           
-                           <br></br>
-                        <Button style={{padding:'4px',marginLeft:'5px'}}onClick={handleSubmit}>Apply</Button>
-                        <Button style={{padding:'4px',marginLeft:'5px'}} onClick={closeNav}>Close</Button>
+                        <Button onClick={(e)=>setModalOpenDiffiRange(false)}>Set</Button>
+                       </ModalBody> </Modal>
+                        <br></br> <br></br>  
+                    
+                        <Button style={{padding:'6px',marginLeft:'12px'}}onClick={handleSubmit}>Apply</Button>
+                        <Button style={{padding:'6px',marginLeft:'5px'}} onClick={closeNav}>Close</Button>
 		</div>
                 
                 {/**            */}
