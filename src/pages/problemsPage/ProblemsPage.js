@@ -5,8 +5,11 @@ import FooterSmall from '../../components/Footer/FooterSmall';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input} from 'reactstrap';
 import {Form} from 'react-bootstrap';
 import queryString from 'query-string';
+import {faSearch} from '@fortawesome/free-solid-svg-icons';
+// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { getProblems } from "../../actions/problems.actions"
 import './ProblemPage.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 function ProblemsPage({info,queryStr}) {
 
     const creds= JSON.parse(localStorage.getItem("creds"));
@@ -18,6 +21,8 @@ function ProblemsPage({info,queryStr}) {
     const[modalOpenPlat,setModalOpenPlat]=useState(false);
     const[modalOpenDiffiRange,setModalOpenDiffiRange]=useState(false);
     const [openTags,setOpenTags]=useState(false);
+
+    const [searchText, setSearchText] = useState();
 
 
     const platforms=[
@@ -142,9 +147,12 @@ function ProblemsPage({info,queryStr}) {
         const urlTo = `/problems/?${finalQ}`;
         console.log(urlTo);
         window.location.href=urlTo;
+    }
 
-
-
+    const handleSearch = (e) => {
+        e.preventDefault();
+        const searchUrl = `/problems/?search=${searchText}`;
+        window.location.href=searchUrl;
     }
 
 
@@ -247,8 +255,19 @@ function ProblemsPage({info,queryStr}) {
                         margin: '0px',
                         padding: '0px',
                         marginLeft: '100px',
-                        marginRight: '100px'
+                        marginRight: '100px',
+                        paddingBottom:'100px'
                     }}>
+                        <div className="row" style={{marginBottom:'3rem'}}>
+                            <div class="input-group">
+                                <div class="form-outline">
+                                    <input onChange={(e)=>setSearchText(e.target.value)} type="search" id="form1" class="form-control" style={{height:'3rem', width:'21rem'}}/>
+                                </div>
+                                <button type="button" onClick={handleSearch} class="btn btn-primary">
+                                    Search 
+                                </button>
+                            </div>
+                        </div>
                         <div className="row">
                             
                             {problems.result.map((playlist, i) => {
