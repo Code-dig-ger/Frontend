@@ -30,7 +30,7 @@ const ListModal = ({creds, acc, handle, user}) => {
         setModal(!modal);
         if(friendsOptions)
         {
-            console.log("true");
+            // console.log("true");
             $('.popout-right>.popout-menu-right').removeClass('hideOptions');
             $('.popout-right>.popout-menu-right').addClass('showOptions');
             $('.window-button>.icon-popout-right').removeClass('glyphicon-menu-hamburger');
@@ -39,7 +39,7 @@ const ListModal = ({creds, acc, handle, user}) => {
         }
         else
         {
-            console.log("false");
+            // console.log("false");
             $('.popout-right>.popout-menu-right').removeClass('showOptions');
             $('.popout-right>.popout-menu-right').addClass('hideOptions');
             $('.window-button>.icon-popout-right').removeClass('animated rotateIn glyphicon-remove');
@@ -54,7 +54,7 @@ const ListModal = ({creds, acc, handle, user}) => {
     setNestedModal1(!nestedModal1);
     if(nestedModal1)
     {
-      console.log("pppppp");
+      // console.log("pppppp");
     }
     setCloseAll(false);
   }
@@ -81,7 +81,7 @@ const ListModal = ({creds, acc, handle, user}) => {
 
   async function submitForm(e){
     e.preventDefault();
-    console.log(formUsername);
+    // console.log(formUsername);
     const res= await fetch(`https://api.codedigger.tech/auth/user/send-request`,{
             method:"POST",
             headers:{
@@ -94,15 +94,14 @@ const ListModal = ({creds, acc, handle, user}) => {
         });
         res
             .json()
-            .then(res => setFriendStatus(res))
-            .then(console.log(friendStatus));
+            .then(res => setFriendStatus(res));
         window.location.reload();
   }
 
 useEffect(() => {
   getFriends(acc)
     .then(res => setFriends(res));
-  console.log(friends);
+  // console.log(friends);
   async function showList() {
     // const res= await fetch(`https://api.codedigger.tech/auth/user/friends`,{
     //     method:"GET",

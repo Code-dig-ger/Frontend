@@ -21,7 +21,7 @@ const MainCard = (props) => {
   const [problemAdd, setProblemAdd] = useState({});
 
   useEffect(() => {
-    console.log(modal);
+    // console.log(modal);
   })
 
   async function getPlaylists()
@@ -46,15 +46,15 @@ const MainCard = (props) => {
   function toggle(event) {
     event.preventDefault();
     setModal(!modal);
-    console.log(modal);
+    // console.log(modal);
     
     if(!modal)
     {
-      console.log("ppppppp");
+      // console.log("ppppppp");
       getPlaylists();
       // fetchData();
     }
-    console.log(playlists);
+    // console.log(playlists);
   };
 
   function addProblem(slug, prob_id, platform){
@@ -75,7 +75,7 @@ const MainCard = (props) => {
       p = "S";
     }
 
-    console.log(slug, prob_id, platform)
+    // console.log(slug, prob_id, platform)
       const result =  fetch (`https://api.codedigger.tech/lists/userlist/add`,{
           method:"POST",
           headers:{
@@ -163,7 +163,7 @@ const MainCard = (props) => {
           >
             <span onClick={toggle} ><FontAwesomeIcon style={{cursor:"pointer"}} icon={faFolderPlus} /></span>
           </OverlayTrigger></span>}
-          {console.log(creds.access)}
+          {/* {console.log(creds.access)} */}
           <Modal isOpen={modal} toggle={creds.access? toggle:null}>
         <ModalHeader toggle={toggle}>Add to Problem List</ModalHeader>
         <ModalBody>

@@ -64,8 +64,8 @@ const App = () => {
   }
   
   const LaddersQuestionPage1 = ({match,location}) => {
-    console.log(location.search);
-    console.log(JSON.stringify(match.params));
+    // console.log(location.search);
+    // console.log(JSON.stringify(match.params));
     const [type1, setType1] = useState(match.params.type === "practice" ? "list":"ladder");
     const [pageNo,setPageNo] = useState(location.search === "" ? "": location.search);
     return(
@@ -87,10 +87,10 @@ const App = () => {
   }
 
   const ProblemsPage1 = ({match,location}) => {
-    console.log(location.search);
+    // console.log(location.search);
     const info=queryString.parse(location.search);
-    console.log(info);
-    console.log(JSON.stringify(match.params));
+    // console.log(info);
+    // console.log(JSON.stringify(match.params));
     return(
       <ProblemsPage filters={info} queryStr={location.search}/>
     );

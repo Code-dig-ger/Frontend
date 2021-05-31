@@ -9,7 +9,7 @@ self.addEventListener('install', (event) => {
     event.waitUnitl(
         caches.open(CACHE_NAME)
         .then((cache) => {
-            console.log('Opened Cache');
+            // console.log('Opened Cache');
             return cache.addAll(urlsToCache);
         })
     )

@@ -21,7 +21,7 @@ function FriendList({friends,i,acc}) {
 }
 
   async function acceptRequest(fName){
-    console.log("clicked");
+    // console.log("clicked");
     const res=await fetch (`https://api.codedigger.tech/auth/user/accept-request`,{
     method:"PUT",
     headers:{
@@ -38,7 +38,7 @@ function FriendList({friends,i,acc}) {
     
     return (
         <div style={{fontSize:"1.1rem", marginBottom:"10px"}}>
-            {console.log(friends)}
+            {/* {console.log(friends)} */}
           <ul>
             {
              friends.result.map((friend) => {

@@ -70,7 +70,7 @@ function PlaylistList(props) {
     useEffect(() => {
         const url=`https://api.codedigger.tech/lists/userlist/edit/${props.slug}?page=${page}`
         getThisUserlist(creds.access, url)
-        .then((res) => { setPlaylist(res);console.log(res)
+        .then((res) => { setPlaylist(res);
            
          res.link.first!=null?  setFirst(parseInt(res.link.first.split("=")[1])):setFirst(1)
          res.link.last!=null? setLast(parseInt(res.link.last.split("page")[1])):setLast(1);

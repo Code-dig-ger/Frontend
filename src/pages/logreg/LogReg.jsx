@@ -68,7 +68,7 @@ const LogReg =()=>{
     
   }
   async function handleGoogleSuccess(response){
-    console.log("onSuccess");
+    // console.log("onSuccess");
     const c=await response.tokenId;
   // console.log(c);
     const resp=await fetch('https://api.codedigger.tech/social_auth/google/',{
@@ -110,7 +110,7 @@ const LogReg =()=>{
     
   }
   function handleGoogleFail(response){
-    console.log(response)
+    // console.log(response)
     alert("failed")
   }
 

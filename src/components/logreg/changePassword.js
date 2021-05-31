@@ -16,8 +16,8 @@ const PassChangeForm=()=>{
         const creds=JSON.parse(localStorage.getItem("creds"));
         const acc=creds.access; 
         const data=await NewPassRequest(old,newPass,acc);
-        console.log(old+" "+newPass)
-        console.log(data);
+        // console.log(old+" "+newPass)
+        // console.log(data);
         if(data.status==="FAILED"){
             alert(data.error);
         }

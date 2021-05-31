@@ -16,7 +16,7 @@ const MentorModal = ({creds,acc,handle,user,mentors}) => {
 
   async function submitForm(e){
     e.preventDefault();
-    console.log(formUsername);
+    // console.log(formUsername);
     const res=await fetch (`https://api.codedigger.tech/codeforces/mentor`,{
             method:"PUT",
             headers:{
@@ -29,8 +29,7 @@ const MentorModal = ({creds,acc,handle,user,mentors}) => {
         })
         res
         .json()
-        .then(res => setFriendStatus(res))
-        .then(console.log(friendStatus));
+        .then(res => setFriendStatus(res));
         window.location.reload();
   }
 

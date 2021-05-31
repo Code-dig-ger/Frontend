@@ -13,12 +13,12 @@ const NewpassForm=()=>{
        
     async function change(e){
         e.preventDefault();
-        console.log("change")
+        // console.log("change")
         setShow(true);
        
         const data=await passreqEmail(email)
         const res=await data.json();
-        console.log(res);
+        // console.log(res);
         if(data.statusText==="OK"){
         setMsg("We have sent you a link to change your password")}
         else{

@@ -24,7 +24,7 @@ const NewPassForm =()=>{
        myuidb=uidb.substring(0,i);
       
         const data=await setNewPass(pass,token,myuidb);
-        console.log(data);
+        // console.log(data);
         if(data.status==="OK"){
             setMsg(data.result);
             window.location='/login';

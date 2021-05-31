@@ -68,7 +68,7 @@ function ProfilePage({handle}) {
         $(function() {
             // Reference the tab links.
             const tabLinks = $('#tab1-links li a');
-            console.log("PP");
+            // console.log("PP");
             // Handle link clicks.
             tabLinks.click(function(event) {
                 
@@ -100,7 +100,7 @@ function ProfilePage({handle}) {
         $(function() {
             // Reference the tab links.
             const tabLinks = $('#tab2-links li a');
-            console.log("PP");
+            // console.log("PP");
             // Handle link clicks.
             tabLinks.click(function(event) {
                 
@@ -132,7 +132,7 @@ function ProfilePage({handle}) {
         $(function() {
             // Reference the tab links.
             const tabLinks = $('#tab3-links li a');
-            console.log("PP");
+            // console.log("PP");
             // Handle link clicks.
             tabLinks.click(function(event) {
                 
@@ -178,7 +178,6 @@ function ProfilePage({handle}) {
             {
                 const res = await getProfile(creds.access, uu)
                     .then(res => setUsers(res))
-                    .then(res => console.log(res))
                     .then(show => setShow(false))
                     .catch(error => setErrors(true));
             }
@@ -224,7 +223,7 @@ function ProfilePage({handle}) {
             }
         }
         fetchData();
-        console.log(friendReq);
+        // console.log(friendReq);
 
         
     },[])
@@ -314,7 +313,7 @@ function ProfilePage({handle}) {
                                         <div>
                                             <span><img style={{height:"1rem", width:"6rem", marginRight:"auto", marginLeft: 'auto', display: 'block'}} src={CodeforcesLongImg}></img></span>
                                         </div>
-                                        {console.log(codeforcesDat)}
+                                        {/* {console.log(codeforcesDat)} */}
                                     {codeforcesStatus===true?<> 
 
                                         <div className="body2">
@@ -489,7 +488,7 @@ function ProfilePage({handle}) {
                                         {/* Atcoder Card Starts */}
 
                                        
-                                        {console.log(atcoderDat)}
+                                        {/* {console.log(atcoderDat)} */}
 
 
                                     {atcoderStatus===true?<LoadingProfile/> :
@@ -557,7 +556,7 @@ function ProfilePage({handle}) {
                                                 {/* SPOJ Card Starts */}
                                         <div className="col-md-6 border-right">
                                                 
-                                                {console.log(spojDat)}
+                                                {/* {console.log(spojDat)} */}
                                             {spojStatus===true?<LoadingProfile/> :
                                     
                                                 spojDat.status === "FAILED"? <></>:   
@@ -595,7 +594,7 @@ function ProfilePage({handle}) {
                                          {/* UVA Card Starts */}
                                          <div className="col-md-6">
                                                 
-                                                {console.log(spojDat)}
+                                                {/* {console.log(spojDat)} */}
                                             {uvaStatus===true?<LoadingProfile/> :
                                     
                                                 uvaDat.status === "FAILED"? <></>:

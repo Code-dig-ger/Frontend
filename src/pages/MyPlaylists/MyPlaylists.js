@@ -17,7 +17,7 @@ function MyPlaylists(props) {
     useEffect(() => {
         
         getUserList(creds.access)
-        .then(res => {setPlaylists(res);{console.log(playlists)}})
+        .then(res => {setPlaylists(res);})
         .catch(error => setErrors(true));
         
     }, [])
@@ -53,7 +53,7 @@ function MyPlaylists(props) {
                                         <p>{playlist.description}</p>
                                 </div>
                                 <a href={`/list/${uu}/${playlist.slug}`}>View Problem List</a>
-                                {console.log(playlist.slug)}
+                                {/* {console.log(playlist.slug)} */}
                                 <div className="ico-card11">
                                 <i className={i % 2 === 0 ? "fa fa-empire" : "fa fa-codepen"}></i>
                             </div>

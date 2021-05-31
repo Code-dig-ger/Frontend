@@ -7,7 +7,7 @@ import $,{onClick} from 'jquery'
 
 const FriendsBtn = ({creds, acc, handle, user}) => {
     async function sendReq(e) {
-        console.log("reached");
+        // console.log("reached");
         e.preventDefault();
         const res= await fetch(`https://api.codedigger.tech/auth/user/send-request`,{
             method:"POST",
@@ -73,7 +73,7 @@ const FriendsBtn = ({creds, acc, handle, user}) => {
         setFriendsOptions(!friendsOptions);
         if(friendsOptions)
         {
-            console.log("true");
+            // console.log("true");
             $('.popout-right>.popout-menu-right').removeClass('hideOptions');
             $('.popout-right>.popout-menu-right').addClass('showOptions');
             $('.window-button>.icon-popout-right').removeClass('glyphicon-menu-hamburger');
@@ -82,7 +82,7 @@ const FriendsBtn = ({creds, acc, handle, user}) => {
         }
         else
         {
-            console.log("false");
+            // console.log("false");
             $('.popout-right>.popout-menu-right').removeClass('showOptions');
             $('.popout-right>.popout-menu-right').addClass('hideOptions');
             $('.window-button>.icon-popout-right').removeClass('animated rotateIn glyphicon-remove');

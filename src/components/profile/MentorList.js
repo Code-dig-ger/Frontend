@@ -22,7 +22,7 @@ const MentorList = ({mentors,acc}) => {
     {
       return(
         <div style={{fontSize:"1.1rem", marginBottom:"50px"}}>
-            {console.log(mentors)}
+            {/* {console.log(mentors)} */}
           <ul>
             {
              mentors.result.map(function(mentor){

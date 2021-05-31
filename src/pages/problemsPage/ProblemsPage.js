@@ -88,13 +88,13 @@ function ProblemsPage({info,queryStr}) {
         setModal(!modal);
       }
     const changePlatformFilter = (event,lev) => {
-        console.log(queryString.stringifyUrl({url: 'https://api.codedigger.tech/problems/', query: {platform: 'F,A',difficulty:'B,E'}}));
-        console.log(queryString.parseUrl('https://foo.bar?foo=b,l&g=k'))
+        // console.log(queryString.stringifyUrl({url: 'https://api.codedigger.tech/problems/', query: {platform: 'F,A',difficulty:'B,E'}}));
+        // console.log(queryString.parseUrl('https://foo.bar?foo=b,l&g=k'))
         
         const res=event.target.checked;
         if(res)
         {
-            console.log(queries.platform.push(platformFilters[lev]));
+            // console.log(queries.platform.push(platformFilters[lev]));
         }
         else
         {
@@ -107,17 +107,17 @@ function ProblemsPage({info,queryStr}) {
             });
             queries.platform.splice(y,1);
         }
-        console.log(JSON.stringify(queries.platform).replace(/"/g,'').replace(/]|[[]/g, ''));
+        // console.log(JSON.stringify(queries.platform).replace(/"/g,'').replace(/]|[[]/g, ''));
         
     }
 
     const changeDifficultyFilter = (event,lev) => {
-        console.log(difficultyFilters[lev]);
+        // console.log(difficultyFilters[lev]);
         const res=event.target.checked;
-        console.log(lev + res);
+        // console.log(lev + res);
         if(res)
         {
-            console.log(queries.difficulty.push(difficultyFilters[lev]));
+            // console.log(queries.difficulty.push(difficultyFilters[lev]));
         }
         else
         {
@@ -130,13 +130,13 @@ function ProblemsPage({info,queryStr}) {
             });
             queries.difficulty.splice(y,1);
         }
-        console.log(JSON.stringify(queries.difficulty).replace(/"/g,'').replace(/]|[[]/g, ''));
+        // console.log(JSON.stringify(queries.difficulty).replace(/"/g,'').replace(/]|[[]/g, ''));
         
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(queries);
+        // console.log(queries);
         const queryy = {
             difficulty:JSON.stringify(queries.difficulty).replace(/"/g,'').replace(/]|[[]/g, ''),
             platform:JSON.stringify(queries.platform).replace(/"/g,'').replace(/]|[[]/g, ''),
@@ -145,7 +145,7 @@ function ProblemsPage({info,queryStr}) {
         }
         const finalQ = queryString.stringify(queryy,{skipEmptyString:true});
         const urlTo = `/problems/?${finalQ}`;
-        console.log(urlTo);
+        // console.log(urlTo);
         window.location.href=urlTo;
     }
 

@@ -68,7 +68,7 @@ const Codechef=()=>{
             }
           }
             else {
-                console.log("sad");
+                // console.log("sad");
                 localStorage.setItem("err","No contest found for this handle");
                 window.location="/home"
             }

@@ -31,10 +31,10 @@
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('./serviceworker.js', { scope: '/' })
           .then((reg) => {
-            console.log("success: ", reg.scope)
+            // console.log("success: ", reg.scope)
           })
           .catch((err) => {
-            console.log("Failure: ", err);
+            // console.log("Failure: ", err);
           })
         })
       }

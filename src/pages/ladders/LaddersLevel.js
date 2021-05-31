@@ -86,13 +86,13 @@ function LaddersLevel(props) {
             {
                 return (
                     <div className="ladder">
-                            {console.log(dat)}
+                            {/* {console.log(dat)} */}
                         <Header />
                         
                         <div className="container ladders_ques" style={{marginTop: '80px', marginBottom: '100px'}}>
                         <br/>
             
-                        {console.log(dat[0])}
+                        {/* {console.log(dat[0])} */}
             
                         {props.type == "ladder" ? <>
                         {dat.map((level,index)=> {

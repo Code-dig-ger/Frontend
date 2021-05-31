@@ -24,7 +24,7 @@ async function Validate(){
         
 
         })
-        console.log("validation");
+        // console.log("validation");
         
 
         if(response.status!==200){
@@ -42,7 +42,7 @@ async function Validate(){
            //refResponse gives access token if valid ref token is passed else not
 
            if(refResponse.status==200){
-               console.log('getting new');
+            //    console.log('getting new');
 
                const newData=await refResponse.json();
               const newAcc=newData.access;
