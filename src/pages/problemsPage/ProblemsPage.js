@@ -281,7 +281,7 @@ function ProblemsPage({info,queryStr}) {
             const finalQ = queryString.stringify(queryy,{skipEmptyString:true});
             const urlTo = `/problems/?${finalQ}`;
             // console.log(urlTo);
-            // window.location.href=urlTo;
+            window.location.href=urlTo;
         }
         else
         {
@@ -296,7 +296,7 @@ function ProblemsPage({info,queryStr}) {
             const finalQ = queryString.stringify(queryy,{skipEmptyString:true});
             const urlTo = `/problems/?${finalQ}`;
             // console.log(urlTo);
-            // window.location.href=urlTo;
+            window.location.href=urlTo;
         }
     }
 
