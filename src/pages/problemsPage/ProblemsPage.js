@@ -148,12 +148,8 @@ function ProblemsPage({info,queryStr}) {
             //         platformAdd: false       // update the value of specific key
             //     }
             // }))
-            var array = [...platformQueries]; // make a separate copy of the array
-            var index = lev;
-            if (index !== -1) {
-              array.splice(index, 1);
-              setPlatformQueries(array);
-            }
+            const newList = platformQueries.filter((item) => item != platformFilters[lev]);
+            setPlatformQueries(newList);
             setDisplayPlat(update(displayPlat, {
                 values: {
                     [lev]: {
@@ -244,12 +240,8 @@ function ProblemsPage({info,queryStr}) {
             //     }
             // });
             // queries.difficulty.splice(y,1);
-            var array = [...difficultyQueries]; // make a separate copy of the array
-            var index = lev;
-            if (index !== -1) {
-              array.splice(index, 1);
-              setDifficultyQueries(array);
-            }
+            const newList = difficultyQueries.filter((item) => item != difficultyFilters[lev]);
+            setDifficultyQueries(newList);
             setDisplayDiff(update(displayDiff, {
                 values: {
                     [lev]: {
