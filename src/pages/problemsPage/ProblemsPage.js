@@ -3,13 +3,18 @@ import Loading from '../logreg/loading.jsx';
 import Navbar from '../../components/Header/Navbar';
 import FooterSmall from '../../components/Footer/FooterSmall';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input} from 'reactstrap';
-import {Form} from 'react-bootstrap';
+import {Form,Row,Col} from 'react-bootstrap';
 import queryString from 'query-string';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
 // import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { getProblems } from "../../actions/problems.actions"
 import './ProblemPage.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import update from 'react-addons-update';
+import { event } from 'jquery';
+
+
 function ProblemsPage({info,queryStr}) {
 
     const creds= JSON.parse(localStorage.getItem("creds"));
@@ -23,6 +28,7 @@ function ProblemsPage({info,queryStr}) {
     const [openTags,setOpenTags]=useState(false);
 
     const [searchText, setSearchText] = useState();
+    const [tagText, setTagText] = useState();
 
 
     const platforms=[
@@ -41,35 +47,49 @@ function ProblemsPage({info,queryStr}) {
         "Challenging"
     ]
 
-    const tags = ["string","dp","math"];
+    const defaultTags = ["string","dp","math","combinatorics", "Number Theory", "interactive","Binary Search","greedy","graph"];
 
     const [rangeLeft,setRangeLeft]=useState(0);
     const [rangeRight,setRangeRight]=useState(0);
 
-    const platformFilters = {
-        Codechef:'C',
-        Codeforces:'F',
-        Atcoder:'A',
-        Spoj:'S',
-        UVA:'U'
-    }
+    const [displayDiff, setDisplayDiff] = useState({
+        values:[
+            false,false,false,false,false,false
+    ]})
 
-    const difficultyFilters = {
-        Beginner:'B',
-        Easy:'E',
-        Medium:'M',
-        Hard:'H',
-        SuperHard:'S',
-        Challenging:'C'
-    }
+    const [displayPlat, setDisplayPlat] = useState({
+        values:[
+        false,false,false,false,false
+    ]})
+
+    const [displayTags, setDisplayTags] = useState({
+        values:[
+        false,false,false,false,false,false,false,false,false
+    ]})
+
+
+    const platformFilters = [
+        'C', 'F', 'A', 'S', 'U'
+    ];
+
+    const difficultyFilters = [
+        'B','E','M','H','S','C'
+    ]
 
     const [queries,setQueries]=useState({
         difficulty:[],
         platform:[],
-        range_l:0,
-        range_r:0
+        range_l:1200,
+        range_r:5000,
+        tags:[]
     });
 
+
+    const[platformQueries, setPlatformQueries]=useState([]);
+    const[difficultyQueries, setDifficultyQueries]=useState([]);
+    const[tagQueries, setTagQueries]=useState([]);
+    // var difficultyQueries=[];
+    // var TagQueries=[];
 
   
 
@@ -92,22 +112,108 @@ function ProblemsPage({info,queryStr}) {
         // console.log(queryString.parseUrl('https://foo.bar?foo=b,l&g=k'))
         
         const res=event.target.checked;
+        console.log(lev);
+        console.log(res);
+        const platformAdd=platformFilters[lev];
         if(res)
         {
-            // console.log(queries.platform.push(platformFilters[lev]));
+            // queries.platform.push(platformFilters[lev]);
+            // setQueries({platform:[...queries.platforms, platformFilters[lev]]});
+            console.log(platformAdd);
+            // platformQueries.concat([platformAdd]);
+            // var temp=platformQueries.concat([platformAdd]);
+            // setPlatformQueries({platformQueries:temp});
+            setPlatformQueries([...platformQueries,[platformAdd]]);
+            // setDisplayPlat(
+            //     result: {                   // object that we want to update
+            //         ...prevState.result,    // keep all other key-value pairs
+            //         platformAdd: true       // update the value of specific key
+            //     }
+            // )
+
+            setDisplayPlat(update(displayPlat, {
+                values: {
+                    [lev]: {
+                        $set: true
+                    }
+                }
+            }));
+
         }
         else
         {
-            var y=-1;
-            queries.platform.map((plat,i) => {
-                if(plat==platformFilters[lev])
-                {
-                    y=i;
+            // setDisplayPlat(prevState => ({
+            //     result: {                   // object that we want to update
+            //         ...prevState.result,    // keep all other key-value pairs
+            //         platformAdd: false       // update the value of specific key
+            //     }
+            // }))
+            var array = [...platformQueries]; // make a separate copy of the array
+            var index = lev;
+            if (index !== -1) {
+              array.splice(index, 1);
+              setPlatformQueries(array);
+            }
+            setDisplayPlat(update(displayPlat, {
+                values: {
+                    [lev]: {
+                        $set: false
+                    }
                 }
-            });
-            queries.platform.splice(y,1);
+            }));
         }
         // console.log(JSON.stringify(queries.platform).replace(/"/g,'').replace(/]|[[]/g, ''));
+        
+    }
+
+    const tagTextAdd = (event) => {
+        setTagQueries([...tagQueries, [tagText]]);
+        setTagText("");
+    }
+
+    const changeTagFilter = (event,lev) => {
+        // console.log(difficultyFilters[lev]);
+        const res=event.target.checked;
+        // console.log(lev + res);
+        const tagAdd=defaultTags[lev];
+        if(res)
+        {
+            // console.log(queries.difficulty.push(difficultyFilters[lev]));
+            setTagQueries([...tagQueries, [tagAdd]]);
+            setDisplayTags(update(displayTags, {
+                values: {
+                    [lev]: {
+                        $set: true
+                    }
+                }
+            }));
+        }
+        else
+        {
+            // var y=-1;
+            // queries.difficulty.map((plat,i) => {
+            //     if(plat==difficultyFilters[lev])
+            //     {
+            //         y=i;
+            //     }
+            // });
+            // queries.difficulty.splice(y,1);
+            const newList = tagQueries.filter((item) => item != defaultTags[lev]);
+            setTagQueries(newList);
+
+            console.log(newList);
+            console.log(lev);
+            console.log(defaultTags[lev]);
+
+            setDisplayTags(update(displayTags, {
+                values: {
+                    [lev]: {
+                        $set: false
+                    }
+                }
+            }));
+        }
+        // console.log(JSON.stringify(queries.difficulty).replace(/"/g,'').replace(/]|[[]/g, ''));
         
     }
 
@@ -115,20 +221,42 @@ function ProblemsPage({info,queryStr}) {
         // console.log(difficultyFilters[lev]);
         const res=event.target.checked;
         // console.log(lev + res);
+        const difficultyAdd=difficultyFilters[lev];
         if(res)
         {
             // console.log(queries.difficulty.push(difficultyFilters[lev]));
+            setDifficultyQueries([...difficultyQueries, [difficultyAdd]]);
+            setDisplayDiff(update(displayDiff, {
+                values: {
+                    [lev]: {
+                        $set: true
+                    }
+                }
+            }));
         }
         else
         {
-            var y=-1;
-            queries.difficulty.map((plat,i) => {
-                if(plat==difficultyFilters[lev])
-                {
-                    y=i;
+            // var y=-1;
+            // queries.difficulty.map((plat,i) => {
+            //     if(plat==difficultyFilters[lev])
+            //     {
+            //         y=i;
+            //     }
+            // });
+            // queries.difficulty.splice(y,1);
+            var array = [...difficultyQueries]; // make a separate copy of the array
+            var index = lev;
+            if (index !== -1) {
+              array.splice(index, 1);
+              setDifficultyQueries(array);
+            }
+            setDisplayDiff(update(displayDiff, {
+                values: {
+                    [lev]: {
+                        $set: false
+                    }
                 }
-            });
-            queries.difficulty.splice(y,1);
+            }));
         }
         // console.log(JSON.stringify(queries.difficulty).replace(/"/g,'').replace(/]|[[]/g, ''));
         
@@ -137,16 +265,39 @@ function ProblemsPage({info,queryStr}) {
     const handleSubmit = (e) => {
         e.preventDefault();
         // console.log(queries);
-        const queryy = {
-            difficulty:JSON.stringify(queries.difficulty).replace(/"/g,'').replace(/]|[[]/g, ''),
-            platform:JSON.stringify(queries.platform).replace(/"/g,'').replace(/]|[[]/g, ''),
-            range_l:JSON.stringify(rangeLeft).replace(/"/g,'').replace(/]|[[]/g, ''),
-            range_r:JSON.stringify(rangeRight).replace(/"/g,'').replace(/]|[[]/g, '')
+        // console.log(platformQueries);
+        // console.log(difficultyQueries);
+
+        // console.log(displayPlat);
+        console.log(tagQueries);
+        if(rangeLeft===0 && rangeRight===0)
+        {
+            const queryy = {
+                difficulty:JSON.stringify(difficultyQueries).replace(/"/g,'').replace(/]|[[]/g, ''),
+                platform:JSON.stringify(platformQueries).replace(/"/g,'').replace(/]|[[]/g, ''),
+                tags:JSON.stringify(tagQueries).replace(/"/g,'').replace(/]|[[]/g, '')
+            }
+
+            const finalQ = queryString.stringify(queryy,{skipEmptyString:true});
+            const urlTo = `/problems/?${finalQ}`;
+            console.log(urlTo);
+            // window.location.href=urlTo;
         }
-        const finalQ = queryString.stringify(queryy,{skipEmptyString:true});
-        const urlTo = `/problems/?${finalQ}`;
-        // console.log(urlTo);
-        window.location.href=urlTo;
+        else
+        {
+            const queryy = {
+                difficulty:JSON.stringify(difficultyQueries).replace(/"/g,'').replace(/]|[[]/g, ''),
+                platform:JSON.stringify(platformQueries).replace(/"/g,'').replace(/]|[[]/g, ''),
+                tags:JSON.stringify(tagQueries).replace(/"/g,'').replace(/]|[[]/g, ''),
+                range_l:JSON.stringify(rangeLeft).replace(/"/g,'').replace(/]|[[]/g, ''),
+                range_r:JSON.stringify(rangeRight).replace(/"/g,'').replace(/]|[[]/g, '')
+            }
+
+            const finalQ = queryString.stringify(queryy,{skipEmptyString:true});
+            const urlTo = `/problems/?${finalQ}`;
+            console.log(urlTo);
+            // window.location.href=urlTo;
+        }
     }
 
     const handleSearch = (e) => {
@@ -188,12 +339,23 @@ function ProblemsPage({info,queryStr}) {
          
                             <Button className="filterHeading" onClick={(e)=>setModalOpenDiffi(!modalOpenDiffi)}>Difficulty</Button>
                              <Modal isOpen={modalOpenDiffi}><ModalBody>
-                            <Form>
+                             <h2 style={{marginBottom:'2rem'}}>Difficulty</h2>
+                            <Form style={{marginBottom:'1rem'}}>
                                 <div key="inline-checkbox">
                                     {difficultyLevels.map((lev,i) => {
-                                        return(
-                                            <Form.Check onChange={(event) => changeDifficultyFilter(event,lev)} inline label={lev} type="checkbox" id={`inline-${lev}-${i}`} />
-                                        )
+                                        if(displayDiff.values[i])
+                                        {
+                                            return(
+                                                <Form.Check checked={true} onChange={(event) => changeDifficultyFilter(event,i)} inline label={lev} type="checkbox" id={`inline-${lev}-${i}`} />
+                                            )
+                                        }
+                                        else
+                                        {
+                                            return(
+                                                <Form.Check onChange={(event) => changeDifficultyFilter(event,i)} inline label={lev} type="checkbox" id={`inline-${lev}-${i}`} />
+                                            )
+                                        }
+                                        
                                     })}
                                 </div></Form>
                                 <Button onClick={(e)=>setModalOpenDiffi(false)}>Set</Button>
@@ -201,20 +363,90 @@ function ProblemsPage({info,queryStr}) {
                         
                             <Button className="filterHeading" onClick={(e)=>setOpenTags(!openTags)}>Tags</Button>
                              <Modal isOpen={openTags}><ModalBody>
-                        <Form inline>
-                        <h1>show tags list</h1>
-                        </Form>
-                        <Button onClick={(e)=>setOpenTags(false)}>Set</Button>
-                       </ModalBody> </Modal>   <br></br><br></br>
+                             <h2 style={{marginBottom:'2rem'}}>Tags</h2>
+                                <Form style={{marginBottom:'1rem'}}>
+                                    <div key="inline-checkbox">
+                                        {defaultTags.map((lev,i) => {
+                                            if(displayTags.values[i])
+                                            {
+                                                return(
+                                                    <Form.Check checked={true} onChange={(event) => changeTagFilter(event,i)} inline label={lev} type="checkbox" id={`inline-${lev}-${i}`} />
+                                                )
+                                            }
+                                            else
+                                            {
+                                                return(
+                                                    <Form.Check onChange={(event) => changeTagFilter(event,i)} inline label={lev} type="checkbox" id={`inline-${lev}-${i}`} />
+                                                )
+                                            }
+                                        })}
+                                    </div>
+                                    <div>
+                                    <Form.Group as={Row} onSubmit={e => { e.preventDefault(); }} style={{marginTop:'1rem'}}>
+                                        <Form.Label column sm="3" style={{maxWidth:'18%'}}>
+                                            Your Tag
+                                        </Form.Label>
+                                        <Col sm="8">
+                                        <Form.Control onKeyPress={event => {
+                                                if (event.key === "Enter") {
+                                                    event.preventDefault();
+                                                    tagTextAdd();
+                                                }
+                                                }} value={tagText} onChange={(e)=>setTagText(e.target.value)} type="text"  placeholder="Type your Tag" />
+                                        </Col>
+                                        <Col sm="1" style={{paddingLeft:'0'}}>
+                                        <Button onClick={tagTextAdd}>Add</Button>
+                                        </Col>
+                                        
+                                    </Form.Group>
+                                    </div>
+                                </Form>
+                                <Row style={{marginBottom:'2rem'}}>
+                                    <Col sm='3'>Your Tags</Col>
+                                    <Col sm='9'>
+                                        <div style={{display:'flex', justifyContent:'space-evenly'}}>
+                                            {tagQueries.map((quer) => {
+                                                return(
+                                                    <>
+                                                    <div 
+                                                        style={{
+                                                            padding:'0.4rem', 
+                                                            color:'black', 
+                                                            backgroundColor:'powderblue', 
+                                                            borderRadius:'4px',
+                                                        }}
+                                                    >
+                                                        {quer} 
+
+                                                    </div></>
+                                                )
+                                            })}
+                                        </div>
+                                    </Col>
+                                </Row>
+                                <Button onClick={(e)=>setOpenTags(false)}>Set</Button>
+                            </ModalBody> </Modal>   <br></br><br></br>
                        
                         <Button className="filterHeading" onClick={(e)=>setModalOpenPlat(!modalOpenPlat)}>Platforms</Button>
                              <Modal isOpen={modalOpenPlat}><ModalBody>
-                            <Form>
+                             <h2 style={{marginBottom:'2rem'}}>Platforms</h2>
+                            <Form style={{marginBottom:'1rem'}}>
                                 <div key="inline-checkbox">
                                     {platforms.map((lev,i) => {
-                                        return(
-                                            <Form.Check onChange={(event) => changePlatformFilter(event,lev)} inline label={lev} type="checkbox" id={`inline-${lev}-${i}`} />
-                                        )
+                                        // console.log(`${displayPlat.values[i]}`)
+                                        if(displayPlat.values[i])
+                                        {
+                                            return(
+                                                <Form.Check checked={true} onChange={(event) => changePlatformFilter(event,i)} inline label={lev} type="checkbox" id={`inline-${lev}-${i}`} />
+                                            )
+                                        }
+                                        else
+                                        {
+                                            return(
+                                                <Form.Check checked={false} onChange={(event) => changePlatformFilter(event,i)} inline label={lev} type="checkbox" id={`inline-${lev}-${i}`} />
+                                            )
+                                        }
+                                        
                                     })}
                                 </div>
                         </Form>
@@ -259,9 +491,9 @@ function ProblemsPage({info,queryStr}) {
                         paddingBottom:'100px'
                     }}>
                         <div className="row" style={{marginBottom:'3rem'}}>
-                            <div class="input-group">
+                            <div class="input-group" style={{justifyContent:'center'}}>
                                 <div class="form-outline">
-                                    <input onChange={(e)=>setSearchText(e.target.value)} type="search" id="form1" class="form-control" style={{height:'3rem', width:'21rem'}}/>
+                                    <input onChange={(e)=>setSearchText(e.target.value)} type="search" id="form1" class="form-control" style={{height:'3rem', width:'26rem'}}/>
                                 </div>
                                 <button type="button" onClick={handleSearch} class="btn btn-primary">
                                     Search 

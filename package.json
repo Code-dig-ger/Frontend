@@ -23,6 +23,7 @@
     "node-sass": "^5.0.0",
     "query-string": "^6.14.1",
     "react": "^16.14.0",
+    "react-addons-update": "^15.6.3",
     "react-bootstrap": "^1.5.2",
     "react-countup": "^4.3.3",
     "react-dom": "^16.14.0",
