@@ -112,14 +112,14 @@ function ProblemsPage({info,queryStr}) {
         // console.log(queryString.parseUrl('https://foo.bar?foo=b,l&g=k'))
         
         const res=event.target.checked;
-        console.log(lev);
-        console.log(res);
+        // console.log(lev);
+        // console.log(res);
         const platformAdd=platformFilters[lev];
         if(res)
         {
             // queries.platform.push(platformFilters[lev]);
             // setQueries({platform:[...queries.platforms, platformFilters[lev]]});
-            console.log(platformAdd);
+            // console.log(platformAdd);
             // platformQueries.concat([platformAdd]);
             // var temp=platformQueries.concat([platformAdd]);
             // setPlatformQueries({platformQueries:temp});
@@ -201,9 +201,9 @@ function ProblemsPage({info,queryStr}) {
             const newList = tagQueries.filter((item) => item != defaultTags[lev]);
             setTagQueries(newList);
 
-            console.log(newList);
-            console.log(lev);
-            console.log(defaultTags[lev]);
+            // console.log(newList);
+            // console.log(lev);
+            // console.log(defaultTags[lev]);
 
             setDisplayTags(update(displayTags, {
                 values: {
@@ -269,7 +269,7 @@ function ProblemsPage({info,queryStr}) {
         // console.log(difficultyQueries);
 
         // console.log(displayPlat);
-        console.log(tagQueries);
+        // console.log(tagQueries);
         if(rangeLeft===0 && rangeRight===0)
         {
             const queryy = {
@@ -280,7 +280,7 @@ function ProblemsPage({info,queryStr}) {
 
             const finalQ = queryString.stringify(queryy,{skipEmptyString:true});
             const urlTo = `/problems/?${finalQ}`;
-            console.log(urlTo);
+            // console.log(urlTo);
             // window.location.href=urlTo;
         }
         else
@@ -295,7 +295,7 @@ function ProblemsPage({info,queryStr}) {
 
             const finalQ = queryString.stringify(queryy,{skipEmptyString:true});
             const urlTo = `/problems/?${finalQ}`;
-            console.log(urlTo);
+            // console.log(urlTo);
             // window.location.href=urlTo;
         }
     }
