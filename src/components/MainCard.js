@@ -164,7 +164,7 @@ const MainCard = (props) => {
             <span onClick={toggle} ><FontAwesomeIcon style={{cursor:"pointer"}} icon={faFolderPlus} /></span>
           </OverlayTrigger></span>}
           {/* {console.log(creds.access)} */}
-          <Modal isOpen={modal} toggle={creds.access? toggle:null}>
+        <Modal isOpen={modal} toggle={creds.access? toggle:null}>
         <ModalHeader toggle={toggle}>Add to Problem List</ModalHeader>
         <ModalBody>
         </ModalBody>

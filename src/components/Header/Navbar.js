@@ -59,9 +59,9 @@ if(creds){
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
             
-          {/* <NavItem style={{color: 'white'}}>
+          <NavItem style={{color: 'white'}}>
               <NavLink style={{color: 'white'}} href="/problems">Problems</NavLink>
-            </NavItem> */}
+            </NavItem>
             
 
           <UncontrolledDropdown nav inNavbar>
@@ -159,9 +159,9 @@ if(creds){
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
             
-            {/* <NavItem style={{color: 'white'}}>
+            <NavItem style={{color: 'white'}}>
               <NavLink style={{color: 'white'}} href="/problems">Problems</NavLink>
-            </NavItem> */}
+            </NavItem>
 
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret style={{color: 'white'}}>
