@@ -565,8 +565,8 @@ function ProblemsPage({info,queryStr}) {
                        </ModalBody> </Modal>
                         <br></br> <br></br>  
                     
-                        <Button style={{padding:'6px',marginLeft:'12px'}}onClick={handleSubmit}>Apply</Button>
-                        <Button style={{padding:'6px',marginLeft:'5px'}} onClick={closeNav}>Close</Button>
+                        <Button style={{padding:'6px',marginLeft:'12px',backgroundColor:'forestgreen'}}onClick={handleSubmit}>Apply</Button>
+                        <Button style={{padding:'6px',marginLeft:'5px',backgroundColor:'firebrick'}} onClick={closeNav}>Close</Button>
 		</div>
                 
                 {/**            */}
