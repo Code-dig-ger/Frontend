@@ -10,7 +10,10 @@ import {faSearch} from '@fortawesome/free-solid-svg-icons';
 import { getProblems } from "../../actions/problems.actions"
 import './ProblemPage.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+// import ReactBootstrapSlider from 'react-bootstrap-slider';
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import Slider from '@material-ui/core/Slider';
 import update from 'react-addons-update';
 import { event } from 'jquery';
 
@@ -90,6 +93,14 @@ function ProblemsPage({info,queryStr}) {
     const[tagQueries, setTagQueries]=useState([]);
     // var difficultyQueries=[];
     // var TagQueries=[];
+
+    const [diffRange, setDiffRange] = useState([1000, 3200]);
+    const [sliderChange,setSliderChange] = useState(false);
+
+    const handleSlider = (event, newValue) => {
+        setSliderChange(true);
+        setDiffRange(newValue);
+    };
 
   
 
@@ -262,7 +273,7 @@ function ProblemsPage({info,queryStr}) {
 
         // console.log(displayPlat);
         // console.log(tagQueries);
-        if(rangeLeft===0 && rangeRight===0)
+        if(!sliderChange)
         {
             const queryy = {
                 difficulty:JSON.stringify(difficultyQueries).replace(/"/g,'').replace(/]|[[]/g, ''),
@@ -281,8 +292,8 @@ function ProblemsPage({info,queryStr}) {
                 difficulty:JSON.stringify(difficultyQueries).replace(/"/g,'').replace(/]|[[]/g, ''),
                 platform:JSON.stringify(platformQueries).replace(/"/g,'').replace(/]|[[]/g, ''),
                 tags:JSON.stringify(tagQueries).replace(/"/g,'').replace(/]|[[]/g, ''),
-                range_l:JSON.stringify(rangeLeft).replace(/"/g,'').replace(/]|[[]/g, ''),
-                range_r:JSON.stringify(rangeRight).replace(/"/g,'').replace(/]|[[]/g, '')
+                range_l:JSON.stringify(diffRange[0]).replace(/"/g,'').replace(/]|[[]/g, ''),
+                range_r:JSON.stringify(diffRange[1]).replace(/"/g,'').replace(/]|[[]/g, '')
             }
 
             const finalQ = queryString.stringify(queryy,{skipEmptyString:true});
@@ -396,7 +407,7 @@ function ProblemsPage({info,queryStr}) {
                                 <Row style={{marginBottom:'2rem'}}>
                                     <Col sm='3'>Your Tags</Col>
                                     <Col sm='9'>
-                                        <div style={{display:'flex', justifyContent:'space-evenly'}}>
+                                        <div style={{display:'flex', flexWrap:'wrap'}}>
                                             {tagQueries.map((quer) => {
                                                 return(
                                                     <>
@@ -406,6 +417,7 @@ function ProblemsPage({info,queryStr}) {
                                                             color:'black', 
                                                             backgroundColor:'powderblue', 
                                                             borderRadius:'4px',
+                                                            margin:"0.3rem"
                                                         }}
                                                     >
                                                         {quer} 
@@ -447,19 +459,39 @@ function ProblemsPage({info,queryStr}) {
                       <br></br><br></br>
                       <Button className="filterHeading" onClick={(e)=>setModalOpenDiffiRange(!modalOpenDiffiRange)}>Difficulty Range</Button>
                              <Modal isOpen={modalOpenDiffiRange}><ModalBody>
-                        <Form inline>
-                       
-                            <label style={{marginRight:'20px',padding:'4px'}}>
-                                Range Left
-                                <input style={{width:'100px',height:'32px',marginLeft:'11px'}} onChange={setLeftRangeQuery} type="number"/>
-                            </label>
-                            <br></br>
-                            <label style={{padding:'4px'}}>
-                                Range Right
-                                <input style={{width:'100px',height:'32px',marginLeft:'11px'}} onChange={setRightRangeQuery} type="number"/>
-                            </label>
-                        </Form>
-                        <Button onClick={(e)=>setModalOpenDiffiRange(false)}>Set</Button>
+                                {/* <Form inline>
+                            
+                                    <label style={{marginRight:'20px',padding:'4px'}}>
+                                        Range Left
+                                        <input style={{width:'100px',height:'32px',marginLeft:'11px'}} onChange={setLeftRangeQuery} type="number"/>
+                                    </label>
+                                    <br></br>
+                                    <label style={{padding:'4px'}}>
+                                        Range Right
+                                        <input style={{width:'100px',height:'32px',marginLeft:'11px'}} onChange={setRightRangeQuery} type="number"/>
+                                    </label>
+                                </Form> */}
+                                <div style={{width:'300'}}>
+                                    <Typography id="range-slider" gutterBottom>
+                                        Set your Difficulty Range
+                                    </Typography>
+                                    <Slider
+                                        value={diffRange}
+                                        min={400}
+                                        max={6000}
+                                        onChange={handleSlider}
+                                        valueLabelDisplay="auto"
+                                        aria-labelledby="range-slider"
+                                        // getAriaValueText={diffRange}
+                                    />
+                                    <Typography>
+                                        <strong>Your Range :</strong>
+                                        <span>{diffRange[0]}</span>
+                                        <span> - </span>
+                                        <span>{diffRange[1]}</span>
+                                    </Typography>
+                                </div>
+                            <Button onClick={(e)=>setModalOpenDiffiRange(false)}>Set</Button>
                        </ModalBody> </Modal>
                         <br></br> <br></br>  
                     

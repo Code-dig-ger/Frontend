@@ -1,6 +1,8 @@
 import React ,{useState,useEffect} from "react";
 import { BrowserRouter, Switch, Route, useParams, state, Link, Redirect } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-slider/dist/css/bootstrap-slider.css"
 import "./bootstrap-theme/bootstrap.min.cyborg.css";
 import Container from "react-bootstrap/Container";
 import Homepage from "./pages/homepage/homepage.page";
