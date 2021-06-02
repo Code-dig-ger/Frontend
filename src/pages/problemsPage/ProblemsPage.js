@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import update from 'react-addons-update';
 import { event } from 'jquery';
+import {faFolderPlus} from '@fortawesome/free-solid-svg-icons'
 
 
 function ProblemsPage({info,queryStr}) {
@@ -21,6 +22,7 @@ function ProblemsPage({info,queryStr}) {
     const [error, setErrors] = useState(false);
     const [show, setShow] = useState(true);
     const [problems, setProblems] = useState([]);
+    const [playlists, setPlaylists] = useState([]);
     const [modal, setModal] = useState(false);
     const[modalOpenDiffi,setModalOpenDiffi]=useState(false);
     const[modalOpenPlat,setModalOpenPlat]=useState(false);
@@ -103,10 +105,24 @@ function ProblemsPage({info,queryStr}) {
         setRangeRight(event.target.value);
     }
 
-    const toggle = (e) => {
-        e.preventDefault();
+    // const toggle = (e) => {
+    //     e.preventDefault();
+    //     setModal(!modal);
+    //   }
+
+      function toggle2(event) {
+        event.preventDefault();
         setModal(!modal);
-      }
+        // console.log(modal);
+        
+        if(!modal)
+        {
+          // console.log("ppppppp");
+          getPlaylists();
+          // fetchData();
+        }
+        // console.log(playlists);
+      };
     const changePlatformFilter = (event,lev) => {
         // console.log(queryString.stringifyUrl({url: 'https://api.codedigger.tech/problems/', query: {platform: 'F,A',difficulty:'B,E'}}));
         // console.log(queryString.parseUrl('https://foo.bar?foo=b,l&g=k'))
@@ -166,6 +182,41 @@ function ProblemsPage({info,queryStr}) {
         setTagQueries([...tagQueries, [tagText]]);
         setTagText("");
     }
+
+    function addProblem(slug, prob_id, platform){
+        if(!creds){
+          
+          return;
+        }
+        let p;
+        if(platform === "Codeforces"){
+          p = "F";
+        }else if(platform === "Codechef"){
+          p = "C";
+        }else if(platform === "Atcoder"){
+          p = "A";
+        }else if(platform === "UVA"){
+          p = "U";
+        }else if(platform === "SPOJ"){
+          p = "S";
+        }
+    
+        // console.log(slug, prob_id, platform)
+          const result =  fetch (`https://api.codedigger.tech/lists/userlist/add`,{
+              method:"POST",
+              headers:{
+                  "Content-type":"application/json",
+                  "Authorization":`Bearer ${creds.access}`
+              },
+              body:JSON.stringify({
+                  "prob_id": prob_id,
+                  "slug": slug,
+                  "platform": p
+              })
+          }).then(data => data.json())
+            .then(data => data.status === "FAILED"? alert("Problem has already been added!"):alert("Problem is successfully Added to problem list."))
+          
+      }
 
     const changeTagFilter = (event,lev) => {
         // console.log(difficultyFilters[lev]);
@@ -305,6 +356,25 @@ function ProblemsPage({info,queryStr}) {
 	function closeNav() {
 	    document.getElementById("mySidenav").style.width="0";
 	}
+
+    async function getPlaylists()
+  {
+    if(!creds){
+      alert("Please Login to Add Problems to Playlist")
+      return;
+    }
+    const res = await fetch(`https://api.codedigger.tech/lists/userlist/`, {
+            method:"GET",
+            headers:{
+                "Content-Type":"application/json",
+                "Authorization":`Bearer ${creds.access}`
+            }
+            });
+            res
+                .json()
+                .then(res => setPlaylists(res))
+                .catch(error => setErrors(true));
+  }
 
     useEffect(() => {
         getProblems(queryStr)
@@ -497,6 +567,41 @@ function ProblemsPage({info,queryStr}) {
                             {problems.result.map((playlist, i) => {
                                 return(
                                     <>
+                                    {creds? <><span onClick={toggle2} ><FontAwesomeIcon style={{cursor:"pointer", position: 'absolute', right: '18%', height: '30px', fontSize: '20px', color: 'black' }} icon={faFolderPlus} /></span>
+                                    <Modal isOpen={modal} toggle={creds.access? toggle2:null}>
+                                        <ModalHeader toggle={toggle2}>Add to Problem List</ModalHeader>
+                                        <ModalBody>
+                                        </ModalBody>
+                                        <ul>
+                                        
+                                        {playlists.map((list, i) => {
+                                            return(
+                                            <>
+                                                <li>
+                                                <span style={{color:"white", fontSize:"19px"}}>{list.name}</span>
+                                                
+                                                <Button 
+                                                            onClick={() => {addProblem(list.slug, playlist.prob_id, playlist.platform)}}
+                                                            color="success" 
+                                                            style={{padding:"5px 7px", 
+                                                            position:"relative", 
+                                                            left:"20px", 
+                                                            bottom:"0",
+                                                            borderRadius:"10%",
+                                                            marginBottom: '3px'
+                                                            }}>
+                                                            Add
+                                                            </Button>
+                                                            
+                                                </li>
+                                            </>
+                                            )
+                                        })}
+                                        </ul>
+                                        <ModalFooter>
+                                        <Button color="secondary" onClick={toggle2}>Close</Button>
+                                        </ModalFooter>
+                                    </Modal></> : <></>}
                                     
                                     <ul className="list list-inline" style={{marginTop: '-14px'}}>
                                         <li className="d-flex justify-content-between">
