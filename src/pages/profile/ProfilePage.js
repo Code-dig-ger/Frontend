@@ -308,7 +308,7 @@ function ProfilePage({handle}) {
                             {/* Platform Cards Starts */}
 
                             <div className="col-md-8">
-                                <div className="card1 mb-3" >
+                            <div className="card1 mb-3" >
                                     <div className="card-body" style={{color:"black"}}>
                                         <div>
                                             <span><img style={{height:"1rem", width:"6rem", marginRight:"auto", marginLeft: 'auto', display: 'block'}} src={CodeforcesLongImg}></img></span>
@@ -405,7 +405,15 @@ function ProfilePage({handle}) {
                                             
                                         </div>
                                         </div> </div>}
-                                        <hr width="100%" className="mt-4" style={{height: '5px', color: 'black', opacity: '1'}}/>
+                                        {/* <hr width="100%" className="mt-4" style={{height: '5px', color: 'black', opacity: '1'}}/> */}
+                                         
+
+                                </div>
+                            </div>
+                            <div className="card1 mb-3" >
+                                    <div className="card-body" style={{color:"black"}}>
+                                        {/* {console.log(codeforcesDat)} */}
+                                        {/* <hr width="100%" className="mt-4" style={{height: '5px', color: 'black', opacity: '1'}}/> */}
 
                                             {/* Codechef card starts */}
 
@@ -481,8 +489,19 @@ function ProfilePage({handle}) {
                                             
                                         </div>
                                         </div>
-                                        <hr width="100%" className="mt-4" style={{height: '5px', color: 'black', opacity: '1'}}/>
+                                        {/* <hr width="100%" className="mt-4" style={{height: '5px', color: 'black', opacity: '1'}}/> */}
                                          </div>}
+                                        
+                                         
+
+                                </div>
+                            </div>
+                                        {/* {console.log(codeforcesDat)} */}
+                                        {/* <hr width="100%" className="mt-4" style={{height: '5px', color: 'black', opacity: '1'}}/> */}
+
+                                            {/* Codechef card starts */}
+
+                                    
                                         
 
                                         {/* Atcoder Card Starts */}
@@ -491,9 +510,13 @@ function ProfilePage({handle}) {
                                         {/* {console.log(atcoderDat)} */}
 
 
-                                    {atcoderStatus===true?<LoadingProfile/> :
+                                    {atcoderStatus===true? <><div className="card1 mb-3" >
+                                    <div className="card-body" style={{color:"black"}}><LoadingProfile/></div></div></> :
                                     
                                     atcoderDat.status === "FAILED"? <></>:
+
+                                    <div className="card1 mb-3" >
+                                    <div className="card-body" style={{color:"black"}}>
                                         
                                          <div> 
                                               <div>
@@ -548,8 +571,13 @@ function ProfilePage({handle}) {
                                             
                                         </div>
                                         </div> 
-                                        <hr width="100%" className="mt-4" style={{height: '5px', color: 'black', opacity: '1'}}/>
+                                        </div>
+                                        </div> 
+                                        {/* <hr width="100%" className="mt-4" style={{height: '5px', color: 'black', opacity: '1'}}/> */}
                                         </div>}
+                                <div className="card1 mb-3" >
+                                    <div className="card-body" style={{color:"black", padding:'0', minHeight:'0'}}>
+                                        {/* {console.log(codeforcesDat)} */}
                                         
                                     <div className="row">
 
@@ -557,18 +585,20 @@ function ProfilePage({handle}) {
                                         <div className="col-md-6 border-right">
                                                 
                                                 {/* {console.log(spojDat)} */}
-                                            {spojStatus===true?<LoadingProfile/> :
+                                            {spojStatus===true? <div className="card1 mb-3" >
+                                    <div className="card-body" style={{color:"black"}}><LoadingProfile/></div></div> :
                                     
                                                 spojDat.status === "FAILED"? <></>:   
+                                                
                                                 
                                                 <div> 
                                                     <div>
                                                     <span><img style={{height:"1rem", width:"6rem", marginRight:"auto", marginLeft: 'auto', display: 'block', marginBottom: '0px'}} src={SpojLongImg}></img></span>
-                                                </div>
-                                                <div style={{marginTop:"20px"}}>
-                                                    <div>Points : {spojDat.result.points}</div>
-                                                    <div>Solved : {spojDat.result.solvedCount}</div>
-                                                </div>
+                                                    </div>
+                                                    <div style={{marginTop:"20px"}}>
+                                                        <div>Points : {spojDat.result.points}</div>
+                                                        <div>Solved : {spojDat.result.solvedCount}</div>
+                                                    </div>
                                             
                                             <div style={{display:"flex", alignItems:"center", marginTop:"10px", justifyContent:"space-around"}}>
                                             <div style={{marginRight: "40px", marginLeft: '20px'}}>

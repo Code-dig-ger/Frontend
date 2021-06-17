@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react';
 import Loading from '../logreg/loading.jsx';
 import Navbar from '../../components/Header/Navbar';
 import FooterSmall from '../../components/Footer/FooterSmall';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input} from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Collapse} from 'reactstrap';
 import {Form,Row,Col} from 'react-bootstrap';
 import queryString from 'query-string';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
@@ -17,6 +17,7 @@ import Slider from '@material-ui/core/Slider';
 import update from 'react-addons-update';
 import { event } from 'jquery';
 import {faFolderPlus} from '@fortawesome/free-solid-svg-icons'
+import AccordionCom from '../../components/problems/AccordionCom';
 
 
 function ProblemsPage({info,queryStr}) {
@@ -595,11 +596,16 @@ function ProblemsPage({info,queryStr}) {
                             </div>
                         </div>
                         <div className="row">
-                            
+                            {console.log(problems.result)}
                             {problems.result.map((playlist, i) => {
+                                // console.log(playlist.name)
                                 return(
                                     <>
-                                    {creds? <><span onClick={toggle2} ><FontAwesomeIcon style={{cursor:"pointer", position: 'absolute', right: '18%', height: '30px', fontSize: '20px', color: 'black' }} icon={faFolderPlus} /></span>
+                                    <div className="col-md-6" style={{marginBottom:'1rem'}}>
+                                    <AccordionCom problem={playlist}/>
+                                    </div>
+                                    
+                                    {/* {creds? <><span onClick={toggle2} ><FontAwesomeIcon style={{cursor:"pointer", position: 'absolute', right: '18%', height: '30px', fontSize: '20px', color: 'black' }} icon={faFolderPlus} /></span>
                                     <Modal isOpen={modal} toggle={creds.access? toggle2:null}>
                                         <ModalHeader toggle={toggle2}>Add to Problem List</ModalHeader>
                                         <ModalBody>
@@ -608,8 +614,8 @@ function ProblemsPage({info,queryStr}) {
                                         
                                         {playlists.map((list, i) => {
                                             return(
-                                            <>
-                                                <li>
+                                            <> */}
+                                                {/* <li>
                                                 <span style={{color:"white", fontSize:"19px"}}>{list.name}</span>
                                                 
                                                 <Button 
@@ -691,7 +697,7 @@ function ProblemsPage({info,queryStr}) {
                                         </li>
                                     </ul>
                                 
-                            
+                             */}
                                     </>
                                 )
                             })}
