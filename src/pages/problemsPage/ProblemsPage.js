@@ -407,7 +407,7 @@ function ProblemsPage({info,queryStr}) {
                     }}
                 >Problems</h3>
                 <Button  style={{position:'absolute', bottom:'77vh', right:'6vw'}} onClick={openNav}>Filter</Button>
-                
+                <Button  style={{position:'absolute', bottom:'77vh', right:'12vw'}} onClick={() => window.location = "/problems"}>Refresh</Button>
                 <div id="mySidenav" className="sidenav">
 		        
          
