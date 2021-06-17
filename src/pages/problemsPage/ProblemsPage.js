@@ -35,6 +35,8 @@ function ProblemsPage({info,queryStr}) {
 
     const [searchText, setSearchText] = useState();
     const [tagText, setTagText] = useState();
+    const [problemid, setProblemListId] = useState();
+    const [problemplatform, setProblemListPlatform] = useState();
 
 
     const platforms=[
@@ -125,7 +127,7 @@ function ProblemsPage({info,queryStr}) {
       function toggle2(event) {
         event.preventDefault();
         setModal(!modal);
-        // console.log(modal);
+        // console.log(id, platform);
         
         if(!modal)
         {
@@ -195,12 +197,13 @@ function ProblemsPage({info,queryStr}) {
         setTagText("");
     }
 
-    function addProblem(slug, prob_id, platform){
+    function addProblem(slug){
         if(!creds){
           
           return;
         }
         let p;
+        let platform = problemplatform;
         if(platform === "Codeforces"){
           p = "F";
         }else if(platform === "Codechef"){
@@ -221,7 +224,7 @@ function ProblemsPage({info,queryStr}) {
                   "Authorization":`Bearer ${creds.access}`
               },
               body:JSON.stringify({
-                  "prob_id": prob_id,
+                  "prob_id": problemid,
                   "slug": slug,
                   "platform": p
               })
@@ -596,16 +599,7 @@ function ProblemsPage({info,queryStr}) {
                             </div>
                         </div>
                         <div className="row">
-                            {console.log(problems.result)}
-                            {problems.result.map((playlist, i) => {
-                                // console.log(playlist.name)
-                                return(
-                                    <>
-                                    <div className="col-md-6" style={{marginBottom:'1rem'}}>
-                                    <AccordionCom problem={playlist}/>
-                                    </div>
-                                    
-                                    {/* {creds? <><span onClick={toggle2} ><FontAwesomeIcon style={{cursor:"pointer", position: 'absolute', right: '18%', height: '30px', fontSize: '20px', color: 'black' }} icon={faFolderPlus} /></span>
+                        {creds? <>
                                     <Modal isOpen={modal} toggle={creds.access? toggle2:null}>
                                         <ModalHeader toggle={toggle2}>Add to Problem List</ModalHeader>
                                         <ModalBody>
@@ -614,12 +608,12 @@ function ProblemsPage({info,queryStr}) {
                                         
                                         {playlists.map((list, i) => {
                                             return(
-                                            <> */}
-                                                {/* <li>
+                                            <>
+                                                 <li>
                                                 <span style={{color:"white", fontSize:"19px"}}>{list.name}</span>
                                                 
                                                 <Button 
-                                                            onClick={() => {addProblem(list.slug, playlist.prob_id, playlist.platform)}}
+                                                            onClick={() => {addProblem(list.slug)}}
                                                             color="success" 
                                                             style={{padding:"5px 7px", 
                                                             position:"relative", 
@@ -640,8 +634,29 @@ function ProblemsPage({info,queryStr}) {
                                         <Button color="secondary" onClick={toggle2}>Close</Button>
                                         </ModalFooter>
                                     </Modal></> : <></>}
+                            {console.log(problems.result)}
+                            {problems.result.map((playlist, i) => {
+                                
+                                return(
+                                    <>
                                     
-                                    <ul className="list list-inline" style={{marginTop: '-14px'}}>
+                                    <div className="col-md-6" style={{marginBottom:'1rem'}}>
+                                    <AccordionCom problem={playlist}/>
+                                    <span onClick={() => {
+                                        setModal(!modal);
+                                    if(!modal){
+                                        getPlaylists()
+                                    }    
+                                        
+                                    
+                                    setProblemListId(playlist.prob_id);
+                                    setProblemListPlatform(playlist.platform);
+                                    }} ><FontAwesomeIcon style={{cursor:"pointer", position: 'absolute', right: '30%', height: '30px', fontSize: '20px', color: 'black', zIndex: '100', top: "30%" }} icon={faFolderPlus} /></span>
+                                    </div>
+                                    
+                                    
+                                    
+                                    {/*<ul className="list list-inline" style={{marginTop: '-14px'}}>
                                         <li className="d-flex justify-content-between">
                                             <div className="d-flex flex-row align-items-center">
                                                 <div className="ml-2">
