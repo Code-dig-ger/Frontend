@@ -22,7 +22,7 @@
     "css-loader": "^5.2.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.6.0",
-    "node-sass": "^5.0.0",
+    "node-sass": "^6.0.1",
     "query-string": "^6.14.1",
     "react": "^16.14.0",
     "react-addons-update": "^15.6.3",
