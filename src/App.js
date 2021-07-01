@@ -31,6 +31,7 @@ import UpdateProfile from './components/profile/UpdateProfile'
 import AboutUsPage from './pages/AboutUsPage/AboutUsPage'
 import PrivacyPolicy from './pages/ExtraInfoPages/PrivacyPolicy'
 import TermsAndConditions from './pages/ExtraInfoPages/TermsAndConditions'
+import ContestPage from './pages/contestsPage/ContestPage';
 
 
 //react context
@@ -88,6 +89,14 @@ const App = () => {
     );
   }
 
+  const ContestPage1 = ({match,location}) => {
+    // const info = queryString.parse(location.search);
+
+    return(
+      <ContestPage queryStr={location.search} />
+    )
+  }
+
   const ProblemsPage1 = ({match,location}) => {
     // console.log(location.search);
     const info=queryString.parse(location.search);
@@ -139,8 +148,9 @@ const App = () => {
             <Route exact path="/privacy" component={PrivacyPolicy}/>
             <Route exact path="/terms" component={TermsAndConditions}/>
             
-            <Link to="/:wise/:type/:slug?page=pageNo" component={LaddersQuestionPage1}/>
+            <Link to="/contests/?difficulty=diff&platforms=plats" component={ContestPage1}/>
             <Link to="/problems/?difficulty=diff&platforms=plats" component={ProblemsPage1}/>
+            <Link to="/:wise/:type/:slug?page=pageNo" component={LaddersQuestionPage1}/>
             
             
              
