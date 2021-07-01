@@ -437,7 +437,7 @@ function ProblemsPage({info,queryStr}) {
                                 </div></Form>
                                 <Button onClick={(e)=>setModalOpenDiffi(false)}>Set</Button>
                             </ModalBody></Modal>
-                        
+                            <br></br><br></br>
                             <Button className="filterHeading" onClick={(e)=>setOpenTags(!openTags)}>Tags</Button>
                              <Modal isOpen={openTags}><ModalBody>
                              <h2 style={{marginBottom:'2rem'}}>Tags</h2>
