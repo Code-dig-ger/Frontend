@@ -95,6 +95,10 @@ if(creds){
               </DropdownMenu>
             </UncontrolledDropdown>
 
+            <NavItem style={{color: 'white'}}>
+              <NavLink style={{color: 'white'}} href="/contest">Contests</NavLink>
+            </NavItem>
+
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret style={{color: 'white'}}>
                 Upsolve
