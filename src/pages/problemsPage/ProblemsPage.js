@@ -18,9 +18,52 @@ import update from 'react-addons-update';
 import { event } from 'jquery';
 import {faFolderPlus} from '@fortawesome/free-solid-svg-icons'
 import AccordionCom from '../../components/problems/AccordionCom';
+import Switch from '@material-ui/core/Switch';
+import { withStyles } from '@material-ui/core/styles';
+
+const AntSwitch = withStyles((theme) => ({
+    root: {
+    //   width: 28,
+    //   height: 16,
+    //   padding: 0,
+    //   display: 'flex',
+    float:'right'
+    },
+    switchBase: {
+    //   padding: 2,
+      color: 'blue',
+      '&$checked': {
+        transform: 'translateX(20px)',
+        color: 'white',
+        '& + $track': {
+          opacity: 1,
+          backgroundColor: 'blue',
+          borderColor: 'black',
+        },
+      },
+    },
+    thumb: {
+    //   width: 12,
+    //   height: 12,
+      boxShadow: 'none',
+    },
+    track: {
+    //   border: `1px solid ${theme.palette.grey[500]}`,
+    //   borderRadius: 16 / 2,
+    //   opacity: 1,
+      backgroundColor: 'white',
+    },
+    checked: {},
+  }))(Switch);
+
 
 
 function ProblemsPage({info,queryStr}) {
+    console.log("qs", queryStr);
+
+    const queryDefault = queryString.parse(queryStr, {parseBooleans: true});
+
+    console.log(queryDefault);
 
     const creds= JSON.parse(localStorage.getItem("creds"));
     const [error, setErrors] = useState(false);
@@ -57,23 +100,32 @@ function ProblemsPage({info,queryStr}) {
 
     const defaultTags = ["string","dp","math","combinatorics", "Number Theory", "interactive","Binary Search","greedy","graph"];
 
-    const [rangeLeft,setRangeLeft]=useState(0);
-    const [rangeRight,setRangeRight]=useState(0);
+    const [rangeLeft,setRangeLeft]=useState(queryDefault.range_l ? queryDefault.range_l : 0);
+    const [rangeRight,setRangeRight]=useState(queryDefault.range_r ? queryDefault.range_r : 0);
 
-    const [displayDiff, setDisplayDiff] = useState({
-        values:[
-            false,false,false,false,false,false
-    ]})
+    const [displayDiff, setDisplayDiff] = useState(
+        queryDefault.difficulty ? { values: [
+            queryDefault.difficulty.includes("B"), queryDefault.difficulty.includes("E"),queryDefault.difficulty.includes("M"),queryDefault.difficulty.includes("H"),queryDefault.difficulty.includes("S"),queryDefault.difficulty.includes("C")
+        ] } : {values:[false,false,false,false,false,false]}
+    )
 
-    const [displayPlat, setDisplayPlat] = useState({
-        values:[
-        false,false,false,false,false
-    ]})
+    const [displayPlat, setDisplayPlat] = useState(
+        queryDefault.platform ? {
+            values:[
+                queryDefault.platform.includes("C"),queryDefault.platform.includes("F"),queryDefault.platform.includes("A"),queryDefault.platform.includes("S"),queryDefault.platform.includes("U")
+            // false,false,false,false,false
+        ]} : {values:[false,false,false,false,false]}
+    )
 
-    const [displayTags, setDisplayTags] = useState({
-        values:[
-        false,false,false,false,false,false,false,false,false
-    ]})
+    const [displayTags, setDisplayTags] = useState(
+        queryDefault.tags ? {
+            values:[
+            queryDefault.tags.includes("string"),queryDefault.tags.includes("dp"),queryDefault.tags.includes("math"),queryDefault.tags.includes("combinatorics"),queryDefault.tags.includes("Number Theory"),queryDefault.tags.includes("interactive"),queryDefault.tags.includes("Binary Search"),queryDefault.tags.includes("greedy"),queryDefault.tags.includes("graph")
+        ]} : {
+            values:[
+            false,false,false,false,false,false,false,false,false
+        ]}
+    )
 
 
     const platformFilters = [
@@ -92,15 +144,18 @@ function ProblemsPage({info,queryStr}) {
         tags:[]
     });
 
+    const [mentorr,setMentorr] = useState(queryDefault.mentor ? queryDefault.mentor : false);
+    const [mentorrCount,setMentorrCount] = useState(queryDefault.mentor ? true : false);
 
-    const[platformQueries, setPlatformQueries]=useState([]);
-    const[difficultyQueries, setDifficultyQueries]=useState([]);
-    const[tagQueries, setTagQueries]=useState([]);
+
+    const[platformQueries, setPlatformQueries]=useState(queryDefault.platform ? queryDefault.platform.split(',') : []);
+    const[difficultyQueries, setDifficultyQueries]=useState(queryDefault.difficulty ? queryDefault.difficulty.split(',') : []);
+    const[tagQueries, setTagQueries]=useState(queryDefault.tags ? queryDefault.tags.split(','):[]);
     // var difficultyQueries=[];
     // var TagQueries=[];
 
-    const [diffRange, setDiffRange] = useState([1000, 3200]);
-    const [sliderChange,setSliderChange] = useState(false);
+    const [diffRange, setDiffRange] = useState( queryDefault.range_l && queryDefault.range_r ? [queryDefault.range_l, queryDefault.range_r] : queryDefault.range_l ? [queryDefault.range_l,3200] : queryDefault.range_r ? [0,queryDefault.range_r] : [100,3200]);
+    const [sliderChange,setSliderChange] = useState(queryDefault.range_l || queryDefault.range_r ? true:false);
 
     const handleSlider = (event, newValue) => {
         setSliderChange(true);
@@ -320,6 +375,12 @@ function ProblemsPage({info,queryStr}) {
         
     }
 
+    const mentorrChange = (e) => {
+        setMentorr(!mentorr);
+        setMentorrCount(true);
+    }
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
         // console.log(queries);
@@ -330,31 +391,68 @@ function ProblemsPage({info,queryStr}) {
         // console.log(tagQueries);
         if(!sliderChange)
         {
-            const queryy = {
-                difficulty:JSON.stringify(difficultyQueries).replace(/"/g,'').replace(/]|[[]/g, ''),
-                platform:JSON.stringify(platformQueries).replace(/"/g,'').replace(/]|[[]/g, ''),
-                tags:JSON.stringify(tagQueries).replace(/"/g,'').replace(/]|[[]/g, '')
+            if(mentorrCount)
+            {
+                const queryy = {
+                    difficulty:JSON.stringify(difficultyQueries).replace(/"/g,'').replace(/]|[[]/g, ''),
+                    platform:JSON.stringify(platformQueries).replace(/"/g,'').replace(/]|[[]/g, ''),
+                    tags:JSON.stringify(tagQueries).replace(/"/g,'').replace(/]|[[]/g, ''),
+                    mentor:JSON.stringify(mentorr)
+                }
+    
+                const finalQ = queryString.stringify(queryy,{skipEmptyString:true});
+                const urlTo = `/problems/?${finalQ}`;
+                // console.log(urlTo);
+                window.location.href=urlTo;
             }
-
-            const finalQ = queryString.stringify(queryy,{skipEmptyString:true});
-            const urlTo = `/problems/?${finalQ}`;
-            // console.log(urlTo);
-            window.location.href=urlTo;
+            else
+            {
+                const queryy = {
+                    difficulty:JSON.stringify(difficultyQueries).replace(/"/g,'').replace(/]|[[]/g, ''),
+                    platform:JSON.stringify(platformQueries).replace(/"/g,'').replace(/]|[[]/g, ''),
+                    tags:JSON.stringify(tagQueries).replace(/"/g,'').replace(/]|[[]/g, '')
+                }
+    
+                const finalQ = queryString.stringify(queryy,{skipEmptyString:true});
+                const urlTo = `/problems/?${finalQ}`;
+                // console.log(urlTo);
+                window.location.href=urlTo;
+            }
         }
         else
         {
-            const queryy = {
-                difficulty:JSON.stringify(difficultyQueries).replace(/"/g,'').replace(/]|[[]/g, ''),
-                platform:JSON.stringify(platformQueries).replace(/"/g,'').replace(/]|[[]/g, ''),
-                tags:JSON.stringify(tagQueries).replace(/"/g,'').replace(/]|[[]/g, ''),
-                range_l:JSON.stringify(diffRange[0]).replace(/"/g,'').replace(/]|[[]/g, ''),
-                range_r:JSON.stringify(diffRange[1]).replace(/"/g,'').replace(/]|[[]/g, '')
+            if(mentorrCount)
+            {
+                const queryy = {
+                    difficulty:JSON.stringify(difficultyQueries).replace(/"/g,'').replace(/]|[[]/g, ''),
+                    platform:JSON.stringify(platformQueries).replace(/"/g,'').replace(/]|[[]/g, ''),
+                    tags:JSON.stringify(tagQueries).replace(/"/g,'').replace(/]|[[]/g, ''),
+                    range_l:JSON.stringify(diffRange[0]).replace(/"/g,'').replace(/]|[[]/g, ''),
+                    range_r:JSON.stringify(diffRange[1]).replace(/"/g,'').replace(/]|[[]/g, ''),
+                    mentor:JSON.stringify(mentorr)
+                }
+    
+                const finalQ = queryString.stringify(queryy,{skipEmptyString:true});
+                const urlTo = `/problems/?${finalQ}`;
+                // console.log(urlTo);
+                window.location.href=urlTo;
             }
-
-            const finalQ = queryString.stringify(queryy,{skipEmptyString:true});
-            const urlTo = `/problems/?${finalQ}`;
-            // console.log(urlTo);
-            window.location.href=urlTo;
+            else
+            {
+                const queryy = {
+                    difficulty:JSON.stringify(difficultyQueries).replace(/"/g,'').replace(/]|[[]/g, ''),
+                    platform:JSON.stringify(platformQueries).replace(/"/g,'').replace(/]|[[]/g, ''),
+                    tags:JSON.stringify(tagQueries).replace(/"/g,'').replace(/]|[[]/g, ''),
+                    range_l:JSON.stringify(diffRange[0]).replace(/"/g,'').replace(/]|[[]/g, ''),
+                    range_r:JSON.stringify(diffRange[1]).replace(/"/g,'').replace(/]|[[]/g, '')
+                }
+    
+                const finalQ = queryString.stringify(queryy,{skipEmptyString:true});
+                const urlTo = `/problems/?${finalQ}`;
+                // console.log(urlTo);
+                window.location.href=urlTo;
+            }
+            
         }
     }
 
@@ -366,7 +464,7 @@ function ProblemsPage({info,queryStr}) {
 
 
     function openNav() {
-	    document.getElementById("mySidenav").style.width = "200px";
+	    document.getElementById("mySidenav").style.width = "250px";
 	}
 	function closeNav() {
 	    document.getElementById("mySidenav").style.width="0";
@@ -410,7 +508,7 @@ function ProblemsPage({info,queryStr}) {
                     }}
                 >Problems</h3>
                 <Button  style={{position:'absolute', bottom:'77vh', right:'6vw'}} onClick={openNav}>Filter</Button>
-                <Button  style={{position:'absolute', bottom:'77vh', right:'12vw'}} onClick={() => window.location = "/problems"}>Refresh</Button>
+                <Button  style={{position:'absolute', bottom:'77vh', right:'12vw'}} onClick={() => window.location.reload()}>Refresh</Button>
                 <div id="mySidenav" className="sidenav">
 		        
          
@@ -569,6 +667,24 @@ function ProblemsPage({info,queryStr}) {
                        </ModalBody> </Modal>
                         <br></br> <br></br>  
                     
+                        <div className="filterHeading" style={{
+                                marginTop:'1rem',
+                                fontSize:'1.2rem',
+                                marginBottom:'1rem'
+                            }}>
+                                Solved By Mentor: 
+                                <AntSwitch
+                                    checked={mentorr} 
+                                    onChange={mentorrChange}
+                                />
+                                {/* <Switch
+                                    // checked={state.checkedB}
+                                    // onChange={handleChange}
+                                    color="default"
+                                    name="checkedB"
+                                    inputProps={{ 'aria-label': 'checkbox with default color' }}
+                                /> */}
+                            </div>
                         <Button style={{padding:'6px',marginLeft:'12px',backgroundColor:'forestgreen'}}onClick={handleSubmit}>Apply</Button>
                         <Button style={{padding:'6px',marginLeft:'5px',backgroundColor:'firebrick'}} onClick={closeNav}>Close</Button>
 		</div>

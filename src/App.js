@@ -100,7 +100,6 @@ const App = () => {
   const ProblemsPage1 = ({match,location}) => {
     // console.log(location.search);
     const info=queryString.parse(location.search);
-    // console.log(info);
     // console.log(JSON.stringify(match.params));
     return(
       <ProblemsPage filters={info} queryStr={location.search}/>

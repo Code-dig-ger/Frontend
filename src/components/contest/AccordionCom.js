@@ -7,6 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import Button from '@material-ui/core/Button'
 import Box from '@material-ui/core/Box'
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,7 +27,18 @@ export default function SimpleAccordion({problem}) {
 
   return (
     <div className={classes.root}>
-      <Accordion>
+      <Card>
+      <div style={{display:'flex',padding:'1rem', width:'100%', alignItems:'center', justifyContent:'space-between'}}>
+            <Typography className={classes.heading}>{problem.name}</Typography>
+            <Button variant="contained" target="blank" href={`https://codeforces.com/contestRegistration/${problem.contestId}/virtual/true`}>Solve</Button>
+          </div>
+          <CardContent>
+          <Typography>
+            <strong>Duration</strong> : {problem.duration / 60 / 60} hours
+          </Typography>
+          </CardContent>
+      </Card>
+      {/* <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
@@ -41,17 +54,8 @@ export default function SimpleAccordion({problem}) {
           <Typography>
             <strong>Duration</strong> : {problem.duration / 60 / 60} hours
           </Typography>
-          {/* <Typography>
-            <strong>Platform</strong> : {problem.platform}
-          </Typography>
-          <Typography>
-            <strong>Tags</strong> : {JSON.stringify(problem.tags).replace(/['"]+/g, ' ').replace(/\[/g, '').replace(/]/g, '')}
-          </Typography>
-          <Typography>
-            <strong>Difficulty</strong> : {problem.difficulty}
-          </Typography> */}
         </AccordionDetails>
-      </Accordion>
+      </Accordion> */}
     </div>
   );
 }

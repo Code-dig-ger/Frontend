@@ -59,6 +59,33 @@ const AntSwitch = withStyles((theme) => ({
 
 function ContestPage({info,queryStr}) {
 
+    
+    const [datap,setDatap] = useState(queryStr.replace(/;/g,"&"));
+    
+    const [queryDefault, setQueryDefault] = useState(queryString.parse(datap, {parseBooleans: true}, {arrayFormat: 'separator', arrayFormatSeparator: ';'}));
+    // useEffect(() => {
+
+    //     setQueryDefault()
+
+    //         console.log("queryyy",queryDefault);
+    //         setGym(queryDefault.gym ? queryDefault.gym : false);
+    //         setGymCount(queryDefault.gym ? true : false);
+    //         setMentorr(queryDefault.mentorr ? queryDefault.mentorr : false);
+    //         setMentorrCount(queryDefault.mentorr ? true : false);
+    //         setDifficultyQueries(queryDefault.divs ? queryDefault.divs.split(',') : []);
+    //         setDisplayDiff(
+    //             queryDefault.divs ? { values: [
+    //                 queryDefault.divs.includes("Div. 1"), queryDefault.divs.includes("Div. 2"),queryDefault.divs.includes("Div. 3"),queryDefault.divs.includes("Div. 4"),queryDefault.divs.includes("Educational"),queryDefault.divs.includes("Global")
+    //             ] } : {values:[false,false,false,false,false,false]}
+    //         );
+        
+    // }, [datap])
+
+    console.log(queryStr)
+    console.log(datap);
+    console.log(queryDefault)
+
+
     const creds= JSON.parse(localStorage.getItem("creds"));
     const [error, setErrors] = useState(false);
     const [show, setShow] = useState(true);
@@ -97,10 +124,11 @@ function ContestPage({info,queryStr}) {
     const [rangeLeft,setRangeLeft]=useState(0);
     const [rangeRight,setRangeRight]=useState(0);
 
-    const [displayDiff, setDisplayDiff] = useState({
-        values:[
-            false,false,false,false,false,false
-    ]})
+    const [displayDiff, setDisplayDiff] = useState(
+        queryDefault.divs ? { values: [
+            queryDefault.divs.includes("Div. 1"), queryDefault.divs.includes("Div. 2"),queryDefault.divs.includes("Div. 3"),queryDefault.divs.includes("Div. 4"),queryDefault.divs.includes("Educational"),queryDefault.divs.includes("Global")
+        ] } : {values:[false,false,false,false,false,false]}
+    )
 
     const [displayPlat, setDisplayPlat] = useState({
         values:[
@@ -118,7 +146,7 @@ function ContestPage({info,queryStr}) {
     ];
 
     const difficultyFilters = [
-        'B','E','M','H','S','C'
+        'Div. 1','Div. 2','Div. 3','Div. 4','Educational','Global'
     ]
 
     const [queries,setQueries]=useState({
@@ -129,9 +157,18 @@ function ContestPage({info,queryStr}) {
         tags:[]
     });
 
+    console.log(queryDefault.gym);
+
+    const [gym,setGym] = useState(queryDefault.gym ? queryDefault.gym : false);
+    const [gymCount,setGymCount] = useState(queryDefault.gym ? true : false);
+    const [mentorr,setMentorr] = useState(queryDefault.mentor ? queryDefault.mentor : false);
+    const [mentorrCount,setMentorrCount] = useState(queryDefault.mentor ? true : false);
+
+    console.log(gym);
+
 
     const[platformQueries, setPlatformQueries]=useState([]);
-    const[difficultyQueries, setDifficultyQueries]=useState([]);
+    const[difficultyQueries, setDifficultyQueries]=useState(queryDefault.divs ? queryDefault.divs.split(',') : []);
     const[tagQueries, setTagQueries]=useState([]);
     // var difficultyQueries=[];
     // var TagQueries=[];
@@ -316,7 +353,7 @@ function ContestPage({info,queryStr}) {
         
     }
 
-    const [isDiffChange,setIsDiffChange] = useState(false);
+    const [isDiffChange,setIsDiffChange] = useState(queryDefault.divs ? true: false);
 
     const changeDifficultyFilter = (event,lev) => {
         console.log(difficultyLevels[lev]);
@@ -347,6 +384,9 @@ function ContestPage({info,queryStr}) {
             //     }
             // });
             // queries.difficulty.splice(y,1);
+            console.log(difficultyQueries);
+            console.log(difficultyFilters);
+            console.log(lev);
             const newList = difficultyQueries.filter((item) => item != difficultyFilters[lev]);
             setDifficultyQueries(newList);
             setDisplayDiff(update(displayDiff, {
@@ -380,7 +420,7 @@ function ContestPage({info,queryStr}) {
 
         var urlTo="/contests?";
 
-        if(isDiffChange)
+        if(isDiffChange && difficultyQueries.length > 0)
         {
             urlTo = urlTo + `divs=${JSON.stringify(difficultyQueries).replace(/"/g,'').replace(/]|[[]/g, '')}`;
         }
@@ -441,7 +481,7 @@ function ContestPage({info,queryStr}) {
 
     const handleSearch = (e) => {
         e.preventDefault();
-        const searchUrl = `/problems/?search=${searchText}`;
+        const searchUrl = `/contest/?divs=${searchText}`;
         window.location.href=searchUrl;
     }
 
@@ -492,10 +532,7 @@ function ContestPage({info,queryStr}) {
         .catch(error => setErrors(true));
     },[])
 
-    const [gym,setGym] = useState(false);
-    const [gymCount,setGymCount] = useState(false);
-    const [mentorr,setMentorr] = useState(false);
-    const [mentorrCount,setMentorrCount] = useState(false);
+    
 
     const gymChange = (e) => {
         setGym(!gym);
@@ -519,7 +556,7 @@ function ContestPage({info,queryStr}) {
                     }}
                 >Contests</h3>
                 <Button  style={{position:'absolute', bottom:'77vh', right:'6vw'}} onClick={openNav}>Filter</Button>
-                <Button  style={{position:'absolute', bottom:'77vh', right:'12vw'}} onClick={() => window.location = "/contests"}>Refresh</Button>
+                <Button  style={{position:'absolute', bottom:'77vh', right:'12vw'}} onClick={() => window.location.reload()}>Refresh</Button>
                 <div id="mySidenav1" className="sidenav1">
 		        
          
