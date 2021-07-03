@@ -787,7 +787,7 @@ function ContestPage({info,queryStr}) {
                                     
                                     <div className="col-md-6" style={{marginBottom:'1rem'}}>
                                     <AccordionCom problem={playlist}/>
-                                    <span onClick={() => {
+                                    {/* <span onClick={() => {
                                         setModal(!modal);
                                     if(!modal){
                                         getPlaylists()
@@ -796,7 +796,7 @@ function ContestPage({info,queryStr}) {
                                     
                                     setProblemListId(playlist.prob_id);
                                     setProblemListPlatform(playlist.platform);
-                                    }} ><FontAwesomeIcon style={{cursor:"pointer", position: 'absolute', right: '30%', height: '30px', fontSize: '20px', color: 'black', zIndex: '100', top: "30%" }} icon={faFolderPlus} /></span>
+                                    }} ><FontAwesomeIcon style={{cursor:"pointer", position: 'absolute', right: '30%', height: '30px', fontSize: '20px', color: 'black', zIndex: '100', top: "30%" }} icon={faFolderPlus} /></span> */}
                                     </div>
                                     
                                     
