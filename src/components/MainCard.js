@@ -113,14 +113,17 @@ const MainCard = (props) => {
           {playlists.map((list) => {
             return(
               <>
-                <li>
+                <li style={{
+                                                     marginBottom:'10px'
+                                                 }}>
                   <span style={{color:"white", fontSize:"19px"}}>{list.name}</span>
                   <Button 
                             onClick={() => {addProblem(list.slug, props.ProblemData.prob_id, props.ProblemData.platform)}}
                             color="success" 
                             style={{padding:"5px 7px", 
                             position:"relative", 
-                            left:"20px", 
+                            float:"right",
+                            right:"20px", 
                             bottom:"0",
                             borderRadius:"10%"}}>
                               Add
@@ -172,14 +175,17 @@ const MainCard = (props) => {
           {playlists.map((list) => {
             return(
               <>
-                <li>
+                <li style={{
+                                                     marginBottom:'10px'
+                                                 }}>
                   <span style={{color:"white", fontSize:"19px"}}>{list.name}</span>
                   <Button 
                             onClick={() => {addProblem(list.slug, props.ProblemData.prob_id, props.ProblemData.platform)}}
                             color="success" 
                             style={{padding:"5px 7px", 
                             position:"relative", 
-                            left:"20px", 
+                            float:"right",
+                            right:"20px", 
                             bottom:"0",
                             borderRadius:"10%",
                             marginBottom: '3px'
@@ -239,14 +245,17 @@ const MainCard = (props) => {
           {playlists.map((list) => {
             return(
               <>
-                <li>
+                <li style={{
+                                                     marginBottom:'10px'
+                                                 }}>
                   <span style={{color:"white", fontSize:"19px"}}>{list.name}</span>
                   <Button 
                             onClick={() => {addProblem(list.slug, props.ProblemData.prob_id, props.ProblemData.platform)}}
                             color="success" 
                             style={{padding:"5px 7px", 
                             position:"relative", 
-                            left:"20px", 
+                            float:"right",
+                            right:"20px",  
                             bottom:"0",
                             borderRadius:"10%"}}>
                               Add
@@ -300,14 +309,17 @@ const MainCard = (props) => {
           {playlists.map((list) => {
             return(
               <>
-                <li>
+                <li style={{
+                                                     marginBottom:'10px'
+                                                 }}>
                   <span style={{color:"white", fontSize:"19px"}}>{list.name}</span>
                   <Button 
                             onClick={() => {addProblem(list.slug, props.ProblemData.prob_id, props.ProblemData.platform)}}
                             color="success" 
                             style={{padding:"5px 7px", 
                             position:"relative", 
-                            left:"20px", 
+                            float:"right",
+                            right:"20px",  
                             bottom:"0",
                             borderRadius:"10%"}}>
                               Add
@@ -359,14 +371,17 @@ const MainCard = (props) => {
           {playlists.map((list) => {
             return(
               <>
-                <li>
+                <li style={{
+                                                     marginBottom:'10px'
+                                                 }}>
                   <span style={{color:"white", fontSize:"19px"}}>{list.name}</span>
                   <Button 
                             onClick={() => {addProblem(list.slug, props.ProblemData.prob_id, props.ProblemData.platform)}}
                             color="success" 
                             style={{padding:"5px 7px", 
                             position:"relative", 
-                            left:"20px", 
+                            float:"right",
+                            right:"20px", 
                             bottom:"0",
                             borderRadius:"10%"}}>
                               Add

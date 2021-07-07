@@ -725,15 +725,18 @@ function ProblemsPage({info,queryStr}) {
                                         {playlists.map((list, i) => {
                                             return(
                                             <>
-                                                 <li>
+                                                 <li style={{
+                                                     marginBottom:'10px'
+                                                 }}>
                                                 <span style={{color:"white", fontSize:"19px"}}>{list.name}</span>
                                                 
                                                 <Button 
                                                             onClick={() => {addProblem(list.slug)}}
                                                             color="success" 
                                                             style={{padding:"5px 7px", 
-                                                            position:"relative", 
-                                                            left:"20px", 
+                                                            position:"relative",
+                                                            float:"right", 
+                                                            right:"40px", 
                                                             bottom:"0",
                                                             borderRadius:"10%",
                                                             marginBottom: '3px'
