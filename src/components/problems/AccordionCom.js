@@ -39,16 +39,17 @@ export default function SimpleAccordion({problem}) {
         </AccordionSummary>
         <AccordionDetails style={{flexDirection:'column'}}>
           <Typography>
-            <strong>Rating</strong> : {problem.rating}
+            <strong>Rating</strong> : {problem.rating ? problem.rating : "NA"}
           </Typography>
           <Typography>
-            <strong>Platform</strong> : {problem.platform}
+            <strong>Platform</strong> : {problem.platform ? problem.platform : "NA"}
           </Typography>
           <Typography>
-            <strong>Tags</strong> : {JSON.stringify(problem.tags).replace(/['"]+/g, ' ').replace(/\[/g, '').replace(/]/g, '')}
+            {console.log(problem.tags)}
+            <strong>Tags</strong> : {problem.tags ? JSON.stringify(problem.tags).replace(/['"]+/g, ' ').replace(/\[/g, '').replace(/]/g, '') : "NA"}
           </Typography>
           <Typography>
-            <strong>Difficulty</strong> : {problem.difficulty}
+            <strong>Difficulty</strong> : {problem.difficulty ? problem.difficulty : "NA"}
           </Typography>
         </AccordionDetails>
       </Accordion>
