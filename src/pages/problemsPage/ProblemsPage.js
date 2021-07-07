@@ -719,7 +719,7 @@ function ProblemsPage({info,queryStr}) {
                                 </button>
                             </div>
                         </div>
-                        <div className="row">
+                        <div>
                         {creds? <>
                                     <Modal isOpen={modal} toggle={creds.access? toggle2:null}>
                                         <ModalHeader toggle={toggle2}>Add to Problem List</ModalHeader>
@@ -758,19 +758,23 @@ function ProblemsPage({info,queryStr}) {
                                         <Button color="secondary" onClick={toggle2}>Close</Button>
                                         </ModalFooter>
                                     </Modal></> : <></>}
-                            {console.log(problems.result)}
-                            {problems.result.map((playlist, i) => {
+                            {/* {console.log(problems.result)} */}
+                            <div className="row">
+                            <div className="col-md-6" >
+                            {problems.result.slice(0,9).map((playlist, i) => {
                                 
                                 return(
                                     <>
                                     
-                                    <div className="col-md-6" style={{marginBottom:'1rem'}}>
+                                    <div className="col-md-12" style={{
+
+                                    }} style={{marginBottom:'1rem'}}>
                                     <AccordionCom problem={playlist}/>
                                     <span onClick={() => {
                                         setModal(!modal);
                                     if(!modal){
-                                        getPlaylists()
-                                    }    
+                                        getPlaylists();
+                                    }
                                         
                                     
                                     setProblemListId(playlist.prob_id);
@@ -778,68 +782,36 @@ function ProblemsPage({info,queryStr}) {
                                     }} ><FontAwesomeIcon style={{cursor:"pointer", position: 'absolute', right: '30%', height: '30px', fontSize: '20px', color: 'black', zIndex: '100', top: "30%" }} icon={faFolderPlus} /></span>
                                     </div>
                                     
-                                    
-                                    
-                                    {/*<ul className="list list-inline" style={{marginTop: '-14px'}}>
-                                        <li className="d-flex justify-content-between">
-                                            <div className="d-flex flex-row align-items-center">
-                                                <div className="ml-2">
-                                                    <h5 className="mb-0 link_ques">{i+1}. <a href={playlist.url} className="link_ques">{playlist.name}</a></h5>
-                                                    <div className="d-flex flex-row mt-1 text-black-50 date-time">
-                                                        <div><span className="ml-3 black">Platform: {playlist.platform},</span></div>
-                                                        <div><span className="ml-2 black">Tags: {playlist.tags},</span></div>
-                                                        <div><span className="ml-2 black">Difficulty: {playlist.difficulty},</span></div>
-                                                        <div><span className="ml-2 black">Rating: {playlist.rating}</span></div>
-                                                        
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="d-flex justify-content-around">
-                                            {playlist.solved? (
-                                                <>
-                                                <a href={playlist.url} target="_blank"
-                                                    style={{
-                                                        color: 'white',
-                                                        backgroundColor: 'green',
-                                                        borderRadius: '15px',
-                                                        width: '37%',
-                                                        marginRight: '50px',
-                                                        outline: 'none',
-                                                        textAlign: 'center',
-                                                        paddingTop: '10px',
-                                                        textDecoration: 'none',
-                                                        fontSize: '15px',
-                                                        opacity: '0.7'
-                                                    }}
-                                                >Solved</a>
-                                        </>
-                                            ): (
-                                                <>
-                                                        <a href={playlist.url} target="_blank"
-                                                    style={{
-                                                        color: 'white',
-                                                        backgroundColor: 'blue',
-                                                        borderRadius: '15px',
-                                                        width: '100px',
-                                                        marginRight: '30px',
-                                                        outline: 'none',
-                                                        textAlign: 'center',
-                                                        paddingTop: '10px',
-                                                        textDecoration: 'none',
-                                                        fontSize: '15px',
-                                                        opacity: '0.9'
-                                                    }}
-                                                >Solve</a>
-                                                </>
-                                            )}
-                                            </div>
-                                        </li>
-                                    </ul>
-                                
-                             */}
                                     </>
                                 )
                             })}
+                            </div>
+                            <div className="col-md-6">
+                            {problems.result.slice(10,19).map((playlist, i) => {
+                                
+                                return(
+                                    <>
+                                    
+                                    <div className="col-md-12" style={{
+
+                                    }} style={{marginBottom:'1rem'}}>
+                                    <AccordionCom problem={playlist}/>
+                                    <span onClick={() => {
+                                        setModal(!modal);
+                                    if(!modal){
+                                        getPlaylists();
+                                    }
+                                        
+                                    
+                                    setProblemListId(playlist.prob_id);
+                                    setProblemListPlatform(playlist.platform);
+                                    }} ><FontAwesomeIcon style={{cursor:"pointer", position: 'absolute', right: '30%', height: '30px', fontSize: '20px', color: 'black', zIndex: '100', top: "30%" }} icon={faFolderPlus} /></span>
+                                    </div>
+                                    
+                                    </>
+                                )
+                            })}
+                            </div></div>
                         </div>      
                         </div>
                         
