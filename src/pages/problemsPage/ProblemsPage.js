@@ -496,6 +496,10 @@ function ProblemsPage({info,queryStr}) {
         .catch(error => setErrors(true));
     },[])
 
+    function toggle(){
+        setModalOpenDiffi(false)
+    }
+
     return (
         show==true ? <><Loading/></>:
         <>
@@ -513,7 +517,8 @@ function ProblemsPage({info,queryStr}) {
 		        
          
                             <Button className="filterHeading" onClick={(e)=>setModalOpenDiffi(!modalOpenDiffi)}>Difficulty</Button>
-                             <Modal isOpen={modalOpenDiffi}><ModalBody>
+                             <Modal toggle={(e)=>{setModalOpenDiffi(false)}}
+                             isOpen={modalOpenDiffi}><ModalBody>
                              <h2 style={{marginBottom:'2rem'}}>Difficulty</h2>
                             <Form style={{marginBottom:'1rem'}}>
                                 <div key="inline-checkbox">
@@ -537,7 +542,7 @@ function ProblemsPage({info,queryStr}) {
                             </ModalBody></Modal>
                             <br></br><br></br>
                             <Button className="filterHeading" onClick={(e)=>setOpenTags(!openTags)}>Tags</Button>
-                             <Modal isOpen={openTags}><ModalBody>
+                             <Modal toggle={(e)=>{setOpenTags(false)}} isOpen={openTags}><ModalBody>
                              <h2 style={{marginBottom:'2rem'}}>Tags</h2>
                                 <Form style={{marginBottom:'1rem'}}>
                                     <div key="inline-checkbox">
@@ -604,7 +609,7 @@ function ProblemsPage({info,queryStr}) {
                             </ModalBody> </Modal>   <br></br><br></br>
                        
                         <Button className="filterHeading" onClick={(e)=>setModalOpenPlat(!modalOpenPlat)}>Platforms</Button>
-                             <Modal isOpen={modalOpenPlat}><ModalBody>
+                             <Modal toggle={(e)=>{setModalOpenPlat(false)}} isOpen={modalOpenPlat}><ModalBody>
                              <h2 style={{marginBottom:'2rem'}}>Platforms</h2>
                             <Form style={{marginBottom:'1rem'}}>
                                 <div key="inline-checkbox">
@@ -630,7 +635,7 @@ function ProblemsPage({info,queryStr}) {
                             </ModalBody></Modal>
                       <br></br><br></br>
                       <Button className="filterHeading" onClick={(e)=>setModalOpenDiffiRange(!modalOpenDiffiRange)}>Difficulty Range</Button>
-                             <Modal isOpen={modalOpenDiffiRange}><ModalBody>
+                             <Modal toggle={(e)=>{setModalOpenDiffiRange(false)}} isOpen={modalOpenDiffiRange}><ModalBody>
                                 {/* <Form inline>
                             
                                     <label style={{marginRight:'20px',padding:'4px'}}>
