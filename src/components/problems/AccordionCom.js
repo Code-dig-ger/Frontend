@@ -46,7 +46,7 @@ export default function SimpleAccordion({problem}) {
 
   return (
     <div className={classes.root}>
-      <Accordion style={{borderLeft: '15px solid #e0e0e0'}}>
+      <Accordion style={{borderLeft: '12px solid #e0e0e0'}}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
