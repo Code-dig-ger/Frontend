@@ -779,7 +779,7 @@ function ProblemsPage({info,queryStr}) {
                                     
                                     setProblemListId(playlist.prob_id);
                                     setProblemListPlatform(playlist.platform);
-                                    }} ><FontAwesomeIcon style={{cursor:"pointer", position: 'absolute', right: '30%', height: '30px', fontSize: '20px', color: 'black', zIndex: '100', top: "30%" }} icon={faFolderPlus} /></span>
+                                    }} ><FontAwesomeIcon style={{cursor:"pointer", position: 'absolute', right: '30%', height: '30px', fontSize: '20px', color: 'black', zIndex: '100', top: "20px" }} icon={faFolderPlus} /></span>
                                     </div>
                                     
                                     </>
@@ -805,7 +805,7 @@ function ProblemsPage({info,queryStr}) {
                                     
                                     setProblemListId(playlist.prob_id);
                                     setProblemListPlatform(playlist.platform);
-                                    }} ><FontAwesomeIcon style={{cursor:"pointer", position: 'absolute', right: '30%', height: '30px', fontSize: '20px', color: 'black', zIndex: '100', top: "30%" }} icon={faFolderPlus} /></span>
+                                    }} ><FontAwesomeIcon style={{cursor:"pointer", position: 'absolute', right: '30%', height: '30px', fontSize: '20px', color: 'black', zIndex: '100', top: "20px" }} icon={faFolderPlus} /></span>
                                     </div>
                                     
                                     </>
