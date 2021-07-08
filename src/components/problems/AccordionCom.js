@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
@@ -7,6 +7,11 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import Button from '@material-ui/core/Button'
 import Box from '@material-ui/core/Box'
+import CodechefImg from "../../assets/codechef.png"
+import CodeforcesImg from "../../assets/profile/images/codeforce.png"
+import SPOJImg from "../../assets/spojShort.png"
+import UVAImg from "../../assets/uva_online_judge.png"
+import AtcoderImg from "../../assets/atcoder.png"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,8 +25,24 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SimpleAccordion({problem}) {
   const classes = useStyles();
+  const [platformIcon, setPlatformIcon] = useState();
 
-  // console.log(playlist)
+  useEffect(() => {
+    let img;
+    if(problem.platform == "Codechef"){
+      img = CodechefImg;
+    }else if(problem.platform == "Codeforces"){
+      img = CodeforcesImg;
+    }else if(problem.platform == "Spoj"){
+      img = SPOJImg;
+    }else if(problem.platform == "Uva"){
+      img = UVAImg;
+    }else{
+      img = AtcoderImg;
+    }
+
+    setPlatformIcon(img);
+  }, []);
 
   return (
     <div className={classes.root}>
@@ -33,7 +54,11 @@ export default function SimpleAccordion({problem}) {
           
         >
           <div style={{display:'flex', width:'100%', alignItems:'center', justifyContent:'space-between'}}>
-            <Typography className={classes.heading}>{problem.name}</Typography>
+            <div>
+              <img src={platformIcon} alt="Platform Icon" height="30px"/>
+              <Typography className={classes.heading} style={{float: 'right', marginLeft: '20px', marginTop: '5px'}}>{problem.name}</Typography>
+            </div>
+            
             <Button variant="contained" target="blank" href={`${problem.url}`}>Solve</Button>
           </div>
         </AccordionSummary>
