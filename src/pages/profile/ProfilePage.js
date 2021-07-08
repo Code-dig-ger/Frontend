@@ -5,7 +5,7 @@ import Navbar from '../../components/Header/Navbar'
 import FooterSmall from '../../components/Footer/FooterSmall';
 import CodeforcesImg from '../../assets/cf-logo.png';
 import CodeforcesLongImg from '../../assets/codeforces.png';
-import CodechefImg from '../../assets/codechef.png';
+import CodechefImg from '../../assets/codechef-png.png';
 import SpojImg from '../../assets/spojShort.png';
 import SpojLongImg from '../../assets/spoj.png';
 import UAVImg from '../../assets/uva_online_judge.png';
@@ -427,7 +427,7 @@ function ProfilePage({handle}) {
                                     
                                     <div> 
                                         <div>
-                                        <span><img style={{height:"3rem", width:"6rem", marginRight:"auto", marginLeft: 'auto', display: 'block'}} src="https://upload.wikimedia.org/wikipedia/en/thumb/7/7b/Codechef%28new%29_logo.svg/1200px-Codechef%28new%29_logo.svg.png"></img></span>
+                                        <span><img style={{height:"3rem", width:"6rem", marginRight:"auto", marginLeft: 'auto', display: 'block'}} src={CodechefImg}></img></span>
                                     </div>
                                         <div style={{marginTop:"20px"}}>
                                             <div>Current Rating : {codechefDat.result.rating}</div>
