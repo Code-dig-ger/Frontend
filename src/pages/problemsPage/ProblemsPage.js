@@ -284,7 +284,7 @@ function ProblemsPage({info,queryStr}) {
                   "platform": p
               })
           }).then(data => data.json())
-            .then(data => data.status === "FAILED"? alert("Problem has already been added!"):alert("Problem is successfully Added to problem list."))
+            .then(data => data.status === "FAILED"? alert("Problem has already been added to the problem list!"):alert("Problem is successfully Added to problem list."))
           
       }
 
@@ -473,7 +473,7 @@ function ProblemsPage({info,queryStr}) {
     async function getPlaylists()
   {
     if(!creds){
-      alert("Please Login to Add Problems to Playlist")
+      alert("Please Login to Add Problems to Problem List!")
       return;
     }
     const res = await fetch(`https://api.codedigger.tech/lists/userlist/`, {
