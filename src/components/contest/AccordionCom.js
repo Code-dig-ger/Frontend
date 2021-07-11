@@ -26,8 +26,8 @@ export default function SimpleAccordion({problem}) {
   // console.log(playlist)
 
   return (
-    <div className={classes.root}>
-      <Card>
+    <div className={classes.root} >
+      <Card style={{borderLeft: '12px solid #e0e0e0'}}>
       <div style={{display:'flex',padding:'1rem', width:'100%', alignItems:'center', justifyContent:'space-between'}}>
             <Typography className={classes.heading}>{problem.name}</Typography>
             <Button variant="contained" target="blank" href={`https://codeforces.com/contestRegistration/${problem.contestId}/virtual/true`}>Solve</Button>
