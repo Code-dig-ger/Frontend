@@ -7,7 +7,7 @@ import {Form,Row,Col} from 'react-bootstrap';
 import queryString from 'query-string';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
 // import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { getProblems } from "../../actions/problems.actions"
+import { getProblems,getProblemsWithCreds } from "../../actions/problems.actions"
 import './ProblemPage.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import ReactBootstrapSlider from 'react-bootstrap-slider';
@@ -490,10 +490,20 @@ function ProblemsPage({info,queryStr}) {
   }
 
     useEffect(() => {
-        getProblems(queryStr)
-        .then(res => setProblems(res))
-        .then(show => setShow(false))
-        .catch(error => setErrors(true));
+        if(creds)
+        {
+            getProblemsWithCreds(queryStr,creds.access)
+            .then(res => setProblems(res))
+            .then(show => setShow(false))
+            .catch(error => setErrors(true));
+        }
+        else
+        {
+            getProblems(queryStr)
+            .then(res => setProblems(res))
+            .then(show => setShow(false))
+            .catch(error => setErrors(true));
+        }
     },[])
 
     function toggle(){
