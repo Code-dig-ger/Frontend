@@ -99,7 +99,7 @@ const MainCard = (props) => {
     if(props.solvedBtn === props.count){
       return(
         <>
-        <div className="card unsolvedCard">
+        <div className={props.last ? "cardLast card unsolvedCard":"card unsolvedCard"}>
         <h3 className="title">{props.ProblemData.name}</h3>
         <span><OverlayTrigger
             placement="top"
@@ -160,7 +160,7 @@ const MainCard = (props) => {
     else{
     return(
       <>
-        <div className="card">
+        <div className={props.last ? "cardLast card":"card"}>
         <h3 className={(props.count > props.solvedBtn && props.solvedBtn!=-1) ? "title_hide" : "title"}>{props.ProblemData.name}</h3>
         {(props.count > props.solvedBtn && props.solvedBtn!=-1) ? <></>:<span><OverlayTrigger
             placement="top"
@@ -231,7 +231,7 @@ const MainCard = (props) => {
     {
       return(
         <>
-        <div className="card unsolvedCard">
+        <div className={props.last ? "cardLast card unsolvedCard":"card unsolvedCard"}>
         <h3 className="title">{props.ProblemData.name}</h3>
         <span><OverlayTrigger
             placement="top"
@@ -295,7 +295,7 @@ const MainCard = (props) => {
       {
         return(
           <>
-        <div className="card">
+        <div className={props.last ? "cardLast card":"card"}>
         <h3 className="title">{props.ProblemData.name}</h3>
         <span><OverlayTrigger
             placement="top"
@@ -357,7 +357,7 @@ const MainCard = (props) => {
       {
         return(
           <>
-        <div className="card">
+        <div className={props.last ? "cardLast card":"card"}>
         <h3 className="title">{props.ProblemData.name}</h3>
         <span><OverlayTrigger
             placement="top"
