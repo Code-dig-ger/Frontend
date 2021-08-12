@@ -92,6 +92,8 @@ const MainCard = (props) => {
       
   }
 
+  // console.log(props);
+
   if(props.type === "ladder")
   {
     if(props.solvedBtn === props.count){
@@ -143,7 +145,7 @@ const MainCard = (props) => {
           <div className="emptybar" />
           <div className={props.ProblemData.status === "solved"? "filledbar": "exapmplebar"}></div>
         </div>
-          <div className="circle">
+          <div className={props.last ? "circleLast":"circle"}>
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
               <circle className="stroke" cx="60" cy="60" r="50"/>
             </svg>
@@ -208,7 +210,7 @@ const MainCard = (props) => {
           <div className="emptybar" />
           <div className={props.ProblemData.status === "solved"? "filledbar": ""}></div>
         </div>
-          <div className="circle">
+          <div className={props.last ? "circleLast":"circle"}>
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
               <circle className="stroke" cx="60" cy="60" r="50"/>
             </svg>
@@ -275,7 +277,7 @@ const MainCard = (props) => {
           <div className="emptybar" />
           <div className={props.ProblemData.status === "solved"? "filledbar": "exapmplebar"}></div>
         </div>
-          <div className="circle">
+          <div className={props.last ? "circleLast":"circle"}>
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
               <circle className="stroke" cx="60" cy="60" r="50"/>
             </svg>
@@ -339,7 +341,7 @@ const MainCard = (props) => {
           <div className="emptybar" />
           <div className="exapmplebar"></div>
         </div>
-          <div className="circle">
+          <div className={props.last ? "circleLast":"circle"}>
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
               <circle className="stroke" cx="60" cy="60" r="50"/>
             </svg>
@@ -402,7 +404,7 @@ const MainCard = (props) => {
           <div className="emptybar" />
           <div className= "filledbar"></div>
         </div>
-          <div className="circle">
+          <div className={props.last ? "circleLast":"circle"}>
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
               <circle className="stroke" cx="60" cy="60" r="50"/>
             </svg>

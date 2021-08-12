@@ -8,6 +8,7 @@ import {faAngleLeft,faAngleRight,faAngleDoubleLeft,faAngleDoubleRight} from '@fo
 import './LaddersQuestionPage.css';
 
 import Loading from '../logreg/loading';
+import { TramOutlined } from '@material-ui/icons';
 
 const renderTooltip1 = (props) => (
   <Tooltip id="button-tooltip" {...props}>
@@ -178,6 +179,25 @@ function LaddersQuestionPage(props) {
                         {/* {console.log(locked)} */}
                           {locked ? <MainCard type={props.type} count={20} ProblemData={ProblemData} solvedBtn={10}/>:<MainCard type={props.type} count={count} ProblemData={ProblemData} solvedBtn={solvedBtn}/>}
                                 
+                                {/* {console.log(count,ProblemData,solvedBtn)} */}
+                        </>
+                    )
+                    
+                }
+                
+                )}
+                </div> : problems.meta.current_page==problems.meta.last_page ? <div className="container-card" style={{marginTop:"75px"}}>
+                {problems.result.map((ProblemData)=>{
+                    // console.log(locked + "locked");
+                    count++;
+                    if(ProblemData.solved === false && solvedBtn===-1)
+                    {
+                        // console.log("reached");
+                        solvedBtn=count;
+                    }
+                    return(
+                        <>
+                                {locked ? <MainCard type={props.type} count={20} ProblemData={ProblemData} solvedBtn={10} last={"true"}/>:<MainCard type={props.type} count={count} ProblemData={ProblemData} solvedBtn={solvedBtn} last={"true"}/>}
                                 {/* {console.log(count,ProblemData,solvedBtn)} */}
                         </>
                     )

@@ -189,6 +189,14 @@
     left: calc(50% - 60px);
 }
 
+.circleLast {
+    position: absolute;
+    top: 150px;
+    left: calc(50% - 68px);
+}
+
+
+
 .circle>svg{
     width: 8rem;
 }
@@ -245,3 +253,27 @@ a svg {
 .marginLeftOfCards {
     margin-left: 90px;
 }
+
+@media only screen and (max-width: 1200px) 
+{
+    .circle {
+        position: absolute;
+        top: 150px;
+        left: calc(50% - 50.5px);
+    }
+
+    .container-card {
+        position: relative;
+        height: 400px;
+        width: 760px;
+        top: 0px;
+        left: calc(35% - 335px);
+        display: flex;
+    }
+
+    .card:hover {
+        transform: translateY(-15px);
+        transition: 0.4s ease-out;
+        z-index: 120;
+    }
+} 
