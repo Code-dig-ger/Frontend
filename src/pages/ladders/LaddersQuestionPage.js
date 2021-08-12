@@ -209,15 +209,16 @@ function LaddersQuestionPage(props) {
                 {problems.meta.current_page!=problems.meta.last_page ? <><OverlayTrigger
                   placement="top"
                   overlay={renderTooltip3}
+                  // style={{position: 'absolute', right: '5%'}}
                 >
-                  <a href={nextPage}><FontAwesomeIcon className="pageNavIcons" icon={faAngleRight} style={{position: 'absolute', right: '10%'}}/></a>
+                  <a href={nextPage} style={{position: 'absolute', right: '7%'}}><FontAwesomeIcon className="pageNavIcons" icon={faAngleRight} /></a>
                 </OverlayTrigger>
 
                 <OverlayTrigger
                   placement="top"
                   overlay={renderTooltip4}
                 >
-                  <a href={lastPage}><FontAwesomeIcon className="pageNavIcons" icon={faAngleDoubleRight} style={{position: 'absolute', right: '5%'}}/></a>
+                  <a href={lastPage} style={{position: 'absolute', right: '2%'}}><FontAwesomeIcon className="pageNavIcons" icon={faAngleDoubleRight} /></a>
                 </OverlayTrigger></>:<></>}
           
                 {/* <Col>

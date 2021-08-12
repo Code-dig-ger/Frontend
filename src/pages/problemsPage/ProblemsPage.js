@@ -712,7 +712,7 @@ function ProblemsPage({info,queryStr}) {
             {!problems.result? (<Loading />) : 
                 (
                     <>
-                    <div style={{
+                    <div onClick={closeNav} style={{
                         margin: '0px',
                         padding: '0px',
                         marginLeft: '100px',
