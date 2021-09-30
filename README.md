@@ -20,7 +20,7 @@
 1. [Getting Started](#getting-started)
 	1. [Fork, clone locally and create a branch](#fork-clone-locally--create-a-branch)
 	1. [Setting Environment First Time](#setting-environment-first-time)
-	1. [Starting Development Server](#starting-development-server-windows-linux)
+	1. [Starting Development Server](#starting-development-server-on-windowslinux)
 1. [Code of Conduct](#code-of-conduct)
 1. [Contributing](#contributing)
 1. [License](#license)
