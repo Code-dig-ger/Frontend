@@ -1,0 +1,8 @@
+# Folders
+node_modules
+build
+.circleci
+
+# Files
+Dockerfile
+Dockerfile.prod
