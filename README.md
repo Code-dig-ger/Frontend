@@ -17,14 +17,20 @@
 ## Table of Contents
 
 1.  [Introduction](#introduction)
+
 2.  [Getting Started](#getting-started)
-    1. [Fork, clone locally and create a branch](#fork-clone-locally--create-a-branch)
-    2. [Setting Environment First Time](#setting-environment-first-time)
-    3. [Starting Development Server](#starting-development-server-on-windowslinux)
-    4. [Using Docker](#using-docker)
+
+    1.  [Fork, clone locally and create a branch](#fork-clone-locally--create-a-branch)
+    2.  [Setting Environment First Time](#setting-environment-first-time)
+    3.  [Starting Development Server](#starting-development-server-on-windowslinux)
+    4.  [Using Docker](#using-docker)
+
 3.  [Code of Conduct](#code-of-conduct)
+
 4.  [Contributing](#contributing)
+
 5.  [License](#license)
+
 6.  [How to Get Help](#how-to-get-help)
 
 ## Introduction
