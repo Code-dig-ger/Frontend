@@ -16,17 +16,16 @@
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
-1. [Getting Started](#getting-started)
-	1. [Fork, clone locally and create a branch](#fork-clone-locally--create-a-branch)
-	1. [Setting Environment First Time](#setting-environment-first-time)
-	1. [Starting Development Server](#starting-development-server-on-windowslinux)
-	1. [Using Docker](#using-docker)
-1. [Code of Conduct](#code-of-conduct)
-1. [Contributing](#contributing)
-1. [License](#license)
-1. [How to Get Help](#how-to-get-help)
-
+ 1. [Introduction](#introduction)
+ 2. [Getting Started](#getting-started)
+	 1. [Fork, clone locally and create a branch](#fork-clone-locally--create-a-branch)
+	 2. [Setting Environment First Time](#setting-environment-first-time)
+	 3. [Starting Development Server](#starting-development-server-on-windowslinux)
+	 4. [Using Docker](#using-docker)
+ 3. [Code of Conduct](#code-of-conduct)
+ 4. [Contributing](#contributing)
+ 5. [License](#license)
+ 6. [How to Get Help](#how-to-get-help)
 
 ## Introduction
 
@@ -37,7 +36,6 @@ Codedigger aims at accumulating the data of competitive programming platforms ([
 User can practice topicwise list to expertise any topic, levelwise list to practice based on rating and difficulty, or can create their own list and follow that. They can filter problems based on difficulty, tag, or solved by mentor from all the sites combined at one place.
 
 Upsolving means to solve those problems, you're not able to solve during the contest. With the help of codedigger, you will be able to upsolve codeforces, codechef, and atcoder contests in an easy and better way.
-
 
 ## Getting Started
 
@@ -60,28 +58,27 @@ git checkout -b bugfix/user
 
 ### Setting Environment First Time
 
-**Windows**
+#### **Windows**
 
 Follow these [steps](https://www.liquidweb.com/kb/install-react-js-windows/) to set your virtual environment for Windows.
 
-**Linux**
+#### **Linux**
 
 Follow these [steps](https://www.tecmint.com/install-reactjs-on-ubuntu/) to set your virtual environment for Linux.
 
-
 ### Starting Development Server on Windows/Linux
 
-```
+```sh
 npm install && npm start
 ```
-```
+```sh
 Navigate to localhost:3000/ to open the website.
 ```
 
 ### Using Docker
 For those familiar with Docker, you can also build and run the project through a container.
 
-#### Development build
+#### **Development build**
 
 Building and running a static container:
 ```sh
@@ -94,7 +91,7 @@ To build and run a container with live-reload for development, use docker compos
 docker-compose up -d
 ```
 
-#### Production Build
+#### **Production Build**
 ```sh
 docker build . -f Dockerfile.prod -t frontend:prod
 docker run -p 80:80 frontend:prod
@@ -103,7 +100,6 @@ docker run -p 80:80 frontend:prod
 ## Code of Conduct
 
 This project and everyone participating in it is governed by the [Codedigger Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to contact.codedigger@gmail.com.
-
 
 ## Contributing
 
@@ -126,7 +122,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-
 <!-- CONTACT -->
 ## How to Get Help 
 
@@ -135,7 +130,6 @@ Email us - contact.codedigger@gmail.com
 [Join][discord-url]! our Discord Community
 
 **[Back to top](#table-of-contents)**
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
@@ -155,12 +149,12 @@ Email us - contact.codedigger@gmail.com
 [code-of-conduct-url]: CODE_OF_CONDUCT.md
 [discord-shield]: https://img.shields.io/badge/-Discord-555?style=for-the-badge&logo=discord&logoColor=white
 [discord-url]: https://discord.gg/4ZeNgUn7cF
-[API]: https://api.codedigger.tech/
-[Codedigger]: https://codedigger.tech
-[Codeforces]: https://codeforces.com/
-[Codechef]: https://www.codechef.com/
-[Atcoder]: https://atcoder.jp/
-[SPOJ]: https://www.spoj.com/
-[UVA Online Judge]: https://onlinejudge.org/
+[api]: https://api.codedigger.tech/
+[codedigger]: https://codedigger.tech
+[codeforces]: https://codeforces.com/
+[codechef]: https://www.codechef.com/
+[atcoder]: https://atcoder.jp/
+[spoj]: https://www.spoj.com/
+[uva online judge]: https://onlinejudge.org/
 [codedigger-shield]: https://img.shields.io/badge/-Codedigger-555?style=for-the-badge&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAuFJREFUOE+t1G1IE3EcB/DvFEPnmDrN5sPKxKGixgqns5n0oiezMl8EQSgESW8SqiFBRdCLMEhCKyopyNIsDErrRdmDmrFUlKInsGTMBW63ebc5t91s3ba43c5tmCHkwb24O/jc9////f4/AVb4Eqywh6VBoTANwoRqMIwStD2jsOUcflM2o/3zxNjcwGgvTZLGv4VZDIpEqShQNyFeVAuSiAFlAigC6lf3ECWIgtdFg3HSzMy74fv6ru5TsLjM4XAkKMstxo4Dz+Cck4I0YeG2BkEAjMsNr8sNxkXDQ9rMuuvt1e7JqVEeDYGrM+U4cnYUDlsSSCKEsbCVQPnrDgh8vgjQS9PwWO123dVbKo+RmmDREHiydQjixC1cKgLsUqPsFmSW50OiyEVCgRw+N5sslJAFvU4ajh/6EUNb52YAfg7MV1bg2IW3oWQEoh0z2NRQhST5WvgYJrDEwP6FgwvvaEzdfrht/uf0Gw48pGmGepcmHFyvkkG+pyTweTHIw9xP2D219GtbqcHh4xx4ovkp5Iq9bDX5QhQfVkOSLf0HyEE8aPvw5TnR07ebAzUtvcgp2sclNAKUGcV1pZDkpC8TpDH78esL05O+Sg6sbWyGulITahUC6zZKkVtTtmzQ0v/+GjU43MCBhaqtaGgaWEhIEoiaNUNRvx0phdlL7GFoyWzB9Hce7PylN77k20aA021axIvLAicj2IcCqxlShQzJRdmQKDfA7/EEqxxZFMfk1LjhZgdbwWDbsCnTs/JQf34EDmtCeHH4bVA9uoIYYWywffh+pOGx2R261vYyD0F8i2xs9ikrX4Wqul447akBKJCWu0u7LmOVOJ4DnW4w7CmhbKThRud+x3eddvHR498IU9JQUnEJIvFBkKZoHla2X0RsciI7GFjUS2nHu013Hze6KWp66eEQ/iUuToakNTXw+pWg5zLyzhz1w+czOT9NjJFDYz3zJpNheePrPyfuik/sP0+iITNZPL3cAAAAAElFTkSuQmCC
 [codedigger-api-shield]: https://img.shields.io/badge/Codedigger-API-yellowgreen?style=for-the-badge&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAuFJREFUOE+t1G1IE3EcB/DvFEPnmDrN5sPKxKGixgqns5n0oiezMl8EQSgESW8SqiFBRdCLMEhCKyopyNIsDErrRdmDmrFUlKInsGTMBW63ebc5t91s3ba43c5tmCHkwb24O/jc9////f4/AVb4Eqywh6VBoTANwoRqMIwStD2jsOUcflM2o/3zxNjcwGgvTZLGv4VZDIpEqShQNyFeVAuSiAFlAigC6lf3ECWIgtdFg3HSzMy74fv6ru5TsLjM4XAkKMstxo4Dz+Cck4I0YeG2BkEAjMsNr8sNxkXDQ9rMuuvt1e7JqVEeDYGrM+U4cnYUDlsSSCKEsbCVQPnrDgh8vgjQS9PwWO123dVbKo+RmmDREHiydQjixC1cKgLsUqPsFmSW50OiyEVCgRw+N5sslJAFvU4ajh/6EUNb52YAfg7MV1bg2IW3oWQEoh0z2NRQhST5WvgYJrDEwP6FgwvvaEzdfrht/uf0Gw48pGmGepcmHFyvkkG+pyTweTHIw9xP2D219GtbqcHh4xx4ovkp5Iq9bDX5QhQfVkOSLf0HyEE8aPvw5TnR07ebAzUtvcgp2sclNAKUGcV1pZDkpC8TpDH78esL05O+Sg6sbWyGulITahUC6zZKkVtTtmzQ0v/+GjU43MCBhaqtaGgaWEhIEoiaNUNRvx0phdlL7GFoyWzB9Hce7PylN77k20aA021axIvLAicj2IcCqxlShQzJRdmQKDfA7/EEqxxZFMfk1LjhZgdbwWDbsCnTs/JQf34EDmtCeHH4bVA9uoIYYWywffh+pOGx2R261vYyD0F8i2xs9ikrX4Wqul447akBKJCWu0u7LmOVOJ4DnW4w7CmhbKThRud+x3eddvHR498IU9JQUnEJIvFBkKZoHla2X0RsciI7GFjUS2nHu013Hze6KWp66eEQ/iUuToakNTXw+pWg5zLyzhz1w+czOT9NjJFDYz3zJpNheePrPyfuik/sP0+iITNZPL3cAAAAAElFTkSuQmCC
