@@ -1,7 +1,7 @@
 # Codedigger Frontend
 
-[![Codedigger][codedigger-shield]][Codedigger]
-[![Codedigger API][codedigger-api-shield]][API]
+[![Codedigger][codedigger-shield]][codedigger]
+[![Codedigger API][codedigger-api-shield]][api]
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -16,20 +16,20 @@
 
 ## Table of Contents
 
- 1. [Introduction](#introduction)
- 2. [Getting Started](#getting-started)
-	 1. [Fork, clone locally and create a branch](#fork-clone-locally--create-a-branch)
-	 2. [Setting Environment First Time](#setting-environment-first-time)
-	 3. [Starting Development Server](#starting-development-server-on-windowslinux)
-	 4. [Using Docker](#using-docker)
- 3. [Code of Conduct](#code-of-conduct)
- 4. [Contributing](#contributing)
- 5. [License](#license)
- 6. [How to Get Help](#how-to-get-help)
+1.  [Introduction](#introduction)
+2.  [Getting Started](#getting-started)
+    1. [Fork, clone locally and create a branch](#fork-clone-locally--create-a-branch)
+    2. [Setting Environment First Time](#setting-environment-first-time)
+    3. [Starting Development Server](#starting-development-server-on-windowslinux)
+    4. [Using Docker](#using-docker)
+3.  [Code of Conduct](#code-of-conduct)
+4.  [Contributing](#contributing)
+5.  [License](#license)
+6.  [How to Get Help](#how-to-get-help)
 
 ## Introduction
 
-This is the main Frontend Repository of the [Codedigger] Website. 
+This is the main Frontend Repository of the [Codedigger] Website.
 
 Codedigger aims at accumulating the data of competitive programming platforms ([Codeforces], [Codechef], [Atcoder], [SPOJ] and [UVA Online Judge]) into one platform. We used their publicly available APIs and introduced several unique features into our application such as friends, mentors, ladders, upsolve, problem and contest filter. This can be the ultimate stop for everyone practicing competitive programming.
 
@@ -41,17 +41,19 @@ Upsolving means to solve those problems, you're not able to solve during the con
 
 ### Fork, clone locally & create a branch
 
-Fork [Codedigger Frontend](https://help.github.com/articles/fork-a-repo) repository and clone at your local 
+Fork [Codedigger Frontend](https://help.github.com/articles/fork-a-repo) repository and clone at your local
 
 ```sh
 git clone https://github.com/<yourGithubUsername>/Frontend.git
 cd Frontend/
 ```
 
-Create a branch with a descriptive name. A good branch name would be : 
+Create a branch with a descriptive name. A good branch name would be :
+
 ```sh
 git checkout -b feature/AmazingFeature
 ```
+
 ```sh
 git checkout -b bugfix/user
 ```
@@ -71,27 +73,32 @@ Follow these [steps](https://www.tecmint.com/install-reactjs-on-ubuntu/) to set 
 ```sh
 npm install && npm start
 ```
+
 ```sh
 Navigate to localhost:3000/ to open the website.
 ```
 
 ### Using Docker
+
 For those familiar with Docker, you can also build and run the project through a container.
 
 #### **Development build**
 
 Building and running a static container:
+
 ```sh
 docker build . -t frontend:dev
 docker run -p 3000:3000 frontend:dev
 ```
 
 To build and run a container with live-reload for development, use docker compose instead:
+
 ```sh
 docker-compose up -d
 ```
 
 #### **Production Build**
+
 ```sh
 docker build . -f Dockerfile.prod -t frontend:prod
 docker run -p 80:80 frontend:prod
@@ -106,6 +113,7 @@ This project and everyone participating in it is governed by the [Codedigger Cod
 We encourage you to participate in this open source project. We love Pull Requests, Bug Reports, ideas, (security) code reviews or any other kind of positive contribution. Please review [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to file an issue or pr.
 
 <!-- LICENSE -->
+
 ## License
 
 Copyright 2021 Codedigger
@@ -114,7 +122,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-	http://www.apache.org/licenses/LICENSE-2.0
+    http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -123,7 +131,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 <!-- CONTACT -->
-## How to Get Help 
+
+## How to Get Help
 
 Email us - contact.codedigger@gmail.com
 
@@ -133,6 +142,7 @@ Email us - contact.codedigger@gmail.com
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/Code-dig-ger/Frontend.svg?style=for-the-badge
 [contributors-url]: https://github.com/Code-dig-ger/Frontend/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/Code-dig-ger/Frontend.svg?style=for-the-badge
