@@ -21,6 +21,7 @@
 	1. [Fork, clone locally and create a branch](#fork-clone-locally--create-a-branch)
 	1. [Setting Environment First Time](#setting-environment-first-time)
 	1. [Starting Development Server](#starting-development-server-on-windowslinux)
+	1. [Using Docker](#using-docker)
 1. [Code of Conduct](#code-of-conduct)
 1. [Contributing](#contributing)
 1. [License](#license)
@@ -61,11 +62,11 @@ git checkout -b bugfix/user
 
 **Windows**
 
-Follow these [steps](https://www.liquidweb.com/kb/install-react-js-windows/) to set your virtual environement for Windows.
+Follow these [steps](https://www.liquidweb.com/kb/install-react-js-windows/) to set your virtual environment for Windows.
 
 **Linux**
 
-Follow these [steps](https://www.tecmint.com/install-reactjs-on-ubuntu/) to set your virtual environement for Linux.
+Follow these [steps](https://www.tecmint.com/install-reactjs-on-ubuntu/) to set your virtual environment for Linux.
 
 
 ### Starting Development Server on Windows/Linux
@@ -75,6 +76,28 @@ npm install && npm start
 ```
 ```
 Navigate to localhost:3000/ to open the website.
+```
+
+### Using Docker
+For those familiar with Docker, you can also build and run the project through a container.
+
+#### Development build
+
+Building and running a static container:
+```sh
+docker build . -t frontend:dev
+docker run -p 3000:3000 frontend:dev
+```
+
+To build and run a container with live-reload for development, use docker compose instead:
+```sh
+docker-compose up -d
+```
+
+#### Production Build
+```sh
+docker build . -f Dockerfile.prod -t frontend:prod
+docker run -p 80:80 frontend:prod
 ```
 
 ## Code of Conduct
