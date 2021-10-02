@@ -1,13 +1,13 @@
-.prac:hover{
-  color:pink
+.prac:hover {
+  color: pink;
 }
 
-.row{
+.row {
   /* margin-bottom: 30px; */
   padding: 30px 50px;
 }
 
-#LandingBanner{
+#LandingBanner {
   background-image: url('../../assets/homepage/images/codingBg7.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -15,7 +15,7 @@
   height: 105vh;
 }
 
-.bigRow:nth-of-type(2n+1){
+.bigRow:nth-of-type(2n + 1) {
   /* background-image: url('../../assets/homepage/images/img1.png'); */
   background-repeat: no-repeat;
   background-size: cover;
@@ -23,13 +23,13 @@
   background-color: #030507 !important;
   height: inherit;
 }
-.pops{
+.pops {
   padding: 20px;
   border: 2px solid white;
   background-color: rgb(0, 0, 85);
 }
 
-.bigRow:nth-of-type(2n){
+.bigRow:nth-of-type(2n) {
   /* background-image: url('../../assets/homepage/images/img1.png'); */
   /* background-repeat: no-repeat;
   background-size: cover; */
@@ -38,96 +38,85 @@
   height: inherit;
 }
 
-.row:last-of-type{
+.row:last-of-type {
   margin-bottom: 0;
 }
 
 .first {
-  
-    
-     text-align: center;
-     font-size: large;
-     /* background-color: inherit; */
-     /* height:450px; */
-     margin-bottom: 75px;
-    
-  
+  text-align: center;
+  font-size: large;
+  /* background-color: inherit; */
+  /* height:450px; */
+  margin-bottom: 75px;
 }
 
-.bannerContainer{
+.bannerContainer {
   height: 100vh;
-  
+
   margin: 0;
 }
 
 /*Codedigger heading*/
 
-.headingText{
+.headingText {
   max-width: 50%;
   max-height: fit-content;
   text-align: center;
 }
 
-.bannerContainer img{
+.bannerContainer img {
   width: 400px;
-   margin-right: 20px;
+  margin-right: 20px;
   height: 300px;
- float: right;
+  float: right;
 }
 
 /*code digger slogan*/
-.floating {   
-  animation-name: floating; 
-  animation-duration: 3s; 
-  animation-iteration-count: infinite; 
-  animation-timing-function: ease-in-out; 
-  margin-left: 20px; 
-  
-} 
-.header{
-   text-align: right;
+.floating {
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  margin-left: 20px;
 }
-h2{
+.header {
+  text-align: right;
+}
+h2 {
   margin-top: 30px;
 }
-@keyframes floating { 
-  0% { transform: translate(0,  0px); } 
-  50%  { transform: translate(0, 10px); } 
-  100%   { transform: translate(0, -0px); }     
-} 
+@keyframes floating {
+  0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 10px);
+  }
+  100% {
+    transform: translate(0, -0px);
+  }
+}
 /*heading */
-.heading1{
-  
+.heading1 {
   margin-top: 20px;
-  color:white;
+  color: white;
   text-align: center;
-  float:left;
+  float: left;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@600&display=swap');
-.heading2{
+.heading2 {
   float: left;
   font-family: 'Cedarville Cursive', cursive;
   font-family: 'Roboto Mono', monospace;
 }
 
-.heading2:first-of-type{
+.heading2:first-of-type {
   font-size: 50px;
 }
 
 /*explore and practice buttons*/
 .bt1 {
-  
-  background-color: black;
-  font-size: larger;
-  margin-bottom: 5px;
-  border-radius: 10px;
-  margin-top: 5px;
-  margin-left: 100px;
-
-}
-
-.bt2{
   background-color: black;
   font-size: larger;
   margin-bottom: 5px;
@@ -136,64 +125,63 @@ h2{
   margin-left: 100px;
 }
 
+.bt2 {
+  background-color: black;
+  font-size: larger;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-left: 100px;
+}
 
 .type {
   text-align: center;
   font-size: large;
-  font-family: "Courier New", Courier, monospace;
+  font-family: 'Courier New', Courier, monospace;
   color: white;
 }
-.second{
-  
-  background-color:rgb(150, 150, 240);
- 
+.second {
+  background-color: rgb(150, 150, 240);
+
   text-align: center;
   padding-top: 10px;
 }
 
 /*Features section*/
-.third{
+.third {
   background-color: black;
-  
+
   text-align: center;
   padding-top: 10px;
 }
 
-Cards{
+Cards {
   display: flex;
 }
 /*videos*/
-.vidframe{
+.vidframe {
   border: 2px solid white;
   border-radius: 10px;
-
 }
-.vidframe:hover{
+.vidframe:hover {
   width: 352px;
   border: 4px solid white;
 }
-.video{
+.video {
   text-align: center;
 }
 /*Main container*/
-.maincon{
+.maincon {
   padding: 0px !important;
   overflow: hidden;
   max-width: 100vw;
 }
 
-
-
 /*FOOTER*/
 
-.vids{
+.vids {
   justify-items: center;
 }
-
-
-
-
-
 
 #flex-container {
   display: -webkit-box;
@@ -221,11 +209,11 @@ Cards{
   position: relative;
 }
 
-.qouteRoww{
+.qouteRoww {
   padding-top: 2rem;
 }
 
-.qoute-row{
+.qoute-row {
   /* height: 75vh; */
   background-color: #222222;
   margin: auto;
@@ -233,7 +221,7 @@ Cards{
   opacity: 0.6;
 }
 
-.qouteHandImg{
+.qouteHandImg {
   position: absolute;
   right: 0;
   height: 30vh;
@@ -243,55 +231,59 @@ Cards{
   padding-right: 0;
 }
 
-.featureHeading>h1{
-  font-family: 'Roboto Mono',monospace;
+.featureHeading > h1 {
+  font-family: 'Roboto Mono', monospace;
   text-align: center;
 }
 
-#friendFtRow{
+#friendFtRow {
   border-radius: 1rem;
   background: linear-gradient(
-    180deg
-    , #517281 0%, #3b5d70 27%, #4d5c82 72%, #5d647f 100%);
-    height: 75vh;
-    margin-left: auto;
-    margin-right: 2.5rem;
-    display: flex;
+    180deg,
+    #517281 0%,
+    #3b5d70 27%,
+    #4d5c82 72%,
+    #5d647f 100%
+  );
+  height: 75vh;
+  margin-left: auto;
+  margin-right: 2.5rem;
+  display: flex;
 }
 
-#friendFtRow>svg{
+#friendFtRow > svg {
   margin-top: 3rem;
   height: 60vh;
   width: 18rem;
 }
 
-.friendContent{
+.friendContent {
   padding: 1rem;
   width: 67vw;
-  color: #FAFAFA;
+  color: #fafafa;
   /* font-size: ; */
 }
 
-.friendContent>h2{
+.friendContent > h2 {
   font-weight: 700;
   color: #a6e5ed;
 }
 
-.friendContent>div{
+.friendContent > div {
   font-size: 1.6rem;
   font-weight: 500;
   margin-top: 2rem;
   padding-right: 5rem;
 }
 
-#profileSvg{
+#profileSvg {
   width: 23rem;
   height: 23rem;
   margin-left: 1rem;
   margin-top: 2rem;
 }
 
-#thirdRowIconPNG{
+#thirdRowIconPNG {
   position: absolute;
   width: 35rem;
   height: 50rem;
@@ -300,23 +292,23 @@ Cards{
   padding-top: 24rem;
 }
 
-.fourthRoww>svg{
+.fourthRoww > svg {
   margin-left: 2rem;
   margin-right: 2rem;
 }
 
-#fourthRowContent{
+#fourthRowContent {
   padding-right: 0;
 }
 
-#upsolveSvg{
+#upsolveSvg {
   margin-top: -2rem !important;
   /* height: 81vh !important; */
   height: 90vh !important;
   width: 20rem !important;
 }
 
-#ladderIcon{
+#ladderIcon {
   padding-top: 0rem !important;
   margin: 0 !important;
   position: absolute !important;
@@ -324,17 +316,17 @@ Cards{
   height: 32rem !important;
 }
 
-#playListImg{
+#playListImg {
   padding-top: 3rem;
-    width: 24rem;
-    height: 24rem;
-    padding-right: 0;
+  width: 24rem;
+  height: 24rem;
+  padding-right: 0;
 }
 
-#qouteDiv{
-  color: #FAFAFA;
-    /* opacity: 8.3; */
-    font-size: 3rem;
-    font-weight: 700;
-    padding: 4rem;
+#qouteDiv {
+  color: #fafafa;
+  /* opacity: 8.3; */
+  font-size: 3rem;
+  font-weight: 700;
+  padding: 4rem;
 }

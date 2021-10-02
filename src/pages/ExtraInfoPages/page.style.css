@@ -1,13 +1,9 @@
-.body1{
-  
-    
-    display: block;
-    margin: auto;
-    padding: 20px;
-    margin: 4px;
-    background-color:#1f1d1d;
-   
-   color:'white';
-  
-  
+.body1 {
+  display: block;
+  margin: auto;
+  padding: 20px;
+  margin: 4px;
+  background-color: #1f1d1d;
+
+  color: 'white';
 }

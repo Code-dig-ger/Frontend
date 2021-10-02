@@ -56,6 +56,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "pretty": "npx prettier --write \"./**/*.{js,jsx,json,css}\"",
     "deploy-production": "react-scripts build && scp -r ./build/* root@142.93.210.55:/var/www/Frontend/html"
   },
   "eslintConfig": {
