@@ -54,6 +54,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "pretty": "npx prettier --write \"./**/*.{js,jsx,json,css}\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy-production": "react-scripts build && scp -r ./build/* root@142.93.210.55:/var/www/Frontend/html"
