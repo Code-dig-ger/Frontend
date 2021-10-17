@@ -1,4 +1,4 @@
-export function getMentors(acc){
+export async function getMentors(acc){
     return fetch(`https://api.codedigger.tech/codeforces/mentor`,{
         method:'GET',
         headers:{
@@ -8,7 +8,7 @@ export function getMentors(acc){
     }).then(data => data.json());
 }
 
-export function removeMentor(acc,mname){
+export async function removeMentor(acc,mName){
     return fetch (`https://api.codedigger.tech/codeforces/mentor`,{
         method:"POST",
         headers:{
@@ -21,7 +21,7 @@ export function removeMentor(acc,mname){
     }).then(data => data.json());
 }
 
-export function addmentor(acc,guru){
+export async function addmentor(acc,guru){
     return fetch (`https://api.codedigger.tech/codeforces/mentor`,{
         method:"PUT",
         headers:{

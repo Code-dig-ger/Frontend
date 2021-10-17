@@ -1,4 +1,4 @@
-export function getLists(acc,wise,type){
+export async function getLists(acc,wise,type){
     return fetch (`https://api.codedigger.tech/lists/${wise}/${type}/`,{
         method:"GET",
         headers:{
@@ -7,8 +7,17 @@ export function getLists(acc,wise,type){
         }
     }).then(data => data.json());
 }
+export async function getListsWithoutAuth(wise,type){
+    return fetch (`https://api.codedigger.tech/lists/${wise}/${type}/`,{
+        method:"GET",
+        headers:{
+            "Content-Type":"application/json",
+            // "Authorization":`Bearer ${acc}`
+        }
+    }).then(data => data.json());
+}
 
-export function getThisList(acc,wise,type,slug){
+export async function getThisList(acc,wise,type,slug){
     return fetch (`https://api.codedigger.tech/lists/${wise}/${type}/${slug}`,{
         method:"GET",
         headers:{
@@ -18,7 +27,7 @@ export function getThisList(acc,wise,type,slug){
     }).then(data => data.json());
 }
 
-export function getUserList(acc)
+export async function getUserList(acc)
 {
     return fetch(`https://api.codedigger.tech/lists/userlist/`, {
         method:"GET",
@@ -29,7 +38,7 @@ export function getUserList(acc)
         }).then(data => data.json());
 }
 
-export function getThisUserlist(acc,url){
+export async function getThisUserlist(acc,url){
     return fetch(url, {
                method:"GET",
                headers:{
@@ -39,7 +48,7 @@ export function getThisUserlist(acc,url){
             }).then(data => data.json());
 }
 
-export function addToUserList(acc,slug,prob_id,platform)
+export async function addToUserList(acc,slug,prob_id,platform)
 {
     return fetch(`https://api.codedigger.tech/lists/userlist/add`, {
         method:"GET",
@@ -55,7 +64,7 @@ export function addToUserList(acc,slug,prob_id,platform)
         }).then(data => data.json());
 }
 
-export function deleteUserlist(acc,slug){
+export async function deleteUserlist(acc,slug){
     return fetch(`https://api.codedigger.tech/lists/userlist/edit/${slug}`, {
                method:"DELETE",
                headers:{
@@ -65,7 +74,7 @@ export function deleteUserlist(acc,slug){
             }).then(data => data.json());
 }
 
-export function createNewUserlist(acc,playlistName,playlistDes,pub){
+export async function createNewUserlist(acc,playlistName,playlistDes,pub){
     return fetch (`https://api.codedigger.tech/lists/userlist/new`,{
         method:"POST",
         headers:{

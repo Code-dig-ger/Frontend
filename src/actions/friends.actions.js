@@ -1,4 +1,4 @@
-export function getFriends(acc){
+export async function getFriends(acc){
     // console.log("KKKK");
         return fetch(`https://api.codedigger.tech/auth/user/friends`,{
             method:"GET",
@@ -10,7 +10,7 @@ export function getFriends(acc){
         .then(data => data.json());
 };
 
-export function acceptReq(acc,from_user){
+export async function acceptReq(acc,from_user){
     // console.log("KKKK");
         return fetch(`https://api.codedigger.tech/auth/user/accept-request`,{
             method:"PUT",
@@ -25,7 +25,7 @@ export function acceptReq(acc,from_user){
         .then(data => data.json());
 };
 
-export function removeFrnd(acc,handle) {
+export async function removeFrnd(acc,handle) {
     return fetch(`https://api.codedigger.tech/auth/user/remove-friend`,{
         method:"POST",
         headers:{
@@ -39,7 +39,7 @@ export function removeFrnd(acc,handle) {
     .then(data => data.json());
 }
 
-export function sendReq(acc,to_user){
+export async function sendReq(acc,to_user){
     return fetch(`https://api.codedigger.tech/auth/user/send-request`,{
             method:"POST",
             headers:{
@@ -53,7 +53,7 @@ export function sendReq(acc,to_user){
         .then(data => data.json());
 }
 
-export function showReq(acc){
+export async function showReq(acc){
     return fetch (`https://api.codedigger.tech/auth/user/show-request`,{
       method:"GET",
       headers:{
@@ -64,7 +64,7 @@ export function showReq(acc){
      .then(data => data.json());
 }
 
-export function showSendReq(acc){
+export async function showSendReq(acc){
     return fetch (`https://api.codedigger.tech/auth/user/show-send-request`,{
         method:"GET",
         headers:{

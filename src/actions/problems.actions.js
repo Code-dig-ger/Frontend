@@ -1,4 +1,4 @@
-export function getProblems(queryStr){
+export async function getProblems(queryStr){
     return fetch(`https://api.codedigger.tech/problems/${queryStr}`, {
                     method:"GET",
                     headers:{
@@ -7,7 +7,7 @@ export function getProblems(queryStr){
                 }).then(data => data.json());
 } 
 
-export function getProblemsWithCreds(queryStr,acc){
+export async function getProblemsWithCreds(queryStr,acc){
     return fetch(`https://api.codedigger.tech/problems/${queryStr}`, {
                     method:"GET",
                     headers:{

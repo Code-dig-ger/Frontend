@@ -1,4 +1,4 @@
-export function getBlogs(){
+export async function getBlogs(){
     return fetch('https://api.codedigger.tech/blog/',{
         method:'GET',
         headers:{
@@ -7,7 +7,7 @@ export function getBlogs(){
     }).then(data => data.json());
 }
 
-export function getThisBlog(blog){
+export async function getThisBlog(blog){
     return fetch(`https://api.codedigger.tech/blog/${blog}`,{
         method:'GET',
         headers:{

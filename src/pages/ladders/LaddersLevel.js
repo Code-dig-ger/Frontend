@@ -2,16 +2,16 @@ import React, {useState,useEffect}from 'react'
 import Loading from '../logreg/loading'
 import Header from '../../components/Header/Navbar';
 import "./LaddersLevel.css";
-import LaddersContent from '../../components/LaddersContent';
+import ProblemLadderCard from '../../components/ProblemLadderCard';
 import FooterSmall from '../../components/Footer/FooterSmall';
 import ErrorPage from '../ErrorPage/ErrorPage.js';
-
+import {getLists,getListsWithoutAuth} from '../../actions/lists.actions'
 
 function LaddersLevel(props) {
 
     const creds= JSON.parse(localStorage.getItem("creds"));
 
-    const [dat, setDat] = useState();
+    const [dat, setDat] = useState([]);
 
     const [show,setShow]=useState(true);
     const [wise1,setwise1]=useState();
@@ -32,34 +32,19 @@ function LaddersLevel(props) {
         }
         async function fetchData()
         {
-            // console.log("reached");
             if(creds)
             {
-                const res=await fetch (`https://api.codedigger.tech/lists/${props.wise}/${props.type}/`,{
-                method:"GET",
-                headers:{
-                    "Content-Type":"application/json",
-                    "Authorization":`Bearer ${creds.access}`
-                  }
-                });
+               const res= getLists(creds.access,props.wise,props.type)
                 res
-                    .json()
-                    .then(res => setDat(res))
-                    .then(show => setShow(false));
+                .then(res => setDat(res))
+                .then(show => setShow(false));
             }
             else
             {
-                const res=await fetch (`https://api.codedigger.tech/lists/${props.wise}/${props.type}/`,{
-                method:"GET",
-                headers:{
-                    "Content-Type":"application/json",
-                    // "Authorization":`Bearer ${creds.access}`
-                  }
-                });
+                const res=getListsWithoutAuth(props.wise,props.type)
                 res
-                    .json()
-                    .then(res => setDat(res))
-                    .then(show => setShow(false));
+                .then(res => setDat(res))
+                .then(show => setShow(false));
             }
         }
         setData();
@@ -99,7 +84,8 @@ function LaddersLevel(props) {
                             // console.log(dat);
                             return(
                                 <>
-                                <LaddersContent 
+                                <ProblemLadderCard 
+                                    key={index}
                                     title={level.name}
                                     des={level.description}
                                     slug={level.slug}
@@ -121,7 +107,8 @@ function LaddersLevel(props) {
                             // console.log(dat);
                             return(
                                 <>
-                                <LaddersContent 
+                                <ProblemLadderCard 
+                                    key={index}
                                     title={level.name}
                                     des={level.description}
                                     slug={level.slug}
