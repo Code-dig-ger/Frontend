@@ -193,29 +193,12 @@ function ProblemsPage({info,queryStr}) {
         // console.log(playlists);
       };
     const changePlatformFilter = (event,lev) => {
-        // console.log(queryString.stringifyUrl({url: 'https://api.codedigger.tech/problems/', query: {platform: 'F,A',difficulty:'B,E'}}));
-        // console.log(queryString.parseUrl('https://foo.bar?foo=b,l&g=k'))
         
         const res=event.target.checked;
-        // console.log(lev);
-        // console.log(res);
         const platformAdd=platformFilters[lev];
         if(res)
         {
-            // queries.platform.push(platformFilters[lev]);
-            // setQueries({platform:[...queries.platforms, platformFilters[lev]]});
-            // console.log(platformAdd);
-            // platformQueries.concat([platformAdd]);
-            // var temp=platformQueries.concat([platformAdd]);
-            // setPlatformQueries({platformQueries:temp});
             setPlatformQueries([...platformQueries,[platformAdd]]);
-            // setDisplayPlat(
-            //     result: {                   // object that we want to update
-            //         ...prevState.result,    // keep all other key-value pairs
-            //         platformAdd: true       // update the value of specific key
-            //     }
-            // )
-
             setDisplayPlat(update(displayPlat, {
                 values: {
                     [lev]: {
@@ -227,12 +210,6 @@ function ProblemsPage({info,queryStr}) {
         }
         else
         {
-            // setDisplayPlat(prevState => ({
-            //     result: {                   // object that we want to update
-            //         ...prevState.result,    // keep all other key-value pairs
-            //         platformAdd: false       // update the value of specific key
-            //     }
-            // }))
             const newList = platformQueries.filter((item) => item != platformFilters[lev]);
             setPlatformQueries(newList);
             setDisplayPlat(update(displayPlat, {

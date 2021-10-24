@@ -12,7 +12,6 @@ import Codechef from './pages/upsolve/Codechef'
 import Atcoder from './pages/upsolve/Atcoder'
 import LaddersLevel from "./pages/ladders/LaddersLevel";
 import Profile from './pages/profile/ProfilePage'
-
 import Info from './components/profile/FillInfo';
 import '../node_modules/aos/dist/aos.css'
 import '../node_modules/react-multi-carousel/lib/styles.css'
@@ -43,16 +42,14 @@ const App = () => {
   const playlists = ({match}) => {
     return(
 
-      // PARSEINT IS A JS FUNCTION WHICH WILL CONVERT THE THE GIVEN STRING OF NUMBERS 
-      // ACCORDING TO THE BASE OR RADIX SPECIFIED
+      //passing handle as prop
       <MyPlaylists handle={match.params.id} />
     );
   }
   const PlaylistList1 = ({match}) => {
     return(
 
-      // PARSEINT IS A JS FUNCTION WHICH WILL CONVERT THE THE GIVEN STRING OF NUMBERS 
-      // ACCORDING TO THE BASE OR RADIX SPECIFIED
+      //passing slug and handle as props
       <PlaylistList slug={match.params.slug} handle={match.params.id}/>
     );
   }
@@ -60,15 +57,12 @@ const App = () => {
   const profile = ({match}) => {
     return(
 
-      // PARSEINT IS A JS FUNCTION WHICH WILL CONVERT THE THE GIVEN STRING OF NUMBERS 
-      // ACCORDING TO THE BASE OR RADIX SPECIFIED
+      //passing handle as prop
       <Profile handle={match.params.id} />
     );
   }
   
   const LaddersQuestionPage1 = ({match,location}) => {
-    // console.log(location.search);
-    // console.log(JSON.stringify(match.params));
     const [type1, setType1] = useState(match.params.type === "practice" ? "list":"ladder");
     const [pageNo,setPageNo] = useState(location.search === "" ? "": location.search);
     return(
@@ -90,9 +84,8 @@ const App = () => {
   }
 
   const ContestPage1 = ({match,location}) => {
-    // const info = queryString.parse(location.search);
-
     return(
+      //location.search is the part of url after ? symbol
       <ContestPage queryStr={location.search} />
     )
   }
@@ -116,39 +109,34 @@ const App = () => {
         <BrowserRouter>
         
           <Switch>
-            <Route exact path="/list/:id" component={playlists}/>
-            <Route exact path="/list/:id/:slug" component={PlaylistList1}/>
-             <Route exact path="/login" component={LogReg}/>
-             <Route exact path="/upsolve/codeforces" component={Codeforces}/>  
-             <Route exact path="/upsolve/atcoder" component={Atcoder}/>  
-             <Route exact path="/upsolve/codechef" component={Codechef}/>  
-             <Route exact path="/" component={Homepage}/>
-             <Route exact path="/profile/:id" component={profile} />
-             <Route exact path="/:wise/:type" component={LaddersLevel1}/>
-            <Route exact path="/:wise/:type/:slug" component={LaddersQuestionPage1}/>
-            <Route exact path="/:wise/:type/:slug?page=1" component={LaddersQuestionPage1}/>
-            <Route exact path="/problems" component={ProblemsPage1}/>
-            <Route exact path="/change_password_request" component={changePassForm}/>
+
+            <Route exact path="/list/:id" component={playlists}/> {/* All Playlists - id is username */}
+            <Route exact path="/list/:id/:slug" component={PlaylistList1}/> {/* Questions in a Particular playlist - slug is of that problem-list */}
+            <Route exact path="/login" component={LogReg}/> {/* Login/Registration */} 
+            <Route exact path="/upsolve/codeforces" component={Codeforces}/> {/* Codeforces upsolve */}   
+            <Route exact path="/upsolve/atcoder" component={Atcoder}/> {/* Atcoder Upsolve */}   
+            <Route exact path="/upsolve/codechef" component={Codechef}/> {/* Codechef upsolve */}   
+            <Route exact path="/" component={Homepage}/> {/* Homepage */} 
+            <Route exact path="/profile/:id" component={profile} /> {/* Profile, id - username */}
+            <Route exact path="/:wise/:type" component={LaddersLevel1}/> {/* wise - topic,level | type - ladder,practice */}
+            <Route exact path="/:wise/:type/:slug" component={LaddersQuestionPage1}/> {/* wise - topic,level | type - ladder,practice | slug is selected series */}
+            <Route exact path="/problems" component={ProblemsPage1}/> {/* Problems page */}
+            <Route exact path="/change_password_request" component={changePassForm}/> {/* request to change [assowrd] */}
             <Route exact path="/email-verified" component={EmailVerfiedMsg}></Route>
-             
-             {/* <Route exact path="/laddersLevel/topic/page1" component={LaddersQuestionPage}/> */}
-             
+            <Route exact path="/home" component={Homepage}/> {/* Homepage */}
+            <Route exact path="/createProfile" component={Info}/> {/* Creating profile for first time login */}
+            <Route exact path="/forgPass" component={NewpassEmail}/> {/* Forgot password - email form */}
+            <Route exact path="/aboutus" component={AboutUsPage}/> 
             
-              
-            <Route exact path="/home" component={Homepage}/>
-            <Route exact path="/createProfile" component={Info}/>
-            <Route exact path="/forgPass" component={NewpassEmail}/>
-            <Route exact path="/aboutus" component={AboutUsPage}/>
+            <Route exact path="/setNewPass" component={NewPassSet}/> {/* Form to set new password */}
+            <Route exact path="/error" component={ErrorPage}/> 
             
-            <Route exact path="/setNewPass" component={NewPassSet}/>
-            <Route exact path="/error" component={ErrorPage}/>
-            
-            <Route exact path="/updateProfile" component={UpdateProfile}/>
-            <Route exact path="/privacy" component={PrivacyPolicy}/>
+            <Route exact path="/updateProfile" component={UpdateProfile}/> {/* Form to update prpfile */}
+            <Route exact path="/privacy" component={PrivacyPolicy}/> 
             <Route exact path="/terms" component={TermsAndConditions}/>
             
-            <Link to="/contests/?difficulty=diff&platforms=plats" component={ContestPage1}/>
-            <Link to="/problems/?difficulty=diff&platforms=plats" component={ProblemsPage1}/>
+            <Link to="/contests/?difficulty=diff&platforms=plats" component={ContestPage1}/> {/* Contest page with filters */}
+            <Link to="/problems/?difficulty=diff&platforms=plats" component={ProblemsPage1}/> {/* Problem page with filters */}
             <Link to="/:wise/:type/:slug?page=pageNo" component={LaddersQuestionPage1}/>
             
             
