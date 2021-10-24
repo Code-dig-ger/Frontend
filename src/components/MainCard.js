@@ -115,9 +115,7 @@ const MainCard = (props) => {
           {playlists.map((list) => {
             return(
               <>
-                <li style={{
-                                                     marginBottom:'10px'
-                                                 }}>
+                <li style={{marginBottom:'10px'}}>
                   <span style={{color:"white", fontSize:"19px"}}>{list.name}</span>
                   <Button 
                             onClick={() => {addProblem(list.slug, props.ProblemData.prob_id, props.ProblemData.platform)}}

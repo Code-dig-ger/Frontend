@@ -14,25 +14,22 @@ function LaddersLevel(props) {
     const [dat, setDat] = useState();
 
     const [show,setShow]=useState(true);
-    const [wise1,setwise1]=useState();
+
+    //whether levelwise or topic wise
+    const [wise1,setwise1]=useState(props.wise=="topicwise" ? 'Topic':'Level');
 
     console.log(props);
     useEffect(() => {
-        
-            async function setData()
-        {
-            if(props.wise=="topicwise")
-            {
-                setwise1('Topic')
-            }
-            else
-            {
-                setwise1('Level')
-            }
+
+        //fort accessing ladders, user has to be logged in
+        if (props.type=="ladder" && !creds){
+            alert("Please Login to Proceed");
+            window.location='/login' 
         }
+        
         async function fetchData()
         {
-            // console.log("reached");
+            // if creds are available i.e. user is logged in, pass authentication
             if(creds)
             {
                 const res=await fetch (`https://api.codedigger.tech/lists/${props.wise}/${props.type}/`,{
@@ -62,14 +59,9 @@ function LaddersLevel(props) {
                     .then(show => setShow(false));
             }
         }
-        setData();
         fetchData();
         
         
-        if (props.type=="ladder" && !creds){
-            alert("Please Login to Proceed");
-            window.location='/login' 
-        }
         
     },[])
 
@@ -86,17 +78,14 @@ function LaddersLevel(props) {
             {
                 return (
                     <div className="ladder">
-                            {/* {console.log(dat)} */}
                         <Header />
                         
                         <div className="container ladders_ques" style={{marginTop: '80px', marginBottom: '100px'}}>
                         <br/>
             
-                        {/* {console.log(dat[0])} */}
             
                         {props.type == "ladder" ? <>
                         {dat.map((level,index)=> {
-                            // console.log(dat);
                             return(
                                 <>
                                 <LaddersContent 
