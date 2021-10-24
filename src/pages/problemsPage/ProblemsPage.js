@@ -20,41 +20,42 @@ import {faFolderPlus} from '@fortawesome/free-solid-svg-icons'
 import AccordionCom from '../../components/problems/AccordionCom';
 import Switch from '@material-ui/core/Switch';
 import { withStyles } from '@material-ui/core/styles';
+import { defaultTags, AntSwitch, openNav, closeNav, platforms } from '../../common/Utils' 
 
-const AntSwitch = withStyles((theme) => ({
-    root: {
-    //   width: 28,
-    //   height: 16,
-    //   padding: 0,
-    //   display: 'flex',
-    float:'right'
-    },
-    switchBase: {
-    //   padding: 2,
-      color: 'blue',
-      '&$checked': {
-        transform: 'translateX(20px)',
-        color: 'white',
-        '& + $track': {
-          opacity: 1,
-          backgroundColor: 'blue',
-          borderColor: 'black',
-        },
-      },
-    },
-    thumb: {
-    //   width: 12,
-    //   height: 12,
-      boxShadow: 'none',
-    },
-    track: {
-    //   border: `1px solid ${theme.palette.grey[500]}`,
-    //   borderRadius: 16 / 2,
-    //   opacity: 1,
-      backgroundColor: 'white',
-    },
-    checked: {},
-  }))(Switch);
+// const AntSwitch = withStyles((theme) => ({
+//     root: {
+//     //   width: 28,
+//     //   height: 16,
+//     //   padding: 0,
+//     //   display: 'flex',
+//     float:'right'
+//     },
+//     switchBase: {
+//     //   padding: 2,
+//       color: 'blue',
+//       '&$checked': {
+//         transform: 'translateX(20px)',
+//         color: 'white',
+//         '& + $track': {
+//           opacity: 1,
+//           backgroundColor: 'blue',
+//           borderColor: 'black',
+//         },
+//       },
+//     },
+//     thumb: {
+//     //   width: 12,
+//     //   height: 12,
+//       boxShadow: 'none',
+//     },
+//     track: {
+//     //   border: `1px solid ${theme.palette.grey[500]}`,
+//     //   borderRadius: 16 / 2,
+//     //   opacity: 1,
+//       backgroundColor: 'white',
+//     },
+//     checked: {},
+//   }))(Switch);
 
 
 
@@ -82,13 +83,13 @@ function ProblemsPage({info,queryStr}) {
     const [problemplatform, setProblemListPlatform] = useState();
 
 
-    const platforms=[
-        "Codechef",
-        "Codeforces",
-        "Atcoder",
-        "Spoj",
-        "UVA"
-    ];
+    // const platforms=[
+    //     "Codechef",
+    //     "Codeforces",
+    //     "Atcoder",
+    //     "Spoj",
+    //     "UVA"
+    // ];
     const difficultyLevels=[
         "Beginner",
         "Easy" ,
@@ -98,7 +99,7 @@ function ProblemsPage({info,queryStr}) {
         "Challenging"
     ]
 
-    const defaultTags = ["string","dp","math","combinatorics", "Number Theory", "interactive","Binary Search","greedy","graph"];
+    //const defaultTags = ["string","dp","math","combinatorics", "Number Theory", "interactive","Binary Search","greedy","graph"];
 
     const [rangeLeft,setRangeLeft]=useState(queryDefault.range_l ? queryDefault.range_l : 0);
     const [rangeRight,setRangeRight]=useState(queryDefault.range_r ? queryDefault.range_r : 0);
@@ -463,12 +464,12 @@ function ProblemsPage({info,queryStr}) {
     }
 
 
-    function openNav() {
-	    document.getElementById("mySidenav").style.width = "250px";
-	}
-	function closeNav() {
-	    document.getElementById("mySidenav").style.width="0";
-	}
+    // function openNav() {
+	//     document.getElementById("mySidenav").style.width = "250px";
+	// }
+	// function closeNav() {
+	//     document.getElementById("mySidenav").style.width="0";
+	// }
 
     async function getPlaylists()
   {
@@ -514,12 +515,12 @@ function ProblemsPage({info,queryStr}) {
         show==true ? <><Loading/></>:
         <>
             <Navbar />
-                <h3
-                    style={{
-                        textAlign: 'center',
-                        marginBottom: '65px',
-                        marginTop: '100px'
-                    }}
+                <h3 className="page_heading"
+                    // style={{
+                    //     textAlign: 'center',
+                    //     marginBottom: '65px',
+                    //     marginTop: '100px'
+                    // }}
                 >Problems</h3>
                 <Button  style={{position:'absolute', bottom:'77vh', right:'6vw'}} onClick={openNav}>Filter</Button>
                 <Button  style={{position:'absolute', bottom:'77vh', right:'12vw'}} onClick={() => window.location.reload()}>Refresh</Button>
@@ -683,9 +684,9 @@ function ProblemsPage({info,queryStr}) {
                         <br></br> <br></br>  
                     
                         <div className="filterHeading" style={{
-                                marginTop:'1rem',
-                                fontSize:'1.2rem',
-                                marginBottom:'1rem'
+                                // marginTop:'1rem',
+                                // fontSize:'1.2rem',
+                                // marginBottom:'1rem'
                             }}>
                                 Solved By Mentor: 
                                 <AntSwitch
@@ -722,7 +723,7 @@ function ProblemsPage({info,queryStr}) {
                         <div className="row" style={{marginBottom:'3rem'}}>
                             <div class="input-group" style={{justifyContent:'center'}}>
                                 <div class="form-outline">
-                                    <input onChange={(e)=>setSearchText(e.target.value)} type="search" id="form1" class="form-control" style={{height:'3rem', width:'26rem'}}/>
+                                    <input onChange={(e)=>setSearchText(e.target.value)} type="search" id="form1" class="form-control" style={{height:'3rem', width:'26rem'}} placeholder="Search" />
                                 </div>
                                 <button type="button" onClick={handleSearch} class="btn btn-primary">
                                     Search 

@@ -1,5 +1,5 @@
 		/* The side navigation menu */
-        .sidenav1 {
+        .sidenav {
             height: 100%; /* 100% Full-height */
             width: 0; /* 0 width - change this with JavaScript */
             position: fixed; /* Stay in place */
@@ -16,7 +16,7 @@
         }
 
         /* The navigation menu links */
-        .sidenav1 a {
+        .sidenav a {
             padding: 8px 8px 8px 32px;
             text-decoration: none;
             font-size: 25px;
@@ -26,12 +26,12 @@
         }
 
         /* When you mouse over the navigation links, change their color */
-        .sidenav1 a:hover, .offcanvas a:focus{
+        .sidenav a:hover, .offcanvas a:focus{
             color: #f1f1f1;
         }
 
         /* Position and style the close button (top right corner) */
-        .sidenav1 .closebtn {
+        .sidenav .closebtn {
             position: absolute;
             top: 0;
             right: 25px;
@@ -39,24 +39,33 @@
             margin-left: 50px;
         }
 
+        /* Heading title css */
+        .page_heading {
+            text-align: center;
+            margin-bottom: 65px;
+            margin-top: 100px;
+        }
+
         /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
         #main {
             transition: margin-left .5s;
             padding: 20px;
         }
-        .sidenav1 {
+        .sidenav {
             right: 0;
         }
         /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
         @media screen and (max-height: 450px) {
-            .sidenav1 {padding-top: 15px;}
-            .sidenav1 a {font-size: 18px;}
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
         }
-        .sidenav1 {
+        .sidenav {
             right: 0;
            
         }
         .filterHeading{
             margin-left: 15px;
+            margin-top: 1rem;
+            font-size: 1.2rem;
         }
         
