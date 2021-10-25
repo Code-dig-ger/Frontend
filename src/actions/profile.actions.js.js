@@ -1,24 +1,24 @@
-export async function getProfile(acc,handle){
-    return fetch(`https://api.codedigger.tech/auth/profile/${handle}/`, {
+export async function getProfile(accessToken,userHandle){
+    return await fetch(`https://api.codedigger.tech/auth/profile/${userHandle}/`, {
         method:"GET",
         headers:{
             "Content-Type":"application/json",
-            "Authorization":`Bearer ${acc}`
+            "Authorization":`Bearer ${accessToken}`
         }
         }).then(data => data.json());
 }
 
-export async function getInfoBySite(handle,platform){
-    return fetch(`https://api.codedigger.tech/auth/profile/${handle}/?platform=${platform}`)
+export async function getInfoBySite(userHandle,platform){
+    return await fetch(`https://api.codedigger.tech/auth/profile/${userHandle}/?platform=${platform}`)
             .then(data => data.json());
 }
 
-export async function getFriendReq(acc){
-    return fetch (`https://api.codedigger.tech/auth/user/show-request`,{
+export async function getFriendReq(accessToken){
+    return await fetch (`https://api.codedigger.tech/auth/user/show-request`,{
         method:"GET",
         headers:{
             "Content-Type":"application/json",
-            "Authorization":`Bearer ${acc}`
+            "Authorization":`Bearer ${accessToken}`
         }
     }).then(data => data.json());
 }

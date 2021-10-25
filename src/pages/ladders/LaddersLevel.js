@@ -11,7 +11,7 @@ function LaddersLevel(props) {
 
     const creds= JSON.parse(localStorage.getItem("creds"));
 
-    const [dat, setDat] = useState([]);
+    const [data, setData] = useState([]);
 
     const [show,setShow]=useState(true);
     const [wise1,setwise1]=useState();
@@ -19,7 +19,7 @@ function LaddersLevel(props) {
     console.log(props);
     useEffect(() => {
         
-            async function setData()
+            async function initialiseWise()
         {
             if(props.wise=="topicwise")
             {
@@ -36,18 +36,18 @@ function LaddersLevel(props) {
             {
                const res= getLists(creds.access,props.wise,props.type)
                 res
-                .then(res => setDat(res))
+                .then(res => setData(res))
                 .then(show => setShow(false));
             }
             else
             {
                 const res=getListsWithoutAuth(props.wise,props.type)
                 res
-                .then(res => setDat(res))
+                .then(res => setData(res))
                 .then(show => setShow(false));
             }
         }
-        setData();
+        initialiseWise();
         fetchData();
         
         
@@ -58,7 +58,6 @@ function LaddersLevel(props) {
         
     },[])
 
-    
         if(show)
         {
             return(
@@ -67,21 +66,15 @@ function LaddersLevel(props) {
         }
         else
         {
-            if(dat)
+            if(data)
             {
                 return (
                     <div className="ladder">
-                            {/* {console.log(dat)} */}
                         <Header />
                         
                         <div className="container ladders_ques" style={{marginTop: '80px', marginBottom: '100px'}}>
                         <br/>
-            
-                        {/* {console.log(dat[0])} */}
-            
-                        {props.type == "ladder" ? <>
-                        {dat.map((level,index)=> {
-                            // console.log(dat);
+                        {data.map((level,index)=> {
                             return(
                                 <>
                                 <ProblemLadderCard 
@@ -95,37 +88,12 @@ function LaddersLevel(props) {
                                     index={index}
                                     user_solved={level.user_solved}
                                     total={level.total}
-                                    first_time={level.first_time}
+                                    first_time={level.first_time ? true : false}
                                 />
-            
                                 <br/>
                                 </>
                             )
-                        })}
-                        </>:<>
-                        {dat.map((level,index)=> {
-                            // console.log(dat);
-                            return(
-                                <>
-                                <ProblemLadderCard 
-                                    key={index}
-                                    title={level.name}
-                                    des={level.description}
-                                    slug={level.slug}
-                                    wise1={wise1}
-                                    wise={props.wise}
-                                    type={props.type}
-                                    index={index}
-                                    user_solved={level.user_solved}
-                                    total={level.total}
-                                />
-            
-                                <br/>
-                                </>
-                            )
-                        })}
-                        </>}
-                            
+                        })}        
                         </div>
                         <FooterSmall />
                         </div>

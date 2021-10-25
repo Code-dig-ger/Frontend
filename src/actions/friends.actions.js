@@ -1,22 +1,21 @@
-export async function getFriends(acc){
-    // console.log("KKKK");
-        return fetch(`https://api.codedigger.tech/auth/user/friends`,{
+export async function getFriends(accessToken){
+        return await fetch(`https://api.codedigger.tech/auth/user/friends`,{
             method:"GET",
             headers:{
                 "Content-Type":"application/json",
-                "Authorization":`Bearer ${acc}`
+                "Authorization":`Bearer ${accessToken}`
             }
         })
         .then(data => data.json());
 };
 
-export async function acceptReq(acc,from_user){
+export async function acceptReq(accessToken,from_user){
     // console.log("KKKK");
-        return fetch(`https://api.codedigger.tech/auth/user/accept-request`,{
+        return await fetch(`https://api.codedigger.tech/auth/user/accept-request`,{
             method:"PUT",
             headers:{
                 "Content-Type":"application/json",
-                "Authorization":`Bearer ${acc}`
+                "Authorization":`Bearer ${accessToken}`
             },
             body:JSON.stringify({
                 "from_user":from_user
@@ -25,26 +24,26 @@ export async function acceptReq(acc,from_user){
         .then(data => data.json());
 };
 
-export async function removeFrnd(acc,handle) {
-    return fetch(`https://api.codedigger.tech/auth/user/remove-friend`,{
+export async function removeFrnd(accessToken,userHandle) {
+    return await fetch(`https://api.codedigger.tech/auth/user/remove-friend`,{
         method:"POST",
         headers:{
             "Content-Type":"application/json",
-            "Authorization":`Bearer ${acc}`,
+            "Authorization":`Bearer ${accessToken}`,
         },
         body:JSON.stringify({
-            "user":handle
+            "user":userHandle
         })
     })
     .then(data => data.json());
 }
 
-export async function sendReq(acc,to_user){
-    return fetch(`https://api.codedigger.tech/auth/user/send-request`,{
+export async function sendReq(accessToken,to_user){
+    return await fetch(`https://api.codedigger.tech/auth/user/send-request`,{
             method:"POST",
             headers:{
                 "Content-Type":"application/json",
-                "Authorization":`Bearer ${acc}`,
+                "Authorization":`Bearer ${accessToken}`,
             },
             body:JSON.stringify({
                 "to_user":to_user
@@ -53,23 +52,23 @@ export async function sendReq(acc,to_user){
         .then(data => data.json());
 }
 
-export async function showReq(acc){
-    return fetch (`https://api.codedigger.tech/auth/user/show-request`,{
+export async function showReq(accessToken){
+    return await fetch (`https://api.codedigger.tech/auth/user/show-request`,{
       method:"GET",
       headers:{
           "Content-Type":"application/json",
-          "Authorization":`Bearer ${acc}`
+          "Authorization":`Bearer ${accessToken}`
       }
     })
      .then(data => data.json());
 }
 
-export async function showSendReq(acc){
-    return fetch (`https://api.codedigger.tech/auth/user/show-send-request`,{
+export async function showSendReq(accessToken){
+    return await fetch (`https://api.codedigger.tech/auth/user/show-send-request`,{
         method:"GET",
         headers:{
             "Content-Type":"application/json",
-            "Authorization":`Bearer ${acc}`
+            "Authorization":`Bearer ${accessToken}`
         }
       })
      .then(data => data.json());

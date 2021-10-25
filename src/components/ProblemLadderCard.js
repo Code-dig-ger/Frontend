@@ -16,7 +16,6 @@ const ProblemLadderCard = (props) => {
     // console.log(`${(props.user_solved/props.total) * 100}%`);
     // console.log(props)
   }, [])
-
   if(props.wise == "levelwise")
   {
     return (
