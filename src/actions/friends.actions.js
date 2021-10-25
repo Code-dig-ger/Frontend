@@ -1,5 +1,5 @@
 export async function getFriends(accessToken){
-        return await fetch(`https://api.codedigger.tech/auth/user/friends`,{
+        return  fetch(`https://api.codedigger.tech/auth/user/friends`,{
             method:"GET",
             headers:{
                 "Content-Type":"application/json",
@@ -11,7 +11,7 @@ export async function getFriends(accessToken){
 
 export async function acceptReq(accessToken,from_user){
     // console.log("KKKK");
-        return await fetch(`https://api.codedigger.tech/auth/user/accept-request`,{
+        return  fetch(`https://api.codedigger.tech/auth/user/accept-request`,{
             method:"PUT",
             headers:{
                 "Content-Type":"application/json",
@@ -25,7 +25,7 @@ export async function acceptReq(accessToken,from_user){
 };
 
 export async function removeFrnd(accessToken,userHandle) {
-    return await fetch(`https://api.codedigger.tech/auth/user/remove-friend`,{
+    return  fetch(`https://api.codedigger.tech/auth/user/remove-friend`,{
         method:"POST",
         headers:{
             "Content-Type":"application/json",
@@ -39,7 +39,7 @@ export async function removeFrnd(accessToken,userHandle) {
 }
 
 export async function sendReq(accessToken,to_user){
-    return await fetch(`https://api.codedigger.tech/auth/user/send-request`,{
+    return  fetch(`https://api.codedigger.tech/auth/user/send-request`,{
             method:"POST",
             headers:{
                 "Content-Type":"application/json",
@@ -53,7 +53,7 @@ export async function sendReq(accessToken,to_user){
 }
 
 export async function showReq(accessToken){
-    return await fetch (`https://api.codedigger.tech/auth/user/show-request`,{
+    return  fetch (`https://api.codedigger.tech/auth/user/show-request`,{
       method:"GET",
       headers:{
           "Content-Type":"application/json",
@@ -64,7 +64,7 @@ export async function showReq(accessToken){
 }
 
 export async function showSendReq(accessToken){
-    return await fetch (`https://api.codedigger.tech/auth/user/show-send-request`,{
+    return  fetch (`https://api.codedigger.tech/auth/user/show-send-request`,{
         method:"GET",
         headers:{
             "Content-Type":"application/json",

@@ -12,8 +12,8 @@ function PlaylistList(props) {
     const [playlist, setPlaylist] = useState([]);
     //console.log(props.slug)
 
-    function deletePlaylist(){
-        deleteUserlist(creds.access, props.slug)
+    async function deletePlaylist(){
+        await deleteUserlist(creds.access, props.slug)
         .catch(error => setErrors(true));
         window.location.href = `/list/${creds.username}`;
    }
@@ -67,9 +67,9 @@ function PlaylistList(props) {
      const [loader,setLoader]=useState(false);
      const [curPage,setCurPage]=useState(1);
      const [showPagi,setShowPagi]=useState(false)
-    useEffect(() => {
+    useEffect(async () => {
         const url=`https://api.codedigger.tech/lists/userlist/edit/${props.slug}?page=${page}`
-        getThisUserlist(creds.access, url)
+       await getThisUserlist(creds.access, url)
         .then((res) => { setPlaylist(res);
            
          res.link.first!=null?  setFirst(parseInt(res.link.first.split("=")[1])):setFirst(1)

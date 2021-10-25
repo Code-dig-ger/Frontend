@@ -518,8 +518,8 @@ function ContestPage({info,queryStr}) {
 
   console.log(`https://api.codedigger.tech/contest${queryStr}`);
 
-    useEffect(() => {
-        return fetch (`https://api.codedigger.tech/contest/${queryStr}`,{
+    useEffect(async () => {
+        await fetch (`https://api.codedigger.tech/contest/${queryStr}`,{
         method:"GET",
         headers:{
             "Content-type":"application/json",

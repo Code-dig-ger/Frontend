@@ -1,5 +1,5 @@
 export async function login(usernameL,passwordL){
-    return await fetch('https://api.codedigger.tech/auth/login/',{
+    return  fetch('https://api.codedigger.tech/auth/login/',{
           method:"POST",
       headers:{
           "Content-Type":"application/json"
@@ -12,7 +12,7 @@ export async function login(usernameL,passwordL){
 }
 
 export async function register (emailR, usernameR, passwordR){
-    return await fetch(`https://api.codedigger.tech/auth/register/?redirect_url=${process.env.REACT_APP_SEND_EMAIL_RDURL}`,{
+    return  fetch(`https://api.codedigger.tech/auth/register/?redirect_url=${process.env.REACT_APP_SEND_EMAIL_RDURL}`,{
             method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -26,7 +26,7 @@ export async function register (emailR, usernameR, passwordR){
 }
 
 export async function passreqEmail(email){
-    return await fetch('https://api.codedigger.tech/auth/request-reset-email/',{
+    return  fetch('https://api.codedigger.tech/auth/request-reset-email/',{
             method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -39,7 +39,7 @@ export async function passreqEmail(email){
         })
 }
 export async function setNewPass(password,token,uidb64){
-    return await fetch('https://api.codedigger.tech/auth/password-reset-complete',{
+    return  fetch('https://api.codedigger.tech/auth/password-reset-complete',{
         method:"PATCH",
         headers:{
             "Content-Type":"application/json"
@@ -53,7 +53,7 @@ export async function setNewPass(password,token,uidb64){
 }
 
 export async function sendVerEmail(emailR){
-    return await fetch(`https://api.codedigger.tech/auth/send-email/?redirect_url=${process.env.REACT_APP_SEND_EMAIL_RDURL}`,{
+    return  fetch(`https://api.codedigger.tech/auth/send-email/?redirect_url=${process.env.REACT_APP_SEND_EMAIL_RDURL}`,{
             method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -65,7 +65,7 @@ export async function sendVerEmail(emailR){
         }).then(data => data.json());
 }
 export async function NewPassRequest(oldPass,NewPass,accessToken){
-    return await fetch('https://api.codedigger.tech/auth/password-change/',{
+    return  fetch('https://api.codedigger.tech/auth/password-change/',{
         method:"POST",
     headers:{
         "Content-Type":"application/json",

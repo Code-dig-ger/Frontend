@@ -1,5 +1,5 @@
 export async function getProblems(queryString){
-    return await fetch(`https://api.codedigger.tech/problems/${queryString}`, {
+    return  fetch(`https://api.codedigger.tech/problems/${queryString}`, {
                     method:"GET",
                     headers:{
                         "Content-Type":"application/json"
@@ -8,7 +8,7 @@ export async function getProblems(queryString){
 } 
 
 export async function getProblemsWithCreds(queryString,accessToken){
-    return await fetch(`https://api.codedigger.tech/problems/${queryString}`, {
+    return  fetch(`https://api.codedigger.tech/problems/${queryString}`, {
                     method:"GET",
                     headers:{
                         "Content-Type":"application/json",

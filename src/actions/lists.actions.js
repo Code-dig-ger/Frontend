@@ -1,5 +1,5 @@
 export async function getLists(accessToken,wise,type){
-    return await fetch (`https://api.codedigger.tech/lists/${wise}/${type}/`,{
+    return  fetch (`https://api.codedigger.tech/lists/${wise}/${type}/`,{
         method:"GET",
         headers:{
             "Content-Type":"application/json",
@@ -8,7 +8,7 @@ export async function getLists(accessToken,wise,type){
     }).then(data => data.json());
 }
 export async function getListsWithoutAuth(wise,type){
-    return await fetch (`https://api.codedigger.tech/lists/${wise}/${type}/`,{
+    return  fetch (`https://api.codedigger.tech/lists/${wise}/${type}/`,{
         method:"GET",
         headers:{
             "Content-Type":"application/json",
@@ -18,7 +18,7 @@ export async function getListsWithoutAuth(wise,type){
 }
 
 export async function getThisList(accessToken,wise,type,slug){
-    return await fetch (`https://api.codedigger.tech/lists/${wise}/${type}/${slug}`,{
+    return  fetch (`https://api.codedigger.tech/lists/${wise}/${type}/${slug}`,{
         method:"GET",
         headers:{
             "Content-Type":"application/json",
@@ -29,7 +29,7 @@ export async function getThisList(accessToken,wise,type,slug){
 
 export async function getUserList(accessToken)
 {
-    return await fetch(`https://api.codedigger.tech/lists/userlist/`, {
+    return  fetch(`https://api.codedigger.tech/lists/userlist/`, {
         method:"GET",
         headers:{
             "Content-Type":"application/json",
@@ -39,7 +39,7 @@ export async function getUserList(accessToken)
 }
 
 export async function getThisUserlist(accessToken,url){
-    return await fetch(url, {
+    return  fetch(url, {
                method:"GET",
                headers:{
                    "Content-Type":"application/json",
@@ -50,7 +50,7 @@ export async function getThisUserlist(accessToken,url){
 
 export async function addToUserList(accessToken,slug,prob_id,platform)
 {
-    return await fetch(`https://api.codedigger.tech/lists/userlist/add`, {
+    return  fetch(`https://api.codedigger.tech/lists/userlist/add`, {
         method:"GET",
         headers:{
             "Content-Type":"application/json",
@@ -65,7 +65,7 @@ export async function addToUserList(accessToken,slug,prob_id,platform)
 }
 
 export async function deleteUserlist(accessToken,slug){
-    return await fetch(`https://api.codedigger.tech/lists/userlist/edit/${slug}`, {
+    return  fetch(`https://api.codedigger.tech/lists/userlist/edit/${slug}`, {
                method:"DELETE",
                headers:{
                    "Content-Type":"application/json",
@@ -75,7 +75,7 @@ export async function deleteUserlist(accessToken,slug){
 }
 
 export async function createNewUserlist(accessToken,playlistName,playlistDes,pub){
-    return await fetch (`https://api.codedigger.tech/lists/userlist/new`,{
+    return  fetch (`https://api.codedigger.tech/lists/userlist/new`,{
         method:"POST",
         headers:{
             "Content-type":"application/json",

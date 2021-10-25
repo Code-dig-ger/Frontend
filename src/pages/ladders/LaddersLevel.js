@@ -19,7 +19,7 @@ function LaddersLevel(props) {
     console.log(props);
     useEffect(() => {
         
-            async function initialiseWise()
+           async function initialiseWise()
         {
             if(props.wise=="topicwise")
             {
@@ -34,15 +34,13 @@ function LaddersLevel(props) {
         {
             if(creds)
             {
-               const res= getLists(creds.access,props.wise,props.type)
-                res
+                await getLists(creds.access,props.wise,props.type)
                 .then(res => setData(res))
                 .then(show => setShow(false));
             }
             else
             {
-                const res=getListsWithoutAuth(props.wise,props.type)
-                res
+                await getListsWithoutAuth(props.wise,props.type)
                 .then(res => setData(res))
                 .then(show => setShow(false));
             }
