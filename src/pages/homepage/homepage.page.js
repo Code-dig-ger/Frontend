@@ -6,49 +6,14 @@ import "./homepage.styles.css";
 import AOS from 'aos';
 import Navbar from '../../components/Header/Navbar';
 import Footer from '../../components/Footer/footer';
-
-import Typewriter from 'typewriter-effect';
 import '../../../node_modules/reactjs-popup/dist/index.css';
 import Popup from 'reactjs-popup';
-import {Bee} from '@carbon/icons-react';
 import FriendSVG from '../../assets/homepage/images/FriendSVG.js';
 import ProfileFeature from '../../assets/homepage/images/ProfileFeature';
 import ThirdIcon from '../../assets/homepage/images/ThirdIcon';
 import UpsolveIcon from '../../assets/homepage/images/UpsolveIcon';
 import LadderIcon from '../../assets/homepage/images/LadderIcon';
-import PlaylistIcon from '../../assets/homepage/images/PlaylistIcon';
 import Saly10 from '../../assets/homepage/images/Saly10.png'
-
-// const func = () => {
-//   var testimonialItems = document.querySelectorAll(".item label");
-// var timer;
-// const cycleTestimonials = (index) => {
-//    timer = setTimeout(function() {
-//     var evt;
-//     evt = new MouseEvent("click", {
-//       view: window,
-//       bubbles: true,
-//       cancelable: true,
-//       clientX: 20
-//     });
-//     var ele = "." + testimonialItems[index].className;
-//     var ele2 = document.querySelector(ele);
-//     ele2.dispatchEvent(evt);
-//     index++; // Increment the index
-//     if (index >= testimonialItems.length) {
-//       index = 0; // Set it back to `0` when it reaches `3`
-//     }
-//     cycleTestimonials(index); // recursively call `cycleTestimonials()`
-//     document.querySelector(".testimonials").addEventListener("click", function() {
-//       clearTimeout(timer); //stop the carousel when someone clicks on the div
-//     });
-//   }, 2000); //adjust scroll speed in miliseconds
-// }
-// //run the function
-// cycleTestimonials(0);
-// }
-
-// background-image: url('./images//BgImage.jpg');
 
 const Homepage = () => {
   AOS.init();
@@ -71,24 +36,6 @@ const Homepage = () => {
      
    }
      
-    {/* main content*/}
-    {/* <Add24 className="myCustomClas" /> */}
-    {/* <div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-        <defs>
-          <linearGradient id="130_svg__a" x1="18.5" y1="22.5" x2="29.5" y2="11.5" gradientUnits="userSpaceOnUse"><stop offset=".5"></stop><stop offset=".95" stop-opacity="0"></stop></linearGradient>
-          <linearGradient id="130_svg__c" y1="32" x2="32" gradientUnits="userSpaceOnUse"><stop offset=".1" stop-color="#be95ff"></stop><stop offset=".9" stop-color="#4589ff"></stop></linearGradient><mask id="130_svg__b" x="0" y="0" width="32" height="32" maskUnits="userSpaceOnUse"><path d="M27.79 6.238a7.495 7.495 0 00-10.684 0l-1.1 1.127-1.112-1.127a7.5 7.5 0 00-10.685 0 7.733 7.733 0 000 10.824L16 28.994l1.425-1.426-11.78-11.923a5.708 5.708 0 010-7.99 5.479 5.479 0 017.814 0l2.553 2.587 2.529-2.587a5.479 5.479 0 017.814 0 5.708 5.708 0 010 7.99l-6.314 6.4 1.426 1.426 6.323-6.4a7.733 7.733 0 000-10.833z" fill="#f2f2f2"></path><path fill="url(#130_svg__a)" d="M27 9l4 5-10 11-5-5L27 9z"></path></mask>
-        </defs>
-        <g data-name="Layer 2">
-          <g data-name="Dark theme icons">
-            <g mask="url(#130_svg__b)">
-              <path fill="url(#130_svg__c)" d="M0 0h32v32H0z"></path>
-            </g>
-            <path fill="#f4f4f4" d="M28 20h-4v-4h-2v4h-4v2h4v4h2v-4h4v-2z"></path>
-          </g>
-        </g>
-      </svg>
-    </div> */}
     
     <Container className="maincon" >
    
@@ -107,23 +54,14 @@ const Homepage = () => {
             <h5 className="text-white heading2" style={{fontSize:'5rem'}}>CODEDIGGER</h5>
             <br></br><br></br>
             <h5 className="text-white heading2">
-              {/* <Typewriter
-                options={{
-                  strings: ['Dig Deeper Into Coding'],
-                  autoStart: true,
-                  loop: true,
-                }}
-                style={{fontSize:"40px"}}/> */}
             </h5>
           </div>     
-          {/* <div className="headingImage"><img src={image} className="floating"></img></div> */}
         </div>
         </Col>
         
         </Row>
 
         <Row className="qouteRoww bigRow">
-          {/* <img className="qouteHandImg" src={whiteHand} /> */}
           <Col className="qoute-row" lg={11} md={11} sm={11}>
             <div id="qouteDiv">
             <p>We at Codedigger have grinded lots of websites together to provide you a single platform with all the features to start your journey of competitive programming, “From Beginner to Pro.” </p>
@@ -247,19 +185,9 @@ const Homepage = () => {
           </Row>
 
           
-       
-      {/*Footer*/}
-      {/* <Row data-aos="slide-up" className="fixed-bottom  footer"> */}
-
-      
-      {/* <footer>
-  <p className="text-warning">Copyright@Codedigger | Help/Issue :
-  <a className="text-warning" href="mailto:hege@example.com">codedigger@example.com</a></p>
-</footer> */}
       
      
        </Container>
-       {/* <Testimonial/> */}
        <Footer />
 
      
