@@ -14,9 +14,9 @@ function MyPlaylists(props) {
 
      
 
-    useEffect(() => {
+    useEffect(async () => {
         
-        getUserList(creds.access)
+        await getUserList(creds.access)
         .then(res => {setPlaylists(res);})
         .catch(error => setErrors(true));
         

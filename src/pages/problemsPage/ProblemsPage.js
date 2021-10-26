@@ -466,17 +466,17 @@ function ProblemsPage({info,queryStr}) {
                 .catch(error => setErrors(true));
   }
 
-    useEffect(() => {
+    useEffect(async () => {
         if(creds)
         {
-            getProblemsWithCreds(queryStr,creds.access)
+            await getProblemsWithCreds(queryStr,creds.access)
             .then(res => setProblems(res))
             .then(show => setShow(false))
             .catch(error => setErrors(true));
         }
         else
         {
-            getProblems(queryStr)
+            await getProblems(queryStr)
             .then(res => setProblems(res))
             .then(show => setShow(false))
             .catch(error => setErrors(true));
