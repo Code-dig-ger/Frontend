@@ -10,7 +10,7 @@ If you've noticed a bug or have a feature request, [make one][new issue]! It's
 generally best if you get confirmation of your bug or approval for your feature
 request this way before starting to code.
 
-If you have a general question about codedigger, contact us contact.codedigger@gmail.com or [join][discord link]! our discord community. 
+If you have a general question about codedigger, contact us contact.codedigger@gmail.com or [join][discord link]! our discord community.
 
 Beginners! - Watch out for Issues with the ["Good First Issue"][good first issue]! label. These are easy bugs that have been left for first timers to have a go, get involved and make a positive contribution to the project!
 
@@ -21,10 +21,12 @@ You can learn from this free series, [How to Contribute to an Open Source Projec
 If this is something you think you can fix, then [fork Codedigger Frontend] and create
 a branch with a descriptive name.
 
-A good branch name would be : 
+A good branch name would be :
+
 ```sh
 git checkout -b feature/AmazingFeature
 ```
+
 ```sh
 git checkout -b bugfix/user
 ```
@@ -73,20 +75,19 @@ git push --force-with-lease feature/AmazingFeature
 
 A PR can only be merged into master by a maintainer if:
 
-* It is passing CI.
-* It has been approved by at least two maintainers. If it was a maintainer who
+- It is passing CI.
+- It has been approved by at least two maintainers. If it was a maintainer who
   opened the PR, only one extra approval is needed.
-* It has no requested changes.
-* It is up to date with current master.
+- It has no requested changes.
+- It is up to date with current master.
 
 Any maintainer is allowed to merge a PR if all of these conditions are
 met.
 
-
 [new issue]: https://github.com/Code-dig-ger/Frontend/issues/new/choose
 [discord link]: https://discord.gg/4ZeNgUn7cF
 [good first issue]: https://github.com/Code-dig-ger/Frontend/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22
-[fork Codedigger Frontend]: https://help.github.com/articles/fork-a-repo
+[fork codedigger frontend]: https://help.github.com/articles/fork-a-repo
 [open-source-tutorial]: https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github
 [make a pull request]: https://help.github.com/articles/creating-a-pull-request
 [git rebasing]: http://git-scm.com/book/en/Git-Branching-Rebasing

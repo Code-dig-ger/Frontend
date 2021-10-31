@@ -3,19 +3,33 @@ import React from 'react'
 function PlaylistIcon() {
   return (
     <>
-    <svg viewBox="243.795 -945.774 2160 2160" width={2160} height={2160}>
-  <g enableBackground="new" transform="matrix(1, 0, 0, 1, 243.794746, -769.773644)">
-    <clipPath id="cp0">
-      <path transform="matrix(1,0,0,-1,0,1984)" d="M 0 2160 L 2160 2160 L 2160 0 L 0 0 L 0 2160 Z " />
-    </clipPath>
-    <g clipPath="url(#cp0)">
-      <mask id="ma1">
-        <g transform="matrix(1.0000001,0,0,1.0000001,0,-176)">
-          <use width={2160} height={2160} transform="matrix(1, 0, 0, 1, 0, 0)" xlinkHref="#im2" />
-        </g>
-      </mask>
-      <symbol id="im2" viewBox="0 0 2160 2160">
-        <image width={2160} height={2160} xlinkHref="data:image/png;base64,
+      <svg viewBox="243.795 -945.774 2160 2160" width={2160} height={2160}>
+        <g
+          enableBackground="new"
+          transform="matrix(1, 0, 0, 1, 243.794746, -769.773644)"
+        >
+          <clipPath id="cp0">
+            <path
+              transform="matrix(1,0,0,-1,0,1984)"
+              d="M 0 2160 L 2160 2160 L 2160 0 L 0 0 L 0 2160 Z "
+            />
+          </clipPath>
+          <g clipPath="url(#cp0)">
+            <mask id="ma1">
+              <g transform="matrix(1.0000001,0,0,1.0000001,0,-176)">
+                <use
+                  width={2160}
+                  height={2160}
+                  transform="matrix(1, 0, 0, 1, 0, 0)"
+                  xlinkHref="#im2"
+                />
+              </g>
+            </mask>
+            <symbol id="im2" viewBox="0 0 2160 2160">
+              <image
+                width={2160}
+                height={2160}
+                xlinkHref="data:image/png;base64,
 iVBORw0KGgoAAAANSUhEUgAACHAAAAhwCAAAAABqpwS1AAEBHUlEQVR4nOzdB5wk
 Rb0H8LlAhiMcRxA4ECQnJecoUYJkEMUAD0FREQEVAyImQERUQAEVBZUkKjlJzjmD
 5BwPuDsu7+70273A3e52787Mdk31zHy/731kt3q66q/M9Py2Q9WgEgBAYINiFwAA
@@ -1388,12 +1402,16 @@ u70/mNisH3nWzzQhJvtn4Tt3vV+Q977t/RHEZt2+fV+h717u/TqyvlrvM30/vayv
 L/3xfG2ekzo2+zav+b7UrLPFdz4VTfC14Wmv6KXvzYXX+r4fCd4GfC/xvXFdyNnz
 /Oy/Y7J+stqlN7iL32If2ee07zsbo2U9HuP76PIfxWWv8503We8yl95rtEs/m6x/
 UmKym7t4rfge97aQV7N5h8olUvyLcMZPvfACvxeG0ZLBk1Mu/HjCaCxCUg13H7jE
-/wEeYfaFDFyoIQAAAABJRU5ErkJggg==" />
-      </symbol>
-      <g mask="url(#ma1)">
-        <g transform="matrix(1.0000001,0,0,1.0000001,0,-176)">
-          <symbol id="im3" viewBox="0 0 2160 2160">
-            <image width={2160} height={2160} xlinkHref="data:image/png;base64,
+/wEeYfaFDFyoIQAAAABJRU5ErkJggg=="
+              />
+            </symbol>
+            <g mask="url(#ma1)">
+              <g transform="matrix(1.0000001,0,0,1.0000001,0,-176)">
+                <symbol id="im3" viewBox="0 0 2160 2160">
+                  <image
+                    width={2160}
+                    height={2160}
+                    xlinkHref="data:image/png;base64,
 iVBORw0KGgoAAAANSUhEUgAACHAAAAhwCAIAAADArsw+AAwq60lEQVR4nOzdPatl
 ZxmA4QxmxhmTSCSJCKIIQf0BSsBCEUTBSmzS2Uhs0gimURAsAjYWFoIWqfIL7Pwj
 YibRaDSQhMycmXP29/rY2+PsY2pvA2cyOlzXWv16ug375nnfK48AAAAAAADwH115
@@ -18008,15 +18026,20 @@ etR4TH/Q5/wBPUsCGoUVlOX4NZiZ0D0lRz7DE8zflbReC8qco0NSJ1MpTbYAZcYg
 4yjPG4nN3YRUVBP2pssumMvb+s3JaMAfEHd4+GWu3Hb7cFo/naciStchZoRlQR0U
 e6NIVFCTvzR319++Kj+yhBfv75rGCrM60xC6HmSrc8JeaiidmMv2VyWCBpX7CMK+
 UsHhIeEhWx1OWxthy41OaF+nqp+RuVPQNOAmJGxx/B/kv0m5zK9a3QAAAABJRU5E
-rkJggg==" />
-          </symbol>
-          <use width={2160} height={2160} transform="matrix(1, 0, 0, 1, 0, 0)" xlinkHref="#im3" />
+rkJggg=="
+                  />
+                </symbol>
+                <use
+                  width={2160}
+                  height={2160}
+                  transform="matrix(1, 0, 0, 1, 0, 0)"
+                  xlinkHref="#im3"
+                />
+              </g>
+            </g>
+          </g>
         </g>
-      </g>
-    </g>
-  </g>
-</svg>
-
+      </svg>
     </>
   )
 }

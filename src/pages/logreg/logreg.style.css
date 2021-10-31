@@ -11,13 +11,13 @@
   background-position: top;
   /* background-image: url(http://bit.ly/2gPLxZ4);*/
   background: #000000;
-/*background: radial-gradient(circle, rgba(63,94,251,1) 19%, rgba(54,39,42,1) 90%);*/
+  /*background: radial-gradient(circle, rgba(63,94,251,1) 19%, rgba(54,39,42,1) 90%);*/
   font-family: Arial, Helvetica;
   letter-spacing: 0.02em;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
 }
-.cred{
+.cred {
   color: black;
 }
 
@@ -26,7 +26,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
 }
 
 .section-title {
@@ -155,7 +154,7 @@
 }
 
 .underline::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: inherit;
@@ -195,7 +194,7 @@
   padding: 30px 25px;
   border-radius: 5px;
   transform-origin: top;
-/*  background-color: #00131b;*/
+  /*  background-color: #00131b;*/
 }
 
 .form-login {
@@ -295,7 +294,7 @@
   }
   100% {
     position: relative;
-    content: "";
+    content: '';
     width: 250px;
     height: 300px;
     box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.1);
@@ -321,7 +320,7 @@
   }
   100% {
     position: relative;
-    content: "";
+    content: '';
     box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.1);
     width: 250px;
     height: 300px;
@@ -348,7 +347,7 @@
   }
   100% {
     position: relative;
-    content: "";
+    content: '';
     width: 250px;
     height: 300px;
     box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.1);
@@ -457,7 +456,7 @@
   }
   100% {
     position: relative;
-    content: "";
+    content: '';
     width: 250px;
     height: 300px;
     box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.1);
@@ -484,7 +483,7 @@
   }
   100% {
     position: relative;
-    content: "";
+    content: '';
     width: 250px;
     height: 300px;
     box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.1);
@@ -512,7 +511,7 @@
   }
   100% {
     position: relative;
-    content: "";
+    content: '';
     width: 250px;
     height: 300px;
     box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.1);
@@ -573,30 +572,26 @@
   font-weight: bold;
   color: aliceblue;
 }
-.eye{
-  width:30px;
-  height:30px;
-
-  
-
+.eye {
+  width: 30px;
+  height: 30px;
 }
-.passTog{
+.passTog {
   border-radius: 80px;
-  background-color:white;
+  background-color: white;
   padding-bottom: 3px;
-  
-} 
+}
 .field-icon {
   float: right;
   margin-left: -25px;
- margin-top: -38px;
+  margin-top: -38px;
   position: relative;
   z-index: 2;
   margin-bottom: 5px;
 }
-.goodmsgs{
+.goodmsgs {
   color: #00b33e;
- 
+
   margin: 10px;
 }
 .input-block input {
@@ -613,7 +608,7 @@
   border-radius: 2px;
 }
 
-.form [type="submit"] {
+.form [type='submit'] {
   opacity: 0;
   display: block;
   min-width: 120px;
@@ -624,15 +619,15 @@
   border: none;
   transition: all 0.3s ease-out;
 }
-.form-login{
+.form-login {
   margin-bottom: 20px;
   margin-top: 60px;
 }
-.btn-login{
+.btn-login {
   margin-bottom: 30px;
 }
 
-.form-wrapper.is-active .form [type="submit"] {
+.form-wrapper.is-active .form [type='submit'] {
   opacity: 1;
   -moz-transform: translateX(0);
   -ms-transform: translateX(0);
@@ -643,7 +638,7 @@
 
 .btn-login {
   color: #fbfdff;
-  background: #00A58F;
+  background: #00a58f;
   -moz-transform: translateX(-30%);
   -ms-transform: translateX(-30%);
   -webkit-transform: translateX(-30%);
@@ -652,21 +647,19 @@
 
 .btn-signup {
   color: #fbfdff;
-  background: #00A58F;
+  background: #00a58f;
   -moz-transform: translateX(30%);
   -ms-transform: translateX(30%);
   -webkit-transform: translateX(30%);
   transform: translateX(30%);
-  
-
 }
-.alert{
+.alert {
   color: red;
 }
-.errormsgs{
+.errormsgs {
   color: red;
 }
-.btn-setPass{
+.btn-setPass {
   text-align: center;
   border-radius: 10px;
   padding: 5px;
@@ -675,7 +668,7 @@
   background-color: rgb(255, 102, 102);
 }
 
-.loginops{
+.loginops {
   display: flex;
   justify-content: center;
   justify-self: center;
@@ -683,11 +676,9 @@
   background-position: center;
   border-radius: 5px;
   margin: 5px;
- 
 }
-.googlelogin{
+.googlelogin {
   width: 70px;
   height: 10px;
   border-radius: 80px;
-  
 }
