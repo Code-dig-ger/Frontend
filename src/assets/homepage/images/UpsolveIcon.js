@@ -1,21 +1,40 @@
 import React from 'react'
 
 function UpsolveIcon() {
-    return (
-        <>
-            <svg id='upsolveSvg' viewBox="-1830.32 -1164.989 1520.437 2703" width="1520.437" height={2703}>
-  <g enableBackground="new" transform="matrix(1, 0, 0, 1, -1830.100885, -1012.988983)">
-    <clipPath id="cp0">
-      <path transform="matrix(-1,0,0,-1,1520,2551)" d="M 0 2703 L 1520 2703 L 1520 0 L 0 0 L 0 2703 Z " />
-    </clipPath>
-    <g clipPath="url(#cp0)">
-      <mask id="ma1">
-        <g transform="matrix(-.70390626,0,-0,.70390638,1520.2188,-152)">
-          <use width={2160} height={3840} transform="matrix(1, 0, 0, 1, 0, 0)" xlinkHref="#im2" />
-        </g>
-      </mask>
-      <symbol id="im2" viewBox="0 0 2160 3840">
-        <image width={2160} height={3840} xlinkHref="data:image/png;base64,
+  return (
+    <>
+      <svg
+        id="upsolveSvg"
+        viewBox="-1830.32 -1164.989 1520.437 2703"
+        width="1520.437"
+        height={2703}
+      >
+        <g
+          enableBackground="new"
+          transform="matrix(1, 0, 0, 1, -1830.100885, -1012.988983)"
+        >
+          <clipPath id="cp0">
+            <path
+              transform="matrix(-1,0,0,-1,1520,2551)"
+              d="M 0 2703 L 1520 2703 L 1520 0 L 0 0 L 0 2703 Z "
+            />
+          </clipPath>
+          <g clipPath="url(#cp0)">
+            <mask id="ma1">
+              <g transform="matrix(-.70390626,0,-0,.70390638,1520.2188,-152)">
+                <use
+                  width={2160}
+                  height={3840}
+                  transform="matrix(1, 0, 0, 1, 0, 0)"
+                  xlinkHref="#im2"
+                />
+              </g>
+            </mask>
+            <symbol id="im2" viewBox="0 0 2160 3840">
+              <image
+                width={2160}
+                height={3840}
+                xlinkHref="data:image/png;base64,
 iVBORw0KGgoAAAANSUhEUgAACHAAAA8ACAAAAACkIjf6AADqkklEQVR4nOzdbait
 53kf+GdDyJpBky87EYh20PGHCUeeImKKhKNOjTJNUDLxNCEi/uAYFaLIoRWkJZmM
 SF1p/BK5ZVwmsTVgOnKwpgmRCx2bmbENjqEyQZJP2qMppmdcFFwaSyTGIJovQWSS
@@ -1268,12 +1287,16 @@ cIIDAAgnOACAcIIDAAgnOACAcIIDAAgnOACAcIIDAAgnOACAcIIDAAgnOACAcIID
 AAgnOACAcIIDAAgnOACAcIIDAAgnOACAcIIDAAgnOACAcIIDAAgnOACAcIIDAAgn
 OACAcIIDAAgnOACAcIIDAAgnOACAcIIDAAgnOACAcIIDAAgnOACAcIIDAAgnOACA
 cIIDAAgnOACAcIIDAAgnOACAcIIDAAgnOACAcIIDAAgnOACAcP8fZ1MQKrT8BvEA
-AAAASUVORK5CYII=" />
-      </symbol>
-      <g mask="url(#ma1)">
-        <g transform="matrix(-.70390626,0,-0,.70390638,1520.2188,-152)">
-          <symbol id="im3" viewBox="0 0 2160 3840">
-            <image width={2160} height={3840} xlinkHref="data:image/png;base64,
+AAAASUVORK5CYII="
+              />
+            </symbol>
+            <g mask="url(#ma1)">
+              <g transform="matrix(-.70390626,0,-0,.70390638,1520.2188,-152)">
+                <symbol id="im3" viewBox="0 0 2160 3840">
+                  <image
+                    width={2160}
+                    height={3840}
+                    xlinkHref="data:image/png;base64,
 iVBORw0KGgoAAAANSUhEUgAACHAAAA8ACAIAAAAOK/9xAAtzwUlEQVR4nOzd+4+l
 913Y8a935szM3rw325vYcRwHQRyl1FAgqRKHxC5NBaTQJiShUEohKRWEUasIIvUf
 6A8guVItQKrMrwH8A1J/RFwqlFRqK7XFPyAoComSkIs38d5mdm7nzLjnnO/O42fO
@@ -16911,17 +16934,22 @@ KgAAAAAAAEOoAAAAAAAADKECAAAAAAAwhAoAAAAAAMAQKgAAAAAAAEOoAAAAAAAA
 DKECAAAAAAAwhAoAAAAAAMAQKgAAAAAAAEOoAAAAAAAADKECAAAAAAAwhAoAAAAA
 AMAQKgAAAAAAAEOoAAAAAAAADKECAAAAAAAwhAoAAAAAAMAQKgAAAAAAAEOoAAAA
 AAAADKECAAAAAAAwhAoAAAAAAMAQKgAAAAAAAEOoAAAAAAAAjAAVVr6MesbTiQAA
-AABJRU5ErkJggg==" />
-          </symbol>
-          <use width={2160} height={3840} transform="matrix(1, 0, 0, 1, 0, 0)" xlinkHref="#im3" />
+AABJRU5ErkJggg=="
+                  />
+                </symbol>
+                <use
+                  width={2160}
+                  height={3840}
+                  transform="matrix(1, 0, 0, 1, 0, 0)"
+                  xlinkHref="#im3"
+                />
+              </g>
+            </g>
+          </g>
         </g>
-      </g>
-    </g>
-  </g>
-</svg>
-
-        </>
-    )
+      </svg>
+    </>
+  )
 }
 
 export default UpsolveIcon

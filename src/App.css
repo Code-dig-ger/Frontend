@@ -1,8 +1,6 @@
-
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap');
 * {
-  font-family: "Inter", sans-serif;
-
+  font-family: 'Inter', sans-serif;
 }
 
 .container-fluid {
@@ -10,11 +8,10 @@
 }
 
 .navbar-link.active {
-  
   padding: 0.5rem;
   border-radius: 5px;
 }
-.navbar-link:hover{
+.navbar-link:hover {
   color: brown;
 }
 ::-webkit-scrollbar {
@@ -31,9 +28,7 @@
   -webkit-border-radius: 2px;
   border-radius: 2px;
   background: white;
-  
 }
 ::-webkit-scrollbar-thumb:window-inactive {
   background: white;
-  
 }

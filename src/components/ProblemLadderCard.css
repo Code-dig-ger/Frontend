@@ -1,183 +1,176 @@
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
 .course {
-	background-color: #fff;
-	border-radius: 10px;
-	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-	display: flex;
-	max-width: 100%;
-    margin: 10px;
-    margin-bottom: 0px !important;
-    margin-top: 12px;
-    overflow: hidden;
-    
-	
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  max-width: 100%;
+  margin: 10px;
+  margin-bottom: 0px !important;
+  margin-top: 12px;
+  overflow: hidden;
 }
 
 .course h6 {
-	opacity: 0.6;
-	margin: 0;
-	letter-spacing: 1px;
-    
-    
+  opacity: 0.6;
+  margin: 0;
+  letter-spacing: 1px;
 }
 
 .course h5 {
-	letter-spacing: 1px;
-    margin: 10px 0;
-    
+  letter-spacing: 1px;
+  margin: 10px 0;
 }
 
 .course-info h5 {
-	letter-spacing: 1px;
-    margin: 10px 0;
-    color: black !important;
+  letter-spacing: 1px;
+  margin: 10px 0;
+  color: black !important;
 }
 
 .course-info h6 {
-	opacity: 0.6;
-	margin: 0;
-	letter-spacing: 1px;
-    
-    color: black !important;
-    
+  opacity: 0.6;
+  margin: 0;
+  letter-spacing: 1px;
+
+  color: black !important;
 }
 
 .course-preview {
-	color: #fff;
-	padding: 30px;
-    width: 35%;
+  color: #fff;
+  padding: 30px;
+  width: 35%;
 }
 
 .course-preview a {
-	color: #fff;
-	display: inline-block;
-	font-size: 12px;
-	opacity: 0.6;
-	margin-top: 30px;
-	text-decoration: none;
+  color: #fff;
+  display: inline-block;
+  font-size: 12px;
+  opacity: 0.6;
+  margin-top: 30px;
+  text-decoration: none;
 }
 
 .course-info {
-	padding: 30px;
-	position: relative;
-	width: 100%;
+  padding: 30px;
+  position: relative;
+  width: 100%;
 }
 
 .progress-container {
-	position: absolute;
-	top: 20px;
-	right: 30px;
-	text-align: right;
-	width: 150px;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  text-align: right;
+  width: 150px;
 }
 
 .progress {
-	background-color: #ddd;
-	border-radius: 3px;
-	height: 5px;
-	width: 100%;
+  background-color: #ddd;
+  border-radius: 3px;
+  height: 5px;
+  width: 100%;
 }
 
-.progressPercent{
-	border-radius: 3px;
-	background-color: #2A265F;
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 5px;
+.progressPercent {
+  border-radius: 3px;
+  background-color: #2a265f;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
 }
 
-
-.bgIndex1{
-	background-color: #1C3850;
+.bgIndex1 {
+  background-color: #1c3850;
 }
-.bgIndex2{
-	background-color: #00759E;
+.bgIndex2 {
+  background-color: #00759e;
 }
-.bgIndex3{
-	background-color: #00AECF;
+.bgIndex3 {
+  background-color: #00aecf;
 }
-.bgIndex4{
-	background-color: #56BCD6;
-}
-
-.bgIndex5{
-	background-color: #A4DEED;
+.bgIndex4 {
+  background-color: #56bcd6;
 }
 
-.progbgIndex1::after{
-	background-color: #1C3850;
+.bgIndex5 {
+  background-color: #a4deed;
 }
 
-.progbgIndex2::after{
-	background-color: #00759E;
+.progbgIndex1::after {
+  background-color: #1c3850;
 }
 
-.progbgIndex3::after{
-	background-color: #00AECF;
+.progbgIndex2::after {
+  background-color: #00759e;
 }
 
-.progbgIndex4::after{
-	background-color: #56BCD6;
+.progbgIndex3::after {
+  background-color: #00aecf;
 }
 
-.progbgIndex5::after{
-	background-color: #A4DEED;
+.progbgIndex4::after {
+  background-color: #56bcd6;
 }
 
-.TopicbgIndex1{
-	background-color: #00494C;
-}
-.TopicbgIndex2{
-	background-color: #277C73;
-}
-.TopicbgIndex3{
-	background-color: #32A7A3;
-}
-.TopicbgIndex4{
-	background-color: #71C1BF;
+.progbgIndex5::after {
+  background-color: #a4deed;
 }
 
-.TopicbgIndex5{
-	background-color: #95D2CF;
+.TopicbgIndex1 {
+  background-color: #00494c;
+}
+.TopicbgIndex2 {
+  background-color: #277c73;
+}
+.TopicbgIndex3 {
+  background-color: #32a7a3;
+}
+.TopicbgIndex4 {
+  background-color: #71c1bf;
 }
 
-.TopicprogbgIndex1::after{
-	background-color: #00494C;
+.TopicbgIndex5 {
+  background-color: #95d2cf;
 }
 
-.TopicprogbgIndex2::after{
-	background-color: #277C73;
+.TopicprogbgIndex1::after {
+  background-color: #00494c;
 }
 
-.TopicprogbgIndex3::after{
-	background-color: #32A7A3;
+.TopicprogbgIndex2::after {
+  background-color: #277c73;
 }
 
-.TopicprogbgIndex4::after{
-	background-color: #71C1BF;
+.TopicprogbgIndex3::after {
+  background-color: #32a7a3;
 }
 
-.TopicprogbgIndex5::after{
-	background-color: #95D2CF;
+.TopicprogbgIndex4::after {
+  background-color: #71c1bf;
+}
+
+.TopicprogbgIndex5::after {
+  background-color: #95d2cf;
 }
 
 .progress-text {
-	font-size: 10px;
-	opacity: 0.6;
-	letter-spacing: 1px;
+  font-size: 10px;
+  opacity: 0.6;
+  letter-spacing: 1px;
 }
 
 .course-info .btn {
-	border: 0;
-	border-radius: 50px;
-	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-	color: #fff;
-	font-size: 16px;
-	padding: 9px 23px;
-	position: absolute;
-	bottom: 20px;
-	right: 40px;
-	letter-spacing: 1px;
+  border: 0;
+  border-radius: 50px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: 16px;
+  padding: 9px 23px;
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+  letter-spacing: 1px;
 }

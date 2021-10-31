@@ -1,37 +1,34 @@
-
-#Add_Problem_List{
-    color:danger;
-    background-color: #1379e7;
-    position :relative;
-    left:85%
+#Add_Problem_List {
+  color: danger;
+  background-color: #1379e7;
+  position: relative;
+  left: 85%;
 }
 
-#form{
-    margin-bottom:70px;
- }
- 
-#playlistName{
-    margin-left:45px;
-     width:80%;
-      margin-top:30px
+#form {
+  margin-bottom: 70px;
 }
 
-
-#playlistdec{
-    margin-left:45px;
-    margin-top:23px;
-    width:80%;
-    height: 80px
+#playlistName {
+  margin-left: 45px;
+  width: 80%;
+  margin-top: 30px;
 }
 
-
-#Add_Problem_List_With_Details{
-    color:primary;
-    position: relative;
-    right: -40%;
-    top:70px
+#playlistdec {
+  margin-left: 45px;
+  margin-top: 23px;
+  width: 80%;
+  height: 80px;
 }
 
-#close{
-    color:secondary
+#Add_Problem_List_With_Details {
+  color: primary;
+  position: relative;
+  right: -40%;
+  top: 70px;
+}
+
+#close {
+  color: secondary;
 }
