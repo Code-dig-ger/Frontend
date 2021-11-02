@@ -23,6 +23,24 @@
             transition: 0.3s
         }
 
+        .row {
+            margin-bottom: 3rem;
+        }
+
+        .problem_list {
+            color: white;
+            font-size: 19px;
+        }
+        
+        .form-control {
+            height: 3rem;
+            width: 26rem;
+        }
+
+        .input-group {
+            justify-content: center;
+        }
+
         /* When you mouse over the navigation links, change their color */
         .sidenav a:hover, .offcanvas a:focus{
             color: #f1f1f1;
@@ -66,4 +84,71 @@
             /* margin-top: 1rem;
             font-size: 1.2rem;
             margin-bottom: 1rem; */
+        }
+
+        .filter_button {
+            position: absolute;
+            bottom: 77vh;
+            right: 6vw;
+        }
+        
+        .refresh_button {
+            position: absolute;
+            bottom: 77vh;
+            right: 12vw;
+        }
+
+        /* Sidenav filter title headings */
+        .filter_titles {
+            margin-bottom: 2rem;
+        }
+
+        .add_problem_button {
+            padding: 5px 7px;
+            position: relative;
+            float: right;
+            right: 40px;
+            bottom: 0;
+            border-radius: 10%;
+            margin-bottom: 3px;
+        }
+
+        .sidenav_apply_button {
+            padding: 6px;
+            margin-left: 12px;
+            background-color: forestgreen;
+        }
+
+        .sidenav_close_button {
+            padding: 6px;
+            margin-left: 5px;
+            background-color: firebrick;
+        }
+
+        .folder_plus_icon {
+            cursor: pointer;
+            position: absolute;
+            right: 30%;
+            height: 30px;
+            font-size: 20px;
+            color: black;
+            z-index: 100;
+            top: 20px;
+        }
+
+        /* div for selected tags */
+        .your_tags {
+            padding: 0.4rem;
+            color: black;
+            background-color: powderblue;
+            border-radius: 4px;
+            margin: 0.3rem;
+        }
+
+        .problems_page {
+            margin: 0px;
+            padding: 0px;
+            margin-left: 100px;
+            margin-right: 100px;
+            padding-bottom: 50px;
         }
