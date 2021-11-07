@@ -1,53 +1,53 @@
 .heading1 {
-    font-size: 22px;
-    margin-top: 5px;
+  font-size: 22px;
+  margin-top: 5px;
 }
 
 #navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    transition: top 0.3s;
-    z-index: 200;
-    /* background: transparent !important; */
-    font-size: 1rem;
-    font-weight: 400;
-    border: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: top 0.3s;
+  z-index: 200;
+  /* background: transparent !important; */
+  font-size: 1rem;
+  font-weight: 400;
+  border: none;
 }
 
 .dropdown_link {
-    color: black !important;
-    font-size: 16px;
-    padding: 3px;
+  color: black !important;
+  font-size: 16px;
+  padding: 3px;
 }
 .dropdown:hover > .dropdown-menu {
-    display: block;
+  display: block;
 }
 
 .dropdown > .dropdown-toggle:active {
-    /*Without this, clicking will make it sticky*/
-    pointer-events: none;
+  /*Without this, clicking will make it sticky*/
+  pointer-events: none;
 }
 
 .dropdown-menu {
-    background-color: black;
+  background-color: black;
 }
 
 .dropdown:hover {
-    background-color: #353839;
-    border-radius: 10px;
+  background-color: #353839;
+  border-radius: 10px;
 }
 
 .dropdown-item:hover {
-    background-color: lightgray;
+  background-color: lightgray;
 }
 
 #BrandLogo {
-    width: 50px;
-    margin-right: 0;
-    float: none;
+  width: 50px;
+  margin-right: 0;
+  float: none;
 }
 
 .dropdown_background {
-    background-color: whitesmoke;
+  background-color: whitesmoke;
 }

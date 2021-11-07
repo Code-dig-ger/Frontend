@@ -1,13 +1,13 @@
-.hideOptions{
-	display:none !important;
+.hideOptions {
+  display: none !important;
 }
 
-.showOptions{
-	display: block !important;
+.showOptions {
+  display: block !important;
 }
 
-.dropdown-toggle::after{
-	content: none !important;
+.dropdown-toggle::after {
+  content: none !important;
 }
 /* 
  * The styles below are not DRY for 
@@ -22,51 +22,51 @@
 /* Popout to right Styles
 =============================================*/
 
-.friendsButton{
-	background-color: black;
-	width: 64px;
-	border-radius: 7px;
-	border-color: black;
+.friendsButton {
+  background-color: black;
+  width: 64px;
+  border-radius: 7px;
+  border-color: black;
 }
 
-.friendsButton:focus{
-	background-color: black;
-	border-color: black;
-	box-shadow: none;
+.friendsButton:focus {
+  background-color: black;
+  border-color: black;
+  box-shadow: none;
 }
 
-.friendsButton:hover{
-	background-color: black;
-	border-color: black;
+.friendsButton:hover {
+  background-color: black;
+  border-color: black;
 }
 
 .popout-menu-right {
-	background: none;
-	border: none;
-	box-shadow: none;
-	left: 138px;
-	top: -67px;
+  background: none;
+  border: none;
+  box-shadow: none;
+  left: 138px;
+  top: -67px;
 }
 .popout-menu-right li {
-	width: 92px;
-	margin-bottom: 18px;
-	padding: 6px;
-	/* background: #337ab7; */
-	border-radius: 6px;
-	box-shadow: 0 0 8px rgba(0,0,0, 0.6);
+  width: 92px;
+  margin-bottom: 18px;
+  padding: 6px;
+  /* background: #337ab7; */
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
 }
 .popout-menu-right li:last-of-type {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
-.popout-menu-right li:nth-of-type(2n){
-	margin-left: 12px;
+.popout-menu-right li:nth-of-type(2n) {
+  margin-left: 12px;
 }
 .popout-menu-right li a {
-	color: #fff;
+  color: #fff;
 }
 .popout-menu-right li a:hover {
-	background: inherit;
-	color: #fff;
+  background: inherit;
+  color: #fff;
 }
 /* .popout-menu-right li:hover {
 	background: #286090;
@@ -77,20 +77,20 @@
 
 /** Arrow Styles For Popout Right **/
 .arrow-box-left {
-	position: relative;
-	background: #337ab7;
+  position: relative;
+  background: #337ab7;
 }
 .arrow-box-left::after {
-	right: 100%;
-	top: 50%;
-	border: solid transparent;
-	content: " ";
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
-	border-color: rgba(136, 183, 213, 0);
-	border-right-color: #337ab7;
-	border-width: 8px;
-	margin-top: -8px;
+  right: 100%;
+  top: 50%;
+  border: solid transparent;
+  content: ' ';
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(136, 183, 213, 0);
+  border-right-color: #337ab7;
+  border-width: 8px;
+  margin-top: -8px;
 }

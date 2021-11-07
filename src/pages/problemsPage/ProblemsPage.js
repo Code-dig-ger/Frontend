@@ -123,10 +123,8 @@ function ProblemsPage({info,queryStr}) {
         setRangeLeft(event.target.value);
     }
 
-    const setRightRangeQuery = (event) => {
-        event.preventDefault();
-        setRangeRight(event.target.value);
-    }
+function ProblemsPage({ info, queryStr }) {
+  console.log('qs', queryStr)
 
     // const toggle = (e) => {
     //     e.preventDefault();
@@ -173,28 +171,72 @@ function ProblemsPage({info,queryStr}) {
         }
     }
 
-    const tagTextAdd = (event) => {
-        setTagQueries([...tagQueries, [tagText]]);
-        setTagText("");
-    }
+  const creds = JSON.parse(localStorage.getItem('creds'))
+  const [error, setErrors] = useState(false)
+  const [show, setShow] = useState(true)
+  const [problems, setProblems] = useState([])
+  const [playlists, setPlaylists] = useState([])
+  const [modal, setModal] = useState(false)
+  const [modalOpenDiffi, setModalOpenDiffi] = useState(false)
+  const [modalOpenPlat, setModalOpenPlat] = useState(false)
+  const [modalOpenDiffiRange, setModalOpenDiffiRange] = useState(false)
+  const [openTags, setOpenTags] = useState(false)
+
+  const [searchText, setSearchText] = useState()
+  const [tagText, setTagText] = useState()
+  const [problemid, setProblemListId] = useState()
+  const [problemplatform, setProblemListPlatform] = useState()
+
+  const platforms = ['Codechef', 'Codeforces', 'Atcoder', 'Spoj', 'UVA']
+  const difficultyLevels = [
+    'Beginner',
+    'Easy',
+    'Medium',
+    'Hard',
+    'SuperHard',
+    'Challenging',
+  ]
+
+  const defaultTags = [
+    'string',
+    'dp',
+    'math',
+    'combinatorics',
+    'Number Theory',
+    'interactive',
+    'Binary Search',
+    'greedy',
+    'graph',
+  ]
+
+  const [rangeLeft, setRangeLeft] = useState(
+    queryDefault.range_l ? queryDefault.range_l : 0
+  )
+  const [rangeRight, setRangeRight] = useState(
+    queryDefault.range_r ? queryDefault.range_r : 0
+  )
+
 
     function addProblem(slug){
         if(!creds){
           return;
         }
-        let p;
-        let platform = problemplatform;
-        if(platform === "Codeforces"){
-          p = "F";
-        }else if(platform === "Codechef"){
-          p = "C";
-        }else if(platform === "Atcoder"){
-          p = "A";
-        }else if(platform === "UVA"){
-          p = "U";
-        }else if(platform === "SPOJ"){
-          p = "S";
+      : { values: [false, false, false, false, false, false] }
+  )
+
+  const [displayPlat, setDisplayPlat] = useState(
+    queryDefault.platform
+      ? {
+          values: [
+            queryDefault.platform.includes('C'),
+            queryDefault.platform.includes('F'),
+            queryDefault.platform.includes('A'),
+            queryDefault.platform.includes('S'),
+            queryDefault.platform.includes('U'),
+            // false,false,false,false,false
+          ],
         }
+
     
           const result =  fetch (`https://api.codedigger.tech/lists/userlist/add`,{
               method:"POST",
@@ -239,6 +281,8 @@ function ProblemsPage({info,queryStr}) {
             }));
         } 
     }
+    // console.log(JSON.stringify(queries.platform).replace(/"/g,'').replace(/]|[[]/g, ''));
+  }
 
     const changeDifficultyFilter = (event,lev) => {
         const res=event.target.checked;
@@ -266,12 +310,131 @@ function ProblemsPage({info,queryStr}) {
                 }
             }));
         }
+
+    }
+    let p
+    let platform = problemplatform
+    if (platform === 'Codeforces') {
+      p = 'F'
+    } else if (platform === 'Codechef') {
+      p = 'C'
+    } else if (platform === 'Atcoder') {
+      p = 'A'
+    } else if (platform === 'UVA') {
+      p = 'U'
+    } else if (platform === 'SPOJ') {
+      p = 'S'
     }
 
-    const mentorrChange = (e) => {
-        setMentorr(!mentorr);
-        setMentorrCount(true);
+    // console.log(slug, prob_id, platform)
+    const result = fetch(`https://api.codedigger.tech/lists/userlist/add`, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+        Authorization: `Bearer ${creds.access}`,
+      },
+      body: JSON.stringify({
+        prob_id: problemid,
+        slug: slug,
+        platform: p,
+      }),
+    })
+      .then((data) => data.json())
+      .then((data) =>
+        data.status === 'FAILED'
+          ? alert('Problem has already been added to the problem list!')
+          : alert('Problem is successfully Added to problem list.')
+      )
+  }
+
+  const changeTagFilter = (event, lev) => {
+    // console.log(difficultyFilters[lev]);
+    const res = event.target.checked
+    // console.log(lev + res);
+    const tagAdd = defaultTags[lev]
+    if (res) {
+      // console.log(queries.difficulty.push(difficultyFilters[lev]));
+      setTagQueries([...tagQueries, [tagAdd]])
+      setDisplayTags(
+        update(displayTags, {
+          values: {
+            [lev]: {
+              $set: true,
+            },
+          },
+        })
+      )
+    } else {
+      // var y=-1;
+      // queries.difficulty.map((plat,i) => {
+      //     if(plat==difficultyFilters[lev])
+      //     {
+      //         y=i;
+      //     }
+      // });
+      // queries.difficulty.splice(y,1);
+      const newList = tagQueries.filter((item) => item != defaultTags[lev])
+      setTagQueries(newList)
+
+      // console.log(newList);
+      // console.log(lev);
+      // console.log(defaultTags[lev]);
+
+      setDisplayTags(
+        update(displayTags, {
+          values: {
+            [lev]: {
+              $set: false,
+            },
+          },
+        })
+      )
     }
+    // console.log(JSON.stringify(queries.difficulty).replace(/"/g,'').replace(/]|[[]/g, ''));
+  }
+
+  const changeDifficultyFilter = (event, lev) => {
+    // console.log(difficultyFilters[lev]);
+    const res = event.target.checked
+    // console.log(lev + res);
+    const difficultyAdd = difficultyFilters[lev]
+    if (res) {
+      // console.log(queries.difficulty.push(difficultyFilters[lev]));
+      setDifficultyQueries([...difficultyQueries, [difficultyAdd]])
+      setDisplayDiff(
+        update(displayDiff, {
+          values: {
+            [lev]: {
+              $set: true,
+            },
+          },
+        })
+      )
+    } else {
+      // var y=-1;
+      // queries.difficulty.map((plat,i) => {
+      //     if(plat==difficultyFilters[lev])
+      //     {
+      //         y=i;
+      //     }
+      // });
+      // queries.difficulty.splice(y,1);
+      const newList = difficultyQueries.filter(
+        (item) => item != difficultyFilters[lev]
+      )
+      setDifficultyQueries(newList)
+      setDisplayDiff(
+        update(displayDiff, {
+          values: {
+            [lev]: {
+              $set: false,
+            },
+          },
+        })
+      )
+    }
+    // console.log(JSON.stringify(queries.difficulty).replace(/"/g,'').replace(/]|[[]/g, ''));
+  }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -334,14 +497,39 @@ function ProblemsPage({info,queryStr}) {
                 const urlTo = `/problems/?${finalQ}`;
                 window.location.href=urlTo;
             } 
-        }
-    }
 
-    const handleSearch = (e) => {
-        e.preventDefault();
-        const searchUrl = `/problems/?search=${searchText}`;
-        window.location.href=searchUrl;
+        }
+
+        const finalQ = queryString.stringify(queryy, { skipEmptyString: true })
+        const urlTo = `/problems/?${finalQ}`
+        // console.log(urlTo);
+        window.location.href = urlTo
+      } else {
+        const queryy = {
+          difficulty: JSON.stringify(difficultyQueries)
+            .replace(/"/g, '')
+            .replace(/]|[[]/g, ''),
+          platform: JSON.stringify(platformQueries)
+            .replace(/"/g, '')
+            .replace(/]|[[]/g, ''),
+          tags: JSON.stringify(tagQueries)
+            .replace(/"/g, '')
+            .replace(/]|[[]/g, ''),
+          range_l: JSON.stringify(diffRange[0])
+            .replace(/"/g, '')
+            .replace(/]|[[]/g, ''),
+          range_r: JSON.stringify(diffRange[1])
+            .replace(/"/g, '')
+            .replace(/]|[[]/g, ''),
+        }
+
+        const finalQ = queryString.stringify(queryy, { skipEmptyString: true })
+        const urlTo = `/problems/?${finalQ}`
+        // console.log(urlTo);
+        window.location.href = urlTo
+      }
     }
+  }
 
     function openNav() {
 	    document.getElementById("mySidenav").style.width = "250px";
@@ -351,45 +539,38 @@ function ProblemsPage({info,queryStr}) {
 	    document.getElementById("mySidenav").style.width="0";
 	}
 
-    async function getPlaylists()
-  {
-    if(!creds){
-      alert("Please Login to Add Problems to Problem List!")
-      return;
+  async function getPlaylists() {
+    if (!creds) {
+      alert('Please Login to Add Problems to Problem List!')
+      return
     }
     const res = await fetch(`https://api.codedigger.tech/lists/userlist/`, {
-            method:"GET",
-            headers:{
-                "Content-Type":"application/json",
-                "Authorization":`Bearer ${creds.access}`
-            }
-            });
-            res
-                .json()
-                .then(res => setPlaylists(res))
-                .catch(error => setErrors(true));
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${creds.access}`,
+      },
+    })
+    res
+      .json()
+      .then((res) => setPlaylists(res))
+      .catch((error) => setErrors(true))
   }
 
-    useEffect(() => {
-        if(creds)
-        {
-            getProblemsWithCreds(queryStr,creds.access)
-            .then(res => setProblems(res))
-            .then(show => setShow(false))
-            .catch(error => setErrors(true));
-        }
-        else
-        {
-            getProblems(queryStr)
-            .then(res => setProblems(res))
-            .then(show => setShow(false))
-            .catch(error => setErrors(true));
-        }
-    },[])
-
-    function toggle(){
-        setModalOpenDiffi(false)
+  useEffect(async () => {
+    if (creds) {
+      await getProblemsWithCreds(queryStr, creds.access)
+        .then((res) => setProblems(res))
+        .then((show) => setShow(false))
+        .catch((error) => setErrors(true))
+    } else {
+      await getProblems(queryStr)
+        .then((res) => setProblems(res))
+        .then((show) => setShow(false))
+        .catch((error) => setErrors(true))
     }
+  }, [])
+
 
     return (
         show==true ? <><Loading/></>:
@@ -623,8 +804,11 @@ function ProblemsPage({info,queryStr}) {
                             </>
                 )
             }
+
         </>
-    )
+      )}
+    </>
+  )
 }
 
 export default ProblemsPage

@@ -54,6 +54,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "pretty": "npx prettier --write \"./**/*.{js,jsx,json,css}\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy-production": "react-scripts build && scp -r ./build/* root@142.93.210.55:/var/www/Frontend/html"
@@ -79,6 +80,8 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
-    "eslint-plugin-react": "^7.23.1"
+    "eslint-plugin-react": "^7.23.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0"
   }
 }

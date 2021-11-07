@@ -208,6 +208,7 @@ function ContestPage({ info, queryStr }) {
       <h3 className="page_heading">Contests</h3>
       <Button className="filter_button" onClick={openNav}>Filter</Button>
       <Button className="refresh_button" onClick={() => window.location.reload()}>Refresh</Button>
+
       <div id="mySidenav1" className="sidenav1">
         <Button
           className="filterHeading"
@@ -218,6 +219,7 @@ function ContestPage({ info, queryStr }) {
         <Modal isOpen={modalOpenDiffi}>
           <ModalBody>
             <h2 className="filter_titles">Divisions</h2>
+
             <Form style={{ marginBottom: '1rem' }}>
               <div key="inline-checkbox">
                 {difficultyLevels.map((lev, i) => {
@@ -249,6 +251,7 @@ function ContestPage({ info, queryStr }) {
             <Button onClick={(e) => setModalOpenDiffi(false)}>Set</Button>
           </ModalBody>
         </Modal>
+
         <div className="filterHeading">
           Gym:
           <AntSwitch checked={gym} onChange={gymChange} />
@@ -258,17 +261,21 @@ function ContestPage({ info, queryStr }) {
           <AntSwitch checked={mentorr} onChange={mentorrChange} />
         </div>
         <br></br> <br></br>
+
         <Button className="sidenav_apply_button" onClick={handleSubmit}>Apply</Button>
         <Button className="sidenav_close_button" onClick={closeNav}>Close</Button>
+
       </div>
 
       {!problems.result ? (
         <Loading />
       ) : (
         <>
+
           <div className="contests_page">
             <div className="row">
               <div class="input-group">
+
                 <div class="form-outline">
                   <input
                     onChange={(e) => setSearchText(e.target.value)}
