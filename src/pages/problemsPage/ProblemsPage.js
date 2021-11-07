@@ -539,6 +539,7 @@ function ProblemsPage({info,queryStr}) {
                         <Button className="sidenav_close_button" onClick={closeNav}>Close</Button>
 		</div>
                   
+                  {/* dfksnldkfnk */}
             {!problems.result? (<Loading />) : 
                 (
                     <>
