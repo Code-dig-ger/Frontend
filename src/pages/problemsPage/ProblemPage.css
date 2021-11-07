@@ -22,12 +22,28 @@
   display: block;
   transition: 0.3s;
 }
+        .row {
+            margin-bottom: 3rem;
+        }
 
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover,
-.offcanvas a:focus {
-  color: #f1f1f1;
-}
+        .problem_list {
+            color: white;
+            font-size: 19px;
+        }
+        
+        .form-control {
+            height: 3rem;
+            width: 26rem;
+        }
+
+        .input-group {
+            justify-content: center;
+        }
+
+        /* When you mouse over the navigation links, change their color */
+        .sidenav a:hover, .offcanvas a:focus{
+            color: #f1f1f1;
+        }
 
 /* Position and style the close button (top right corner) */
 .sidenav .closebtn {
@@ -38,26 +54,100 @@
   margin-left: 50px;
 }
 
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-#main {
-  transition: margin-left 0.5s;
-  padding: 20px;
-}
-.sidenav {
-  right: 0;
-}
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidenav {
-    padding-top: 15px;
-  }
-  .sidenav a {
-    font-size: 18px;
-  }
-}
-.sidenav {
-  right: 0;
-}
-.filterHeading {
-  margin-left: 15px;
-}
+        /* Heading title css */
+        .page_heading {
+            text-align: center;
+            margin-bottom: 65px;
+            margin-top: 100px;
+        }
+
+        /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+        #main {
+            transition: margin-left .5s;
+            padding: 20px;
+        }
+        .sidenav {
+            right: 0;
+        }
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+        }
+        .sidenav {
+            right: 0;
+           
+        }
+        .filterHeading{
+            margin-left: 15px;
+            /* margin-top: 1rem;
+            font-size: 1.2rem;
+            margin-bottom: 1rem; */
+        }
+
+        .filter_button {
+            position: absolute;
+            bottom: 77vh;
+            right: 6vw;
+        }
+        
+        .refresh_button {
+            position: absolute;
+            bottom: 77vh;
+            right: 12vw;
+        }
+
+        /* Sidenav filter title headings */
+        .filter_titles {
+            margin-bottom: 2rem;
+        }
+
+        .add_problem_button {
+            padding: 5px 7px;
+            position: relative;
+            float: right;
+            right: 40px;
+            bottom: 0;
+            border-radius: 10%;
+            margin-bottom: 3px;
+        }
+
+        .sidenav_apply_button {
+            padding: 6px;
+            margin-left: 12px;
+            background-color: forestgreen;
+        }
+
+        .sidenav_close_button {
+            padding: 6px;
+            margin-left: 5px;
+            background-color: firebrick;
+        }
+
+        .folder_plus_icon {
+            cursor: pointer;
+            position: absolute;
+            right: 30%;
+            height: 30px;
+            font-size: 20px;
+            color: black;
+            z-index: 100;
+            top: 20px;
+        }
+
+        /* div for selected tags */
+        .your_tags {
+            padding: 0.4rem;
+            color: black;
+            background-color: powderblue;
+            border-radius: 4px;
+            margin: 0.3rem;
+        }
+
+        .problems_page {
+            margin: 0px;
+            padding: 0px;
+            margin-left: 100px;
+            margin-right: 100px;
+            padding-bottom: 50px;
+        }

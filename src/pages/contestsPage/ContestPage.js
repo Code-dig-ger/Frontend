@@ -10,32 +10,7 @@ import './ContestPage.css'
 import update from 'react-addons-update'
 import AccordionCom from '../../components/contest/AccordionCom'
 import Switch from '@material-ui/core/Switch'
-
-//component for switch
-const AntSwitch = withStyles((theme) => ({
-  root: {
-    float: 'right',
-  },
-  switchBase: {
-    color: 'blue',
-    '&$checked': {
-      transform: 'translateX(20px)',
-      color: 'white',
-      '& + $track': {
-        opacity: 1,
-        backgroundColor: 'blue',
-        borderColor: 'black',
-      },
-    },
-  },
-  thumb: {
-    boxShadow: 'none',
-  },
-  track: {
-    backgroundColor: 'white',
-  },
-  checked: {},
-}))(Switch)
+import { AntSwitch } from '../../components/common/Utils';
 
 function ContestPage({ info, queryStr }) {
   //queryStr is current url string
@@ -230,27 +205,10 @@ function ContestPage({ info, queryStr }) {
   ) : (
     <>
       <Navbar />
-      <h3
-        style={{
-          textAlign: 'center',
-          marginBottom: '65px',
-          marginTop: '100px',
-        }}
-      >
-        Contests
-      </h3>
-      <Button
-        style={{ position: 'absolute', bottom: '77vh', right: '6vw' }}
-        onClick={openNav}
-      >
-        Filter
-      </Button>
-      <Button
-        style={{ position: 'absolute', bottom: '77vh', right: '12vw' }}
-        onClick={() => window.location.reload()}
-      >
-        Refresh
-      </Button>
+      <h3 className="page_heading">Contests</h3>
+      <Button className="filter_button" onClick={openNav}>Filter</Button>
+      <Button className="refresh_button" onClick={() => window.location.reload()}>Refresh</Button>
+
       <div id="mySidenav1" className="sidenav1">
         <Button
           className="filterHeading"
@@ -260,7 +218,8 @@ function ContestPage({ info, queryStr }) {
         </Button>
         <Modal isOpen={modalOpenDiffi}>
           <ModalBody>
-            <h2 style={{ marginBottom: '2rem' }}>Divisions</h2>
+            <h2 className="filter_titles">Divisions</h2>
+
             <Form style={{ marginBottom: '1rem' }}>
               <div key="inline-checkbox">
                 {difficultyLevels.map((lev, i) => {
@@ -292,71 +251,37 @@ function ContestPage({ info, queryStr }) {
             <Button onClick={(e) => setModalOpenDiffi(false)}>Set</Button>
           </ModalBody>
         </Modal>
-        <div
-          className="filterHeading"
-          style={{
-            marginTop: '1rem',
-            fontSize: '1.2rem',
-          }}
-        >
+
+        <div className="filterHeading">
           Gym:
           <AntSwitch checked={gym} onChange={gymChange} />
         </div>
-        <div
-          className="filterHeading"
-          style={{
-            marginTop: '1rem',
-            fontSize: '1.2rem',
-          }}
-        >
+        <div className="filterHeading">
           Solved By Mentor:
           <AntSwitch checked={mentorr} onChange={mentorrChange} />
         </div>
         <br></br> <br></br>
-        <Button
-          style={{
-            padding: '6px',
-            marginLeft: '12px',
-            backgroundColor: 'forestgreen',
-          }}
-          onClick={handleSubmit}
-        >
-          Apply
-        </Button>
-        <Button
-          style={{
-            padding: '6px',
-            marginLeft: '5px',
-            backgroundColor: 'firebrick',
-          }}
-          onClick={closeNav}
-        >
-          Close
-        </Button>
+
+        <Button className="sidenav_apply_button" onClick={handleSubmit}>Apply</Button>
+        <Button className="sidenav_close_button" onClick={closeNav}>Close</Button>
+
       </div>
 
       {!problems.result ? (
         <Loading />
       ) : (
         <>
-          <div
-            style={{
-              margin: '0px',
-              padding: '0px',
-              marginLeft: '100px',
-              marginRight: '100px',
-              paddingBottom: '100px',
-            }}
-          >
-            <div className="row" style={{ marginBottom: '3rem' }}>
-              <div class="input-group" style={{ justifyContent: 'center' }}>
+
+          <div className="contests_page">
+            <div className="row">
+              <div class="input-group">
+
                 <div class="form-outline">
                   <input
                     onChange={(e) => setSearchText(e.target.value)}
                     type="search"
                     id="form1"
                     class="form-control"
-                    style={{ height: '3rem', width: '26rem' }}
                   />
                 </div>
                 <button
