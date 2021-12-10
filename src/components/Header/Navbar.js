@@ -178,9 +178,11 @@ const IndexNavbar = (props) => {
                     </NavLink>
                   </DropdownItem>
                   <DropdownItem>
-                    <NavLink className="dropdown_link" onClick={deleteCred}>
-                      Log Out
-                    </NavLink>
+                    <NavItem>
+                      <NavLink className="dropdown_link" onClick={deleteCred}>
+                        Log Out
+                      </NavLink>
+                    </NavItem>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
@@ -287,9 +289,11 @@ const IndexNavbar = (props) => {
               {/* <NavItem>
               <NavLink href="/profile">Hello, {creds.username}</NavLink>
             </NavItem> */}
-              <NavLink style={{ color: 'white' }} href="/login">
-                Login/Register
-              </NavLink>
+              <NavItem>
+                <NavLink style={{ color: 'white' }} href="/login">
+                  Login/Register
+                </NavLink>
+              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
