@@ -51,3 +51,7 @@
 .dropdown_background {
   background-color: whitesmoke;
 }
+
+.nav-item {
+  padding: 15px;
+}
