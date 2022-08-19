@@ -1,5 +1,5 @@
 export async function login(usernameL, passwordL) {
-  return fetch('https://api.codedigger.tech/auth/login/', {
+  return fetch('http://143.110.253.225/auth/login/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -13,7 +13,7 @@ export async function login(usernameL, passwordL) {
 
 export async function register(emailR, usernameR, passwordR) {
   return fetch(
-    `https://api.codedigger.tech/auth/register/?redirect_url=${process.env.REACT_APP_SEND_EMAIL_RDURL}`,
+    `http://143.110.253.225/auth/register/?redirect_url=${process.env.REACT_APP_SEND_EMAIL_RDURL}`,
     {
       method: 'POST',
       headers: {
@@ -29,7 +29,7 @@ export async function register(emailR, usernameR, passwordR) {
 }
 
 export async function passreqEmail(email) {
-  return fetch('https://api.codedigger.tech/auth/request-reset-email/', {
+  return fetch('http://143.110.253.225/auth/request-reset-email/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ export async function passreqEmail(email) {
   })
 }
 export async function setNewPass(password, token, uidb64) {
-  return fetch('https://api.codedigger.tech/auth/password-reset-complete', {
+  return fetch('http://143.110.253.225/auth/password-reset-complete', {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ export async function setNewPass(password, token, uidb64) {
 
 export async function sendVerEmail(emailR) {
   return fetch(
-    `https://api.codedigger.tech/auth/send-email/?redirect_url=${process.env.REACT_APP_SEND_EMAIL_RDURL}`,
+    `http://143.110.253.225/auth/send-email/?redirect_url=${process.env.REACT_APP_SEND_EMAIL_RDURL}`,
     {
       method: 'POST',
       headers: {
@@ -69,7 +69,7 @@ export async function sendVerEmail(emailR) {
   ).then((data) => data.json())
 }
 export async function NewPassRequest(oldPass, NewPass, accessToken) {
-  return fetch('https://api.codedigger.tech/auth/password-change/', {
+  return fetch('http://143.110.253.225/auth/password-change/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

@@ -40,7 +40,7 @@ const MainCard = (props) => {
       alert('Please Login to Add Problems to Playlist')
       return
     }
-    const res = await fetch(`https://api.codedigger.tech/lists/userlist/`, {
+    const res = await fetch(`http://143.110.253.225/lists/userlist/`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ const MainCard = (props) => {
     }
 
     // console.log(slug, prob_id, platform)
-    const result = fetch(`https://api.codedigger.tech/lists/userlist/add`, {
+    const result = fetch(`http://143.110.253.225/lists/userlist/add`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',

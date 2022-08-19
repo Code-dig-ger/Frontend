@@ -9,7 +9,7 @@ const FriendsBtn = ({ creds, acc, handle, user }) => {
     // console.log("reached");
     e.preventDefault()
     const res = await fetch(
-      `https://api.codedigger.tech/auth/user/send-request`,
+      `http://143.110.253.225/auth/user/send-request`,
       {
         method: 'POST',
         headers: {
@@ -29,7 +29,7 @@ const FriendsBtn = ({ creds, acc, handle, user }) => {
   async function acceptReq(e) {
     e.preventDefault()
     const res = await fetch(
-      `https://api.codedigger.tech/auth/user/accept-request`,
+      `http://143.110.253.225/auth/user/accept-request`,
       {
         method: 'PUT',
         headers: {
@@ -49,7 +49,7 @@ const FriendsBtn = ({ creds, acc, handle, user }) => {
   async function removeFrnd(e) {
     e.preventDefault()
     const res = await fetch(
-      `https://api.codedigger.tech/auth/user/remove-friend`,
+      `http://143.110.253.225/auth/user/remove-friend`,
       {
         method: 'POST',
         headers: {

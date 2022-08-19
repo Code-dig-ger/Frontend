@@ -11,7 +11,7 @@ async function Validate() {
     const first = toValidate.first
     const username = toValidate.username
     const response = await fetch(
-      `https://api.codedigger.tech/auth/check-auth/`,
+      `http://143.110.253.225/auth/check-auth/`,
       {
         method: 'GET',
         headers: {
@@ -24,7 +24,7 @@ async function Validate() {
 
     if (response.status !== 200) {
       const refResponse = await fetch(
-        'https://api.codedigger.tech/auth/token/refresh/',
+        'http://143.110.253.225/auth/token/refresh/',
         {
           method: 'POST',
           headers: {

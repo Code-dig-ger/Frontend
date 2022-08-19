@@ -29,7 +29,7 @@ const MentorModal = ({ creds, acc, handle, user, mentors }) => {
   async function submitForm(e) {
     e.preventDefault()
     // console.log(formUsername);
-    const res = await fetch(`https://api.codedigger.tech/codeforces/mentor`, {
+    const res = await fetch(`http://143.110.253.225/codeforces/mentor`, {
       method: 'PUT',
       headers: {
         'Content-type': 'application/json',

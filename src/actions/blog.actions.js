@@ -1,5 +1,5 @@
 export async function getBlogs() {
-  return fetch('https://api.codedigger.tech/blog/', {
+  return fetch('http://143.110.253.225/blog/', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -8,7 +8,7 @@ export async function getBlogs() {
 }
 
 export async function getThisBlog(blog) {
-  return fetch(`https://api.codedigger.tech/blog/${blog}`, {
+  return fetch(`http://143.110.253.225/blog/${blog}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

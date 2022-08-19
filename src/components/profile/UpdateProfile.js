@@ -70,7 +70,7 @@ const UpdateInfo = () => {
     }
 
     const response = await fetch(
-      `https://api.codedigger.tech/auth/profile/${uu}`,
+      `http://143.110.253.225/auth/profile/${uu}`,
       {
         method: 'PUT',
         headers: {

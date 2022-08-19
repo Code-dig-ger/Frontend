@@ -1,5 +1,5 @@
 export async function getMentors(accessToken) {
-  return fetch(`https://api.codedigger.tech/codeforces/mentor`, {
+  return fetch(`http://143.110.253.225/codeforces/mentor`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -9,7 +9,7 @@ export async function getMentors(accessToken) {
 }
 
 export async function removeMentor(accessToken, mentorName) {
-  return fetch(`https://api.codedigger.tech/codeforces/mentor`, {
+  return fetch(`http://143.110.253.225/codeforces/mentor`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ export async function removeMentor(accessToken, mentorName) {
 }
 
 export async function addmentor(accessToken, mentorName) {
-  return fetch(`https://api.codedigger.tech/codeforces/mentor`, {
+  return fetch(`http://143.110.253.225/codeforces/mentor`, {
     method: 'PUT',
     headers: {
       'Content-type': 'application/json',

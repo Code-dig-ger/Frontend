@@ -104,7 +104,7 @@ function LaddersQuestionPage(props) {
     if (creds) {
       async function fetchData() {
         const res = await fetch(
-          `https://api.codedigger.tech/lists/${props.wise}/${props.type}/${props.slug}${props.pageNo}`,
+          `http://143.110.253.225/lists/${props.wise}/${props.type}/${props.slug}${props.pageNo}`,
           {
             method: 'GET',
             headers: {
@@ -122,7 +122,7 @@ function LaddersQuestionPage(props) {
     } else {
       async function fetchData() {
         const res = await fetch(
-          `https://api.codedigger.tech/lists/${props.wise}/${props.type}/${props.slug}${props.pageNo}`,
+          `http://143.110.253.225/lists/${props.wise}/${props.type}/${props.slug}${props.pageNo}`,
           {
             method: 'GET',
             headers: {

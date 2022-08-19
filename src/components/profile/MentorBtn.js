@@ -15,7 +15,7 @@ function MentorBtn({ creds, acc, handle, user }) {
 
   useEffect(() => {
     async function getMentors() {
-      const res = await fetch(`https://api.codedigger.tech/codeforces/mentor`, {
+      const res = await fetch(`http://143.110.253.225/codeforces/mentor`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ function MentorBtn({ creds, acc, handle, user }) {
   }, [])
 
   async function addMentor(mentor) {
-    const res = await fetch(`https://api.codedigger.tech/codeforces/mentor`, {
+    const res = await fetch(`http://143.110.253.225/codeforces/mentor`, {
       method: 'PUT',
       headers: {
         'Content-type': 'application/json',
@@ -43,7 +43,7 @@ function MentorBtn({ creds, acc, handle, user }) {
   }
 
   async function removeMentor(mName) {
-    const res = await fetch(`https://api.codedigger.tech/codeforces/mentor`, {
+    const res = await fetch(`http://143.110.253.225/codeforces/mentor`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

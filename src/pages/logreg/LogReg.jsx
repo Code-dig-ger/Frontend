@@ -60,7 +60,7 @@ const LogReg = () => {
     const c = await response.tokenId
     // console.log(c);
     const resp = await fetch(
-      'https://api.codedigger.tech/social_auth/google/',
+      'http://143.110.253.225/social_auth/google/',
       {
         method: 'POST',
         headers: {

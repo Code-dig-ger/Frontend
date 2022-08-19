@@ -19,7 +19,7 @@ const PlaylistModal = (props) => {
   const [playlistDes, setPlaylistDes] = useState()
 
   function addPlaylist(e) {
-    const res = fetch(`https://api.codedigger.tech/lists/userlist/new`, {
+    const res = fetch(`http://143.110.253.225/lists/userlist/new`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',

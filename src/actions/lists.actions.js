@@ -1,5 +1,5 @@
 export async function getLists(accessToken, wise, type) {
-  return fetch(`https://api.codedigger.tech/lists/${wise}/${type}/`, {
+  return fetch(`http://143.110.253.225/lists/${wise}/${type}/`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -8,7 +8,7 @@ export async function getLists(accessToken, wise, type) {
   }).then((data) => data.json())
 }
 export async function getListsWithoutAuth(wise, type) {
-  return fetch(`https://api.codedigger.tech/lists/${wise}/${type}/`, {
+  return fetch(`http://143.110.253.225/lists/${wise}/${type}/`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -18,7 +18,7 @@ export async function getListsWithoutAuth(wise, type) {
 }
 
 export async function getThisList(accessToken, wise, type, slug) {
-  return fetch(`https://api.codedigger.tech/lists/${wise}/${type}/${slug}`, {
+  return fetch(`http://143.110.253.225/lists/${wise}/${type}/${slug}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ export async function getThisList(accessToken, wise, type, slug) {
 }
 
 export async function getUserList(accessToken) {
-  return fetch(`https://api.codedigger.tech/lists/userlist/`, {
+  return fetch(`http://143.110.253.225/lists/userlist/`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ export async function getThisUserlist(accessToken, url) {
 }
 
 export async function addToUserList(accessToken, slug, prob_id, platform) {
-  return fetch(`https://api.codedigger.tech/lists/userlist/add`, {
+  return fetch(`http://143.110.253.225/lists/userlist/add`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ export async function addToUserList(accessToken, slug, prob_id, platform) {
 }
 
 export async function deleteUserlist(accessToken, slug) {
-  return fetch(`https://api.codedigger.tech/lists/userlist/edit/${slug}`, {
+  return fetch(`http://143.110.253.225/lists/userlist/edit/${slug}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ export async function createNewUserlist(
   playlistDes,
   pub
 ) {
-  return fetch(`https://api.codedigger.tech/lists/userlist/new`, {
+  return fetch(`http://143.110.253.225/lists/userlist/new`, {
     method: 'POST',
     headers: {
       'Content-type': 'application/json',
