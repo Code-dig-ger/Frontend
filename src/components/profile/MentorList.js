@@ -5,7 +5,7 @@ import Loading from '../logreg/loading'
 const MentorList = ({ mentors, acc }) => {
   // console.log(mentors);
   async function removeMentor(mName) {
-    const res = await fetch(`http://143.110.253.225/codeforces/mentor`, {
+    const res = await fetch(`https://143.110.253.225/codeforces/mentor`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

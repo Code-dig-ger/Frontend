@@ -11,7 +11,7 @@ async function Validate() {
     const first = toValidate.first
     const username = toValidate.username
     const response = await fetch(
-      `http://143.110.253.225/auth/check-auth/`,
+      `https://143.110.253.225/auth/check-auth/`,
       {
         method: 'GET',
         headers: {
@@ -24,7 +24,7 @@ async function Validate() {
 
     if (response.status !== 200) {
       const refResponse = await fetch(
-        'http://143.110.253.225/auth/token/refresh/',
+        'https://143.110.253.225/auth/token/refresh/',
         {
           method: 'POST',
           headers: {

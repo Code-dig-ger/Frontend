@@ -21,7 +21,7 @@ function PlaylistList(props) {
 
   function deleteProblem(ans) {
     return fetch(
-      `http://143.110.253.225/lists/userlist/edit/${props.slug}`,
+      `https://143.110.253.225/lists/userlist/edit/${props.slug}`,
       {
         method: 'PUT',
         headers: {
@@ -70,7 +70,7 @@ function PlaylistList(props) {
   const [curPage, setCurPage] = useState(1)
   const [showPagi, setShowPagi] = useState(false)
   useEffect(async () => {
-    const url = `http://143.110.253.225/lists/userlist/edit/${props.slug}?page=${page}`
+    const url = `https://143.110.253.225/lists/userlist/edit/${props.slug}?page=${page}`
     await getThisUserlist(creds.access, url)
       .then((res) => {
         setPlaylist(res)

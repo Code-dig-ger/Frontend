@@ -70,7 +70,7 @@ const UpdateInfo = () => {
     }
 
     const response = await fetch(
-      `http://143.110.253.225/auth/profile/${uu}`,
+      `https://143.110.253.225/auth/profile/${uu}`,
       {
         method: 'PUT',
         headers: {

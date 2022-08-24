@@ -1,5 +1,5 @@
 export async function getProblems(queryString) {
-  return fetch(`http://143.110.253.225/problems/${queryString}`, {
+  return fetch(`https://143.110.253.225/problems/${queryString}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -8,7 +8,7 @@ export async function getProblems(queryString) {
 }
 
 export async function getProblemsWithCreds(queryString, accessToken) {
-  return fetch(`http://143.110.253.225/problems/${queryString}`, {
+  return fetch(`https://143.110.253.225/problems/${queryString}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

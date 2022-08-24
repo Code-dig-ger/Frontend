@@ -5,7 +5,7 @@ import { Button } from 'reactstrap'
 function FriendList({ friends, i, acc }) {
   async function removeFrnd(handle) {
     const res = await fetch(
-      `http://143.110.253.225/auth/user/remove-friend`,
+      `https://143.110.253.225/auth/user/remove-friend`,
       {
         method: 'POST',
         headers: {
@@ -24,7 +24,7 @@ function FriendList({ friends, i, acc }) {
   async function acceptRequest(fName) {
     // console.log("clicked");
     const res = await fetch(
-      `http://143.110.253.225/auth/user/accept-request`,
+      `https://143.110.253.225/auth/user/accept-request`,
       {
         method: 'PUT',
         headers: {

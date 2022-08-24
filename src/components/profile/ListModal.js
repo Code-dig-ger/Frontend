@@ -94,7 +94,7 @@ const ListModal = ({ creds, acc, handle, user }) => {
     e.preventDefault()
     // console.log(formUsername);
     const res = await fetch(
-      `http://143.110.253.225/auth/user/send-request`,
+      `https://143.110.253.225/auth/user/send-request`,
       {
         method: 'POST',
         headers: {
@@ -114,7 +114,7 @@ const ListModal = ({ creds, acc, handle, user }) => {
     getFriends(acc).then((res) => setFriends(res))
     // console.log(friends);
     async function showList() {
-      // const res= await fetch(`http://143.110.253.225/auth/user/friends`,{
+      // const res= await fetch(`https://143.110.253.225/auth/user/friends`,{
       //     method:"GET",
       //     headers:{
       //         "Content-Type":"application/json",
@@ -128,7 +128,7 @@ const ListModal = ({ creds, acc, handle, user }) => {
       // setFriends(getFriends(acc));
 
       const res1 = await fetch(
-        `http://143.110.253.225/auth/user/show-request`,
+        `https://143.110.253.225/auth/user/show-request`,
         {
           method: 'GET',
           headers: {
@@ -140,7 +140,7 @@ const ListModal = ({ creds, acc, handle, user }) => {
       res1.json().then((res1) => setFriendReq(res1))
 
       const res2 = await fetch(
-        `http://143.110.253.225/auth/user/show-send-request`,
+        `https://143.110.253.225/auth/user/show-send-request`,
         {
           method: 'GET',
           headers: {

@@ -1,6 +1,6 @@
 export async function codeforces(accessToken, vir, page) {
   return fetch(
-    `http://143.110.253.225/problems/upsolve/codeforces?${
+    `https://143.110.253.225/problems/upsolve/codeforces?${
       vir ? `virtual=true;page=${page}` : `page=${page}`
     }`,
     {
@@ -14,7 +14,7 @@ export async function codeforces(accessToken, vir, page) {
 }
 export async function codechef(accessToken, page) {
   return fetch(
-    `http://143.110.253.225/problems/upsolve/codechef?page=${page}`,
+    `https://143.110.253.225/problems/upsolve/codechef?page=${page}`,
     {
       method: 'GET',
       headers: {
@@ -26,7 +26,7 @@ export async function codechef(accessToken, page) {
 }
 export async function atcoder(accessToken, page, Prac) {
   return fetch(
-    `http://143.110.253.225/problems/upsolve/atcoder?${
+    `https://143.110.253.225/problems/upsolve/atcoder?${
       Prac ? `practice=true;page=${page}` : `page=${page}`
     }`,
     {

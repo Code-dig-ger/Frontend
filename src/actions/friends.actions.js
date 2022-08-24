@@ -1,5 +1,5 @@
 export async function getFriends(accessToken) {
-  return fetch(`http://143.110.253.225/auth/user/friends`, {
+  return fetch(`https://143.110.253.225/auth/user/friends`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -10,7 +10,7 @@ export async function getFriends(accessToken) {
 
 export async function acceptReq(accessToken, from_user) {
   // console.log("KKKK");
-  return fetch(`http://143.110.253.225/auth/user/accept-request`, {
+  return fetch(`https://143.110.253.225/auth/user/accept-request`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -23,7 +23,7 @@ export async function acceptReq(accessToken, from_user) {
 }
 
 export async function removeFrnd(accessToken, userHandle) {
-  return fetch(`http://143.110.253.225/auth/user/remove-friend`, {
+  return fetch(`https://143.110.253.225/auth/user/remove-friend`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ export async function removeFrnd(accessToken, userHandle) {
 }
 
 export async function sendReq(accessToken, to_user) {
-  return fetch(`http://143.110.253.225/auth/user/send-request`, {
+  return fetch(`https://143.110.253.225/auth/user/send-request`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ export async function sendReq(accessToken, to_user) {
 }
 
 export async function showReq(accessToken) {
-  return fetch(`http://143.110.253.225/auth/user/show-request`, {
+  return fetch(`https://143.110.253.225/auth/user/show-request`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ export async function showReq(accessToken) {
 }
 
 export async function showSendReq(accessToken) {
-  return fetch(`http://143.110.253.225/auth/user/show-send-request`, {
+  return fetch(`https://143.110.253.225/auth/user/show-send-request`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

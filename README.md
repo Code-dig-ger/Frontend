@@ -165,7 +165,7 @@ Email us - contact.codedigger@gmail.com
 [code-of-conduct-url]: CODE_OF_CONDUCT.md
 [discord-shield]: https://img.shields.io/badge/-Discord-555?style=for-the-badge&logo=discord&logoColor=white
 [discord-url]: https://discord.gg/4ZeNgUn7cF
-[api]: http://143.110.253.225/
+[api]: https://143.110.253.225/
 [codedigger]: https://codedigger.tech
 [codeforces]: https://codeforces.com/
 [codechef]: https://www.codechef.com/

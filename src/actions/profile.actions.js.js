@@ -1,5 +1,5 @@
 export async function getProfile(accessToken, userHandle) {
-  return fetch(`http://143.110.253.225/auth/profile/${userHandle}/`, {
+  return fetch(`https://143.110.253.225/auth/profile/${userHandle}/`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -10,12 +10,12 @@ export async function getProfile(accessToken, userHandle) {
 
 export async function getInfoBySite(userHandle, platform) {
   return fetch(
-    `http://143.110.253.225/auth/profile/${userHandle}/?platform=${platform}`
+    `https://143.110.253.225/auth/profile/${userHandle}/?platform=${platform}`
   ).then((data) => data.json())
 }
 
 export async function getFriendReq(accessToken) {
-  return fetch(`http://143.110.253.225/auth/user/show-request`, {
+  return fetch(`https://143.110.253.225/auth/user/show-request`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

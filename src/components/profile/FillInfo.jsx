@@ -50,7 +50,7 @@ const Info = () => {
       uv = null
     }
     const response = await fetch(
-      `http://143.110.253.225/auth/profile/${usser}`,
+      `https://143.110.253.225/auth/profile/${usser}`,
       {
         method: 'PUT',
         headers: {

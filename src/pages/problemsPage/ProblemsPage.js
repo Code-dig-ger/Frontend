@@ -193,7 +193,7 @@ function ProblemsPage({info,queryStr}) {
         // console.log(playlists);
       };
     const changePlatformFilter = (event,lev) => {
-        // console.log(queryString.stringifyUrl({url: 'http://143.110.253.225/problems/', query: {platform: 'F,A',difficulty:'B,E'}}));
+        // console.log(queryString.stringifyUrl({url: 'https://143.110.253.225/problems/', query: {platform: 'F,A',difficulty:'B,E'}}));
         // console.log(queryString.parseUrl('https://foo.bar?foo=b,l&g=k'))
         
         const res=event.target.checked;
@@ -272,7 +272,7 @@ function ProblemsPage({info,queryStr}) {
         }
     
         // console.log(slug, prob_id, platform)
-          const result =  fetch (`http://143.110.253.225/lists/userlist/add`,{
+          const result =  fetch (`https://143.110.253.225/lists/userlist/add`,{
               method:"POST",
               headers:{
                   "Content-type":"application/json",
@@ -476,7 +476,7 @@ function ProblemsPage({info,queryStr}) {
       alert("Please Login to Add Problems to Problem List!")
       return;
     }
-    const res = await fetch(`http://143.110.253.225/lists/userlist/`, {
+    const res = await fetch(`https://143.110.253.225/lists/userlist/`, {
             method:"GET",
             headers:{
                 "Content-Type":"application/json",

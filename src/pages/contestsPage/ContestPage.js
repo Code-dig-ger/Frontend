@@ -173,7 +173,7 @@ function ContestPage({ info, queryStr }) {
   }
 
   useEffect(async () => {
-    await fetch(`http://143.110.253.225/contest/${queryStr}`, {
+    await fetch(`https://143.110.253.225/contest/${queryStr}`, {
       method: 'GET',
       headers: {
         'Content-type': 'application/json',
